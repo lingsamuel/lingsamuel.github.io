@@ -3,23 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://lingsamuel.github.io/feed/2019-07-19-restart/</loc>
-    <lastmod>2020-06-19T16:37:28+08:00</lastmod>
+    <loc>https://lingsamuel.github.io/review/2020-01-29-a-hat-in-time/</loc>
+    <lastmod>2020-06-19T20:15:55+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://lingsamuel.github.io/categories/</loc>
-    <lastmod>2020-06-19T16:37:28+08:00</lastmod>
+    <lastmod>2020-06-19T20:15:55+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://lingsamuel.github.io/categories/feed/</loc>
-    <lastmod>2020-06-19T16:37:28+08:00</lastmod>
+    <loc>https://lingsamuel.github.io/categories/review/</loc>
+    <lastmod>2020-06-19T20:15:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lingsamuel.github.io/feed/2019-07-19-restart/</loc>
+    <lastmod>2020-06-19T20:09:31+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://lingsamuel.github.io/feed/</loc>
-    <lastmod>2020-06-19T16:37:28+08:00</lastmod>
+    <lastmod>2020-06-19T20:21:35+08:00</lastmod>
   </url>
   
   <url>
@@ -114,7 +119,7 @@
   
   <url>
     <loc>https://lingsamuel.github.io/page/2015-01-04-first-post/</loc>
-    <lastmod>2020-06-19T16:37:28+08:00</lastmod>
+    <lastmod>2020-06-19T19:53:58+08:00</lastmod>
   </url>
   
   <url>
@@ -128,8 +133,18 @@
   </url>
   
   <url>
+    <loc>https://lingsamuel.github.io/story/</loc>
+    <lastmod>2020-06-19T20:25:10+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lingsamuel.github.io/page/</loc>
     <lastmod>2020-06-19T17:16:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lingsamuel.github.io/review/</loc>
+    <lastmod>2020-06-19T20:19:48+08:00</lastmod>
   </url>
   
 </urlset>
