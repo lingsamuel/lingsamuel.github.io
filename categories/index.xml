@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Hakurei Shrine</title>
+    <link>https://lingsamuel.github.io/categories/</link>
+    <description>Recent content in Categories on Hakurei Shrine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
+    <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    <lastBuildDate>Sat, 02 Feb 2019 11:54:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://lingsamuel.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>diary</title>
+      <link>https://lingsamuel.github.io/categories/diary/</link>
+      <pubDate>Sat, 02 Feb 2019 11:54:20 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>feed</title>
+      <link>https://lingsamuel.github.io/categories/feed/</link>
+      <pubDate>Sat, 02 Feb 2019 11:54:20 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/feed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shikaiia</title>
+      <link>https://lingsamuel.github.io/categories/shikaiia/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/shikaiia/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

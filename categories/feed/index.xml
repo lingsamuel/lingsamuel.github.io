@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>feed on Hakurei Shrine</title>
+    <link>https://lingsamuel.github.io/categories/feed/</link>
+    <description>Recent content in feed on Hakurei Shrine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
+    <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    <lastBuildDate>Sat, 02 Feb 2019 11:54:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://lingsamuel.github.io/categories/feed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Feeds</title>
+      <link>https://lingsamuel.github.io/feed/</link>
+      <pubDate>Sat, 02 Feb 2019 11:54:20 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/feed/</guid>
+      <description>What&amp;rsquo;s past is prologue.</description>
+    </item>
+    
+    <item>
+      <title>Kisaragi Sarasa</title>
+      <link>https://lingsamuel.github.io/feed/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/feed/about/</guid>
+      <description>A Gamer Writer Coder Creeds 保持中立，保持客观，保持理性。 Wiki Pedia User Page Ling Samuel</description>
+    </item>
+    
+  </channel>
+</rss>
