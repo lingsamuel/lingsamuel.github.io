@@ -433,6 +433,10 @@ footer .theme-by {
   margin-top: 10px;
 }
 
+.post-entry a {
+  text-decoration: underline;
+}
+
 .post-entry h1,
 .post-entry h2,
 .post-entry h3,
