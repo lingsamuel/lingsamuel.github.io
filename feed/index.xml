@@ -14,12 +14,12 @@
     
     
     <item>
-      <title>Restart</title>
-      <link>https://lingsamuel.github.io/feed/2019-07-19-restart/</link>
-      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      <title>Real World File Encoding Detection</title>
+      <link>https://lingsamuel.github.io/feed/2020-06-04-file-encoding/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/feed/2019-07-19-restart/</guid>
-      <description>Restart my work!</description>
+      <guid>https://lingsamuel.github.io/feed/2020-06-04-file-encoding/</guid>
+      <description>文本编码，太玄妙了。 实际上，我觉得与其考虑各种奇怪的case，不如按照现实世界来，谁会用ISO-8859-1并保存ï»¿开头的文件，就为了假</description>
     </item>
     
   </channel>

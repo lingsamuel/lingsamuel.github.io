@@ -434,7 +434,13 @@ footer .theme-by {
 }
 
 .post-entry a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  /* color: #1b5282; */
+  color: #337ab7;
+}
+
+.post-entry .post-read-more {
+  color: #404040;
 }
 
 .post-entry h1,
