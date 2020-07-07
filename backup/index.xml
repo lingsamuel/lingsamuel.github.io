@@ -1,43 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hakurei Shrine</title>
-    <link>https://lingsamuel.github.io/</link>
-    <description>Recent content on Hakurei Shrine</description>
+    <title>Backups on Hakurei Shrine</title>
+    <link>https://lingsamuel.github.io/backup/</link>
+    <description>Recent content in Backups on Hakurei Shrine</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
     <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://lingsamuel.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lingsamuel.github.io/backup/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Ghostrunner: 爽快度拉满的速通大神模拟器</title>
-      <link>https://lingsamuel.github.io/review/2020-06-29-ghostrunner/</link>
-      <pubDate>Mon, 29 Jun 2020 09:40:37 +0800</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/review/2020-06-29-ghostrunner/</guid>
-      <description>昨日抽空玩了一下 Ghostrunner 的 Demo，非常性感。 这应该是我玩的第一款跑酷游戏，所以也没法横向评价。虽然我库里还有其他的跑酷游戏，例如 Steep 和 Mirror Edge，</description>
-    </item>
-    
-    <item>
-      <title>Real World File Encoding Detection</title>
-      <link>https://lingsamuel.github.io/feed/2020-06-04-file-encoding/</link>
-      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/feed/2020-06-04-file-encoding/</guid>
-      <description>文本编码，太玄妙了。 实际上，我觉得与其考虑各种奇怪的case，不如按照现实世界来，谁会用ISO-8859-1并保存ï»¿开头的文件，就为了假</description>
-    </item>
-    
-    <item>
-      <title>A Hat in Time</title>
-      <link>https://lingsamuel.github.io/review/2020-01-29-a-hat-in-time/</link>
-      <pubDate>Wed, 29 Jan 2020 19:50:22 +0800</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/review/2020-01-29-a-hat-in-time/</guid>
-      <description>蔚蓝的制作者接受 GMTK 采访的时候说过，玩马里奥的时候哪怕啥也不做，就在里面跑跑跳跳也很有趣。 我觉得我并不喜欢平台跳跃类的游戏，甚至有点讨厌。但这</description>
-    </item>
     
     <item>
       <title>Photoswipe Gallery Sample</title>
@@ -181,25 +155,6 @@ Association football, more commonly known as football or soccer,[2] is a sport p
       <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
       <guid>https://lingsamuel.github.io/backup/2015-01-15-pirates/</guid>
       <description>Piracy is typically an act of robbery or criminal violence at sea. The term can include acts committed on land, in the air, or in other major bodies of water or on a shore. It does not normally include crimes committed against persons traveling on the same vessel as the perpetrator (e.g. one passenger stealing from others on the same vessel). The term has been used throughout history to refer to raids across land borders by non-state agents.</description>
-    </item>
-    
-    <item>
-      <title>Kisaragi Sarasa</title>
-      <link>https://lingsamuel.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/about/</guid>
-      <description>I am&amp;hellip; Gamer Writer Coder Creeds Be neutral, objective and rational. Wiki Pedia User Page Ling Samuel</description>
-    </item>
-    
-    <item>
-      <title>六月投资总结</title>
-      <link>https://lingsamuel.github.io/page/2020-06-30-investment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/page/2020-06-30-investment/</guid>
-      <description>&lt;p&gt;六月我追踪的所有指数都在涨。沪深 300 涨幅 7.68%，上证 4.64%，恒生 6.38%，纳斯达克 5.99%，标普 500 1.33%，道琼斯 1.69%。&lt;/p&gt;
-&lt;p&gt;我的雪球沪深股票组合（并未买入）涨幅超过 10%。&lt;/p&gt;</description>
     </item>
     
   </channel>
