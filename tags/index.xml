@@ -8,9 +8,37 @@
     <language>en-us</language>
     <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
     <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lingsamuel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>game</title>
+      <link>https://lingsamuel.github.io/tags/game/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://lingsamuel.github.io/tags/linux/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proton</title>
+      <link>https://lingsamuel.github.io/tags/proton/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/tags/proton/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
