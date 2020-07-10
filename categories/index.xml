@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
     <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
-    <lastBuildDate>Wed, 08 Jul 2020 04:00:03 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lingsamuel.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>investment</title>
+      <link>https://lingsamuel.github.io/categories/investment/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/investment/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>myth</title>
@@ -19,15 +28,6 @@
       <pubDate>Wed, 08 Jul 2020 04:00:03 +0800</pubDate>
       <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
       <guid>https://lingsamuel.github.io/categories/myth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>investment</title>
-      <link>https://lingsamuel.github.io/categories/investment/</link>
-      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
-      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
-      <guid>https://lingsamuel.github.io/categories/investment/</guid>
       <description></description>
     </item>
     
