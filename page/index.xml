@@ -1,2 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Seek Whale on Hakurei Shrine</title><link>https://lingsamuel.github.io/page/</link><description>Recent content in Seek Whale on Hakurei Shrine</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor><webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster><atom:link href="https://lingsamuel.github.io/page/index.xml" rel="self" type="application/rss+xml"/><item><title>与遗忘作斗争是人一生的课题</title><link>https://lingsamuel.github.io/page/2020-07-07-forget-and-death/</link><pubDate>Wed, 08 Jul 2020 04:00:03 +0800</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/page/2020-07-07-forget-and-death/</guid><description>看了老菊做高考题的视频，我感觉我就是个丈育。 题目看着都很熟悉，当年的我肯定会，然而如今早已全部忘记了。我还记得高二会考前一段时间，高强度背诵</description></item><item><title>使用 Proton 在 Linux 下玩 Windows 游戏</title><link>https://lingsamuel.github.io/page/2020-07-07-gaming-using-proton/</link><pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/page/2020-07-07-gaming-using-proton/</guid><description>用 Proton1 在 Linux 底下跑了几个小游戏，感觉还不错。 例如 Crying Suns，在 ProtonDB2 上被标记为 Platinum，兼容性还挺好的，没遇到什么问题。除了我的笔记本没有独</description></item><item><title>六月投资总结</title><link>https://lingsamuel.github.io/page/2020-06-30-investment/</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/page/2020-06-30-investment/</guid><description>&lt;p>六月我追踪的所有指数都在涨。沪深 300 涨幅 7.68%，上证 4.64%，恒生 6.38%，纳斯达克 5.99%，标普 500 1.33%，道琼斯 1.69%。&lt;/p>
-&lt;p>我的雪球沪深股票组合（并未买入）涨幅超过 10%。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seek Whale on Hakurei Shrine</title>
+    <link>https://lingsamuel.github.io/page/</link>
+    <description>Recent content in Seek Whale on Hakurei Shrine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
+    <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    
+	<atom:link href="https://lingsamuel.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>与遗忘作斗争是人一生的课题</title>
+      <link>https://lingsamuel.github.io/page/2020-07-07-forget-and-death/</link>
+      <pubDate>Wed, 08 Jul 2020 04:00:03 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/page/2020-07-07-forget-and-death/</guid>
+      <description>看了老菊做高考题的视频，我感觉我就是个丈育。 题目看着都很熟悉，当年的我肯定会，然而如今早已全部忘记了。我还记得高二会考前一段时间，高强度背诵</description>
+    </item>
+    
+    <item>
+      <title>使用 Proton 在 Linux 下玩 Windows 游戏</title>
+      <link>https://lingsamuel.github.io/page/2020-07-07-gaming-using-proton/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/page/2020-07-07-gaming-using-proton/</guid>
+      <description>用 Proton1 在 Linux 底下跑了几个小游戏，感觉还不错。 例如 Crying Suns，在 ProtonDB2 上被标记为 Platinum，兼容性还挺好的，没遇到什么问题。除了我的笔记本没有独</description>
+    </item>
+    
+    <item>
+      <title>六月投资总结</title>
+      <link>https://lingsamuel.github.io/page/2020-06-30-investment/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/page/2020-06-30-investment/</guid>
+      <description>&lt;p&gt;六月我追踪的所有指数都在涨。沪深 300 涨幅 7.68%，上证 4.64%，恒生 6.38%，纳斯达克 5.99%，标普 500 1.33%，道琼斯 1.69%。&lt;/p&gt;
+&lt;p&gt;我的雪球沪深股票组合（并未买入）涨幅超过 10%。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

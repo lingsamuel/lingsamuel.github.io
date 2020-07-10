@@ -1,1 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Hakurei Shrine</title><link>https://lingsamuel.github.io/categories/</link><description>Recent content in Categories on Hakurei Shrine</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor><webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster><lastBuildDate>Wed, 08 Jul 2020 04:00:03 +0800</lastBuildDate><atom:link href="https://lingsamuel.github.io/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>myth</title><link>https://lingsamuel.github.io/categories/myth/</link><pubDate>Wed, 08 Jul 2020 04:00:03 +0800</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/categories/myth/</guid><description/></item><item><title>investment</title><link>https://lingsamuel.github.io/categories/investment/</link><pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/categories/investment/</guid><description/></item><item><title>review</title><link>https://lingsamuel.github.io/categories/review/</link><pubDate>Mon, 29 Jun 2020 09:40:37 +0800</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/categories/review/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Hakurei Shrine</title>
+    <link>https://lingsamuel.github.io/categories/</link>
+    <description>Recent content in Categories on Hakurei Shrine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>lingsamuelgrace@gmail.com (Ling Samuel)</managingEditor>
+    <webMaster>lingsamuelgrace@gmail.com (Ling Samuel)</webMaster>
+    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://lingsamuel.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>investment</title>
+      <link>https://lingsamuel.github.io/categories/investment/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/investment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>myth</title>
+      <link>https://lingsamuel.github.io/categories/myth/</link>
+      <pubDate>Wed, 08 Jul 2020 04:00:03 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/myth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>review</title>
+      <link>https://lingsamuel.github.io/categories/review/</link>
+      <pubDate>Mon, 29 Jun 2020 09:40:37 +0800</pubDate>
+      <author>lingsamuelgrace@gmail.com (Ling Samuel)</author>
+      <guid>https://lingsamuel.github.io/categories/review/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
