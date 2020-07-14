@@ -484,6 +484,31 @@ footer .theme-by {
   font-size: 22px; 
 }
 
+.blog-post h1 {
+  font-size: 32px;
+}
+
+.blog-post h2 {
+  font-size: 30px;
+}
+
+.blog-post h3 {
+  font-size: 28px;
+}
+
+.blog-post h4 {
+  font-size: 26px;
+}
+
+.blog-post h5 {
+  font-size: 24px;
+}
+
+.blog-post h6 {
+  /* .p font-size is 18px */
+  font-size: 22px; 
+}
+
 .post-image {
   float: right;
   height: 192px;
