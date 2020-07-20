@@ -1,0 +1,214 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>zsh 配置 - Hakurei Shrine</title><meta property="og:title" content="zsh 配置"><meta name=twitter:title content="zsh 配置"><meta name=description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=author content="Ling Samuel"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Hakurei Shrine","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/lingsamuel.github.io\/","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","name":"Zsh 配置"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Ling Samuel"},"headline":"zsh 配置","description":"考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。\n","inLanguage":"en","wordCount":861,"datePublished":"2020-07-19T00:00:00","dateModified":"2020-07-19T00:00:00","image":"https:\/\/lingsamuel.github.io\/","keywords":["linux, shell"],"mainEntityOfPage":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","publisher":{"@type":"Organization","name":"https:\/\/lingsamuel.github.io\/","logo":{"@type":"ImageObject","url":"https:\/\/lingsamuel.github.io\/","height":60,"width":60}}}</script><meta property="og:title" content="zsh 配置"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><meta name=twitter:title content="zsh 配置"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:card content="summary"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon><meta name=twitter:card content="summary"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css integrity=sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y crossorigin=anonymous><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://lingsamuel.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://lingsamuel.github.io/css/highlight.min.css><link rel=stylesheet href=https://lingsamuel.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-89095899-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://lingsamuel.github.io/>Hakurei Shrine</a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li class=navlinks-container><a class=navlinks-parent>Translations</a><div class=navlinks-children><a href=/translation>Unauthorized Translations</a>
+<a href=/translation/authorized>Authorized Translations</a></div></li><li><a title="Fireside Stories" href=/story>Fireside Stories</a></li><li class=navlinks-container><a class=navlinks-parent>Books</a><div class=navlinks-children><a href=/book>Index</a>
+<a href=/book/shikaiia>Shikaiia</a>
+<a href=/book/breeze>Breeze</a>
+<a href=/book/black-tide-chaos>Black Tide Chaos</a>
+<a href=/book/eternity-nightmare>Eternity Nightmare</a>
+<a href=/book/travel-diary>Travel Diary of Kisaragi Sarasa</a>
+<a href=/book/traveler-trilogy>Traveler Trilogy</a>
+<a href=/book/functor-fantasy>Functor Fantasy</a>
+<a href=/book/nightingale>Nightingale</a>
+<a href=/book/gods-desire>Gods Desire</a></div></li><li class=navlinks-container><a class=navlinks-parent>Game Design</a><div class=navlinks-children><a href=/moirae/rulebook/moiraerulebook>Project Moirae</a>
+<a href=/no-man-s-land>No Man's Land</a></div></li><li class=navlinks-container><a class=navlinks-parent>Projects</a><div class=navlinks-children><a href=/nesoi>Nesoi</a>
+<a href=/nox>Nox</a></div></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=page-heading><h1>zsh 配置</h1></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role=main class=blog-post><p>考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。</p><h1 id=oh-my-zsh-offline-installation>Oh-My-Zsh Offline Installation</h1><p><em>不保证任意环境可用，不保证无 bug</em>。</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>main<span class=o>()</span> <span class=o>{</span>
+  <span class=c1># Use colors, but only if connected to a terminal, and that terminal</span>
+  <span class=c1># supports them.</span>
+  <span class=k>if</span> which tput &gt;/dev/null 2&gt;<span class=p>&amp;</span>1<span class=p>;</span> <span class=k>then</span>
+      <span class=nv>ncolors</span><span class=o>=</span><span class=k>$(</span>tput colors<span class=k>)</span>
+  <span class=k>fi</span>
+  <span class=k>if</span> <span class=o>[</span> -t <span class=m>1</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> <span class=o>[</span> -n <span class=s2>&#34;</span><span class=nv>$ncolors</span><span class=s2>&#34;</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$ncolors</span><span class=s2>&#34;</span> -ge <span class=m>8</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=nv>RED</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput setaf 1<span class=k>)</span><span class=s2>&#34;</span>
+    <span class=nv>GREEN</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput setaf 2<span class=k>)</span><span class=s2>&#34;</span>
+    <span class=nv>YELLOW</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput setaf 3<span class=k>)</span><span class=s2>&#34;</span>
+    <span class=nv>BLUE</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput setaf 4<span class=k>)</span><span class=s2>&#34;</span>
+    <span class=nv>BOLD</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput bold<span class=k>)</span><span class=s2>&#34;</span>
+    <span class=nv>NORMAL</span><span class=o>=</span><span class=s2>&#34;</span><span class=k>$(</span>tput sgr0<span class=k>)</span><span class=s2>&#34;</span>
+  <span class=k>else</span>
+    <span class=nv>RED</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+    <span class=nv>GREEN</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+    <span class=nv>YELLOW</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+    <span class=nv>BLUE</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+    <span class=nv>BOLD</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+    <span class=nv>NORMAL</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+  <span class=k>fi</span>
+
+  <span class=c1># Only enable exit-on-error after the non-critical colorization stuff,</span>
+  <span class=c1># which may fail on systems lacking tput or terminfo</span>
+  <span class=nb>set</span> -e
+
+  <span class=nv>CHECK_ZSH_INSTALLED</span><span class=o>=</span><span class=k>$(</span>grep /zsh$ /etc/shells <span class=p>|</span> wc -l<span class=k>)</span>
+  <span class=k>if</span> <span class=o>[</span> ! <span class=nv>$CHECK_ZSH_INSTALLED</span> -ge <span class=m>1</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>YELLOW</span><span class=si>}</span><span class=s2>Zsh is not installed!</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2> Please install zsh first!\n&#34;</span>
+    <span class=nb>exit</span>
+  <span class=k>fi</span>
+  <span class=nb>unset</span> CHECK_ZSH_INSTALLED
+
+  <span class=k>if</span> <span class=o>[</span> ! -n <span class=s2>&#34;</span><span class=nv>$ZSH</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=nv>ZSH</span><span class=o>=</span>~/.oh-my-zsh
+  <span class=k>fi</span>
+
+  <span class=c1># Prevent the cloned repository from having insecure permissions. Failing to do</span>
+  <span class=c1># so causes compinit() calls to fail with &#34;command not found: compdef&#34; errors</span>
+  <span class=c1># for users with insecure umasks (e.g., &#34;002&#34;, allowing group writability). Note</span>
+  <span class=c1># that this will be ignored under Cygwin by default, as Windows ACLs take</span>
+  <span class=c1># precedence over umasks except for filesystems mounted with option &#34;noacl&#34;.</span>
+  <span class=nb>umask</span> g-w,o-w
+
+  <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BLUE</span><span class=si>}</span><span class=s2>Cloning Oh My Zsh...</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span>
+  <span class=nb>hash</span> git &gt;/dev/null 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=o>||</span> <span class=o>{</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Error: git is not installed&#34;</span>
+    <span class=nb>exit</span> <span class=m>1</span>
+  <span class=o>}</span>
+  <span class=c1># The Windows (MSYS) Git is not compatible with normal use on cygwin</span>
+  <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$OSTYPE</span><span class=s2>&#34;</span> <span class=o>=</span> cygwin <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=k>if</span> git --version <span class=p>|</span> grep msysgit &gt; /dev/null<span class=p>;</span> <span class=k>then</span>
+      <span class=nb>echo</span> <span class=s2>&#34;Error: Windows/MSYS Git is not supported on Cygwin&#34;</span>
+      <span class=nb>echo</span> <span class=s2>&#34;Error: Make sure the Cygwin git package is installed and is first on the path&#34;</span>
+      <span class=nb>exit</span> <span class=m>1</span>
+    <span class=k>fi</span>
+  <span class=k>fi</span>
+
+  <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BLUE</span><span class=si>}</span><span class=s2>Looking for an existing zsh config...</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span>
+  <span class=k>if</span> <span class=o>[</span> -f ~/.zshrc <span class=o>]</span> <span class=o>||</span> <span class=o>[</span> -h ~/.zshrc <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>YELLOW</span><span class=si>}</span><span class=s2>Found ~/.zshrc.</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2> </span><span class=si>${</span><span class=nv>GREEN</span><span class=si>}</span><span class=s2>Backing up to ~/.zshrc.pre-oh-my-zsh</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span><span class=p>;</span>
+    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh<span class=p>;</span>
+  <span class=k>fi</span>
+
+  <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BLUE</span><span class=si>}</span><span class=s2>Using the Oh My Zsh template file and adding it to ~/.zshrc</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span>
+  cp <span class=nv>$ZSH</span>/templates/zshrc.zsh-template ~/.zshrc
+  sed <span class=s2>&#34;/^export ZSH=/ c\\
+</span><span class=s2>  export ZSH=</span><span class=nv>$ZSH</span><span class=s2>
+</span><span class=s2>  &#34;</span> ~/.zshrc &gt; ~/.zshrc-omztemp
+  mv -f ~/.zshrc-omztemp ~/.zshrc
+
+  <span class=c1># If this user&#39;s login shell is not already &#34;zsh&#34;, attempt to switch.</span>
+  <span class=nv>TEST_CURRENT_SHELL</span><span class=o>=</span><span class=k>$(</span>expr <span class=s2>&#34;</span><span class=nv>$SHELL</span><span class=s2>&#34;</span> : <span class=s1>&#39;.*/\(.*\)&#39;</span><span class=k>)</span>
+  <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$TEST_CURRENT_SHELL</span><span class=s2>&#34;</span> !<span class=o>=</span> <span class=s2>&#34;zsh&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=c1># If this platform provides a &#34;chsh&#34; command (not Cygwin), do it, man!</span>
+    <span class=k>if</span> <span class=nb>hash</span> chsh &gt;/dev/null 2&gt;<span class=p>&amp;</span>1<span class=p>;</span> <span class=k>then</span>
+      <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BLUE</span><span class=si>}</span><span class=s2>Time to change your default shell to zsh!</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span>
+      chsh -s <span class=k>$(</span>grep /zsh$ /etc/shells <span class=p>|</span> tail -1<span class=k>)</span>
+    <span class=c1># Else, suggest the user do so manually.</span>
+    <span class=k>else</span>
+      <span class=nb>printf</span> <span class=s2>&#34;I can&#39;t change your shell automatically because this system does not have chsh.\n&#34;</span>
+      <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>BLUE</span><span class=si>}</span><span class=s2>Please manually change your default shell to zsh!</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>\n&#34;</span>
+    <span class=k>fi</span>
+  <span class=k>fi</span>
+
+  <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>GREEN</span><span class=si>}</span><span class=s2>&#34;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;         __                                     __   &#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;  ____  / /_     ____ ___  __  __   ____  _____/ /_  &#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39; / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ &#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / &#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  &#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;                        /____/                       ....is now installed!&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;Please look over the ~/.zshrc file to select plugins, themes, and options.&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;p.s. Follow us at https://twitter.com/ohmyzsh.&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.&#39;</span>
+  <span class=nb>echo</span> <span class=s1>&#39;&#39;</span>
+  <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>NORMAL</span><span class=si>}</span><span class=s2>&#34;</span>
+  env zsh
+<span class=o>}</span>
+
+main
+</code></pre></div><h1 id=powerlevel10k>Powerlevel10k</h1><p>Follow the official README.</p><h1 id=aliases--custom-functions>Aliases & Custom Functions</h1><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh><span class=c1># General command shortcut &amp; options aliases</span>
+<span class=nb>alias</span> <span class=nv>svim</span><span class=o>=</span><span class=s1>&#39;sudo vim&#39;</span>
+<span class=nb>alias</span> <span class=nv>vi</span><span class=o>=</span><span class=s1>&#39;vim&#39;</span>
+<span class=nb>alias</span> <span class=nv>ea</span><span class=o>=</span><span class=s1>&#39;vim ~/.zshrc&#39;</span>
+<span class=nb>alias</span> <span class=nv>apply</span><span class=o>=</span><span class=s1>&#39;source ~/.zshrc&#39;</span>
+<span class=nb>alias</span> <span class=nv>tldr</span><span class=o>=</span><span class=s2>&#34;tldr -t base16&#34;</span>
+<span class=nb>alias</span> <span class=nv>diff</span><span class=o>=</span><span class=s2>&#34;diff --strip-trailing-cr&#34;</span>
+<span class=nb>alias</span> <span class=nv>share</span><span class=o>=</span><span class=s2>&#34;python -m http.server &#34;</span>
+
+<span class=c1># mkdir &amp;&amp; cd</span>
+<span class=c1># mc test/deep/folder</span>
+mkcdir<span class=o>()</span> <span class=o>{</span>
+    mkdir -p -- <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span> <span class=o>&amp;&amp;</span>
+    <span class=nb>cd</span> -P -- <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span>
+<span class=o>}</span>
+<span class=nb>alias</span> <span class=nv>mc</span><span class=o>=</span>mkcdir <span class=c1># Caution, `mc` is also GNU Midnight Commander</span>
+
+<span class=c1>## geoip 8.8.8.8</span>
+curl_geoip<span class=o>(){</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Curling https://api.ip.sb/geoip/</span><span class=si>${</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
+    curl  --noproxy <span class=s2>&#34;*&#34;</span> https://api.ip.sb/geoip/<span class=si>${</span><span class=nv>1</span><span class=si>}</span>
+<span class=o>}</span>
+<span class=nb>alias</span> <span class=nv>geoip</span><span class=o>=</span>curl_geoip
+
+<span class=c1>## Commandline Copy &amp; Paste</span>
+<span class=c1>## echo &#34;text&#34; | cs</span>
+<span class=c1>## cv</span>
+<span class=nb>alias</span> <span class=nv>cs</span><span class=o>=</span><span class=s2>&#34;xclip&#34;</span>
+<span class=nb>alias</span> <span class=nv>cv</span><span class=o>=</span><span class=s2>&#34;xclip -o&#34;</span>
+<span class=c1>## Copy to system clipboard</span>
+<span class=c1>## echo &#34;text&#34; | copy</span>
+<span class=c1>## &lt;ctrl+v&gt;</span>
+<span class=nb>alias</span> <span class=nv>copy</span><span class=o>=</span><span class=s2>&#34;xclip -selection clipboard&#34;</span>
+
+
+<span class=c1># Proxy config</span>
+setproxy<span class=o>()</span> <span class=o>{</span>
+  <span class=nb>export</span> <span class=nv>SOCKS_PROXY</span><span class=o>=</span><span class=s1>&#39;socks://127.0.0.1:1080&#39;</span>
+  <span class=nb>export</span> <span class=nv>socks_proxy</span><span class=o>=</span><span class=nv>$SOCKS_PROXY</span> 
+  <span class=nb>export</span> <span class=nv>http_proxy</span><span class=o>=</span><span class=s1>&#39;http://127.0.0.1:1081/&#39;</span> 
+  <span class=nb>export</span> <span class=nv>HTTP_PROXY</span><span class=o>=</span><span class=nv>$http_proxy</span> 
+  <span class=nb>export</span> <span class=nv>HTTPS_PROXY</span><span class=o>=</span><span class=nv>$http_proxy</span> 
+  <span class=nb>export</span> <span class=nv>https_proxy</span><span class=o>=</span><span class=nv>$http_proxy</span><span class=p>;</span>
+<span class=o>}</span>
+<span class=nb>alias</span> <span class=nv>clearproxy</span><span class=o>=</span><span class=s2>&#34;unset HTTP_PROXY; unset http_proxy; unset HTTPS_PROXY; unset https_proxy; unset socks_proxy; unset SOCKS_PROXY;&#34;</span>
+
+<span class=c1># Typo aliases</span>
+<span class=nb>alias</span> <span class=nv>exi</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>eix</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>eixt</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>xit</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>xti</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>ext</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>eit</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>e</span><span class=o>=</span><span class=nb>exit</span>
+<span class=nb>alias</span> <span class=nv>clera</span><span class=o>=</span>clear
+<span class=nb>alias</span> <span class=nv>claer</span><span class=o>=</span>clear
+<span class=nb>alias</span> <span class=nv>c</span><span class=o>=</span>clear
+
+<span class=c1># manually init nvm (enable it will slow down terminal start time)</span>
+nvm_init<span class=o>(){</span>
+    <span class=nb>source</span> /usr/share/nvm/init-nvm.sh
+<span class=o>}</span>
+
+<span class=c1># Helm shortcut</span>
+<span class=nb>alias</span> <span class=nv>hupdate</span><span class=o>=</span><span class=s1>&#39;helm repo update&#39;</span>
+<span class=nb>alias</span> <span class=nv>hls</span><span class=o>=</span><span class=s1>&#39;helm search repo --devel&#39;</span>
+
+<span class=nb>alias</span> <span class=nv>py</span><span class=o>=</span><span class=s1>&#39;python&#39;</span>
+<span class=nb>alias</span> <span class=nv>py3</span><span class=o>=</span><span class=s1>&#39;python3&#39;</span>
+<span class=nb>alias</span> <span class=nv>py2</span><span class=o>=</span><span class=s1>&#39;python2&#39;</span>
+</code></pre></div><p><a href=/page/kubectl-life-saver>K8s Related</a> 请参考这个。</p><h1 id=paste-performance>Paste Performance</h1><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh><span class=c1># This speeds up pasting w/ autosuggest</span>
+<span class=c1># https://github.com/zsh-users/zsh-autosuggestions/issues/238</span>
+pasteinit<span class=o>()</span> <span class=o>{</span>
+  <span class=nv>OLD_SELF_INSERT</span><span class=o>=</span><span class=si>${${</span><span class=p>(s.:.)widgets[self-insert]</span><span class=si>}</span><span class=p>[2,3]</span><span class=si>}</span>
+  zle -N self-insert url-quote-magic <span class=c1># I wonder if you&#39;d need `.url-quote-magic`?</span>
+<span class=o>}</span>
+
+pastefinish<span class=o>()</span> <span class=o>{</span>
+  zle -N self-insert <span class=nv>$OLD_SELF_INSERT</span>
+<span class=o>}</span>
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+</code></pre></div><h1 id=plugin>Plugin</h1><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>plugins</span><span class=o>=(</span>git colored-man-pages sublime z catimg wakatime zsh-syntax-highlighting zsh-autosuggestions docker docker-compose<span class=o>)</span>
+</code></pre></div><p>有的插件需要安装。</p><div class=blog-tags><a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
+<a href=https://lingsamuel.github.io//tags/shell/>shell</a>&nbsp;</div><h4 class=see-also>See also</h4><ul><li><a href=/page/kubectl-life-saver/>Kubectl Life Saver</a></li><li><a href=/page/2020-07-17-a-fucking-gnome-bug/>Gnome 的无法解锁 Bug</a></li><li><a href=/page/2020-07-17-a-k8s-debug-log/>一次 K8s 集群修复日志</a></li></ul></article></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=mailto:lingsamuelgrace@gmail.com title="Email me"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/lingsamuel title=GitHub><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://lingsamuel.github.io/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted"><a href=lingsamuel.github.io>Ling Samuel</a>
+&nbsp;&bull;&nbsp;&copy;
+2020
+&nbsp;&bull;&nbsp;
+<a href=https://lingsamuel.github.io/>Hakurei Shrine</a></p><p class="credits theme-by text-muted"><a href=http://gohugo.io>Hugo v0.74.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href=http://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a> adapted to <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> Modified by <a href=https://github.com/lingsamuel>LingSamuel</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous></script><script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/main.js></script><script src=https://lingsamuel.github.io/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad();</script><script>$(document).ready(function(){$("pre.chroma").css("padding","0");});</script><script>renderMathInElement(document.body);</script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/load-photoswipe.js></script></body></html>
