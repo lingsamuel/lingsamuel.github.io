@@ -198,7 +198,7 @@ nvm_init<span class=o>(){</span>
 <span class=nb>alias</span> <span class=nv>py</span><span class=o>=</span><span class=s1>&#39;python&#39;</span>
 <span class=nb>alias</span> <span class=nv>py3</span><span class=o>=</span><span class=s1>&#39;python3&#39;</span>
 <span class=nb>alias</span> <span class=nv>py2</span><span class=o>=</span><span class=s1>&#39;python2&#39;</span>
-</code></pre></div><p><a href=/page/kubectl-life-saver>K8s Related</a> 请参考这个。</p><h1 id=paste-performance>Paste Performance</h1><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh><span class=c1># This speeds up pasting w/ autosuggest</span>
+</code></pre></div><p><a href=/page/kubectl-life-saver>K8s Related</a> 请参考这个。</p><h1 id=paste-performance>Paste Performance</h1><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># This speeds up pasting w/ autosuggest</span>
 <span class=c1># https://github.com/zsh-users/zsh-autosuggestions/issues/238</span>
 pasteinit<span class=o>()</span> <span class=o>{</span>
   <span class=nv>OLD_SELF_INSERT</span><span class=o>=</span><span class=si>${${</span><span class=p>(s.:.)widgets[self-insert]</span><span class=si>}</span><span class=p>[2,3]</span><span class=si>}</span>
