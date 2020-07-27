@@ -1,4 +1,4 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>zsh 配置 - Hakurei Shrine</title><meta property="og:title" content="zsh 配置"><meta name=twitter:title content="zsh 配置"><meta name=description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=author content="Ling Samuel"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Hakurei Shrine","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/lingsamuel.github.io\/","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","name":"Zsh 配置"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Ling Samuel"},"headline":"zsh 配置","description":"考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。\n","inLanguage":"en","wordCount":878,"datePublished":"2020-07-19T00:00:00","dateModified":"2020-07-19T00:00:00","image":"https:\/\/lingsamuel.github.io\/","keywords":["linux, shell"],"mainEntityOfPage":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","publisher":{"@type":"Organization","name":"https:\/\/lingsamuel.github.io\/","logo":{"@type":"ImageObject","url":"https:\/\/lingsamuel.github.io\/","height":60,"width":60}}}</script><meta property="og:title" content="zsh 配置"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><meta name=twitter:title content="zsh 配置"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:card content="summary"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon><meta name=twitter:card content="summary"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css integrity=sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y crossorigin=anonymous><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://lingsamuel.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://lingsamuel.github.io/css/highlight.min.css><link rel=stylesheet href=https://lingsamuel.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-89095899-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>zsh 配置 - Hakurei Shrine</title><meta property="og:title" content="zsh 配置"><meta name=twitter:title content="zsh 配置"><meta name=description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=author content="Ling Samuel"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Hakurei Shrine","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/lingsamuel.github.io\/"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/lingsamuel.github.io\/","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","name":"Zsh 配置"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Ling Samuel"},"headline":"zsh 配置","description":"考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。\n","inLanguage":"en","wordCount":1199,"datePublished":"2020-07-19T00:00:00","dateModified":"2020-07-19T00:00:00","image":"https:\/\/lingsamuel.github.io\/","keywords":["linux, shell"],"mainEntityOfPage":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","publisher":{"@type":"Organization","name":"https:\/\/lingsamuel.github.io\/","logo":{"@type":"ImageObject","url":"https:\/\/lingsamuel.github.io\/","height":60,"width":60}}}</script><meta property="og:title" content="zsh 配置"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><meta name=twitter:title content="zsh 配置"><meta name=twitter:description content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name=twitter:card content="summary"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon><meta name=twitter:card content="summary"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css integrity=sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y crossorigin=anonymous><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://lingsamuel.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://lingsamuel.github.io/css/highlight.min.css><link rel=stylesheet href=https://lingsamuel.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-89095899-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
 <span class=sr-only>Toggle navigation</span>
 <span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
 <a class=navbar-brand href=https://lingsamuel.github.io/>Hakurei Shrine</a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li class=navlinks-container><a class=navlinks-parent>Translations</a><div class=navlinks-children><a href=/translation>Unauthorized Translations</a>
@@ -122,10 +122,14 @@
 <span class=o>}</span>
 
 main
-</code></pre></div><h1 id=powerlevel10k>Powerlevel10k</h1><p>Follow the official README.</p><h1 id=aliases--custom-functions>Aliases & Custom Functions</h1><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># Keybind</span>
+</code></pre></div><h1 id=powerlevel10k>Powerlevel10k</h1><p>Follow the official README.</p><h1 id=aliases--custom-functions>Aliases & Custom Functions</h1><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># Keybinding (Like a lost technology)</span>
 bindkey <span class=s1>&#39;3~&#39;</span> kill-word <span class=c1># Alt-Delete</span>
 bindkey <span class=s1>&#39;5~&#39;</span> kill-word <span class=c1># Ctrl-Delete</span>
+
 bindkey <span class=s1>&#39;^H&#39;</span> backward-kill-word <span class=c1># Ctrl-Backspacea</span>
+
+bindkey <span class=s2>&#34;\e[1;3D&#34;</span> backward-word <span class=c1># Alt-LeftCursor</span>
+bindkey <span class=s2>&#34;\e[1;3C&#34;</span> forward-word <span class=c1># Alt-RightCursor</span>
 
 <span class=c1># General command shortcut &amp; options aliases</span>
 <span class=nb>alias</span> <span class=nv>svim</span><span class=o>=</span><span class=s1>&#39;sudo vim&#39;</span>
@@ -211,9 +215,156 @@ pastefinish<span class=o>()</span> <span class=o>{</span>
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 </code></pre></div><h1 id=plugin>Plugin</h1><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>plugins</span><span class=o>=(</span>git colored-man-pages sublime z catimg wakatime zsh-syntax-highlighting zsh-autosuggestions docker docker-compose<span class=o>)</span>
-</code></pre></div><p>有的插件需要安装。</p><div class=blog-tags><a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
+</code></pre></div><p>Some plugins need to install manually.</p><h1 id=keybindings>Keybindings (zsh <code>bindkey</code>)</h1><p>Run <code>bindkey</code> to list all zle keybindings. Here is my config.</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&#34;^@&#34; set-mark-command
+&#34;^A&#34; beginning-of-line
+&#34;^B&#34; backward-char
+&#34;^D&#34; delete-char-or-list
+&#34;^E&#34; end-of-line
+&#34;^F&#34; forward-char
+&#34;^G&#34; send-break
+&#34;^H&#34; backward-kill-word
+&#34;^I&#34; expand-or-complete
+&#34;^J&#34; accept-line
+&#34;^K&#34; kill-line
+&#34;^L&#34; clear-screen
+&#34;^M&#34; accept-line
+&#34;^N&#34; down-line-or-history
+&#34;^O&#34; accept-line-and-down-history
+&#34;^P&#34; up-line-or-history
+&#34;^Q&#34; push-line
+&#34;^R&#34; history-incremental-search-backward
+&#34;^S&#34; history-incremental-search-forward
+&#34;^T&#34; transpose-chars
+&#34;^U&#34; kill-whole-line
+&#34;^V&#34; quoted-insert
+&#34;^W&#34; backward-kill-word
+&#34;^X^B&#34; vi-match-bracket
+&#34;^X^E&#34; edit-command-line
+&#34;^X^F&#34; vi-find-next-char
+&#34;^X^J&#34; vi-join
+&#34;^X^K&#34; kill-buffer
+&#34;^X^N&#34; infer-next-history
+&#34;^X^O&#34; overwrite-mode
+&#34;^X^R&#34; _read_comp
+&#34;^X^U&#34; undo
+&#34;^X^V&#34; vi-cmd-mode
+&#34;^X^X&#34; exchange-point-and-mark
+&#34;^X*&#34; expand-word
+&#34;^X=&#34; what-cursor-position
+&#34;^X?&#34; _complete_debug
+&#34;^XC&#34; _correct_filename
+&#34;^XG&#34; list-expand
+&#34;^Xa&#34; _expand_alias
+&#34;^Xc&#34; _correct_word
+&#34;^Xd&#34; _list_expansions
+&#34;^Xe&#34; _expand_word
+&#34;^Xg&#34; list-expand
+&#34;^Xh&#34; _complete_help
+&#34;^Xm&#34; _most_recent_file
+&#34;^Xn&#34; _next_tags
+&#34;^Xr&#34; history-incremental-search-backward
+&#34;^Xs&#34; history-incremental-search-forward
+&#34;^Xt&#34; _complete_tag
+&#34;^Xu&#34; undo
+&#34;^X~&#34; _bash_list-choices
+&#34;^Y&#34; yank
+&#34;^[^D&#34; list-choices
+&#34;^[^G&#34; send-break
+&#34;^[^H&#34; backward-kill-word
+&#34;^[^I&#34; self-insert-unmeta
+&#34;^[^J&#34; self-insert-unmeta
+&#34;^[^L&#34; clear-screen
+&#34;^[^M&#34; self-insert-unmeta
+&#34;^[^_&#34; copy-prev-word
+&#34;^[ &#34; expand-history
+&#34;^[!&#34; expand-history
+&#34;^[\&#34;&#34; quote-region
+&#34;^[\$&#34; spell-word
+&#34;^[&#39;&#34; quote-line
+&#34;^[,&#34; _history-complete-newer
+&#34;^[-&#34; neg-argument
+&#34;^[.&#34; insert-last-word
+&#34;^[/&#34; _history-complete-older
+&#34;^[0&#34; digit-argument
+&#34;^[1&#34; digit-argument
+&#34;^[2&#34; digit-argument
+&#34;^[3&#34; digit-argument
+&#34;^[4&#34; digit-argument
+&#34;^[5&#34; digit-argument
+&#34;^[6&#34; digit-argument
+&#34;^[7&#34; digit-argument
+&#34;^[8&#34; digit-argument
+&#34;^[9&#34; digit-argument
+&#34;^[&lt;&#34; beginning-of-buffer-or-history
+&#34;^[&gt;&#34; end-of-buffer-or-history
+&#34;^[?&#34; which-command
+&#34;^[A&#34; accept-and-hold
+&#34;^[B&#34; backward-word
+&#34;^[C&#34; capitalize-word
+&#34;^[D&#34; kill-word
+&#34;^[F&#34; forward-word
+&#34;^[G&#34; get-line
+&#34;^[H&#34; run-help
+&#34;^[L&#34; down-case-word
+&#34;^[N&#34; history-search-forward
+&#34;^[OA&#34; up-line-or-beginning-search
+&#34;^[OB&#34; down-line-or-beginning-search
+&#34;^[OC&#34; forward-char
+&#34;^[OD&#34; backward-char
+&#34;^[OF&#34; end-of-line
+&#34;^[OH&#34; beginning-of-line
+&#34;^[P&#34; history-search-backward
+&#34;^[Q&#34; push-line
+&#34;^[S&#34; spell-word
+&#34;^[T&#34; transpose-words
+&#34;^[U&#34; up-case-word
+&#34;^[W&#34; copy-region-as-kill
+&#34;^[[1;5C&#34; forward-word
+&#34;^[[1;5D&#34; backward-word
+&#34;^[[200~&#34; bracketed-paste
+&#34;^[[3~&#34; delete-char
+&#34;^[[5~&#34; up-line-or-history
+&#34;^[[6~&#34; down-line-or-history
+&#34;^[[A&#34; up-line-or-history
+&#34;^[[B&#34; down-line-or-history
+&#34;^[[C&#34; forward-char
+&#34;^[[D&#34; backward-char
+&#34;^[[Z&#34; reverse-menu-complete
+&#34;^[_&#34; insert-last-word
+&#34;^[a&#34; accept-and-hold
+&#34;^[b&#34; backward-word
+&#34;^[c&#34; capitalize-word
+&#34;^[d&#34; kill-word
+&#34;^[f&#34; forward-word
+&#34;^[g&#34; get-line
+&#34;^[h&#34; run-help
+&#34;^[l&#34; &#34;ls^J&#34;
+&#34;^[m&#34; copy-prev-shell-word
+&#34;^[n&#34; history-search-forward
+&#34;^[p&#34; history-search-backward
+&#34;^[q&#34; push-line
+&#34;^[s&#34; spell-word
+&#34;^[t&#34; transpose-words
+&#34;^[u&#34; up-case-word
+&#34;^[w&#34; kill-region
+&#34;^[x&#34; execute-named-cmd
+&#34;^[y&#34; yank-pop
+&#34;^[z&#34; execute-last-named-cmd
+&#34;^[|&#34; vi-goto-column
+&#34;^[~&#34; _bash_complete-word
+&#34;^[^?&#34; backward-kill-word
+&#34;^_&#34; undo
+&#34; &#34; magic-space
+&#34;!&#34;-&#34;3&#34; self-insert
+&#34;3~&#34; kill-word
+&#34;4&#34;-&#34;5&#34; self-insert
+&#34;5~&#34; kill-word
+&#34;6&#34;-&#34;~&#34; self-insert
+&#34;^?&#34; backward-delete-char
+&#34;\M-^@&#34;-&#34;\M-^?&#34; self-insert
+</code></pre></div><div class=blog-tags><a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
 <a href=https://lingsamuel.github.io//tags/shell/>shell</a>&nbsp;</div><h4 class=see-also>See also</h4><ul><li><a href=/page/kubectl-life-saver/>Kubectl Life Saver</a></li><li><a href=/page/2020-07-17-a-fucking-gnome-bug/>Gnome 的无法解锁 Bug</a></li><li><a href=/page/2020-07-17-a-k8s-debug-log/>一次 K8s 集群修复日志</a></li></ul></article></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href=mailto:lingsamuelgrace@gmail.com title="Email me"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://github.com/lingsamuel title=GitHub><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=https://lingsamuel.github.io/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted"><a href=lingsamuel.github.io>Ling Samuel</a>
 &nbsp;&bull;&nbsp;&copy;
 2020
 &nbsp;&bull;&nbsp;
-<a href=https://lingsamuel.github.io/>Hakurei Shrine</a></p><p class="credits theme-by text-muted"><a href=http://gohugo.io>Hugo v0.74.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href=http://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a> adapted to <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> Modified by <a href=https://github.com/lingsamuel>LingSamuel</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous></script><script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/main.js></script><script src=https://lingsamuel.github.io/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad();</script><script>$(document).ready(function(){$("pre.chroma").css("padding","0");});</script><script>renderMathInElement(document.body);</script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/load-photoswipe.js></script></body></html>
+<a href=https://lingsamuel.github.io/>Hakurei Shrine</a></p><p class="credits theme-by text-muted"><a href=http://gohugo.io>Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme by <a href=http://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a> adapted to <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> Modified by <a href=https://github.com/lingsamuel>LingSamuel</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous></script><script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/main.js></script><script src=https://lingsamuel.github.io/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad();</script><script>$(document).ready(function(){$("pre.chroma").css("padding","0");});</script><script>renderMathInElement(document.body);</script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://lingsamuel.github.io/js/load-photoswipe.js></script></body></html>
