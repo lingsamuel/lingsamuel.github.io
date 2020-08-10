@@ -180,3 +180,34 @@ var main = {
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', main.init);
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  function clearActiveStatesInTableOfContents() {
+    document.querySelectorAll('#TableOfContents li').forEach((section) => {
+        section.classList.remove('active');
+    });
+  }
+
+	const observer = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			const id = entry.target.getAttribute('id');
+			if (entry.intersectionRatio > 0) {
+        clearActiveStatesInTableOfContents();
+        console.log("trigger ", id)
+				document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.add('active');
+			} else {
+        // console.log("remove ", id)
+				// document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.remove('active');
+			}
+		});
+	});
+
+  // Track all sections that have an `id` applied
+  ["h1", "h2", "h3", "h4"].forEach(elementType=> {
+    document.querySelectorAll(`${elementType}[id]`).forEach((section) => {
+      observer.observe(section);
+      console.log(`observing ${elementType} ${section.innerHTML}`);
+    });
+  })
+});
