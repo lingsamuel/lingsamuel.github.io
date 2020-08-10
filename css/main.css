@@ -158,8 +158,8 @@ img {
 /* --- Navbar --- */
 
 .navbar-custom {
-  background: #F5F5F5;
-  border-bottom: 1px solid #EAEAEA;
+  /* background: #F5F5F5; */
+  /* border-bottom: 1px solid #EAEAEA; */
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
 }
 
@@ -206,7 +206,7 @@ img {
 
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    padding: 20px 0;
+    padding: 12px 0;
     -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
     transition: background .5s ease-in-out, padding .5s ease-in-out;
@@ -484,6 +484,22 @@ footer .theme-by {
   font-size: 22px; 
 }
 
+html, body {
+  scroll-padding-top: 100px;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+  border: solid 0;
+  border-bottom-width: 2px;
+  border-color: #e2e8f0;
+  line-height: 2;
+  display: inline-block;
+}
 .blog-post h1 {
   font-size: 32px;
 }
@@ -735,7 +751,7 @@ footer .theme-by {
 
 @media only screen and (min-width: 768px) {
   .intro-header {
-    margin-top: 130px;
+    margin-top: 100px;
   }
 
   .intro-header.big-img {
@@ -1024,4 +1040,90 @@ ul.share li a {
 
 ul.share li:hover .fab {
   transform: scale(1.4)
+}
+
+
+/* Changes by Ling Samuel */
+.nav-bottom-border {
+  border-width: 1px;
+  border-bottom-width: 4px;
+  border-color: #c3dafe;
+  background-color: white;
+}
+
+.nav-container {
+
+}
+
+#toc * {
+  list-style: none;
+  /* display: block; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+}
+
+/* #toc aside #TableOfContents {
+  position: fixed; 
+} */
+
+@media(min-width:1024px) {
+  #toc {
+      padding: 0px;
+      margin-left: 1rem;
+      border: solid 0px;
+      border-left-width: 4px;
+      border-color: #c3dafe;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 79px;
+      align-self: start
+  }
+  #TableOfContents {
+      display: block;
+      padding-left: .5rem;
+      /* padding-bottom: 1rem; */
+      font-size: 1.5rem;
+      color: #1a202c
+  }
+  #TableOfContents ul {
+    margin: 0px;
+    padding-left: 0.5rem;
+  }
+  #TableOfContents li {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+      list-style: none
+  }
+  #TableOfContents li.active {
+      padding-left: 0
+  }
+  #TableOfContents li.active:before {
+      content: "→";
+      display: inline-block;
+      margin-left: -20px;
+      width: 20px
+  }
+  .cronweekly #TableOfContents ul {
+      margin-left: 1rem!important
+  }
+  #TableOfContents li ul li {
+      margin-left: 1rem
+  }
+  #TableOfContents li.active>a {
+      color: #333;
+      font-weight: 500
+  }
+  #TableOfContents a {
+      text-decoration: none;
+      padding: .125rem 0;
+      color: #a0aec0;
+      -webkit-transition: all 50ms ease-in-out;
+      transition: all 50ms ease-in-out
+  }
+  #TableOfContents a:hover,
+  #TableOfContents a:focus,
+  #TableOfContents a:active {
+      color: #666
+  }
 }
