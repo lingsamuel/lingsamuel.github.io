@@ -181,6 +181,42 @@ var main = {
 
 document.addEventListener('DOMContentLoaded', main.init);
 
+var headerResizer = {
+  headerEle: null,
+  contentEle: null,
+  inited: false,
+  updateMargin: function () {
+    if(!this.inited) {
+      this.headerEle = document.getElementById("navbar");
+      this.contentEle = document.getElementById("intro-header");
+    }
+    console.log("resize")
+    if(this.contentEle != null && this.headerEle != null) {
+      this.contentEle.style.marginTop = this.headerEle.offsetHeight + 20 + 'px';
+    } else {
+      console.log("somthing is null")
+    }
+  }
+}
+
+var waitForFinalEvent = (function () {
+  var timers = {};
+  return function (callback, ms, uniqueId) {
+    if (!uniqueId) {
+      uniqueId = "Don't call this twice without a uniqueId";
+    }
+    if (timers[uniqueId]) {
+      clearTimeout (timers[uniqueId]);
+    }
+    timers[uniqueId] = setTimeout(callback, ms);
+  };
+})();
+
+$(document).ready(headerResizer.updateMargin);
+$(window).resize(function () {
+  waitForFinalEvent(headerResizer.updateMargin, 50, "resizeHeaderMarginTop");
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   
   function clearActiveStatesInTableOfContents() {
@@ -194,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const id = entry.target.getAttribute('id');
 			if (entry.intersectionRatio > 0) {
         clearActiveStatesInTableOfContents();
-        console.log("trigger ", id)
+        // console.log("trigger ", id)
 				document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.add('active');
 			} else {
         // console.log("remove ", id)
@@ -207,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ["h1", "h2", "h3", "h4"].forEach(elementType=> {
     document.querySelectorAll(`${elementType}[id]`).forEach((section) => {
       observer.observe(section);
-      console.log(`observing ${elementType} ${section.innerHTML}`);
+      // console.log(`observing ${elementType} ${section.innerHTML}`);
     });
   })
 });

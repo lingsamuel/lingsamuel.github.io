@@ -1045,7 +1045,7 @@ ul.share li:hover .fab {
 
 /* Changes by Ling Samuel */
 .nav-bottom-border {
-  border-width: 1px;
+  /* border-width: 1px; */
   border-bottom-width: 4px;
   border-color: #c3dafe;
   background-color: white;
@@ -1067,8 +1067,15 @@ ul.share li:hover .fab {
   position: fixed; 
 } */
 
+@media screen and (max-width: 1024px) {
+  #toc {
+    display: none;
+  }
+}
+
 @media(min-width:1024px) {
   #toc {
+      display: block;
       padding: 0px;
       margin-left: 1rem;
       border: solid 0px;
