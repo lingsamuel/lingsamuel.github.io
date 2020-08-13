@@ -184,15 +184,21 @@ document.addEventListener('DOMContentLoaded', main.init);
 var headerResizer = {
   headerEle: null,
   contentEle: null,
+  tocEle: null,
   inited: false,
   updateMargin: function () {
     if(!this.inited) {
       this.headerEle = document.getElementById("navbar");
       this.contentEle = document.getElementById("intro-header");
+      this.tocEle = document.getElementById("toc");
     }
     console.log("resize")
     if(this.contentEle != null && this.headerEle != null) {
-      this.contentEle.style.marginTop = this.headerEle.offsetHeight + 20 + 'px';
+      const height = this.headerEle.offsetHeight;
+      this.contentEle.style.marginTop = height + 20 + 'px';
+      if(this.tocEle != null) {
+        this.tocEle.style.top = height + 'px';
+      }
     } else {
       console.log("somthing is null")
     }
