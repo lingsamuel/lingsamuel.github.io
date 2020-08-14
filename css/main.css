@@ -498,7 +498,8 @@ html, body {
   border-bottom-width: 2px;
   border-color: #e2e8f0;
   line-height: 2;
-  display: inline-block;
+  /* display: inline-block; */
+  display: table;
 }
 .blog-post h1 {
   font-size: 32px;
@@ -1150,4 +1151,14 @@ ul.share li:hover .fab {
   display: block;
   width: 100%;
   background-color: #ffc;
+}
+
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"].disabled,
+input[type="checkbox"].disabled,
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"] {
+  /* Override bootstrap disabled cursor default */
+  cursor: default; 
 }
