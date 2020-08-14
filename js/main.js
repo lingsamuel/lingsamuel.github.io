@@ -195,7 +195,11 @@ var headerResizer = {
     console.log("resize")
     if(this.contentEle != null && this.headerEle != null) {
       const height = this.headerEle.offsetHeight;
-      this.contentEle.style.marginTop = height + 20 + 'px';
+      if(this.contentEle.className.includes("big-img")) {
+        this.contentEle.style.marginTop = height + 'px';
+      } else {
+        this.contentEle.style.marginTop = height + 20 + 'px';
+      }
       if(this.tocEle != null) {
         this.tocEle.style.top = height + 'px';
       }
