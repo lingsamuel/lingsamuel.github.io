@@ -1173,6 +1173,6 @@ fieldset[disabled] input[type="checkbox"] {
   min-width: fit-content;
 }
 
-.blog-tags {
+.post-foot-meta-box .blog-tags {
   margin-top: 0px;
 }
