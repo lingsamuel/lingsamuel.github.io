@@ -1134,3 +1134,7 @@ ul.share li:hover .fab {
       color: #666
   }
 }
+
+.hljs-number {
+  user-select: none;
+}

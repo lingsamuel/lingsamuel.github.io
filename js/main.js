@@ -192,7 +192,6 @@ var headerResizer = {
       this.contentEle = document.getElementById("intro-header");
       this.tocEle = document.getElementById("toc");
     }
-    console.log("resize")
     if(this.contentEle != null && this.headerEle != null) {
       const height = this.headerEle.offsetHeight;
       if(this.contentEle.className.includes("big-img")) {
@@ -256,4 +255,27 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log(`observing ${elementType} ${section.innerHTML}`);
     });
   })
+});
+
+document.body.addEventListener('dblclick', function(e){
+  var target = e.target || e.srcElement;   
+  if (target.className.indexOf("highlight") !== -1 
+  || target.parentNode.className.indexOf("highlight") !== -1
+  || target.parentNode.parentNode.className.indexOf("highlight") !== -1){
+       var range, selection;
+
+       if (document.body.createTextRange) {
+           range = document.body.createTextRange();
+           range.moveToElementText(target);
+           range.select();
+       } else if (window.getSelection) {
+           selection = window.getSelection();
+           range = document.createRange();
+           range.selectNodeContents(target);
+           selection.removeAllRanges();
+           selection.addRange(range);
+       }
+       e.stopPropagation();
+  }              
+
 });
