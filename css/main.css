@@ -1135,6 +1135,19 @@ ul.share li:hover .fab {
   }
 }
 
-.hljs-number {
+.ln .hljs-number {
+  /* Avoid select line number */
   user-select: none;
+}
+
+.chroma .lntable {
+  /* Make table mode code block full width */
+  width: 100%;
+}
+
+/* Highlight JS CSS doesn't has this */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffc;
 }

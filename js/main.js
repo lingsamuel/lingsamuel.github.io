@@ -261,7 +261,8 @@ document.body.addEventListener('dblclick', function(e){
   var target = e.target || e.srcElement;   
   if (target.className.indexOf("highlight") !== -1 
   || target.parentNode.className.indexOf("highlight") !== -1
-  || target.parentNode.parentNode.className.indexOf("highlight") !== -1){
+  || target.parentNode.parentNode.className.indexOf("highlight") !== -1
+  || target.nodeName == "CODE"){
        var range, selection;
 
        if (document.body.createTextRange) {
