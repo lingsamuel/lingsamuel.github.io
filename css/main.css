@@ -1170,4 +1170,9 @@ fieldset[disabled] input[type="checkbox"] {
 .post-foot-meta-box .post-read-more {
   margin-left:auto;
   margin-right:0;
+  min-width: fit-content;
+}
+
+.blog-tags {
+  margin-top: 0px;
 }
