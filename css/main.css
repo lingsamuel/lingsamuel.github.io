@@ -283,6 +283,7 @@ img {
   width: 100%;
   display: none;
   word-break: break-word;
+  z-index: 1035;
 }
 
 .navbar-custom .nav .navlinks-container .navlinks-children a {
