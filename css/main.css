@@ -546,7 +546,6 @@ html, body {
 
 .post-preview .post-read-more {
   font-weight: 800;
-  float: right;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1161,4 +1160,14 @@ fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"] {
   /* Override bootstrap disabled cursor default */
   cursor: default; 
+}
+
+.post-foot-meta-box {
+  display: flex;
+  /* justify-content: flex-end */
+}
+
+.post-foot-meta-box .post-read-more {
+  margin-left:auto;
+  margin-right:0;
 }
