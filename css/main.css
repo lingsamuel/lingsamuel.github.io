@@ -1068,17 +1068,16 @@ ul.share li:hover .fab {
   position: fixed; 
 } */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   #toc {
     display: none;
   }
 }
 
-@media(min-width:1024px) {
+@media(min-width:1200px) {
   #toc {
       display: block;
       padding: 0px;
-      margin-left: 1rem;
       border: solid 0px;
       border-left-width: 4px;
       border-color: #c3dafe;
@@ -1088,6 +1087,7 @@ ul.share li:hover .fab {
       align-self: start
   }
   #TableOfContents {
+      /* margin-left: 1rem; */
       display: block;
       padding-left: .5rem;
       /* padding-bottom: 1rem; */
