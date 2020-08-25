@@ -4,7 +4,7 @@
   font-family: base;
   font-weight: 400;
   font-style: normal;
-  src: local("Microsoft YaHei"), local('WenQuanYi Micro Hei'), url(../static/fonts/wqy-microhei.ttc) format('ttc');
+  src: local("Microsoft YaHei"), local('WenQuanYi Micro Hei'), url(/static/fonts/wqy-microhei.ttc) format('ttc');
 }
 
 body {
