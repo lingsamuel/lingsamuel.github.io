@@ -185,12 +185,16 @@ var headerResizer = {
   headerEle: null,
   contentEle: null,
   tocEle: null,
+  body: null,
+  main: null,
   inited: false,
   updateMargin: function () {
     if(!this.inited) {
       this.headerEle = document.getElementById("navbar");
       this.contentEle = document.getElementById("intro-header");
       this.tocEle = document.getElementById("toc");
+      this.body = document.body;
+      this.main = document.getElementById("mainContainer")
     }
     if(this.contentEle != null && this.headerEle != null) {
       const height = this.headerEle.offsetHeight;
@@ -202,6 +206,8 @@ var headerResizer = {
       if(this.tocEle != null) {
         this.tocEle.style.top = height + 'px';
       }
+      // this.body.style.scrollPaddingTop = height + 60 + 'px';
+      // this.main.style.scrollPaddingTop = height + 60 + 'px';
     } else {
       console.log("somthing is null")
     }
@@ -227,7 +233,7 @@ $(window).resize(function () {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   function clearActiveStatesInTableOfContents() {
     document.querySelectorAll('#TableOfContents li').forEach((section) => {
         section.classList.remove('active');
@@ -258,8 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.body.addEventListener('dblclick', function(e){
-  var target = e.target || e.srcElement;   
-  if (target.className.indexOf("highlight") !== -1 
+  var target = e.target || e.srcElement;
+  if (target.className.indexOf("highlight") !== -1
   || target.parentNode.className.indexOf("highlight") !== -1
   || target.parentNode.parentNode.className.indexOf("highlight") !== -1
   || target.nodeName == "CODE"){
@@ -277,6 +283,6 @@ document.body.addEventListener('dblclick', function(e){
            selection.addRange(range);
        }
        e.stopPropagation();
-  }              
+  }
 
 });

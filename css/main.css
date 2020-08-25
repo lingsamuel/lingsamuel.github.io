@@ -3,9 +3,9 @@
 @font-face {
   font-family: base;
   font-weight: 400;
-  font-style: regular;
+  font-style: normal;
   src: local("Microsoft YaHei"), local('WenQuanYi Micro Hei'), url(../static/fonts/wqy-microhei.ttc) format('ttc');
-} 
+}
 
 body {
   font-family: 'Lora', base, 'Times New Roman', serif;
@@ -482,7 +482,7 @@ footer .theme-by {
 
 .post-entry h6 {
   /* .p font-size is 18px */
-  font-size: 22px; 
+  font-size: 22px;
 }
 
 html, body {
@@ -503,28 +503,41 @@ html, body {
   display: table;
 }
 .blog-post h1 {
-  font-size: 32px;
+  font-size: 36px;
 }
 
 .blog-post h2 {
-  font-size: 30px;
+  font-size: 34px;
+  font-weight: 700;
 }
 
 .blog-post h3 {
   font-size: 28px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .blog-post h4 {
   font-size: 26px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .blog-post h5 {
   font-size: 24px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .blog-post h6 {
   /* .p font-size is 18px */
-  font-size: 22px; 
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .post-image {
@@ -1065,7 +1078,7 @@ ul.share li:hover .fab {
 }
 
 /* #toc aside #TableOfContents {
-  position: fixed; 
+  position: fixed;
 } */
 
 @media screen and (max-width: 1200px) {
@@ -1160,7 +1173,7 @@ input[type="checkbox"].disabled,
 fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"] {
   /* Override bootstrap disabled cursor default */
-  cursor: default; 
+  cursor: default;
 }
 
 .post-foot-meta-box {
