@@ -244,9 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		entries.forEach(entry => {
 			const id = entry.target.getAttribute('id');
 			if (entry.intersectionRatio > 0) {
-        clearActiveStatesInTableOfContents();
-        // console.log("trigger ", id)
-				document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.add('active');
+        const tocEntry = document.querySelector(`#TableOfContents li a[href="#${id}"]`);
+        if (tocEntry && tocEntry.parentElement) {
+          clearActiveStatesInTableOfContents();
+          tocEntry.parentElement.classList.add('active');
+        }
 			} else {
         // console.log("remove ", id)
 				// document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.remove('active');
