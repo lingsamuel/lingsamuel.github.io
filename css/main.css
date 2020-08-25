@@ -1190,3 +1190,13 @@ fieldset[disabled] input[type="checkbox"] {
 .post-foot-meta-box .blog-tags {
   margin-top: 0px;
 }
+
+/* figure figcaption p { */
+p.figcaption {
+  color: #666d71;  /* var(--text-color-lighter); */
+  margin: 0;
+  font-size: .8em;
+  text-align: right;
+  font-family: "Overpass", "Rubik", sans-serif;
+  font-style: italic;
+}
