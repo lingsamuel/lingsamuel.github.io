@@ -34,7 +34,7 @@
 
 zle -N autocomment
 bindkey <span class=s1>&#39;^_&#39;</span> autocomment
-</code></pre></div><h3 id=cursor-变量的限制>CURSOR 变量的限制</h3><p><code>CURSOR</code> 变量什么时候赋值是有讲究的。</p><p>根据 <a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#User_002dDefined-Widgets>Zle 文档</a>的说法：</p><blockquote><p>CURSOR (integer)<br>(&mldr;) This is in the range 0 to $#BUFFER (&mldr;) Attempts to move the cursor outside the buffer will result in the cursor being moved to the appropriate end of the buffer.</p></blockquote><p>也就是说，给 CURSOR 赋的值不能超过 <code>$#BUFFER</code>。</p><p>可以简单验证一下：</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh>testCursor<span class=o>()</span> <span class=o>{</span>
+</code></pre></div><h3 id=cursor-变量的限制>CURSOR 变量的限制</h3><p><code>CURSOR</code> 变量什么时候赋值是有讲究的。</p><p>根据 <a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#User_002dDefined-Widgets>Zle 文档</a> 的说法：</p><blockquote><p>CURSOR (integer)<br>(&mldr;) This is in the range 0 to $#BUFFER (&mldr;) Attempts to move the cursor outside the buffer will result in the cursor being moved to the appropriate end of the buffer.</p></blockquote><p>也就是说，给 CURSOR 赋的值不能超过 <code>$#BUFFER</code>。</p><p>可以简单验证一下：</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh>testCursor<span class=o>()</span> <span class=o>{</span>
   <span class=nb>echo</span> <span class=s2>&#34;\nOriginal C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
   <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;a&#34;</span>
   <span class=nb>echo</span> <span class=s2>&#34;Change Buffer C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
