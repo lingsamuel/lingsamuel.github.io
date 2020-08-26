@@ -15,10 +15,10 @@
 &lt;img itemprop="thumbnail" src="https://lingsamuel.github.io/img/sphere-thumb.jpg" alt="Sphere"/>
 &lt;/div>
 &lt;a href="https://lingsamuel.github.io/img/sphere.jpg" itemprop="contentUrl">&lt;/a>
+&lt;/figure>
 &lt;figcaption>
 &lt;p class="figcaption">Sphere&lt;/p>
 &lt;/figcaption>
-&lt;/figure>
 &lt;/div>
 &lt;div class="box" >
 &lt;figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -26,10 +26,10 @@
 &lt;img itemprop="thumbnail" src="https://lingsamuel.github.io/img/triangle-thumb.jpg" alt="This is a long comment about a triangle"/>
 &lt;/div>
 &lt;a href="https://lingsamuel.github.io/img/triangle.jpg" itemprop="contentUrl">&lt;/a>
+&lt;/figure>
 &lt;figcaption>
 &lt;p class="figcaption">Triangle&lt;/p>
 &lt;/figcaption>
-&lt;/figure>
 &lt;/div>
 &lt;/div></description></item><item><title>Big Image Sample</title><link>https://lingsamuel.github.io/backup/2017-03-07-bigimg-sample/</link><pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/backup/2017-03-07-bigimg-sample/</guid><description>&lt;p>The image banners at the top of the page are refered to as &amp;ldquo;bigimg&amp;rdquo; in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.&lt;/p></description></item><item><title>Math Sample</title><link>https://lingsamuel.github.io/backup/2017-03-05-math-sample/</link><pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate><author>lingsamuelgrace@gmail.com (Ling Samuel)</author><guid>https://lingsamuel.github.io/backup/2017-03-05-math-sample/</guid><description>&lt;p>KaTeX can be used to generate complex math formulas server-side.&lt;/p>
 &lt;p>$$
