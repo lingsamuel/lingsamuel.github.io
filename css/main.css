@@ -504,11 +504,13 @@ html, body {
 }
 .blog-post h1 {
   font-size: 36px;
+  display: block;
 }
 
 .blog-post h2 {
   font-size: 34px;
   font-weight: 700;
+  display: block;
 }
 
 .blog-post h3 {
@@ -530,6 +532,7 @@ html, body {
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 5px;
+  border-bottom-width: 0px;
 }
 
 .blog-post h6 {
@@ -538,6 +541,7 @@ html, body {
   font-weight: 600;
   margin-top: 5px;
   margin-bottom: 5px;
+  border-bottom-width: 0px;
 }
 
 .post-image {
@@ -1195,6 +1199,7 @@ fieldset[disabled] input[type="checkbox"] {
 p.figcaption {
   color: #666d71;  /* var(--text-color-lighter); */
   margin: 0;
+  padding-right: 4px;
   font-size: .8em;
   text-align: right;
   font-family: "Overpass", "Rubik", sans-serif;
