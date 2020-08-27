@@ -1209,3 +1209,7 @@ p.figcaption {
 /* li:hover {
   background-color: lightgray;
 } */
+
+.pswp__caption__center {
+  text-align: center;
+}
