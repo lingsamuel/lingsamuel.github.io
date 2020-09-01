@@ -1199,11 +1199,18 @@ fieldset[disabled] input[type="checkbox"] {
 p.figcaption {
   color: #666d71;  /* var(--text-color-lighter); */
   margin: 0;
-  padding-right: 4px;
   font-size: .8em;
-  text-align: right;
   font-family: "Overpass", "Rubik", sans-serif;
   font-style: italic;
+}
+
+p.figcaption-right {
+  text-align: right;
+  padding-right: 4px;
+}
+
+p.figcaption-center {
+  text-align: center;
 }
 
 /* li:hover {
