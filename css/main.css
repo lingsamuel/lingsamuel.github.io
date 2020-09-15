@@ -1220,3 +1220,7 @@ p.figcaption-center {
 .pswp__caption__center {
   text-align: center;
 }
+
+.blog-post p {
+  text-indent: 2em;
+}
