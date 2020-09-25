@@ -1221,6 +1221,6 @@ p.figcaption-center {
   text-align: center;
 }
 
-.blog-post p {
+.blog-post > p {
   text-indent: 2em;
 }
