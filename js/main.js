@@ -36,9 +36,9 @@ var main = {
     });
 
     // Ensure nested navbar menus are not longer than the menu header
-    var menus = $(".navlinks-container");
+    var menus = $(".nav > .navlinks-container");
     if (menus.length > 0) {
-      var navbar = $("#main-navbar").find("ul");
+      var navbar = $($("#main-navbar").find("ul")[0]);
       var fakeMenuHtml = "<li class='fake-menu' style='display:none;'><a></a></li>";
       navbar.append(fakeMenuHtml);
       var fakeMenu = $(".fake-menu");
