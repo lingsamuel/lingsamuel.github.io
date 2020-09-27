@@ -304,6 +304,15 @@ img {
   .navbar-custom .nav .navlinks-container.show-children .navlinks-children {
     display: block;
   }
+
+  .navbar-custom .nav .navlinks-container .navlinks-container {
+    padding-inline-start: 0px;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-container .navlinks-children {
+    padding-inline-start: 20px;
+    background: #f5f5f5;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -327,6 +336,35 @@ img {
     padding-left: 10px;
     border: 1px solid #eaeaea;
     border-width: 0 1px 1px;
+  }
+
+  /* 三级菜单 */
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container {
+    padding-inline-start: 0px;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container a {
+    border: 1px solid #eaeaea;
+    border-width: 0 1px 1px;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-parent:after {
+    /* content: "\2BC8"; */
+    content: "";
+  }
+  
+  .navlinks-container ul > .navlinks-children {
+    visibility: hidden;
+    top: 1px;
+    left: 99%;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-children a {
+    background: #f0f0f0;
+  }
+
+  .navlinks-container ul:hover > .navlinks-children {
+    visibility: visible;
   }
 }
 
