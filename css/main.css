@@ -344,6 +344,7 @@ img {
   }
 
   .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container a {
+    /* 二级菜单中的三级菜单按钮 */
     border: 1px solid #eaeaea;
     border-width: 0 1px 1px;
   }
@@ -354,13 +355,32 @@ img {
   }
   
   .navlinks-container ul > .navlinks-children {
+    /* 三级菜单容器 */
+    border: 1px solid #eaeaea;
+    /* 因为链接没有 top-border，因此在容器上添加 */
+    border-width: 1px 0 0 0;
     visibility: hidden;
+
+    /* 因为二级菜单中的展开按钮的 top-border 实际是上一个的 bottom-border，
+    因此此处 -1px 来使样式一致 */
     top: -1px;
-    left: 99%;
+    left: 100%;
   }
 
   .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-children a {
+    /* 三级菜单的链接 */
     background: #f0f0f0;
+    border: 1px solid #eaeaea;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-children.right-menu a {
+    /* 移除 left-border 使样式一致 */
+    border-width: 0 1px 1px 0;
+  }
+
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-children.left-menu a {
+    /* 移除 left-border 使样式一致 */
+    border-width: 0 0 1px 1px;
   }
 
   .navlinks-container ul:hover > .navlinks-children {
