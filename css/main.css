@@ -1151,6 +1151,7 @@ ul.share li:hover .fab {
 
 @media(min-width:1200px) {
   #toc {
+      width: 250px;;
       display: block;
       padding: 0px;
       border: solid 0px;
@@ -1208,6 +1209,24 @@ ul.share li:hover .fab {
   #TableOfContents a:focus,
   #TableOfContents a:active {
       color: #666
+  }
+}
+
+@media(min-width:1400px){
+  .container {
+    width: 1300px;
+  }
+  #toc {
+    width: 300px;
+  }
+}
+
+@media(min-width:2400px){
+  .container {
+    width: 1600px;
+  }
+  #toc {
+    width: 400px;
   }
 }
 
