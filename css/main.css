@@ -36,7 +36,7 @@ p {
 }
 
 p + p {
-  margin: 12px 0 6px 0;
+  margin: 6px 0 6px 0;
 }
 
 p a {
@@ -1300,4 +1300,8 @@ p.figcaption-center {
 
 .blog-post > p {
   text-indent: 2em;
+}
+
+ul {
+  padding-inline-start: 2em;
 }
