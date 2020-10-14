@@ -39,6 +39,14 @@ p + p {
   margin: 6px 0 6px 0;
 }
 
+ul + p {
+  margin: 12px 0 6px 0;
+}
+
+p + ul {
+  margin: 12px 0 10px 0;
+}
+
 p a {
   /* text-decoration: underline */
   color: #008AFF;
