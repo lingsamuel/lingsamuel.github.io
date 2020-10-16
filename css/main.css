@@ -1333,7 +1333,7 @@ code {
   background-color: #e2e8f0;
   /* font-size: 1rem; */
   font-family: monospace;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 pre {
@@ -1438,13 +1438,33 @@ dd {
   background-color: #aedde6;
 }
 
-svg:not(:root).svg-inline--fa {
+.alert-warning {
+  color: #564400; /* Darken 70+ */
+  background-color: #f9f2cd;
+  border-color: #e4d289;
+}
+
+.alert-warning  blockquote {
+  background-color: #f4e7a4;
+}
+
+.alert-danger {
+  color: #a0403e;
+  background-color: #ebcdcd;
+  border-color: #d9c0c0;
+}
+
+.alert-danger  blockquote {
+  background-color: #deadad;
+}
+
+svg:not(:root).svg-inline {
   overflow: visible;
 }
-.svg-inline--fa.fa-w-11 {
-  width: .6875em;
+.svg-inline.fa-w-11 {
+  width: 1em;
 }
-.svg-inline--fa {
+.svg-inline {
   display: inline-block;
   font-size: inherit;
   height: 1em;
