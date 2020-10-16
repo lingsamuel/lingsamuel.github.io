@@ -76,7 +76,7 @@ a:focus {
   color: #0085a1;
 }
 
-.blog-post  blockquote {
+.blog-post blockquote {
   color: #808080;
   /* font-style: italic; */
   font-family: verdana, helvetica, sans-serif;
@@ -84,7 +84,7 @@ a:focus {
   font-size: 0.8em;
 }
 
-.blog-post  blockquote p:first-child {
+.blog-post blockquote p:first-child {
   margin-top: 0;
 }
 
@@ -1388,6 +1388,11 @@ dd {
   user-select: none;
 }
 
+.blog-post > .blocktitle {
+  /* Fix indent in collapse */
+  text-indent: 1em;
+}
+
 .blocktitle {
   font-family: verdana, helvetica, sans-serif;
   background: #eee;
@@ -1397,6 +1402,7 @@ dd {
   border-color: #eee;;
   user-select: none;
   font-size: 0.9em;
+  text-indent: 1em;
 }
 
 .alert {
