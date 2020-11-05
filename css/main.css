@@ -370,6 +370,11 @@ img {
     border-width: 0 1px 1px;
   }
 
+  .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-parent {
+    border-right-width: 2px;
+    border-right-color: #ddd; /* TODO auto change to left */
+  }
+
   .navbar-custom .nav .navlinks-container .navlinks-children .navlinks-container .navlinks-parent:after {
     /* content: "\2BC8"; */
     content: "";
