@@ -8,9 +8,17 @@
 }
 
 @font-face {
+  font-family: monobase;
+  font-weight: 400;
+  font-style: normal;
+  font-variant-ligatures: common-ligatures;
+  src: 'Fira Code', 'Source Han Sans CN', local('Fira Code'), local('Source Han Sans CN'), url(/static/fonts/FiraCode-Regular.ttf) format('ttf'), url(/static/fonts/wqy-zenhei.ttc) format('ttc');
+}
+
+/* @font-face {
   font-family: monofont;
   src: monospace;
-}
+} */
 
 @font-face {
   font-family: quoted;
@@ -1337,7 +1345,7 @@ code {
   color: #4c51bf;
   background-color: #e2e8f0;
   /* font-size: 1rem; */
-  font-family: monospace;
+  font-family: monobase, monospace;
   font-size: 0.9em;
 }
 

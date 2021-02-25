@@ -5,7 +5,7 @@
   padding: 0 0.4em 0 0.4em;
 }
 code {
-  font-family: Menlo,Monaco,Consolas,"Courier New",base,monospace;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monobase,monospace;
 }
 
 .highlight tr, .highlight pre {
