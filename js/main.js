@@ -304,28 +304,41 @@ $(window).resize(function() {
   waitForFinalEvent(headerResizer.updateMargin, 50, "resizeHeaderMarginTop");
 });
 
+function clearActiveStatesInTableOfContents() {
+  document.querySelectorAll('#TableOfContents li').forEach((section) => {
+    section.classList.remove('active');
+  });
+}
+
+function setTOCIndicator(entries) {
+  entries.forEach(entry => {
+    const id = entry.target.getAttribute('id');
+    // console.log(entry, id, entry.intersectionRatio, entry.isIntersecting)
+    if (entry.intersectionRatio > 0) {
+      const tocEntry = document.querySelector(`#TableOfContents li a[href="#${id}"]`);
+      if (tocEntry && tocEntry.parentElement) {
+        clearActiveStatesInTableOfContents();
+        tocEntry.parentElement.classList.add('active');
+      }
+    } else {
+      // console.log("remove ", id)
+      // document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.remove('active');
+    }
+  });
+
+
+  // var allSectionLinks = document.querySelectorAll(".toc-Link");
+  // entries.map(i => {
+  //     if (i.isIntersecting === true) {
+  //         allSectionLinks.forEach(link => link.classList.remove("current"));
+  //         document.querySelector(`a[href="#${i.target.id}"]`).classList.add("current");
+  //     }
+  // })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  function clearActiveStatesInTableOfContents() {
-    document.querySelectorAll('#TableOfContents li').forEach((section) => {
-      section.classList.remove('active');
-    });
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const id = entry.target.getAttribute('id');
-      if (entry.intersectionRatio > 0) {
-        const tocEntry = document.querySelector(`#TableOfContents li a[href="#${id}"]`);
-        if (tocEntry && tocEntry.parentElement) {
-          clearActiveStatesInTableOfContents();
-          tocEntry.parentElement.classList.add('active');
-        }
-      } else {
-        // console.log("remove ", id)
-        // document.querySelector(`#TableOfContents li a[href="#${id}"]`).parentElement.classList.remove('active');
-      }
-    });
+  const observer = new IntersectionObserver(setTOCIndicator, {
   });
 
   // Track all sections that have an `id` applied
