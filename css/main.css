@@ -1388,6 +1388,7 @@ code {
 
 .chroma code.hljs {
   background-color: transparent;
+  padding-left: 12px;
 }
 
 
@@ -1427,11 +1428,16 @@ dd {
 .hljs .lnt {
   user-select: none;
 }
-
+.highlight>.chroma .hljs-keyword,
 .highlight>.chroma .kd,
+.highlight>.chroma .kc,
 .highlight>.chroma .k {
   font-weight: bold;
   color: #4c51bf;
+}
+.highlight>.chroma .nb,
+.highlight>.chroma .nf {
+  color: #0086b3
 }
 
 .blog-post > .blocktitle {
@@ -1527,4 +1533,47 @@ svg:not(:root).svg-inline {
   height: 1em;
   overflow: visible;
   vertical-align: -.125em;
+}
+
+
+/* .highlight>.chroma .hljs::before{
+  position:absolute;top:0;right:0;left:0;padding:2px 7px;font-size:.9em;font-weight:700;color:#b1b1b1;background:#f4efe1;content:'Code'
+} */
+
+.hljs {
+  padding-top: 0;
+  padding-right: 0;
+}
+
+.highlight>.chroma>code::before{
+  display: block;
+  padding:2px 7px;
+  font-size:1em;
+  margin-left: -12px;
+  margin-bottom: 0.25em;
+  font-weight:700;
+  color:#4c52bf;;
+  background:#a3bffa;
+  content:'Code'
+}
+
+.highlight>.chroma>table::before{
+  table-layout: fixed;
+  display: block;
+  width: 100%;
+  padding:2px 7px;
+  font-size:1em;
+  margin-bottom: 0.25em;
+  font-weight:700;
+  color:#4c52bf;;
+  background:#a3bffa;
+  content:'Code'
+}
+
+.highlight>.chroma>.language-bash::before{
+  content:"Bash"
+}
+
+.highlight>.chroma>.language-go::before{
+  content:"Go"
 }
