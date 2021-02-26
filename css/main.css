@@ -6,13 +6,13 @@
   font-style: normal;
   src: local("Microsoft YaHei"), local('WenQuanYi Micro Hei'), url(/static/fonts/wqy-microhei.ttc) format('ttc');
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @font-face {
   font-family: monobase;
   font-weight: 400;
   font-style: normal;
   font-variant-ligatures: common-ligatures;
-  src: 'Fira Code', 'Source Han Sans CN', local('Fira Code'), local('Source Han Sans CN'), url(/static/fonts/FiraCode-Regular.ttf) format('ttf'), url(/static/fonts/wqy-zenhei.ttc) format('ttc');
+  src: 'Fira Code', source-han-sans-simplified-c, 'Source Han Sans CN', local('Fira Code'), local('Source Han Sans CN'), url(/static/fonts/FiraCode-Regular.ttf) format('ttf'), url(/static/fonts/wqy-zenhei.ttc) format('ttc');
 }
 
 /* @font-face {
@@ -54,15 +54,15 @@ p {
 }
 
 p + p {
-  margin: 6px 0 6px 0;
+  margin: 0.5em 0 0.5em 0;
 }
 
 ul + p {
-  margin: 12px 0 6px 0;
+  margin: 1em 0 1em 0;
 }
 
 p + ul {
-  margin: 12px 0 10px 0;
+  margin: 0.75em 0 1em 0;
 }
 
 p a {
@@ -70,9 +70,14 @@ p a {
   color: #008AFF;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
+/* h1, h2, h3, h4, h5, h6 :lang(en){
+  font-family: 'Noto Sans', 'Source Han Sans CN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
   font-weight: 800;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Han Sans CN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
+  font-weight: 600;
 }
 
 a {
@@ -200,8 +205,15 @@ img {
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav li a {
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 0.8em;
+  font-family: 'Noto Sans';
   color: #404040;
+}
+
+.navbar-custom .navbar-brand {
+  font-size: 1em;
+  font-family: 'Noto Sans Mono';
 }
 
 .navbar-custom .navbar-brand:hover,
@@ -505,6 +517,10 @@ footer .theme-by {
   margin-bottom: 10px;
 }
 
+.post-meta {
+  font-family: 'Noto Sans', base, sans-serif;
+}
+
 .post-preview .post-meta,
 .post-heading .post-meta {
   color: #808080;
@@ -549,7 +565,7 @@ footer .theme-by {
 .post-entry h4,
 .post-entry h5,
 .post-entry h6 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .post-entry h1 {
@@ -596,32 +612,33 @@ html, body {
 }
 .blog-post h1 {
   font-size: 36px;
+  font-weight: 600;
   display: block;
 }
 
 .blog-post h2 {
   font-size: 34px;
-  font-weight: 700;
+  font-weight: 500;
   display: block;
 }
 
 .blog-post h3 {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .blog-post h4 {
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
 .blog-post h5 {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 10px;
   margin-bottom: 5px;
   border-bottom-width: 0px;
@@ -630,7 +647,7 @@ html, body {
 .blog-post h6 {
   /* .p font-size is 18px */
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 5px;
   margin-bottom: 5px;
   border-bottom-width: 0px;
@@ -655,7 +672,7 @@ html, body {
 }
 
 .post-preview .post-read-more {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1019,6 +1036,16 @@ table tr td {
   padding: 6px 13px;
 }
 
+.chroma table tr th {
+  border: none;
+  padding: 0;
+}
+
+.chroma table tr td {
+  border: none;
+  padding: 0;
+}
+
 table tr th :first-child,
 table tr td :first-child {
   margin-top: 0;
@@ -1345,11 +1372,11 @@ code {
   color: #4c51bf;
   background-color: #e2e8f0;
   /* font-size: 1rem; */
-  font-family: monobase, monospace;
+  font-family: 'Fira Code', 'Source Han Sans CN', monobase, monospace;
   font-size: 0.9em;
 }
 
-pre {
+.chroma {
   border-left-width: 4px;
   border-top-width: 0px;
   border-right-width: 0px;
@@ -1359,7 +1386,7 @@ pre {
   background-color: #edf2f7;
 }
 
-pre code.hljs {
+.chroma code.hljs {
   background-color: transparent;
 }
 
@@ -1368,7 +1395,7 @@ dd {
   margin-left: 10px;
 }
 
-.highlight > pre {
+.highlight > .chroma {
   border: solid;
   border-left-width: 4px;
   border-top-width: 0px;
@@ -1399,6 +1426,12 @@ dd {
 
 .hljs .lnt {
   user-select: none;
+}
+
+.highlight>.chroma .kd,
+.highlight>.chroma .k {
+  font-weight: bold;
+  color: #4c51bf;
 }
 
 .blog-post > .blocktitle {
