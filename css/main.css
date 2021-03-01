@@ -823,7 +823,8 @@ html, body {
 
 .intro-header .page-heading h1,
 .intro-header .categories-heading h1,
-.intro-header .tags-heading h1 {
+.intro-header .tags-heading h1,
+.page-subheading {
   text-align: center;
 }
 
