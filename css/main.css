@@ -2,17 +2,18 @@
 
 @font-face {
   font-family: base;
-  font-weight: 400;
-  font-style: normal;
-  src: local("Microsoft YaHei"), local('WenQuanYi Micro Hei'), url(/static/fonts/wqy-microhei.ttc) format('ttc');
+  /* font-weight: 400; */
+  /* font-style: normal; */
+  src: local('Source Han Sans CN'), local('Sarasa Gothic SC'), local('Noto Sans CJK SC'), local('Noto Sans SC'), url(/fonts/SourceHanSansCN-Regular.otf);
 }
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap'); */
 @font-face {
   font-family: monobase;
   font-weight: 400;
   font-style: normal;
   font-variant-ligatures: common-ligatures;
-  src: 'Fira Code', source-han-sans-simplified-c, 'Source Han Sans CN', local('Fira Code'), local('Source Han Sans CN'), url(/static/fonts/FiraCode-Regular.ttf) format('ttf'), url(/static/fonts/wqy-zenhei.ttc) format('ttc');
+  src: local('Fira Code'), local('Sarasa Mono SC'), local('Source Han Sans CN'), url(/fonts/FiraCode-Regular.ttf), url(/fonts/SourceHanSansCN-Regular.otf);
 }
 
 /* @font-face {
@@ -26,7 +27,7 @@
 }
 
 body {
-  font-family: 'Lora', base, 'Times New Roman', serif;
+  font-family: 'Lora', 'Times New Roman', base, serif;
   font-size: 18px;
   color: #404040;
   position: relative;
@@ -76,6 +77,7 @@ p a {
 } */
 
 h1, h2, h3, h4, h5, h6 {
+  /* Chinese Font first to avoid English Quotes */
   font-family: 'Source Han Sans CN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
   font-weight: 600;
 }
@@ -89,14 +91,16 @@ a:focus {
   color: #0085a1;
 }
 
+.post-preview blockquote, 
 .blog-post blockquote {
   color: #808080;
   /* font-style: italic; */
-  font-family: verdana, helvetica, sans-serif;
+  font-family: verdana, helvetica, 'Source Han Sans CN', sans-serif;
   background: none repeat scroll 0 0 rgba(31, 30, 30, 0.05);
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
+.post-preview blockquote p:first-child,
 .blog-post blockquote p:first-child {
   margin-top: 0;
 }
@@ -1372,7 +1376,8 @@ code {
   color: #4c51bf;
   background-color: #e2e8f0;
   /* font-size: 1rem; */
-  font-family: 'Fira Code', 'Source Han Sans CN', monobase, monospace;
+  /* font-family: 'Fira Code', 'Source Han Sans CN', monobase, monospace; */
+  font-family: monobase, 'Fira Code', 'Sarasa Mono SC', 'Source Han Sans CN', monospace;
   font-size: 0.9em;
 }
 
@@ -1576,4 +1581,8 @@ svg:not(:root).svg-inline {
 
 .highlight>.chroma>.language-go::before{
   content:"Go"
+}
+
+.highlight>.chroma>.language-xml::before{
+  content:"XML"
 }
