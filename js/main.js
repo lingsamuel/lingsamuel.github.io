@@ -373,3 +373,151 @@ document.body.addEventListener('dblclick', function(e) {
   }
 
 });
+
+// 自动处理中英文混排
+// 英文合法字符串
+function canBeEn(str) {
+  // 仅判断：数字字母、逗号、空格、斜杠、ASCII 引号，Unicode 引号，英文圆括号，英文句号，叹号，问号，dash
+  return str != undefined && /^[0-9a-zA-Z, //\\\'\"‘’“”\(\)\.\!\?\-]+$/.test(str);
+}
+
+function isQuote(char) {
+  return (['\'', '\"', '‘', '’', '“', '”']).includes(char);
+}
+
+function isEnOnlyQuote(char) {
+  return (['\'', '\"']).includes(char);
+}
+
+function isOpenQuote(char) {
+  return (['‘', '“']).includes(char);
+}
+
+function isCloseQuote(char) {
+  return (['’', '”']).includes(char);
+}
+
+// 目标 index 处若是引号，判断是不是英文引号
+// 要求临近字符需要是英文或空格（你好 “eng” 你好）=> （你好 "eng" 你好）
+function quotingEn(str, index) {
+  if (index == undefined || index < 0 || index >= str.length) {
+      console.log(`Checking out of index ${index}`);
+      return false;
+  }
+  if (!isQuote(str[index])) {
+      // 不是引号
+      return false;
+  }
+
+  // 理论上讲开引号后、闭引号前不应该跟空格。
+  if (isOpenQuote(str[index])) {
+      // 开引号后，需要是英文。
+      let nextIsEN = index == str.length - 1 || canBeEn(str[index + 1]);
+      return nextIsEN;
+  } else if (isCloseQuote(str[index])) {
+      // 闭引号前，需要是英文。
+      let prevIsEN = index == 0 || canBeEn(str[index - 1]);
+      return prevIsEN;
+  } else if (isEnOnlyQuote(str[index])) {
+      return true;
+  }
+}
+
+function splitStringByLang(str) {
+  let arr = [];
+  let push = function(s) {
+    // 合并空格
+    if ((s.trim().length == 0 && arr.length != 0) || (arr.length == 1 && arr[0].trim().length == 0)) {
+        arr[arr.length - 1] = arr[arr.length - 1] + s
+    } else {
+        arr.push(s)
+    }
+  }
+
+  let lastStart = 0;
+  for (let i = 0; i < str.length; i++) {
+      if (canBeEn(str[i]) && // 是英文字符
+          (!isQuote(str[i]) || quotingEn(str, i))) { // 若是引号，需要是英文引号
+          if (lastStart != i) {
+            push(str.slice(lastStart, i));
+          }
+          lastStart = i;
+
+          i++;
+          while (i < str.length && canBeEn(str[i]) && // 是英文字符
+              (!isQuote(str[i]) || quotingEn(str, i))) { // 若是引号，需要是英文引号
+              i++;
+          }
+          push(str.slice(lastStart, i));
+          lastStart = i;
+      }
+  }
+  if (str.length != lastStart) {
+    push(str.slice(lastStart, str.length));
+  }
+  return arr;
+}
+
+function sanitizer(str) {
+  let arr = splitStringByLang(str);
+
+  let result = [];
+  let isEn = canBeEn(arr[0]);
+  // 由于只支持中英，实际上只需要返回第一个元素的语言即可。
+  // 不过为了调用者的方便，还是算了。
+  for (let i = 0; i < arr.length; i++) {
+      result.push({
+          lang: isEn ? "en" : "zh",
+          content: arr[i],
+      });
+      isEn = !isEn;
+  }
+  return result;
+}
+
+
+function addSpan(lang, str){
+  return `<span lang='${lang}'>${str}</span>`
+}
+
+function tryTranspile(elem) {
+  if (!elem.hasChildNodes()) {
+    return;
+  }
+  for(let n = 0; n < elem.childNodes.length; n ++) {
+    let node = elem.childNodes[n];
+    if(elem.childNodes[n].nodeType != Node.TEXT_NODE) {
+      continue;
+    }
+    
+    let str = node.textContent;
+
+    let arr = sanitizer(str);
+    if(arr.length == 1) {
+      // 仅含一种语言
+      return;
+    }
+    let nextNode = elem.childNodes[n+1];
+    for(let i = 0; i < arr.length; i++){
+      let newNode = document.createElement("span");
+      newNode.lang = arr[i].lang;
+      newNode.textContent = arr[i].content;
+      elem.insertBefore(newNode, nextNode);
+    }
+    elem.removeChild(node);
+    n = n + arr.length - 1;
+  }
+}
+
+function updateHeaderLang() {
+  $("h1, h2, h3, h4, h5, h6, p").each((i,elem)=>{
+    // 整句英文
+    if(canBeEn(elem.innerText)) {
+      elem.lang="en";
+      return;
+    }
+    tryTranspile(elem);
+  })
+}
+
+$(document).ready(updateHeaderLang);

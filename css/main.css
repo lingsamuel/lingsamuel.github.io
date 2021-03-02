@@ -2,7 +2,9 @@
 
 @font-face {
   font-family: base;
-  /* font-weight: 400; */
+
+  /* 似乎指定了这个之后使得使用该 font-face 的 font-weight 不再生效（weight 被固定了） */
+  /* font-weight: 800; */
   /* font-style: normal; */
   src: local('Source Han Sans CN'), local('Sarasa Gothic SC'), local('Noto Sans CJK SC'), local('Noto Sans SC'), url(/fonts/SourceHanSansCN-Regular.otf);
 }
@@ -14,6 +16,12 @@
   font-style: normal;
   font-variant-ligatures: common-ligatures;
   src: local('Fira Code'), local('Sarasa Mono SC'), local('Source Han Sans CN'), url(/fonts/FiraCode-Regular.ttf), url(/fonts/SourceHanSansCN-Regular.otf);
+}
+
+@font-face {
+  font-family: "Chinese Quote";
+  src: local('Source Han Sans CN Medium'), url(/fonts/SourceHanSansCN-Regular.otf);
+  unicode-range: U+2018, U+2019, U+201c, U+201d;
 }
 
 /* @font-face {
@@ -35,6 +43,10 @@ body {
   display: flex;
   flex-flow: column;
   height: 100vh;
+}
+
+p>span:lang(zh) {
+  font-family: base, serif;
 }
 
 .container[role=main] {
@@ -76,9 +88,16 @@ p a {
   font-weight: 800;
 } */
 
-h1, h2, h3, h4, h5, h6 {
+h1:lang(en), h2:lang(en), h3:lang(en), h4:lang(en), h5:lang(en), h6:lang(en), 
+h1 span:lang(en), h2 span:lang(en), h3 span:lang(en), h4 span:lang(en), h5 span:lang(en), h6 span:lang(en){
+  font-family: 'Noto Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
+  font-weight: 600;
+}
+
+h1:lang(zh), h2:lang(zh), h3:lang(zh), h4:lang(zh), h5:lang(zh), h6:lang(zh),
+h1 span:lang(zh), h2 span:lang(zh), h3 span:lang(zh), h4 span:lang(zh), h5 span:lang(zh), h6 span:lang(zh) {
   /* Chinese Font first to avoid English Quotes */
-  font-family: 'Source Han Sans CN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
+  font-family: 'Source Han Sans CN', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
   font-weight: 600;
 }
 
