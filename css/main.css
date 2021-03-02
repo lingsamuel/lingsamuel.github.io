@@ -1620,12 +1620,143 @@ svg:not(:root).svg-inline {
   content:'Code'
 }
 
+/* Shell */
+
 .highlight>.chroma>.language-bash::before{
   content:"Bash"
 }
 
+.highlight>.chroma>.language-shell::before{
+  content:"Shell"
+}
+
+.highlight>.chroma>.language-zsh::before{
+  content:"Z Shell"
+}
+
+/* Language */
+
+.highlight>.chroma>.language-js::before,
+.highlight>.chroma>.language-javascript::before{
+  content:"JavaScript"
+}
+
+.highlight>.chroma>.language-ts::before,
+.highlight>.chroma>.language-typescript::before{
+  content:"TypeScript"
+}
+
+.highlight>.chroma>.language-ruby::before{
+  content:"Ruby"
+}
+
+.highlight>.chroma>.language-python::before{
+  content:"Python"
+}
+
 .highlight>.chroma>.language-go::before{
   content:"Go"
+}
+
+.highlight>.chroma>.language-c::before{
+  content:"C"
+}
+
+.highlight>.chroma>.language-cs::before,
+.highlight>.chroma>.language-csharp::before{
+  content:"C#"
+}
+
+.highlight>.chroma>.language-cpp::before{
+  content:"C++"
+}
+
+.highlight>.chroma>.language-css::before{
+  content:"CSS"
+}
+
+.highlight>.chroma>.language-rust::before{
+  content:"Rust"
+}
+
+.highlight>.chroma>.language-hs::before,
+.highlight>.chroma>.language-haskell::before{
+  content:"Haskell"
+}
+
+.highlight>.chroma>.language-lisp::before{
+  content:"Lisp"
+}
+
+.highlight>.chroma>.language-lua::before{
+  content:"Lua"
+}
+
+.highlight>.chroma>.language-scala::before{
+  content:"Scala"
+}
+
+.highlight>.chroma>.language-java::before{
+  content:"Java"
+}
+
+.highlight>.chroma>.language-kt::before,
+.highlight>.chroma>.language-kotlin::before{
+  content:"Kotlin"
+}
+
+/* Document */
+
+.highlight>.chroma>.language-tex::before{
+  content:"LaTeX"
+}
+
+.highlight>.chroma>.language-docker::before,
+.highlight>.chroma>.language-dockerfile::before{
+  content:"Dockerfile"
+}
+
+.highlight>.chroma>.language-nginx::before{
+  content:"Nginx"
+}
+
+.highlight>.chroma>.language-vim::before{
+  content:"Vim"
+}
+
+.highlight>.chroma>.language-ebnf::before{
+  content:"EBNF"
+}
+
+.highlight>.chroma>.language-mermaid::before{
+  content:"Mermaid"
+}
+
+.highlight>.chroma>.language-go-html-template::before{
+  content:"Go HTML Template"
+}
+
+.highlight>.chroma>.language-json::before{
+  content:"JSON"
+}
+
+.highlight>.chroma>.language-toml::before{
+  content:"TOML"
+}
+
+.highlight>.chroma>.language-yml::before,
+.highlight>.chroma>.language-yaml::before{
+  content:"YAML"
+}
+
+.highlight>.chroma>.language-diff::before,
+.highlight>.chroma>.language-patch::before{
+  content:"Diff"
+}
+
+.highlight>.chroma>.language-md::before,
+.highlight>.chroma>.language-markdown::before{
+  content:"Markdown"
 }
 
 .highlight>.chroma>.language-xml::before{
