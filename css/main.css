@@ -35,7 +35,8 @@
 }
 
 body {
-  font-family: 'Lora', 'Times New Roman', base, serif;
+  /* 由于是中英混排，应优先使用中文引号。 */
+  font-family: "Chinese Quote", 'Lora', 'Times New Roman', base, serif;
   font-size: 18px;
   color: #404040;
   position: relative;
@@ -45,8 +46,14 @@ body {
   height: 100vh;
 }
 
-p>span:lang(zh) {
-  font-family: base, serif;
+/* p:lang(zh), 使没有 lang 的 p 正确显示中文引号 */
+/* p>span:lang(zh) {
+  font-family: "Chinese Quote", 'Lora', 'Times New Roman', base, serif;
+} */
+
+p:lang(en),
+p>span:lang(en) {
+  font-family: 'Lora', 'Times New Roman', base, serif;
 }
 
 .container[role=main] {
