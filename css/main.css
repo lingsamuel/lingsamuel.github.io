@@ -1146,8 +1146,19 @@ div.splitbox div.right {
 }
 
 /* Related posts */
-h4.see-also {
+.see-also h4 {
   margin-top: 20px;
+  border-bottom: 0px;
+}
+
+.see-also hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 2px solid #eee;
+}
+
+.see-also a {
+  color: #337ab7;
 }
 
 /* Sharing */
