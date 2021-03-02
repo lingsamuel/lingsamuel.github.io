@@ -377,8 +377,14 @@ document.body.addEventListener('dblclick', function(e) {
 // 自动处理中英文混排
 // 英文合法字符串
 function canBeEn(str) {
-  // 仅判断：数字字母、逗号、空格、斜杠、ASCII 引号，Unicode 引号，英文圆括号，英文句号，叹号，问号，dash
-  return str != undefined && /^[0-9a-zA-Z, //\\\'\"‘’“”\(\)\.\!\?\-\r\n]+$/.test(str);
+  // 仅判断：数字字母、逗号、空格、斜杠、ASCII 引号，Unicode 引号，英文圆括号，英文句号，英文叹号，英文问号，英文 dash，换行，冒号
+  return str != undefined && /^[0-9a-zA-Z, //\\\'\"‘’“”\(\)\.\!\?\-\r\n\:]+$/.test(str);
+}
+
+function onlyNeutralCharacter(str) {
+  // 仅判断中立符号：
+  // 数字、空格、斜杠、Unicode 引号，换行
+  return str != undefined && /^[0-9 //\\‘’“”\r\n]+$/.test(str);
 }
 
 function hasEnLetter(str) {
@@ -554,11 +560,18 @@ function sanitizer(str) {
   // 由于只支持中英，实际上只需要返回第一个元素的语言即可。
   // 不过为了调用者的方便，还是算了。
   for (let i = 0; i < arr.length; i++) {
+    // if (onlyNeutralCharacter(arr[i])) {
+    //   result.push({
+    //     lang: "",
+    //     content: arr[i],
+    //   });
+    // } else {
     result.push({
       lang: isEn ? "en" : "zh",
       content: arr[i],
     });
     isEn = !isEn;
+    // }
   }
   return result;
 }
@@ -582,9 +595,11 @@ function tryTranspile(elem) {
 
     let arr = sanitizer(str);
     if (arr.length == 1) {
+      node.lang = arr[0].lang;
       // 仅含一种语言
-      return;
+      continue;
     }
+    // console.log(arr)
     let nextNode = elem.childNodes[n + 1];
     for (let i = 0; i < arr.length; i++) {
       let newNode = document.createElement("span");
@@ -598,6 +613,8 @@ function tryTranspile(elem) {
 }
 
 function updateHeaderLang() {
+  let start = new Date();
+  console.log("parse start", start)
   $("h1, h2, h3, h4, h5, h6, p").each((i, elem) => {
     // 整句英文
     if (canBeEn(elem.innerText)) {
@@ -606,6 +623,8 @@ function updateHeaderLang() {
     }
     tryTranspile(elem);
   })
+  let end = new Date();
+  console.log("parse end", end, "take", end - start, "ms")
 }
 
 $(document).ready(updateHeaderLang);

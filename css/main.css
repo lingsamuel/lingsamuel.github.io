@@ -126,6 +126,20 @@ a:focus {
   font-size: 0.9em;
 }
 
+.post-preview blockquote p:lang(en), 
+.blog-post blockquote p:lang(en),
+.post-preview blockquote p>span:lang(en), 
+.blog-post blockquote p>span:lang(en) {
+  font-family: verdana, helvetica, 'Source Han Sans CN', sans-serif;
+}
+
+.post-preview blockquote p:lang(zh),
+.blog-post blockquote p:lang(zh),
+.post-preview blockquote p>span:lang(zh),
+.blog-post blockquote p>span:lang(zh) {
+  font-family: "Chinese Quote", verdana, helvetica, 'Source Han Sans CN', sans-serif;
+}
+
 .post-preview blockquote p:first-child,
 .blog-post blockquote p:first-child {
   margin-top: 0;
@@ -1393,6 +1407,16 @@ p.figcaption {
   font-style: italic;
 }
 
+p.figcaption>span:lang(en),
+p.figcaption:lang(en) {
+  font-family: "Overpass", "Rubik", sans-serif;;
+}
+
+p.figcaption>span:lang(zh),
+p.figcaption:lang(zh) {
+  font-family: "Overpass", "Rubik", sans-serif;;
+}
+
 p.figcaption-right {
   text-align: right;
   padding-right: 4px;
@@ -1506,6 +1530,14 @@ dd {
   user-select: none;
   font-size: 0.9em;
   text-indent: 1em;
+}
+
+.blocktitle:lang(en) {
+  font-family: verdana, helvetica, sans-serif;
+}
+
+.blocktitle:lang(zh) {
+  font-family: "Chinese Quote", verdana, helvetica, sans-serif;
 }
 
 .alert {
