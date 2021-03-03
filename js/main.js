@@ -585,6 +585,7 @@ function tryTranspile(elem) {
   if (!elem.hasChildNodes()) {
     return;
   }
+  let parentFontFamily = getComputedStyle(elem).fontFamily;
   for (let n = 0; n < elem.childNodes.length; n++) {
     let node = elem.childNodes[n];
     if (elem.childNodes[n].nodeType != Node.TEXT_NODE) {
@@ -596,6 +597,10 @@ function tryTranspile(elem) {
     let arr = sanitizer(str);
     if (arr.length == 1) {
       node.lang = arr[0].lang;
+      if (arr[0].lang == "zh") {
+        // 由于不插入新子节点，因此直接修改该元素
+        elem.style.fontFamily = "'Chinese Quote'," + parentFontFamily;
+      }
       // 仅含一种语言
       continue;
     }
@@ -603,7 +608,11 @@ function tryTranspile(elem) {
     let nextNode = elem.childNodes[n + 1];
     for (let i = 0; i < arr.length; i++) {
       let newNode = document.createElement("span");
-      newNode.lang = arr[i].lang;
+      // newNode.lang = arr[i].lang;
+      if (arr[i].lang == "zh") {
+        // 算了吧还是别处理洋文了少改 css 嚄
+        newNode.style.fontFamily = "'Chinese Quote'," + parentFontFamily;
+      }
       newNode.textContent = arr[i].content;
       elem.insertBefore(newNode, nextNode);
     }

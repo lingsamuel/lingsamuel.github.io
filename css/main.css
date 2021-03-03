@@ -42,7 +42,8 @@
 
 body {
   /* 由于是中英混排，应优先使用中文引号。 */
-  font-family: "Chinese Quote", 'Lora', 'Times New Roman', base, serif;
+  /* font-family: "Chinese Quote", 'Lora', 'Times New Roman', base, serif; */
+  font-family: 'Lora', 'Times New Roman', base, serif;
   font-size: 18px;
   color: #404040;
   position: relative;
@@ -58,12 +59,12 @@ body {
 } */
 
 
-.post-previw p:lang(en),
+/* .post-previw p:lang(en),
 .post-previw p>span:lang(en),
 .blog-post p:lang(en),
 .blog-post p>span:lang(en) {
   font-family: 'Lora', 'Times New Roman', base, serif;
-}
+} */
 
 .container[role=main] {
   margin-bottom: 50px;
@@ -99,12 +100,12 @@ p a {
   color: #008AFF;
 }
 
-/* h1, h2, h3, h4, h5, h6 :lang(en){
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Noto Sans', 'Source Han Sans CN', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
-  font-weight: 800;
-} */
+  font-weight: 600;
+}
 
-h1:lang(en), h2:lang(en), h3:lang(en), h4:lang(en), h5:lang(en), h6:lang(en), 
+/* h1:lang(en), h2:lang(en), h3:lang(en), h4:lang(en), h5:lang(en), h6:lang(en), 
 h1 span:lang(en), h2 span:lang(en), h3 span:lang(en), h4 span:lang(en), h5 span:lang(en), h6 span:lang(en){
   font-family: 'Noto Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
   font-weight: 600;
@@ -112,10 +113,9 @@ h1 span:lang(en), h2 span:lang(en), h3 span:lang(en), h4 span:lang(en), h5 span:
 
 h1:lang(zh), h2:lang(zh), h3:lang(zh), h4:lang(zh), h5:lang(zh), h6:lang(zh),
 h1 span:lang(zh), h2 span:lang(zh), h3 span:lang(zh), h4 span:lang(zh), h5 span:lang(zh), h6 span:lang(zh) {
-  /* Chinese Font first to avoid English Quotes */
   font-family: "Chinese Quote", 'Source Han Sans CN', 'Helvetica Neue', Helvetica, Arial, base, sans-serif;
   font-weight: 600;
-}
+} */
 
 a {
   color: #008AFF;
@@ -135,7 +135,7 @@ a:focus {
   font-size: 0.9em;
 }
 
-.post-preview blockquote p:lang(en), 
+/* .post-preview blockquote p:lang(en), 
 .blog-post blockquote p:lang(en),
 .post-preview blockquote p>span:lang(en), 
 .blog-post blockquote p>span:lang(en) {
@@ -147,7 +147,7 @@ a:focus {
 .post-preview blockquote p>span:lang(zh),
 .blog-post blockquote p>span:lang(zh) {
   font-family: "Chinese Quote", verdana, helvetica, 'Source Han Sans CN', sans-serif;
-}
+} */
 
 .post-preview blockquote p:first-child,
 .blog-post blockquote p:first-child {
@@ -1416,7 +1416,7 @@ p.figcaption {
   font-style: italic;
 }
 
-p.figcaption>span:lang(en),
+/* p.figcaption>span:lang(en),
 p.figcaption:lang(en) {
   font-family: "Overpass", "Rubik", sans-serif;;
 }
@@ -1424,7 +1424,7 @@ p.figcaption:lang(en) {
 p.figcaption>span:lang(zh),
 p.figcaption:lang(zh) {
   font-family: "Overpass", "Rubik", sans-serif;;
-}
+} */
 
 p.figcaption-right {
   text-align: right;
@@ -1541,13 +1541,13 @@ dd {
   text-indent: 1em;
 }
 
-.blocktitle:lang(en) {
+/* .blocktitle:lang(en) {
   font-family: verdana, helvetica, sans-serif;
 }
 
 .blocktitle:lang(zh) {
   font-family: "Chinese Quote", verdana, helvetica, sans-serif;
-}
+} */
 
 .alert {
   position: relative;
