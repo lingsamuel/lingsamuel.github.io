@@ -15,7 +15,7 @@
   font-weight: 400;
   font-style: normal;
   font-variant-ligatures: common-ligatures;
-  src: local('Fira Code'), local('Sarasa Mono SC'), local('Source Han Sans CN'), url(/fonts/FiraCode-Regular.ttf), url(/fonts/SourceHanSansCN-Regular.otf);
+  src: url(/fonts/FiraCode-Regular.ttf), local('Sarasa Mono SC'), local('Source Han Sans CN'), url(/fonts/SourceHanSansCN-Regular.otf);
 }
 
 @font-face {
