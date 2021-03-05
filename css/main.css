@@ -1840,3 +1840,33 @@ svg:not(:root).svg-inline {
 .highlight>.chroma>.language-xml::before{
   content:"XML"
 }
+
+.pager {
+  display: flex;
+}
+
+.pager .previous {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pager .paginator {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.pager .next {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pager .pager {
+  margin-top: 0;
+}
+
+.paginator.current a {
+  background-color: #f5f5f5;
+}
