@@ -393,6 +393,10 @@ function onlyNeutralCharacter(str) {
   return str != undefined && /^[0-9 //\\‘’“”\r\n]+$/.test(str);
 }
 
+function hasQuote(str) {
+  return str != undefined && /[‘’“”]/g.test(str);
+}
+
 function hasEnLetter(str) {
   return str != undefined && /[a-zA-Z]/g.test(str);
 }
@@ -419,6 +423,33 @@ function isOpenDoubleQuote(char) {
 
 function isCloseDoubleQuote(char) {
   return (['”']).includes(char);
+}
+
+function tryGetNextMatchDoubleQuote(str, index) {
+  if (!isOpenDoubleQuote(str[index])) {
+    return { i: -1 };;
+  }
+
+  let isQuotingCn = false;
+  let i = index + 1;
+  let stack = [];
+  while (i < str.length) {
+    if (isOpenDoubleQuote(str[i])) {
+      stack.push(str[i]);
+    }
+    if (isCloseDoubleQuote(str[i]) && stack.length == 0) {
+      if (isQuotingCn) {
+        return { lang: "zh", i: i };
+      } else {
+        return { lang: "en", i: i };
+      }
+    }
+    if (!canBeEn(str[i])) {
+      isQuotingCn = true;
+    }
+    i++;
+  }
+  return { i: -1 };
 }
 
 function openDoubleQuotingCn(str, index) {
@@ -536,6 +567,15 @@ function splitStringByLang(str) {
 
   let lastStart = 0;
   for (let i = 0; i < str.length; i++) {
+    // if (isOpenDoubleQuote(str[i])) {
+    //   let matchedQuoteIndex = tryGetNextMatchDoubleQuote(str, i);
+    //   if (matchedQuoteIndex.i != -1) {
+    //     i = matchedQuoteIndex;
+    //     push(str.slice(lastStart, i));
+    //     lastStart = i;
+    //     continue;
+    //   }
+    // }
     if (canBeEn(str[i]) && // 是英文字符
       (!isQuote(str[i]) || quotingEn(str, i))) { // 若是引号，需要是英文引号
       if (lastStart != i) {
@@ -630,6 +670,7 @@ function tryTranspile(elem) {
   let invalidSubElement = [
     "IMG", "CODE", "Q", "TEXTAREA", "SCRIPT", "PRE", "SVG", "PATH", "CANVAS", "NOSCRIPT", "FORM", "STYLE"
   ];
+
   let parentFontFamily = getComputedStyle(elem).fontFamily;
   for (let n = 0; n < elem.childNodes.length; n++) {
     let node = elem.childNodes[n];
@@ -644,23 +685,33 @@ function tryTranspile(elem) {
 
     let arr = sanitizer(str);
     // console.log(elem, node,arr);
+    // console.log(str)
     if (arr.length == 0) {
       continue;
     }
     if (n == 0 && elem.childNodes.length == 1 && arr.length == 1) {
       // node.lang = arr[0].lang;
       // elem.lang = arr[0].lang;
-      elem.style.fontFamily = autoQuote(arr[0].lang, parentFontFamily);
+      if (hasQuote(arr[0].content)) {
+        // console.log(str, arr[0].lang, parentFontFamily)
+        elem.style.fontFamily = autoQuote(arr[0].lang, parentFontFamily);
+      }
       // 仅含一种语言
       continue;
     }
     // console.log(arr);
     let nextNode = elem.childNodes[n + 1];
     for (let i = 0; i < arr.length; i++) {
-      let newNode = document.createElement("span");
+      let newNode;
+      if (!hasQuote(arr[i].content)) {
+        newNode = document.createTextNode(arr[i].content);
+      } else {
+        newNode = document.createElement("span");
+        // console.log(str, arr[0].lang, parentFontFamily)
+        newNode.style.fontFamily = autoQuote(arr[i].lang, parentFontFamily, true);
+        newNode.textContent = arr[i].content;
+      }
       // newNode.lang = arr[i].lang;
-      newNode.style.fontFamily = autoQuote(arr[i].lang, parentFontFamily, true);
-      newNode.textContent = arr[i].content;
       elem.insertBefore(newNode, nextNode);
     }
     elem.removeChild(node);
