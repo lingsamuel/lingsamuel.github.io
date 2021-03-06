@@ -6,7 +6,7 @@
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header class=header-section><div id=intro-header class="intro-header no-img"><div class=container><div class=row><div class="col-lg-11 col-lg-offset-1"><div class=page-heading><h1>透明代理调试内网服务</h1><hr class=small><div class=post-meta style=display:flex;justify-content:space-between><span style=display:inline-flex>Posted on September 22, 2020
-&nbsp;(Last modified on March 6, 2021)
+&nbsp;(Last modified on March 1, 2021)
 by Ling Samuel</span></div><div class=blog-categories><a href=https://lingsamuel.github.io/categories/system-maintenance/>system-maintenance</a>&nbsp;</div></div></div></div></div></div></header><div class=container id=mainContainer role=main><div class=row><div class="col-lg-8 col-lg-offset-1"><article role=main class=blog-post><p>我迫切希望各家公司能把网络连通性搞搞好。</p><h2 id=配置-socks-代理>配置 Socks 代理</h2><p>首先开启 Socks 代理，端口为 12345，此处假设在 <code>.ssh/config</code> 里配置了 Host 名为 <code>target</code>：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>ssh -D <span class=m>12345</span> target
 
 <span class=c1># 测试代理可用性</span>
