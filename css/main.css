@@ -1673,6 +1673,20 @@ svg:not(:root).svg-inline {
   padding-right: 0;
 }
 
+.codesource,
+.codesource + .highlight,
+.highlight + .codesource {
+  border-radius: 0.25rem;
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+  background:#a3bffa;
+}
+
+.codesource a {
+  padding-left: 1em;
+  color:#4c52bf;
+}
+
 .highlight>.chroma>code::before{
   display: block;
   padding:2px 7px;
@@ -1680,7 +1694,7 @@ svg:not(:root).svg-inline {
   margin-left: -12px;
   margin-bottom: 0.25em;
   font-weight:700;
-  color:#4c52bf;;
+  color:#4c52bf;
   background:#a3bffa;
   content:'Code'
 }
