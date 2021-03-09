@@ -734,4 +734,4 @@ function updateHeaderLang() {
   console.log("parse end", end, "take", end - start, "ms")
 }
 
-// $(document).ready(updateHeaderLang);
+$(document).ready(updateHeaderLang);
