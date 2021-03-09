@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="zh" itemscope="" itemtype="http://schema.org/WebPage"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>zsh 配置 - Hakurei Shrine</title><meta property="og:title" content="zsh 配置"><meta name="twitter:title" content="zsh 配置"><meta name="description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name="twitter:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name="author" content="Ling Samuel"><script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Hakurei Shrine","url":"https:\/\/lingsamuel.github.io\/"}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/lingsamuel.github.io\/"}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/lingsamuel.github.io\/","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","name":"Zsh 配置"}}]}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","author":{"name":"Ling Samuel"},"headline":"zsh 配置","description":"考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。\n","inLanguage":"en","wordCount":1540,"datePublished":"2020-07-19T00:00:00","dateModified":"2020-07-19T00:00:00","image":"https:\/\/lingsamuel.github.io\/","keywords":["linux, shell"],"mainEntityOfPage":"https:\/\/lingsamuel.github.io\/page\/zsh-configuration\/","publisher":{"@type":"Organization","name":"https:\/\/lingsamuel.github.io\/","logo":{"@type":"ImageObject","url":"https:\/\/lingsamuel.github.io\/","height":60,"width":60}}}</script><meta property="og:title" content="zsh 配置"><meta property="og:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><meta name="twitter:title" content="zsh 配置"><meta name="twitter:description" content="考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。"><meta name="twitter:card" content="summary"><link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon"><meta name="twitter:card" content="summary"><meta property="og:url" content="https://lingsamuel.github.io/page/zsh-configuration/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel="stylesheet" href="https://lingsamuel.github.io/css/highlight.min.css"><link rel="stylesheet" href="https://lingsamuel.github.io/css/codeblock.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://lingsamuel.github.io/css/main.css"><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async="" src="https://www.google-analytics.com/analytics.js"></script></head><body id="body"><nav id="navbar" class="navbar navbar-default navbar-fixed-top navbar-custom nav-bottom-border"><div class="container-fluid nav-container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+<a class="navbar-brand" href="https://lingsamuel.github.io/">Hakurei Shrine</a></div><div class="collapse navbar-collapse" id="main-navbar"><ul class="nav navbar-nav navbar-right"><li><a title="Articles" href="/page">Articles</a></li><li><a title="Reviews" href="/review">Reviews</a></li><li><a title="Feeds" href="/feed">Feeds</a></li><li><a title="About" href="/about">About</a></li><li><a title="Categories" href="/categories">Categories</a></li><li><a title="Tags" href="/tags">Tags</a></li></ul></div></div></nav><div class="pswp" tabindex="-1" role="dialog" aria-hidden="true"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title="Share"></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div class="pswp__caption__center"></div></div></div></div></div><header class="header-section"><div id="intro-header" class="intro-header no-img" style="margin-top: 98px;"><div class="container"><div class="row"><div class="col-lg-11 col-lg-offset-1"><div class="page-heading"><h1>zsh 配置</h1><hr class="small"><div class="post-meta" style="display:flex;justify-content:space-between"><span style="display:inline-flex">Posted on July 19, 2020
+&nbsp;(Last modified on March 1, 2021)
+by Ling Samuel</span></div><div class="blog-categories"><a href="https://lingsamuel.github.io/categories/system-maintenance/">system-maintenance</a>&nbsp;</div><div class="blog-tags"><a href="https://lingsamuel.github.io//tags/linux/">linux</a>&nbsp;
+<a href="https://lingsamuel.github.io//tags/shell/">shell</a>&nbsp;</div></div></div></div></div></div></header><div class="container" id="mainContainer" role="main"><div class="row"><div class="col-lg-8 col-lg-offset-1"><article role="main" class="blog-post"><p>考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。</p><h2 id="oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</h2><p><em>不保证任意环境可用，不保证无 bug</em>。</p><details><summary>Expand code</summary><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="hljs-function"><span class="hljs-title">main</span></span><span class="o">()</span> <span class="o">{</span>
+  <span class="c1"><span class="hljs-comment"># Use colors, but only if connected to a terminal, and that terminal</span></span>
+  <span class="c1"><span class="hljs-comment"># supports them.</span></span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="hljs-built_in">which</span> tput &gt;/dev/null <span class="hljs-number">2</span>&gt;<span class="p">&amp;</span><span class="hljs-number">1</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+      <span class="nv">ncolors</span><span class="o">=</span><span class="k">$(</span>tput colors<span class="k">)</span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> -t <span class="m"><span class="hljs-number">1</span></span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$ncolors</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$ncolors</span></span></span><span class="s2"><span class="hljs-string">"</span></span> -ge <span class="m"><span class="hljs-number">8</span></span> <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nv">RED</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput setaf 1</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    <span class="nv">GREEN</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput setaf 2</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput setaf 3</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    <span class="nv">BLUE</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput setaf 4</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    <span class="nv">BOLD</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput bold</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable">tput sgr0</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+  <span class="k"><span class="hljs-keyword">else</span></span>
+    <span class="nv">RED</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+    <span class="nv">GREEN</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+    <span class="nv">BLUE</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+    <span class="nv">BOLD</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2"><span class="hljs-string">""</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="c1"><span class="hljs-comment"># Only enable exit-on-error after the non-critical colorization stuff,</span></span>
+  <span class="c1"><span class="hljs-comment"># which may fail on systems lacking tput or terminfo</span></span>
+  <span class="nb"><span class="hljs-built_in">set</span></span> <span class="hljs-operator">-e</span>
+
+  <span class="nv">CHECK_ZSH_INSTALLED</span><span class="o">=</span><span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> wc <span class="hljs-operator">-l</span><span class="k">)</span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> ! <span class="nv"><span class="hljs-variable">$CHECK_ZSH_INSTALLED</span></span> -ge <span class="m"><span class="hljs-number">1</span></span> <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">YELLOW</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Zsh is not installed!</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string"> Please install zsh first!\n"</span></span>
+    <span class="nb"><span class="hljs-built_in">exit</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+  <span class="nb"><span class="hljs-built_in">unset</span></span> CHECK_ZSH_INSTALLED
+
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> ! -n <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$ZSH</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nv">ZSH</span><span class="o">=</span>~/.oh-my-zsh
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="c1"><span class="hljs-comment"># Prevent the cloned repository from having insecure permissions. Failing to do</span></span>
+  <span class="c1"><span class="hljs-comment"># so causes compinit() calls to fail with "command not found: compdef" errors</span></span>
+  <span class="c1"><span class="hljs-comment"># for users with insecure umasks (e.g., "002", allowing group writability). Note</span></span>
+  <span class="c1"><span class="hljs-comment"># that this will be ignored under Cygwin by default, as Windows ACLs take</span></span>
+  <span class="c1"><span class="hljs-comment"># precedence over umasks except for filesystems mounted with option "noacl".</span></span>
+  <span class="nb"><span class="hljs-built_in">umask</span></span> g-w,o-w
+
+  <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">BLUE</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Cloning Oh My Zsh...</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span>
+  <span class="nb"><span class="hljs-built_in">hash</span></span> git &gt;/dev/null <span class="hljs-number">2</span>&gt;<span class="p">&amp;</span><span class="m"><span class="hljs-number">1</span></span> <span class="o">||</span> <span class="o">{</span>
+    <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Error: git is not installed"</span></span>
+    <span class="nb"><span class="hljs-built_in">exit</span></span> <span class="m"><span class="hljs-number">1</span></span>
+  <span class="o">}</span>
+  <span class="c1"><span class="hljs-comment"># The Windows (MSYS) Git is not compatible with normal use on cygwin</span></span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$OSTYPE</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="o">=</span> cygwin <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="k"><span class="hljs-keyword">if</span></span> git --version <span class="p">|</span> grep msysgit &gt; /dev/null<span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+      <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Error: Windows/MSYS Git is not supported on Cygwin"</span></span>
+      <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Error: Make sure the Cygwin git package is installed and is first on the path"</span></span>
+      <span class="nb"><span class="hljs-built_in">exit</span></span> <span class="m"><span class="hljs-number">1</span></span>
+    <span class="k"><span class="hljs-keyword">fi</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">BLUE</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Looking for an existing zsh config...</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> <span class="hljs-operator">-f</span> ~/.zshrc <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -h ~/.zshrc <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">YELLOW</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Found ~/.zshrc.</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string"> </span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">GREEN</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Backing up to ~/.zshrc.pre-oh-my-zsh</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span><span class="p">;</span>
+    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh<span class="p">;</span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">BLUE</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Using the Oh My Zsh template file and adding it to ~/.zshrc</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span>
+  cp <span class="nv"><span class="hljs-variable">$ZSH</span></span>/templates/zshrc.zsh-template ~/.zshrc
+  sed <span class="s2"><span class="hljs-string">"/^export ZSH=/ c\\
+</span></span><span class="s2"><span class="hljs-string">  export ZSH=</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$ZSH</span></span></span><span class="s2"><span class="hljs-string">
+</span></span><span class="s2"><span class="hljs-string">  "</span></span> ~/.zshrc &gt; ~/.zshrc-omztemp
+  mv <span class="hljs-operator">-f</span> ~/.zshrc-omztemp ~/.zshrc
+
+  <span class="c1"><span class="hljs-comment"># If this user's login shell is not already "zsh", attempt to switch.</span></span>
+  <span class="nv">TEST_CURRENT_SHELL</span><span class="o">=</span><span class="k">$(</span>expr <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$SHELL</span></span></span><span class="s2"><span class="hljs-string">"</span></span> : <span class="s1"><span class="hljs-string">'.*/\(.*\)'</span></span><span class="k">)</span>
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[</span> <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$TEST_CURRENT_SHELL</span></span></span><span class="s2"><span class="hljs-string">"</span></span> !<span class="o">=</span> <span class="s2"><span class="hljs-string">"zsh"</span></span> <span class="o">]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="c1"><span class="hljs-comment"># If this platform provides a "chsh" command (not Cygwin), do it, man!</span></span>
+    <span class="k"><span class="hljs-keyword">if</span></span> <span class="nb"><span class="hljs-built_in">hash</span></span> chsh &gt;/dev/null <span class="hljs-number">2</span>&gt;<span class="p">&amp;</span><span class="hljs-number">1</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+      <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">BLUE</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Time to change your default shell to zsh!</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span>
+      chsh <span class="hljs-operator">-s</span> <span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> tail -<span class="hljs-number">1</span><span class="k">)</span>
+    <span class="c1"><span class="hljs-comment"># Else, suggest the user do so manually.</span></span>
+    <span class="k"><span class="hljs-keyword">else</span></span>
+      <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"I can't change your shell automatically because this system does not have chsh.\n"</span></span>
+      <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">BLUE</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">Please manually change your default shell to zsh!</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">\n"</span></span>
+    <span class="k"><span class="hljs-keyword">fi</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">GREEN</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'         __                                     __   '</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'  ____  / /_     ____ ___  __  __   ____  _____/ /_  '</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'                        /____/                       ....is now installed!'</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">''</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">''</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'Please look over the ~/.zshrc file to select plugins, themes, and options.'</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">''</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'p.s. Follow us at https://twitter.com/ohmyzsh.'</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">''</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s1"><span class="hljs-string">''</span></span>
+  <span class="nb"><span class="hljs-built_in">printf</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">NORMAL</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+  env zsh
+<span class="o">}</span>
+
+main
+</code></pre></div></details><h2 id="powerlevel10k">Powerlevel10k</h2><p>Follow the official README.</p><h2 id="stty-config">stty Config</h2><p><code>stty -a</code>:</p><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-fallback hljs perl" data-lang="fallback">speed <span class="hljs-number">38400</span> baud; rows <span class="hljs-number">24</span>; columns <span class="hljs-number">80</span>; line = <span class="hljs-number">0</span>;
+intr = ^C; quit = ^\; erase = ^?; <span class="hljs-keyword">kill</span> = ^U; <span class="hljs-keyword">eof</span> = ^D; eol = &lt;<span class="hljs-keyword">undef</span>&gt;;
+eol2 = &lt;<span class="hljs-keyword">undef</span>&gt;; swtch = &lt;<span class="hljs-keyword">undef</span>&gt;; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
+werase = ^W; lnext = ^V; discard = ^O; min = <span class="hljs-number">1</span>; <span class="hljs-keyword">time</span> = <span class="hljs-number">0</span>;
+-parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff
+-iuclc -ixany -imaxbel iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl<span class="hljs-number">0</span> cr<span class="hljs-number">0</span> tab<span class="hljs-number">0</span> bs<span class="hljs-number">0</span> vt<span class="hljs-number">0</span> ff<span class="hljs-number">0</span>
+isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
+echoctl echoke -flusho -extproc
+</code></pre></div><h2 id="aliases--custom-functions">Aliases &amp; Custom Functions</h2><details><summary>Expand code</summary><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="c1"><span class="hljs-comment"># Keybinding (like a lost technology)</span></span>
+<span class="c1"><span class="hljs-comment"># Mostly you can use command `read` to view the keybinding output</span></span>
+<span class="c1"><span class="hljs-comment"># Except keybindings in `stty` (such as Ctrl+w as word-erase `werase`), it will display the "raw" input</span></span>
+<span class="c1"><span class="hljs-comment"># Another way is press `Ctrl+V`, means `quoted-insert` in zsh/bash.</span></span>
+<span class="c1"><span class="hljs-comment"># Relation: .inputrc, Z Line Editor</span></span>
+<span class="hljs-built_in">bindkey</span> <span class="s1"><span class="hljs-string">'3~'</span></span> <span class="hljs-built_in">kill</span>-word <span class="c1"><span class="hljs-comment"># Alt-Delete</span></span>
+<span class="hljs-built_in">bindkey</span> <span class="s1"><span class="hljs-string">'5~'</span></span> <span class="hljs-built_in">kill</span>-word <span class="c1"><span class="hljs-comment"># Ctrl-Delete</span></span>
+
+<span class="hljs-built_in">bindkey</span> <span class="s1"><span class="hljs-string">'^H'</span></span> backward-kill-word <span class="c1"><span class="hljs-comment"># Ctrl-Backspacea</span></span>
+
+<span class="hljs-built_in">bindkey</span> <span class="s2"><span class="hljs-string">"\e[1;3D"</span></span> backward-word <span class="c1"><span class="hljs-comment">### Alt left</span></span>
+<span class="hljs-built_in">bindkey</span> <span class="s2"><span class="hljs-string">"^[[1;2D"</span></span> backward-word <span class="c1"><span class="hljs-comment">### Shift left</span></span>
+<span class="hljs-built_in">bindkey</span> <span class="s2"><span class="hljs-string">"\e[1;3C"</span></span> forward-word <span class="c1"><span class="hljs-comment">### Alt right</span></span>
+<span class="hljs-built_in">bindkey</span> <span class="s2"><span class="hljs-string">"^[[1;2C"</span></span> forward-word <span class="c1"><span class="hljs-comment">### Shift right</span></span>
+
+<span class="c1"><span class="hljs-comment"># General command shortcut &amp; options aliases</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">svim</span><span class="o">=</span><span class="s1"><span class="hljs-string">'sudo vim'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">vi</span><span class="o">=</span><span class="s1"><span class="hljs-string">'vim'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">ea</span><span class="o">=</span><span class="s1"><span class="hljs-string">'vim ~/.zshrc'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">apply</span><span class="o">=</span><span class="s1"><span class="hljs-string">'source ~/.zshrc'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">tldr</span><span class="o">=</span><span class="s2"><span class="hljs-string">"tldr -t base16"</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">diff</span><span class="o">=</span><span class="s2"><span class="hljs-string">"diff --strip-trailing-cr"</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">share</span><span class="o">=</span><span class="s2"><span class="hljs-string">"python -m http.server "</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">first</span><span class="o">=</span><span class="s1"><span class="hljs-string">'awk "{print \$1}"'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">second</span><span class="o">=</span><span class="s1"><span class="hljs-string">'awk "{print \$2}"'</span></span>
+
+<span class="c1"><span class="hljs-comment"># mkdir &amp;&amp; cd</span></span>
+<span class="c1"><span class="hljs-comment"># mc test/deep/folder</span></span>
+<span class="hljs-function"><span class="hljs-title">mkcdir</span></span><span class="o">()</span> <span class="o">{</span>
+    mkdir -p -- <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$1</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="o">&amp;&amp;</span>
+    <span class="nb"><span class="hljs-built_in">cd</span></span> -P -- <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$1</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+<span class="o">}</span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">mc</span><span class="o">=</span>mkcdir <span class="c1"><span class="hljs-comment"># Caution, `mc` is also GNU Midnight Commander</span></span>
+
+<span class="c1"><span class="hljs-comment">## geoip 8.8.8.8</span></span>
+<span class="hljs-function"><span class="hljs-title">curl_geoip</span></span><span class="o">(){</span>
+    <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Curling https://api.ip.sb/geoip/</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">1</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+    curl  --noproxy <span class="s2"><span class="hljs-string">"*"</span></span> https://api.ip.sb/geoip/<span class="si"><span class="hljs-variable">${</span></span><span class="nv"><span class="hljs-variable">1</span></span><span class="si"><span class="hljs-variable">}</span></span>
+<span class="o">}</span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">geoip</span><span class="o">=</span>curl_geoip
+
+<span class="c1"><span class="hljs-comment">## Commandline Copy &amp; Paste</span></span>
+<span class="c1"><span class="hljs-comment">## echo "text" | cs</span></span>
+<span class="c1"><span class="hljs-comment">## cv</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">cs</span><span class="o">=</span><span class="s2"><span class="hljs-string">"xclip"</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">cv</span><span class="o">=</span><span class="s2"><span class="hljs-string">"xclip -o"</span></span>
+<span class="c1"><span class="hljs-comment">## Copy to system clipboard</span></span>
+<span class="c1"><span class="hljs-comment">## echo "text" | copy</span></span>
+<span class="c1"><span class="hljs-comment">## &lt;ctrl+v&gt;</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">copy</span><span class="o">=</span><span class="s2"><span class="hljs-string">"xclip -selection clipboard"</span></span>
+
+
+<span class="c1"><span class="hljs-comment"># Proxy config</span></span>
+<span class="hljs-function"><span class="hljs-title">setproxy</span></span><span class="o">()</span> <span class="o">{</span>
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">SOCKS_PROXY</span><span class="o">=</span><span class="s1"><span class="hljs-string">'socks://127.0.0.1:1080'</span></span>
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">socks_proxy</span><span class="o">=</span><span class="nv"><span class="hljs-variable">$SOCKS_PROXY</span></span> 
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s1"><span class="hljs-string">'http://127.0.0.1:1081/'</span></span> 
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="nv"><span class="hljs-variable">$http_proxy</span></span> 
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="nv"><span class="hljs-variable">$http_proxy</span></span> 
+  <span class="nb"><span class="hljs-built_in">export</span></span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv"><span class="hljs-variable">$http_proxy</span></span><span class="p">;</span>
+<span class="o">}</span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">clearproxy</span><span class="o">=</span><span class="s2"><span class="hljs-string">"unset HTTP_PROXY; unset http_proxy; unset HTTPS_PROXY; unset https_proxy; unset socks_proxy; unset SOCKS_PROXY;"</span></span>
+
+<span class="c1"><span class="hljs-comment"># Typo aliases</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">exi</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">eix</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">eixt</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">xit</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">xti</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">ext</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">eit</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">e</span><span class="o">=</span><span class="nb"><span class="hljs-built_in">exit</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">clera</span><span class="o">=</span>clear
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">claer</span><span class="o">=</span>clear
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">c</span><span class="o">=</span>clear
+
+<span class="c1"><span class="hljs-comment"># manually init nvm (enable it will slow down terminal start time)</span></span>
+<span class="hljs-function"><span class="hljs-title">nvm_init</span></span><span class="o">(){</span>
+    <span class="nb"><span class="hljs-built_in">source</span></span> /usr/share/nvm/init-nvm.sh
+<span class="o">}</span>
+
+<span class="c1"><span class="hljs-comment"># Helm shortcut</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">hupdate</span><span class="o">=</span><span class="s1"><span class="hljs-string">'helm repo update'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">hls</span><span class="o">=</span><span class="s1"><span class="hljs-string">'helm search repo --devel'</span></span>
+
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">py</span><span class="o">=</span><span class="s1"><span class="hljs-string">'python'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">py3</span><span class="o">=</span><span class="s1"><span class="hljs-string">'python3'</span></span>
+<span class="nb"><span class="hljs-built_in">alias</span></span> <span class="nv">py2</span><span class="o">=</span><span class="s1"><span class="hljs-string">'python2'</span></span>
+
+<span class="c1"><span class="hljs-comment"># Hugo new_post</span></span>
+<span class="c1"><span class="hljs-comment"># Sample:</span></span>
+<span class="c1"><span class="hljs-comment">#   new_post "content/post/New Post Title"</span></span>
+<span class="c1"><span class="hljs-comment">#   new_post "content/post/Post Without Date Prefix" -r</span></span>
+<span class="hljs-function"><span class="hljs-title">new_post</span></span><span class="o">()</span> <span class="o">{</span>
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">USAGE</span><span class="o">=(</span><span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Usage:
+</span></span><span class="s2"><span class="hljs-string">  new_post &lt;path&gt;
+</span></span><span class="s2"><span class="hljs-string">Options:
+</span></span><span class="s2"><span class="hljs-string">  -r  Generate file name without date
+</span></span><span class="s2"><span class="hljs-string">"</span></span><span class="o">)</span>
+
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[[</span> -z <span class="nv"><span class="hljs-variable">$1</span></span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv"><span class="hljs-variable">$1</span></span> <span class="o">=</span> <span class="s2"><span class="hljs-string">"-"</span></span>* <span class="o">]]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nv"><span class="hljs-variable">$USAGE</span></span>
+    <span class="k"><span class="hljs-built_in">return</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2"><span class="hljs-string">"false"</span></span>
+
+  <span class="nv">OPTIND</span><span class="o">=</span><span class="m"><span class="hljs-number">2</span></span>
+  <span class="k"><span class="hljs-keyword">while</span></span> <span class="nb"><span class="hljs-built_in">getopts</span></span> <span class="s2"><span class="hljs-string">":r"</span></span> opt<span class="p">;</span> <span class="k"><span class="hljs-keyword">do</span></span>
+      <span class="k"><span class="hljs-keyword">case</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">opt</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="hljs-keyword">in</span>
+      r<span class="o">)</span>
+          <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2"><span class="hljs-string">"true"</span></span>
+          <span class="p">;;</span>
+      *<span class="o">)</span>
+          <span class="nv"><span class="hljs-variable">$USAGE</span></span>
+          <span class="k"><span class="hljs-built_in">return</span></span>
+          <span class="p">;;</span>
+      <span class="k"><span class="hljs-keyword">esac</span></span>
+  <span class="k"><span class="hljs-keyword">done</span></span>
+  
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">TITLE</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$1</span></span></span><span class="s2"><span class="hljs-string">"</span></span><span class="k">)</span>
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">DIR_NAME</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$1</span></span></span><span class="s2"><span class="hljs-string">"</span></span><span class="k">)</span>
+  mkdir -p <span class="nv"><span class="hljs-variable">$DIR_NAME</span></span>
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">FILE_NAME</span><span class="o">=</span><span class="k">$(</span><span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$TITLE</span></span></span><span class="s2"><span class="hljs-string">"</span></span> <span class="p">|</span> tr <span class="s1"><span class="hljs-string">'[:upper:]'</span></span> <span class="s1"><span class="hljs-string">'[:lower:]'</span></span> <span class="p">|</span> tr <span class="s1"><span class="hljs-string">' '</span></span> <span class="s1"><span class="hljs-string">'-'</span></span> <span class="k">)</span>
+
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[[</span> <span class="nv"><span class="hljs-variable">$NO_DATE_FILENAME</span></span> <span class="o">=</span> <span class="s2"><span class="hljs-string">"false"</span></span> <span class="o">]]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">$(</span></span></span><span class="hljs-string"><span class="hljs-variable"> date +</span></span><span class="s2"><span class="hljs-string"><span class="hljs-variable">"%Y-%m-%d"</span></span></span><span class="hljs-string"><span class="hljs-variable"> </span></span><span class="k"><span class="hljs-string"><span class="hljs-variable">)</span></span></span><span class="s2"><span class="hljs-string">-</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$FILE_NAME</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[[</span> ! <span class="nv"><span class="hljs-variable">$FILE_NAME</span></span> <span class="o">=</span> *<span class="s2"><span class="hljs-string">".md"</span></span> <span class="o">]]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$FILE_NAME</span></span></span><span class="s2"><span class="hljs-string">.md"</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+  <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2"><span class="hljs-string">"</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">DIR_NAME</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">/</span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">${</span></span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">FILE_NAME</span></span></span><span class="si"><span class="hljs-string"><span class="hljs-variable">}</span></span></span><span class="s2"><span class="hljs-string">"</span></span>
+  <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"Generating </span></span><span class="nv"><span class="hljs-string"><span class="hljs-variable">$FILE_NAME</span></span></span><span class="s2"><span class="hljs-string"> ..."</span></span>
+
+  <span class="k"><span class="hljs-keyword">if</span></span> <span class="o">[[</span> <span class="hljs-operator">-f</span> <span class="nv"><span class="hljs-variable">$FILE_NAME</span></span> <span class="o">]]</span><span class="p">;</span> <span class="k"><span class="hljs-keyword">then</span></span>
+    <span class="nb"><span class="hljs-built_in">echo</span></span> <span class="s2"><span class="hljs-string">"File exists!"</span></span>
+    <span class="k"><span class="hljs-built_in">return</span></span>
+  <span class="k"><span class="hljs-keyword">fi</span></span>
+
+  <span class="nb"><span class="hljs-built_in">local</span></span> <span class="nv">DATE_STR</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2"><span class="hljs-string">"%Y-%m-%dT%H:%M:%S%z"</span></span><span class="k">)</span>
+  cat <span class="s">&lt;&lt; EOF &gt;&gt; <span class="hljs-string">"<span class="hljs-variable">$FILE_NAME</span>"</span>
+</span><span class="s">---
+</span><span class="s">title: <span class="hljs-string">"<span class="hljs-variable">$TITLE</span>"</span>
+</span><span class="s">subtitle: <span class="hljs-string">""</span>
+</span><span class="s">date: <span class="hljs-variable">$DATE_STR</span>
+</span><span class="s">categories: []
+</span><span class="s">tags: []
+</span><span class="s">---
+</span><span class="s">
+</span><span class="s">
+</span><span class="s">
+</span><span class="s">&lt;!--more--&gt;
+</span><span class="s">
+</span><span class="s">EOF</span>
+
+<span class="o">}</span>
+</code></pre></div></details><p><a href="/page/kubectl-life-saver">K8s Related</a> 请参考这个。</p><h2 id="paste-performance">Paste Performance</h2><details><summary>Expand code</summary><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="c1"><span class="hljs-comment"># This speeds up pasting w/ autosuggest</span></span>
+<span class="c1"><span class="hljs-comment"># https://github.com/zsh-users/zsh-autosuggestions/issues/238</span></span>
+<span class="hljs-function"><span class="hljs-title">pasteinit</span></span><span class="o">()</span> <span class="o">{</span>
+  <span class="nv">OLD_SELF_INSERT</span><span class="o">=</span><span class="si"><span class="hljs-variable">${${</span></span><span class="p"><span class="hljs-variable">(s.:.)widgets[self-insert]</span></span><span class="si"><span class="hljs-variable">}</span></span><span class="p">[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><span class="si">}</span>
+  <span class="hljs-built_in">zle</span> -N self-insert url-quote-magic <span class="c1"><span class="hljs-comment"># I wonder if you'd need `.url-quote-magic`?</span></span>
+<span class="o">}</span>
+
+<span class="hljs-function"><span class="hljs-title">pastefinish</span></span><span class="o">()</span> <span class="o">{</span>
+  <span class="hljs-built_in">zle</span> -N self-insert <span class="nv"><span class="hljs-variable">$OLD_SELF_INSERT</span></span>
+<span class="o">}</span>
+<span class="hljs-built_in">zstyle</span> :bracketed-paste-magic paste-init pasteinit
+<span class="hljs-built_in">zstyle</span> :bracketed-paste-magic paste-finish pastefinish
+</code></pre></div></details><h2 id="plugin">Plugin</h2><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="nv">plugins</span><span class="o">=(</span>git colored-man-pages sublime z catimg wakatime zsh-autosuggestions docker docker-compose<span class="o">)</span>
+</code></pre></div><p>Some plugins need to install manually.</p><h2 id="keybindings">Keybindings (zsh <code>bindkey</code>)</h2><p>Run <code>bindkey</code> to list all zle keybindings. Here is my config.</p><details><summary>Expand code</summary><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-fallback hljs sql" data-lang="fallback">"^@" <span class="hljs-operator"><span class="hljs-keyword">set</span>-mark-command
+<span class="hljs-string">"^A"</span> beginning-<span class="hljs-keyword">of</span>-line
+<span class="hljs-string">"^B"</span> backward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^D"</span> <span class="hljs-keyword">delete</span>-<span class="hljs-built_in">char</span>-<span class="hljs-keyword">or</span>-list
+<span class="hljs-string">"^E"</span> <span class="hljs-keyword">end</span>-<span class="hljs-keyword">of</span>-line
+<span class="hljs-string">"^F"</span> forward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^G"</span> send-break
+<span class="hljs-string">"^H"</span> backward-<span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^I"</span> expand-<span class="hljs-keyword">or</span>-complete
+<span class="hljs-string">"^J"</span> accept-line
+<span class="hljs-string">"^K"</span> <span class="hljs-keyword">kill</span>-line
+<span class="hljs-string">"^L"</span> clear-screen
+<span class="hljs-string">"^M"</span> accept-line
+<span class="hljs-string">"^N"</span> down-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^O"</span> accept-line-<span class="hljs-keyword">and</span>-down-history
+<span class="hljs-string">"^P"</span> up-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^Q"</span> push-line
+<span class="hljs-string">"^R"</span> history-incremental-search-backward
+<span class="hljs-string">"^S"</span> history-incremental-search-forward
+<span class="hljs-string">"^T"</span> transpose-chars
+<span class="hljs-string">"^U"</span> <span class="hljs-keyword">kill</span>-whole-line
+<span class="hljs-string">"^V"</span> quoted-<span class="hljs-keyword">insert</span>
+<span class="hljs-string">"^W"</span> backward-<span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^X^B"</span> vi-<span class="hljs-keyword">match</span>-bracket
+<span class="hljs-string">"^X^E"</span> edit-command-line
+<span class="hljs-string">"^X^F"</span> vi-find-<span class="hljs-keyword">next</span>-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^X^J"</span> vi-<span class="hljs-keyword">join</span>
+<span class="hljs-string">"^X^K"</span> <span class="hljs-keyword">kill</span>-buffer
+<span class="hljs-string">"^X^N"</span> infer-<span class="hljs-keyword">next</span>-history
+<span class="hljs-string">"^X^O"</span> overwrite-<span class="hljs-keyword">mode</span>
+<span class="hljs-string">"^X^R"</span> _read_comp
+<span class="hljs-string">"^X^U"</span> undo
+<span class="hljs-string">"^X^V"</span> vi-cmd-<span class="hljs-keyword">mode</span>
+<span class="hljs-string">"^X^X"</span> exchange-point-<span class="hljs-keyword">and</span>-mark
+<span class="hljs-string">"^X*"</span> expand-word
+<span class="hljs-string">"^X="</span> what-<span class="hljs-keyword">cursor</span>-<span class="hljs-keyword">position</span>
+<span class="hljs-string">"^X?"</span> _complete_debug
+<span class="hljs-string">"^XC"</span> _correct_filename
+<span class="hljs-string">"^XG"</span> list-expand
+<span class="hljs-string">"^Xa"</span> _expand_alias
+<span class="hljs-string">"^Xc"</span> _correct_word
+<span class="hljs-string">"^Xd"</span> _list_expansions
+<span class="hljs-string">"^Xe"</span> _expand_word
+<span class="hljs-string">"^Xg"</span> list-expand
+<span class="hljs-string">"^Xh"</span> _complete_help
+<span class="hljs-string">"^Xm"</span> _most_recent_file
+<span class="hljs-string">"^Xn"</span> _next_tags
+<span class="hljs-string">"^Xr"</span> history-incremental-search-backward
+<span class="hljs-string">"^Xs"</span> history-incremental-search-forward
+<span class="hljs-string">"^Xt"</span> _complete_tag
+<span class="hljs-string">"^Xu"</span> undo
+<span class="hljs-string">"^X~"</span> _bash_list-choices
+<span class="hljs-string">"^Y"</span> yank
+<span class="hljs-string">"^[^D"</span> list-choices
+<span class="hljs-string">"^[^G"</span> send-break
+<span class="hljs-string">"^[^H"</span> backward-<span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^[^I"</span> self-<span class="hljs-keyword">insert</span>-unmeta
+<span class="hljs-string">"^[^J"</span> self-<span class="hljs-keyword">insert</span>-unmeta
+<span class="hljs-string">"^[^L"</span> clear-screen
+<span class="hljs-string">"^[^M"</span> self-<span class="hljs-keyword">insert</span>-unmeta
+<span class="hljs-string">"^[^_"</span> copy-prev-word
+<span class="hljs-string">"^[ "</span> expand-history
+<span class="hljs-string">"^[!"</span> expand-history
+<span class="hljs-string">"^[\""</span> <span class="hljs-keyword">quote</span>-region
+<span class="hljs-string">"^[\$"</span> spell-word
+<span class="hljs-string">"^['"</span> <span class="hljs-keyword">quote</span>-line
+<span class="hljs-string">"^[,"</span> _history-complete-newer
+<span class="hljs-string">"^[-"</span> neg-argument
+<span class="hljs-string">"^[."</span> <span class="hljs-keyword">insert</span>-<span class="hljs-keyword">last</span>-word
+<span class="hljs-string">"^[/"</span> _history-complete-older
+<span class="hljs-string">"^[0"</span> digit-argument
+<span class="hljs-string">"^[1"</span> digit-argument
+<span class="hljs-string">"^[2"</span> digit-argument
+<span class="hljs-string">"^[3"</span> digit-argument
+<span class="hljs-string">"^[4"</span> digit-argument
+<span class="hljs-string">"^[5"</span> digit-argument
+<span class="hljs-string">"^[6"</span> digit-argument
+<span class="hljs-string">"^[7"</span> digit-argument
+<span class="hljs-string">"^[8"</span> digit-argument
+<span class="hljs-string">"^[9"</span> digit-argument
+<span class="hljs-string">"^[&lt;"</span> beginning-<span class="hljs-keyword">of</span>-buffer-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[&gt;"</span> <span class="hljs-keyword">end</span>-<span class="hljs-keyword">of</span>-buffer-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[?"</span> which-command
+<span class="hljs-string">"^[A"</span> accept-<span class="hljs-keyword">and</span>-hold
+<span class="hljs-string">"^[B"</span> backward-word
+<span class="hljs-string">"^[C"</span> capitalize-word
+<span class="hljs-string">"^[D"</span> <span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^[F"</span> forward-word
+<span class="hljs-string">"^[G"</span> <span class="hljs-keyword">get</span>-line
+<span class="hljs-string">"^[H"</span> run-<span class="hljs-keyword">help</span>
+<span class="hljs-string">"^[L"</span> down-<span class="hljs-keyword">case</span>-word
+<span class="hljs-string">"^[N"</span> history-search-forward
+<span class="hljs-string">"^[OA"</span> up-line-<span class="hljs-keyword">or</span>-beginning-search
+<span class="hljs-string">"^[OB"</span> down-line-<span class="hljs-keyword">or</span>-beginning-search
+<span class="hljs-string">"^[OC"</span> forward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^[OD"</span> backward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^[OF"</span> <span class="hljs-keyword">end</span>-<span class="hljs-keyword">of</span>-line
+<span class="hljs-string">"^[OH"</span> beginning-<span class="hljs-keyword">of</span>-line
+<span class="hljs-string">"^[P"</span> history-search-backward
+<span class="hljs-string">"^[Q"</span> push-line
+<span class="hljs-string">"^[S"</span> spell-word
+<span class="hljs-string">"^[T"</span> transpose-words
+<span class="hljs-string">"^[U"</span> up-<span class="hljs-keyword">case</span>-word
+<span class="hljs-string">"^[W"</span> copy-region-<span class="hljs-keyword">as</span>-<span class="hljs-keyword">kill</span>
+<span class="hljs-string">"^[[1;5C"</span> forward-word
+<span class="hljs-string">"^[[1;5D"</span> backward-word
+<span class="hljs-string">"^[[200~"</span> bracketed-paste
+<span class="hljs-string">"^[[3~"</span> <span class="hljs-keyword">delete</span>-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^[[5~"</span> up-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[[6~"</span> down-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[[A"</span> up-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[[B"</span> down-line-<span class="hljs-keyword">or</span>-history
+<span class="hljs-string">"^[[C"</span> forward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^[[D"</span> backward-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"^[[Z"</span> <span class="hljs-keyword">reverse</span>-menu-complete
+<span class="hljs-string">"^[_"</span> <span class="hljs-keyword">insert</span>-<span class="hljs-keyword">last</span>-word
+<span class="hljs-string">"^[a"</span> accept-<span class="hljs-keyword">and</span>-hold
+<span class="hljs-string">"^[b"</span> backward-word
+<span class="hljs-string">"^[c"</span> capitalize-word
+<span class="hljs-string">"^[d"</span> <span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^[f"</span> forward-word
+<span class="hljs-string">"^[g"</span> <span class="hljs-keyword">get</span>-line
+<span class="hljs-string">"^[h"</span> run-<span class="hljs-keyword">help</span>
+<span class="hljs-string">"^[l"</span> <span class="hljs-string">"ls^J"</span>
+<span class="hljs-string">"^[m"</span> copy-prev-shell-word
+<span class="hljs-string">"^[n"</span> history-search-forward
+<span class="hljs-string">"^[p"</span> history-search-backward
+<span class="hljs-string">"^[q"</span> push-line
+<span class="hljs-string">"^[s"</span> spell-word
+<span class="hljs-string">"^[t"</span> transpose-words
+<span class="hljs-string">"^[u"</span> up-<span class="hljs-keyword">case</span>-word
+<span class="hljs-string">"^[w"</span> <span class="hljs-keyword">kill</span>-region
+<span class="hljs-string">"^[x"</span> <span class="hljs-keyword">execute</span>-named-cmd
+<span class="hljs-string">"^[y"</span> yank-pop
+<span class="hljs-string">"^[z"</span> <span class="hljs-keyword">execute</span>-<span class="hljs-keyword">last</span>-named-cmd
+<span class="hljs-string">"^[|"</span> vi-<span class="hljs-keyword">goto</span>-<span class="hljs-keyword">column</span>
+<span class="hljs-string">"^[~"</span> _bash_complete-word
+<span class="hljs-string">"^[^?"</span> backward-<span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"^_"</span> undo
+<span class="hljs-string">" "</span> magic-<span class="hljs-keyword">space</span>
+<span class="hljs-string">"!"</span>-<span class="hljs-string">"3"</span> self-<span class="hljs-keyword">insert</span>
+<span class="hljs-string">"3~"</span> <span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"4"</span>-<span class="hljs-string">"5"</span> self-<span class="hljs-keyword">insert</span>
+<span class="hljs-string">"5~"</span> <span class="hljs-keyword">kill</span>-word
+<span class="hljs-string">"6"</span>-<span class="hljs-string">"~"</span> self-<span class="hljs-keyword">insert</span>
+<span class="hljs-string">"^?"</span> backward-<span class="hljs-keyword">delete</span>-<span class="hljs-built_in">char</span>
+<span class="hljs-string">"\M-^@"</span>-<span class="hljs-string">"\M-^?"</span> self-<span class="hljs-keyword">insert</span>
+</span></code></pre></div></details><div id="refContainer"></div><div class="see-also"><h4 class="see-also">See also</h4><hr><ul><li><a href="/page/kubectl-life-saver/">Kubectl Life Saver</a></li><li><a href="/page/2020-07-17-gnome-cannot-unlock-bug/">GNOME 的无法解锁 Bug</a></li><li><a href="/page/2020-07-17-a-k8s-debug-log/">一次 K8s 集群修复日志</a></li></ul></div></article></div><aside id="toc" class="col-lg-2" style="top: 78px;"><nav id="TableOfContents"><ul><li class=""><a href="#oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</a></li><li class="active"><a href="#powerlevel10k">Powerlevel10k</a></li><li><a href="#stty-config">stty Config</a></li><li><a href="#aliases--custom-functions">Aliases &amp; Custom Functions</a></li><li><a href="#paste-performance">Paste Performance</a></li><li><a href="#plugin">Plugin</a></li><li><a href="#keybindings">Keybindings (zsh <code>bindkey</code>)</a></li></ul></nav></aside></div></div><footer><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1"><ul class="list-inline text-center footer-links"><li><a href="mailto:lingsamuelgrace@gmail.com" title="Email me"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/lingsamuel" title="GitHub"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://lingsamuel.github.io/index.xml" title="RSS"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted"><a href="https://lingsamuel.github.io">Ling Samuel</a>
+&nbsp;•&nbsp;©
+2021
+&nbsp;•&nbsp;
+<a href="https://lingsamuel.github.io/">Hakurei Shrine</a></p><p class="credits theme-by text-muted"><a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;•&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> Modified by <a href="https://github.com/lingsamuel/beautifulhugo">LingSamuel</a></p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script src="https://lingsamuel.github.io/js/main.js"></script><link href="/css/mermaid.css" type="text/css" rel="stylesheet"><script src="/js/mermaid.min.js"></script><script src="https://lingsamuel.github.io/js/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+		linkStyle default fill:none,stroke:grey;
+		classDef default stroke:#97999a,color:#696874;
+		classDef def stroke:#97999a,color:#696874;
+    classDef Blue stroke:#97999a,fill:#76aac2,color:#eff1f3;
+    classDef Grey stroke:#97999a,fill:#696773,color:#eef0f2;
+		classDef Red stroke:#97999a,fill:#f19b97,color:#fcefee;
+		classDef Green stroke:#97999a,fill:#79d8ce,color:#edf0f2;
+    classDef Yellow stroke:#97999a,fill:#fcd766,color:#807971;`;return a.startsWith("graph")?a+b:a}var elements=$(".language-fallback").each((d,b)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script><script>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize(),document.querySelectorAll('.mermaid').forEach(function(a){let b=a.textContent,c='graph-'+Math.floor(Math.random()*Math.floor(1e5));mermaid.mermaidAPI.render(c,b,b=>{a.innerHTML=b})})</script><script>$(document).ready(function(){$("pre.chroma").css("padding","0")})</script><script>renderMathInElement(document.body)</script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://lingsamuel.github.io/js/load-photoswipe.js"></script></body></html>
