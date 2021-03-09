@@ -1855,6 +1855,10 @@ svg:not(:root).svg-inline {
   content:"XML"
 }
 
+.highlight>.chroma>.language-html::before{
+  content:"HTML"
+}
+
 .pager {
   display: flex;
 }
