@@ -670,6 +670,9 @@ function tryTranspile(elem) {
   let invalidSubElement = [
     "IMG", "CODE", "Q", "TEXTAREA", "SCRIPT", "PRE", "SVG", "PATH", "CANVAS", "NOSCRIPT", "FORM", "STYLE"
   ];
+  let invalidCurrentElement = [
+    "DIV"
+  ];
 
   let parentFontFamily = getComputedStyle(elem).fontFamily;
   for (let n = 0; n < elem.childNodes.length; n++) {
@@ -677,7 +680,8 @@ function tryTranspile(elem) {
     if (elem.childNodes[n].nodeType == Node.ELEMENT_NODE && !invalidSubElement.includes(elem.childNodes[n].tagName)) {
       tryTranspile(elem.childNodes[n]);
       continue;
-    } else if (!validNodes.includes(elem.childNodes[n].nodeType)) {
+    } else if (!validNodes.includes(elem.childNodes[n].nodeType) || 
+                (elem.nodeType == Node.ELEMENT_NODE && invalidCurrentElement.includes(elem.tagName))) {
       continue;
     }
 
@@ -730,4 +734,4 @@ function updateHeaderLang() {
   console.log("parse end", end, "take", end - start, "ms")
 }
 
-$(document).ready(updateHeaderLang);
+// $(document).ready(updateHeaderLang);
