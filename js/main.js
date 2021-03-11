@@ -664,6 +664,14 @@ function tryTranspile(elem) {
     return;
   }
 
+  let invalidClasses = [
+    "katex",
+  ];
+  let elemClasses = elem.className.split(" ");
+  if(invalidClasses.some((klass) => elemClasses.includes(klass))) {
+    return;
+  }
+
   let validNodes = [
     Node.TEXT_NODE,
   ]
