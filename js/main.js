@@ -663,18 +663,19 @@ function tryTranspile(elem) {
   if (!elem.hasChildNodes()) {
     return;
   }
-
-  let invalidClasses = [
-    "katex",
+  let invalidRootElement = [
+    "IMG", "CODE", "Q", "TEXTAREA", "SCRIPT", "PRE", "SVG", "PATH", "CANVAS", "NOSCRIPT", "FORM", "STYLE"
   ];
-  let elemClasses = elem.className.split(" ");
-  if(invalidClasses.some((klass) => elemClasses.includes(klass))) {
+  if(elem.tagName && invalidRootElement.includes(elem.tagName.toUpperCase())) {
     return;
   }
 
   let validNodes = [
     Node.TEXT_NODE,
-  ]
+  ];
+  let invalidClasses = [
+    "katex",
+  ];
   let invalidSubElement = [
     "IMG", "CODE", "Q", "TEXTAREA", "SCRIPT", "PRE", "SVG", "PATH", "CANVAS", "NOSCRIPT", "FORM", "STYLE"
   ];
@@ -685,11 +686,15 @@ function tryTranspile(elem) {
   let parentFontFamily = getComputedStyle(elem).fontFamily;
   for (let n = 0; n < elem.childNodes.length; n++) {
     let node = elem.childNodes[n];
-    if (elem.childNodes[n].nodeType == Node.ELEMENT_NODE && !invalidSubElement.includes(elem.childNodes[n].tagName)) {
+    if (elem.childNodes[n].nodeType == Node.ELEMENT_NODE &&
+      !invalidSubElement.includes(elem.childNodes[n].tagName.toUpperCase()) //&&
+      // invalidClasses.some((klass) => elem.className.split(" ").includes(klass))
+      // !elem.className.includes("katex")
+    ) {
       tryTranspile(elem.childNodes[n]);
       continue;
-    } else if (!validNodes.includes(elem.childNodes[n].nodeType) || 
-                (elem.nodeType == Node.ELEMENT_NODE && invalidCurrentElement.includes(elem.tagName))) {
+    } else if (!validNodes.includes(elem.childNodes[n].nodeType) ||
+      (elem.nodeType == Node.ELEMENT_NODE && invalidCurrentElement.includes(elem.tagName.toUpperCase()))) {
       continue;
     }
 
