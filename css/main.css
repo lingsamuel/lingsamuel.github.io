@@ -6,7 +6,7 @@
   /* 似乎指定了这个之后使得使用该 font-face 的 font-weight 不再生效（weight 被固定了） */
   /* font-weight: 800; */
   /* font-style: normal; */
-  src: local('Source Han Sans CN'), 'Source Han Sans CN', local('Sarasa Gothic SC'), local('Noto Sans CJK SC'), local('Noto Sans SC'), url(/fonts/SourceHanSansCN-Regular.otf);
+  src: local('Source Han Sans CN'), local('Sarasa Gothic SC'), local('Noto Sans CJK SC'), local('Noto Sans SC'), url(/fonts/SourceHanSansCN-Regular.otf);
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap'); */
@@ -15,7 +15,7 @@
   font-weight: 400;
   font-style: normal;
   font-variant-ligatures: common-ligatures;
-  src: 'Fira Code', local('Sarasa Mono SC'), local('Source Han Sans CN'), 'Source Han Sans CN', url(/fonts/SourceHanSansCN-Regular.otf);
+  src: local('Fira Code'), local('Sarasa Mono SC'), local('Source Han Sans CN'), url(/fonts/SourceHanSansCN-Regular.otf);
 }
 
 @font-face {
@@ -1456,7 +1456,7 @@ code {
   background-color: #e2e8f0;
   /* font-size: 1rem; */
   /* font-family: 'Fira Code', 'Source Han Sans CN', monobase, monospace; */
-  font-family: monobase, 'Fira Code', 'Sarasa Mono SC', 'Source Han Sans CN', monospace;
+  font-family: 'Fira Code', monobase, 'Sarasa Mono SC', 'Source Han Sans CN', base, monospace;
   font-size: 0.9em;
 }
 
