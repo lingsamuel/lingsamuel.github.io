@@ -33,7 +33,7 @@
 @font-face {
   /* get rid of annoying local font problem, I gave up */
   font-family: "dragonborn";
-  src: url(/fonts/dragonborn.ttf);
+  src: url(/fonts/Dragonborn.ttf);
 }
 
 /* @font-face {
