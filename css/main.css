@@ -927,6 +927,10 @@ html, body {
   -moz-box-shadow: 1px 1px 3px #000;
 }
 
+.page-heading .post-meta {
+  margin-top: 10px;
+}
+
 .intro-header.big-img .post-heading .post-meta {
   color: #EEE;
 }
