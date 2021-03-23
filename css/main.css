@@ -1295,6 +1295,26 @@ ul.share li:hover .fab {
 }
 
 @media(min-width:1200px) {
+    /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c3dafe;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a3bffa;;
+  }
+  
   #toc {
       width: 250px;;
       display: block;
@@ -1305,7 +1325,10 @@ ul.share li:hover .fab {
       position: -webkit-sticky;
       position: sticky;
       top: 78px;
-      align-self: start
+      align-self: start;
+      /* max-height: calc(100vh - 10em); */
+      overflow: auto;
+      overflow-x: hidden;
   }
   #TableOfContents {
       /* margin-left: 1rem; */
