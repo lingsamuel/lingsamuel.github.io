@@ -1,95 +1,85 @@
-<!DOCTYPE html><html lang="zh" itemscope="" itemtype="http://schema.org/WebPage"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>Shell Utils: 简易的 Shell 脚本工具集 - Hakurei Shrine</title><meta property="og:title" content="Shell Utils: 简易的 Shell 脚本工具集"><meta name="twitter:title" content="Shell Utils: 简易的 Shell 脚本工具集"><meta name="description" content="不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。
-仓库地址：lingsamuel/shell-utils。"><meta property="og:description" content="不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。
-仓库地址：lingsamuel/shell-utils。"><meta name="twitter:description" content="不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。
-仓库地址：lingsamuel/shell-utils。"><meta name="author" content="Ling Samuel"><script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Hakurei Shrine","url":"https:\/\/lingsamuel.github.io\/"}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/lingsamuel.github.io\/"}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/lingsamuel.github.io\/","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/lingsamuel.github.io\/page\/shell-utils\/","name":"Shell utils 简易的 shell 脚本工具集"}}]}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","author":{"name":"Ling Samuel"},"headline":"Shell Utils: 简易的 Shell 脚本工具集","description":"不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。\n仓库地址：lingsamuel\/shell-utils。\n","inLanguage":"en","wordCount":1410,"datePublished":"2020-07-13T00:00:00","dateModified":"2020-07-13T00:00:00","image":"https:\/\/lingsamuel.github.io\/","keywords":["bash, zsh"],"mainEntityOfPage":"https:\/\/lingsamuel.github.io\/page\/shell-utils\/","publisher":{"@type":"Organization","name":"https:\/\/lingsamuel.github.io\/","logo":{"@type":"ImageObject","url":"https:\/\/lingsamuel.github.io\/","height":60,"width":60}}}</script><meta property="og:title" content="Shell Utils: 简易的 Shell 脚本工具集"><meta property="og:description" content="不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。
-仓库地址：lingsamuel/shell-utils。"><meta property="og:url" content="https://lingsamuel.github.io/page/shell-utils/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><meta name="twitter:title" content="Shell Utils: 简易的 Shell 脚本工具集"><meta name="twitter:description" content="不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。
-仓库地址：lingsamuel/shell-utils。"><meta name="twitter:card" content="summary"><link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon"><meta name="twitter:card" content="summary"><meta property="og:url" content="https://lingsamuel.github.io/page/shell-utils/"><meta property="og:type" content="website"><meta property="og:site_name" content="Hakurei Shrine"><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel="stylesheet" href="https://lingsamuel.github.io/css/highlight.min.css"><link rel="stylesheet" href="https://lingsamuel.github.io/css/codeblock.css"><link rel="stylesheet" href="https://lingsamuel.github.io/css/main.css"><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async="" src="https://www.google-analytics.com/analytics.js"></script></head><body id="body"><nav id="navbar" class="navbar navbar-default navbar-fixed-top navbar-custom nav-bottom-border"><div class="container-fluid nav-container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><div style="display:flex"><a class="navbar-brand" style="display:flex" href="https://lingsamuel.github.io/"><img src="https://lingsamuel.github.io/img/favicon.ico" style="margin-right:5px;height:1em">Hakurei Shrine</a></div></div><div class="collapse navbar-collapse" id="main-navbar"><ul class="nav navbar-nav navbar-right"><li><a title="Articles" href="/page">Articles</a></li><li><a title="Reviews" href="/review">Reviews</a></li><li><a title="Feeds" href="/feed">Feeds</a></li><li><a title="Kubernetes" href="/k8s">Kubernetes</a></li><li><a title="About" href="/about">About</a></li><li><a title="Categories" href="/categories">Categories</a></li><li><a title="Tags" href="/tags">Tags</a></li></ul></div></div></nav><header class="header-section"><div id="intro-header" class="intro-header no-img" style="margin-top: 148px;"><div class="container"><div class="row"><div class="col-lg-11 col-lg-offset-1"><div class="page-heading"><h1>Shell Utils: 简易的 Shell 脚本工具集</h1><hr class="small"><div class="post-meta" style="display:flex;justify-content:space-between"><span style="display:inline-flex">Posted on July 13, 2020
-&nbsp;(Last modified on March 1, 2021)
-by Ling Samuel</span><div style="display:inline-flex;font-style:normal"><span></span>&nbsp;
-<a style="text-align:right" href="https://lingsamuel.github.io/shell-utils/" onclick="return event.preventDefault(),function(a){navigator.clipboard.writeText(a.href),$(a).prev().text(&quot;url copied&quot;),setTimeout(function(){$(a).prev().text(&quot;&quot;)},1e3)}(this)">Copy Eternal Link</a></div></div><div class="blog-categories"><a href="https://lingsamuel.github.io/categories/programming/">programming</a>&nbsp;</div><div class="blog-tags"><a href="https://lingsamuel.github.io//tags/bash/">bash</a>&nbsp;
-<a href="https://lingsamuel.github.io//tags/zsh/">zsh</a>&nbsp;</div></div></div></div></div></div></header><div class="container" id="mainContainer" role="main"><div class="row"><div class="col-lg-8 col-lg-offset-1"><article role="main" class="blog-post"><p>不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。</p><p><a href="https://github.com/lingsamuel/shell-utils">仓库地址：lingsamuel/shell-utils</a>。</p><h2 id="shell-工具集">Shell 工具集</h2><p>持续进化中……</p><ul><li>日志相关函数：着色用。没有颜色的 log 是没有灵魂的。</li><li>数组相关函数</li><li>栈</li><li>杂七杂八的函数</li></ul><h3 id="引入方法">引入方法</h3><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="nb"><span class="hljs-built_in">source</span></span> ./shell-utils.sh
-</code></pre></div><h3 id="栈">栈</h3><p>栈的用法：</p><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash">new_stack stack <span class="m">200</span> <span class="c1"><span class="hljs-comment"># 新建一个名为 stack 的栈，大小为 200（默认为 100）</span></span>
+<!DOCTYPE html><html lang="zh" itemscope="" itemtype="http://schema.org/WebPage"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>Shell Utils: 简易的 Shell 脚本工具集 - Hakurei Shrine</title><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine"><link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon" alt="favicon"><link rel="stylesheet" href="https://lingsamuel.github.io/css/main.min.1402f5c5c6383807c899aa1b78e6e7b88116059e24f89a6f2df3195e70dfa4d6.css" integrity="sha256-FAL1xcY4OAfImaobeObnuIEWBZ4k+JpvLfMZXnDfpNY=" media="screen"><link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.4b0b8750931e5fac50e9f925eb06212025c38f696da645ae3b37180ebdcce4d3.css" integrity="sha256-SwuHUJMeX6xQ6fkl6wYhICXDj2ltpkWuOzcYDr3M5NM=" media="screen"><link rel="stylesheet" href="https://lingsamuel.github.io/css/source-serif-text.min.c9da0ad693ce3a1c2c04f7a6eb65a3953cb830ab0316c8ba5f230f86aad7b486.css" integrity="sha256-ydoK1pPOOhwsBPem62WjlTy4MKsDFsi6XyMPhqrXtIY=" media="screen"><link rel="stylesheet" href="https://lingsamuel.github.io/css/fonts.min.8c7cdb109cdcfdc41e1509b588ad9330dcf3d8ae8ba96dc5be2e1935aa7c30e2.css" integrity="sha256-jHzbEJzc/cQeFQm1iK2TMNzz2K6LqW3Fvi4ZNap8MOI=" media="screen"><link rel="preload" href="https://lingsamuel.github.io/css/fira-code.min.311370d25700134bbb9a194f401aded40a90707976f08528042a506e5f0306ef.css" integrity="sha256-MRNw0lcAE0u7mhlPQBre1AqQcHl28IUoBCpQbl8DBu8=" media="screen" as="style" onload="this.rel='stylesheet'"><link rel="preload" href="https://lingsamuel.github.io/css/math-symbol.min.de044ea9623db3709e697fd61ab5698bf4bac9a737e77b4449579b0a56d70c29.css" integrity="sha256-3gROqWI9s3CeaX/WGrVpi/S6yac353tESVebClbXDCk=" media="screen" as="style" onload="this.rel='stylesheet'"><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async="" src="https://www.google-analytics.com/analytics.js"></script></head><body id="body"><nav id="navbar"><div class="nav"><div class="navbar-header"><img src="https://lingsamuel.github.io/img/favicon.ico" class="favicon"><a href="https://lingsamuel.github.io/">
+Hakurei Shrine</a></div><div class="navbar-menu"><ul><li><a title="Articles" href="/page">Articles</a></li><li><a title="Reviews" href="/review">Reviews</a></li><li><a title="Feeds" href="/feed">Feeds</a></li><li><a title="Kubernetes" href="/k8s">Kubernetes</a></li><li><a title="About" href="/about">About</a></li><li><a title="Categories" href="/categories">Categories</a></li><li><a title="Tags" href="/tags">Tags</a></li></ul></div></div></nav><div class="flex-container"><div class="container" id="mainContainer" role="main"><header class="header post-header"><div class="row"><div class="post-title"><h1>Shell Utils: 简易的 Shell 脚本工具集</h1></div><div class="post-meta"><span class="author">Ling Samuel</span>
+•
+<span class="date">2020-07-13</span>
+•
+<span class="categories"><a href="https://lingsamuel.github.io/categories/programming/">programming</a>&nbsp;</span>
+•
+<span class="tags"><a href="https://lingsamuel.github.io//tags/bash/">bash</a>&nbsp;
+<a href="https://lingsamuel.github.io//tags/zsh/">zsh</a>&nbsp;</span></div></div></header><div class="row"><div><article role="main" class="post-content"><p>不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。</p><p><a href="https://github.com/lingsamuel/shell-utils">仓库地址：lingsamuel/shell-utils</a>。</p><h2 id="shell-工具集">Shell 工具集</h2><p>持续进化中……</p><ul><li>日志相关函数：着色用。没有颜色的 log 是没有灵魂的。</li><li>数组相关函数</li><li>栈</li><li>杂七杂八的函数</li></ul><h3 id="引入方法">引入方法</h3><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ./shell-utils.sh
+</code></pre></div><h3 id="栈">栈</h3><p>栈的用法：</p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">new_stack stack <span class="m">200</span> <span class="c1"># 新建一个名为 stack 的栈，大小为 200（默认为 100）</span>
 push stack <span class="m">1</span>
 push stack <span class="m">2</span>
 pop stack
-<span class="nb"><span class="hljs-built_in">echo</span></span> <span class="nv"><span class="hljs-variable">$stack_POP</span></span> <span class="c1"><span class="hljs-comment"># 返回值储存在 &lt;stack_name&gt;_POP 变量里</span></span>
+<span class="nb">echo</span> <span class="nv">$stack_POP</span> <span class="c1"># 返回值储存在 &lt;stack_name&gt;_POP 变量里</span>
 push stack <span class="m">3</span>
 pop stack
-<span class="nb"><span class="hljs-built_in">echo</span></span> <span class="nv"><span class="hljs-variable">$stack_POP</span></span>
+<span class="nb">echo</span> <span class="nv">$stack_POP</span>
 pop stack
-<span class="nb"><span class="hljs-built_in">echo</span></span> <span class="nv"><span class="hljs-variable">$stack_POP</span></span>
+<span class="nb">echo</span> <span class="nv">$stack_POP</span>
 pop stack
-<span class="nb"><span class="hljs-built_in">echo</span></span> <span class="nv"><span class="hljs-variable">$stack_POP</span></span> <span class="c1"><span class="hljs-comment"># 空栈的返回值也是空（&lt;stack_name&gt;_POP 被 unset 了）</span></span>
+<span class="nb">echo</span> <span class="nv">$stack_POP</span> <span class="c1"># 空栈的返回值也是空（&lt;stack_name&gt;_POP 被 unset 了）</span>
 pop stack
-<span class="nb"><span class="hljs-built_in">echo</span></span> <span class="nv"><span class="hljs-variable">$stack_POP</span></span>
+<span class="nb">echo</span> <span class="nv">$stack_POP</span>
 </code></pre></div><p>之所以 <code>pop</code> 的用法这么奇怪（更符合直觉的用法应该是 <code>VAL=$(pop stack)</code>），是因为这个栈实现是依赖环境变量的：它将 StackPointer 的信息存储在名为 <code>&lt;stack_name&gt;_SP</code> 的环境变量里。而 Subshell 的环境变量修改不影响父 Shell，所以不能通过 <code>$()</code> 语法来获取返回值。最简单的做法就是新建一个变量储存返回值了（实话说，我没想到别的解决方法）。</p><p>另外，此实现访问数据只依赖 StackPointer，因此实际上 <code>stack</code> 这个数组里的数据在 <code>pop</code> 后是不会被删除的，最多会在 <code>push</code> 时被覆盖。</p><p>使用 <code>print_stack &lt;stack_name&gt;</code> 来打印栈信息，输出格式为：<br><code>&lt;stack_name&gt; &lt;stack_pointer&gt;/&lt;max_size&gt; &lt;values&gt;</code>。</p><p>运行结果（在每次 <code>push</code> 和 <code>pop</code> 后添加了 <code>print_stack</code>）：</p><p><img src="/page/shell-utils/stack.png" alt=""></p><p>可以看到 <code>pop</code> 并不会删除数据，只会修改 StackPointer。只有再次 <code>push</code>，才会将数据覆盖。</p><h4 id="实现原理">实现原理</h4><p>由于需要支持动态的栈变量名，所以主要依靠 Variable Indirection Expansion 来动态展开变量。</p><p>其中，<code>new_stack</code> 依靠 <code>declare -a</code> 实现，<code>push</code> 则是将表达式拼成字符串然后 <code>eval</code>，<code>pop</code> 比较简单，利用 Indirection Expansion 直接取的值。</p><h3 id="保存-shellopts">保存 ShellOpts</h3><p>实现栈主要就是为了这个功能。</p><p>有时候，脚本需要 <code>set -eo pipefail</code> 来保证某个命令失败的时候，脚本能退出，而不会在错误的状态下继续执行。</p><p>但是，有的命令例如 <code>grep</code> 的 <code>exitcode!=0</code> 时也不一定是异常，这种行为可能是符合预期的。因此要么临时 <code>set +eo pipefail</code>，要么在命令后面加一个 <code>|| true</code>。
-这种方案临时用用还行，如果是一大段，或者干脆是一个调用，就不那么管用了。</p><p>总之，因为某种临时需求关闭了 <code>errexit</code> 和 <code>pipefail</code>，那么，后续是否要再次启用？这是不一定的。因为外部可能根本没打开这个选项，如果盲目启用，反而可能会导致外部脚本执行错误。</p><p><code>store_shell_opts</code> 和 <code>restore_shell_opts</code> 就是为了这个场景实现的。</p><p>范例：</p><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="cp"><span class="hljs-meta">#!/bin/bash</span>
-</span><span class="cp"></span>store_shell_opts <span class="c1"><span class="hljs-comment"># 保存最初始的 ShellOpts</span></span>
-set_must_success <span class="c1"><span class="hljs-comment"># set -eo pipefail</span></span>
-<span class="c1"><span class="hljs-comment"># do something must success...</span></span>
+这种方案临时用用还行，如果是一大段，或者干脆是一个调用，就不那么管用了。</p><p>总之，因为某种临时需求关闭了 <code>errexit</code> 和 <code>pipefail</code>，那么，后续是否要再次启用？这是不一定的。因为外部可能根本没打开这个选项，如果盲目启用，反而可能会导致外部脚本执行错误。</p><p><code>store_shell_opts</code> 和 <code>restore_shell_opts</code> 就是为了这个场景实现的。</p><p>范例：</p><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>store_shell_opts <span class="c1"># 保存最初始的 ShellOpts</span>
+set_must_success <span class="c1"># set -eo pipefail</span>
+<span class="c1"># do something must success...</span>
 
-<span class="hljs-function"><span class="hljs-title">func</span></span><span class="o">()</span> <span class="o">{</span>
-  store_shell_opts <span class="c1"><span class="hljs-comment"># 保存上级 ShellOpts</span></span>
-  set_could_fail <span class="c1"><span class="hljs-comment"># set +eo pipefail</span></span>
-  <span class="c1"><span class="hljs-comment"># do something could fail, such as grep...</span></span>
-  restore_shell_opts <span class="c1"><span class="hljs-comment"># 恢复上级 ShellOpts</span></span>
+func<span class="o">()</span> <span class="o">{</span>
+  store_shell_opts <span class="c1"># 保存上级 ShellOpts</span>
+  set_could_fail <span class="c1"># set +eo pipefail</span>
+  <span class="c1"># do something could fail, such as grep...</span>
+  restore_shell_opts <span class="c1"># 恢复上级 ShellOpts</span>
 <span class="o">}</span>
 func
 
-<span class="c1"><span class="hljs-comment"># do something must success...</span></span>
+<span class="c1"># do something must success...</span>
 restore_shell_opts
-</code></pre></div><p>原本这个函数的实现是 <code>export</code> 一个固定名称的环境变量，不支持嵌套。栈使得嵌套成为可能。</p><h3 id="有颜色的日志">（有颜色的）日志</h3><p>人生已经如此艰难，写个 Shell 脚本的 log 还不带颜色，debug 起来眼睛不会瞎吗？</p><h4 id="基本颜色">基本颜色</h4><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash">gray <span class="s2"><span class="hljs-string">"gray"</span></span>
-red <span class="s2"><span class="hljs-string">"red"</span></span>
-green <span class="s2"><span class="hljs-string">"green"</span></span>
-yellow <span class="s2"><span class="hljs-string">"yellow"</span></span>
-blue <span class="s2"><span class="hljs-string">"blue"</span></span>
-magenta <span class="s2"><span class="hljs-string">"magenta"</span></span>
-cyan <span class="s2"><span class="hljs-string">"cyan"</span></span>
-light_gray <span class="s2"><span class="hljs-string">"light gray"</span></span>
-black <span class="s2"><span class="hljs-string">"black"</span></span>
-dark_red <span class="s2"><span class="hljs-string">"dark red"</span></span>
-dark_green <span class="s2"><span class="hljs-string">"dark green"</span></span>
-dark_yellow <span class="s2"><span class="hljs-string">"dark yellow"</span></span>
-dark_blue <span class="s2"><span class="hljs-string">"dark blue"</span></span>
-dark_magenta <span class="s2"><span class="hljs-string">"dark magenta"</span></span>
-dark_cyan <span class="s2"><span class="hljs-string">"dark cyan"</span></span>
-white <span class="s2"><span class="hljs-string">"white"</span></span>
-light_purple <span class="s2"><span class="hljs-string">"light purple"</span></span>
-light_blue <span class="s2"><span class="hljs-string">"light blue"</span></span>
-</code></pre></div><p>实际显示效果与 shell 配置有关。</p><p><img src="/page/shell-utils/base-color.png" alt=""></p><h4 id="脚本执行进程日志">脚本执行进程日志</h4><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash">e_header <span class="s2"><span class="hljs-string">"System Installation"</span></span>
-e_success <span class="s2"><span class="hljs-string">"Install success"</span></span>
-e_error <span class="s2"><span class="hljs-string">"Install failed"</span></span>
-e_warning <span class="s2"><span class="hljs-string">"Missing dependencies"</span></span>
-e_underline <span class="s2"><span class="hljs-string">"Underline text"</span></span>
-e_bold <span class="s2"><span class="hljs-string">"Bold"</span></span>
-e_note <span class="s2"><span class="hljs-string">"Start with Note:"</span></span>
-e_step <span class="s2"><span class="hljs-string">"1. Auto increment step note"</span></span>
-e_step <span class="s2"><span class="hljs-string">"2. Auto increment step note"</span></span>
+</code></pre></div><p>原本这个函数的实现是 <code>export</code> 一个固定名称的环境变量，不支持嵌套。栈使得嵌套成为可能。</p><h3 id="有颜色的日志">（有颜色的）日志</h3><p>人生已经如此艰难，写个 Shell 脚本的 log 还不带颜色，debug 起来眼睛不会瞎吗？</p><h4 id="基本颜色">基本颜色</h4><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">gray <span class="s2">"gray"</span>
+red <span class="s2">"red"</span>
+green <span class="s2">"green"</span>
+yellow <span class="s2">"yellow"</span>
+blue <span class="s2">"blue"</span>
+magenta <span class="s2">"magenta"</span>
+cyan <span class="s2">"cyan"</span>
+light_gray <span class="s2">"light gray"</span>
+black <span class="s2">"black"</span>
+dark_red <span class="s2">"dark red"</span>
+dark_green <span class="s2">"dark green"</span>
+dark_yellow <span class="s2">"dark yellow"</span>
+dark_blue <span class="s2">"dark blue"</span>
+dark_magenta <span class="s2">"dark magenta"</span>
+dark_cyan <span class="s2">"dark cyan"</span>
+white <span class="s2">"white"</span>
+light_purple <span class="s2">"light purple"</span>
+light_blue <span class="s2">"light blue"</span>
+</code></pre></div><p>实际显示效果与 shell 配置有关。</p><p><img src="/page/shell-utils/base-color.png" alt=""></p><h4 id="脚本执行进程日志">脚本执行进程日志</h4><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">e_header <span class="s2">"System Installation"</span>
+e_success <span class="s2">"Install success"</span>
+e_error <span class="s2">"Install failed"</span>
+e_warning <span class="s2">"Missing dependencies"</span>
+e_underline <span class="s2">"Underline text"</span>
+e_bold <span class="s2">"Bold"</span>
+e_note <span class="s2">"Start with Note:"</span>
+e_step <span class="s2">"1. Auto increment step note"</span>
+e_step <span class="s2">"2. Auto increment step note"</span>
 e_reset_step
-e_step <span class="s2"><span class="hljs-string">"1. Resetted"</span></span>
-</code></pre></div><p>习惯了有颜色的脚本日志之后，根本看不懂没格式的日志了……</p><p><img src="/page/shell-utils/process-log.png" alt=""></p><h3 id="数组相关">数组相关</h3><p>8 月 25 日，学会了更多 <code>zsh</code> 的语法，一些脚本可以写出 zsh 兼容版的了。</p><ul><li>join_array: bash/zsh，不使用特殊语法</li><li>append/prepend: zsh 使用了特有的语法，bash 使用 eval</li><li>split_to_array: zsh 使用 typeset，bash 使用 name ref</li></ul><p>只能说动态操作变量的事情到最后都变成了 eval。</p><p>eval 和 typeset 有一个很大的缺陷，它们实际上不能像一个指针一样工作。如果变量名与函数内部的 local 变量冲突，那就坏菜了。</p><h4 id="join_array">join_array</h4><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="nv">arr</span><span class="o">=(</span>a b c<span class="o">)</span>
-join_array <span class="s1"><span class="hljs-string">','</span></span> <span class="si"><span class="hljs-variable">${</span></span><span class="nv"><span class="hljs-variable">arr</span></span><span class="p"><span class="hljs-variable">[@]</span></span><span class="si"><span class="hljs-variable">}</span></span>
-join_array <span class="s1"><span class="hljs-string">' '</span></span> <span class="si"><span class="hljs-variable">${</span></span><span class="nv"><span class="hljs-variable">arr</span></span><span class="p"><span class="hljs-variable">[@]</span></span><span class="si"><span class="hljs-variable">}</span></span>
-join_array <span class="s1"><span class="hljs-string">'-'</span></span> <span class="si"><span class="hljs-variable">${</span></span><span class="nv"><span class="hljs-variable">arr</span></span><span class="p"><span class="hljs-variable">[@]</span></span><span class="si"><span class="hljs-variable">}</span></span>
-</code></pre></div><p><img src="/page/shell-utils/join-array.png" alt=""></p><h4 id="split_to_array">split_to_array</h4><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="nv">ARR</span><span class="o">=(</span>a b c<span class="o">)</span>
-split_to_array ARR <span class="s1"><span class="hljs-string">','</span></span> <span class="s1"><span class="hljs-string">'d,e,,f'</span></span>
-<span class="nb"><span class="hljs-built_in">declare</span></span> -p ARR
-split_to_array NEW_ARR <span class="s1"><span class="hljs-string">','</span></span> <span class="s1"><span class="hljs-string">'d,e,,f'</span></span>
-<span class="nb"><span class="hljs-built_in">declare</span></span> -p NEW_ARR
-</code></pre></div><p><img src="/page/shell-utils/split-string.png" alt=""></p><h4 id="appendprepend">append/prepend</h4><div class="highlight"><pre class="chroma" style="padding: 0px;"><code class="language-bash hljs" data-lang="bash"><span class="nv">arr</span><span class="o">=(</span>a b c<span class="o">)</span>
-append arr d e <span class="s1"><span class="hljs-string">'f g'</span></span>
-prepend arr <span class="m">0</span> <span class="m">1</span> <span class="s1"><span class="hljs-string">'2 3'</span></span>
-<span class="nb"><span class="hljs-built_in">declare</span></span> -p arr
+e_step <span class="s2">"1. Resetted"</span>
+</code></pre></div><p>习惯了有颜色的脚本日志之后，根本看不懂没格式的日志了……</p><p><img src="/page/shell-utils/process-log.png" alt=""></p><h3 id="数组相关">数组相关</h3><p>8 月 25 日，学会了更多 <code>zsh</code> 的语法，一些脚本可以写出 zsh 兼容版的了。</p><ul><li>join_array: bash/zsh，不使用特殊语法</li><li>append/prepend: zsh 使用了特有的语法，bash 使用 eval</li><li>split_to_array: zsh 使用 typeset，bash 使用 name ref</li></ul><p>只能说动态操作变量的事情到最后都变成了 eval。</p><p>eval 和 typeset 有一个很大的缺陷，它们实际上不能像一个指针一样工作。如果变量名与函数内部的 local 变量冲突，那就坏菜了。</p><h4 id="join_array">join_array</h4><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">arr</span><span class="o">=(</span>a b c<span class="o">)</span>
+join_array <span class="s1">','</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span>
+join_array <span class="s1">' '</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span>
+join_array <span class="s1">'-'</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span>
+</code></pre></div><p><img src="/page/shell-utils/join-array.png" alt=""></p><h4 id="split_to_array">split_to_array</h4><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">ARR</span><span class="o">=(</span>a b c<span class="o">)</span>
+split_to_array ARR <span class="s1">','</span> <span class="s1">'d,e,,f'</span>
+<span class="nb">declare</span> -p ARR
+split_to_array NEW_ARR <span class="s1">','</span> <span class="s1">'d,e,,f'</span>
+<span class="nb">declare</span> -p NEW_ARR
+</code></pre></div><p><img src="/page/shell-utils/split-string.png" alt=""></p><h4 id="appendprepend">append/prepend</h4><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">arr</span><span class="o">=(</span>a b c<span class="o">)</span>
+append arr d e <span class="s1">'f g'</span>
+prepend arr <span class="m">0</span> <span class="m">1</span> <span class="s1">'2 3'</span>
+<span class="nb">declare</span> -p arr
 
 append new_arr <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
-<span class="nb"><span class="hljs-built_in">declare</span></span> -p new_arr
-</code></pre></div><p><img src="/page/shell-utils/arr-append-prepend.png" alt=""></p><div id="refContainer"></div></article></div><aside id="toc" class="col-lg-2" style="top: 128px; max-height: calc((100vh - 128px) - 2em);"><nav id="TableOfContents"><ul><li class="active"><a href="#shell-工具集">Shell 工具集</a><ul><li><a href="#引入方法">引入方法</a></li><li><a href="#栈">栈</a></li><li><a href="#保存-shellopts">保存 ShellOpts</a></li><li><a href="#有颜色的日志">（有颜色的）日志</a></li><li><a href="#数组相关">数组相关</a></li></ul></li></ul></nav></aside></div></div><footer><div class="container"><div class="row"><div class="col-lg-10 col-lg-offset-1"><ul class="list-inline text-center footer-links"><li><a href="mailto:lingsamuelgrace@gmail.com" title="Email me"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/lingsamuel" title="GitHub"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://lingsamuel.github.io/index.xml" title="RSS"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted"><a href="https://lingsamuel.github.io">Ling Samuel</a>
-&nbsp;•&nbsp;©
-2021
-&nbsp;•&nbsp;
-<a href="https://lingsamuel.github.io/">Hakurei Shrine</a></p><p class="credits theme-by text-muted"><a href="http://gohugo.io">Hugo v0.82.0</a> powered &nbsp;•&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> Modified by <a href="https://github.com/lingsamuel/beautifulhugo">LingSamuel</a></p></div></div></div></footer><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script src="https://lingsamuel.github.io/js/main.js"></script><link href="https://lingsamuel.github.io/css/mermaid.css" type="text/css" rel="stylesheet"></body></html>
+<span class="nb">declare</span> -p new_arr
+</code></pre></div><p><img src="/page/shell-utils/arr-append-prepend.png" alt=""></p><div id="refContainer"></div></article></div><div class="post-pager"><ul class="pager"><li class="previous"><a href="https://lingsamuel.github.io/page/2020-07-07-forget-and-death/">← 与遗忘作斗争是人一生的课题</a></li><li class="next"><a href="https://lingsamuel.github.io/page/2020-07-14-customization/">GNOME Customization Backup →</a></li></ul></div></div></div><div id="toc"><aside><nav id="TableOfContents"><ul><li><a href="#shell-工具集">Shell 工具集</a><ul><li><a href="#引入方法">引入方法</a></li><li><a href="#栈">栈</a></li><li><a href="#保存-shellopts">保存 ShellOpts</a></li><li><a href="#有颜色的日志">（有颜色的）日志</a></li><li><a href="#数组相关">数组相关</a></li></ul></li></ul></nav></aside></div></div><footer id="footer"><div class="footer"><p>Copyright © 2021 <a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.82.0</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> • Hosted by GitHub</p></div></footer></body></html>
