@@ -277,6 +277,7 @@ var headerResizer = {
       }
       if (this.tocEle != null) {
         this.tocEle.style.top = height + 'px';
+        this.tocEle.style.maxHeight = `calc(100vh - ${this.tocEle.style.top} - 2em)`;
       }
       // this.body.style.scrollPaddingTop = height + 60 + 'px';
       // this.main.style.scrollPaddingTop = height + 60 + 'px';
