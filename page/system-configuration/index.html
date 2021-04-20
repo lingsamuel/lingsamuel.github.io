@@ -88,468 +88,468 @@ archlinuxcn/nerd-fonts-meslo-lg
 <span class=cp>&lt;!DOCTYPE fontconfig SYSTEM &#34;fonts.dtd&#34;&gt;</span>
 <span class=nt>&lt;fontconfig&gt;</span>
 
-	<span class=nt>&lt;its:rules</span> <span class=na>xmlns:its=</span><span class=s>&#34;http://www.w3.org/2005/11/its&#34;</span> <span class=na>version=</span><span class=s>&#34;1.0&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;its:translateRule</span> <span class=na>translate=</span><span class=s>&#34;no&#34;</span> <span class=na>selector=</span><span class=s>&#34;/fontconfig/*[not(self::description)]&#34;</span><span class=nt>/&gt;</span>
-	<span class=nt>&lt;/its:rules&gt;</span>
+  <span class=nt>&lt;its:rules</span> <span class=na>xmlns:its=</span><span class=s>&#34;http://www.w3.org/2005/11/its&#34;</span> <span class=na>version=</span><span class=s>&#34;1.0&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;its:translateRule</span> <span class=na>translate=</span><span class=s>&#34;no&#34;</span> <span class=na>selector=</span><span class=s>&#34;/fontconfig/*[not(self::description)]&#34;</span><span class=nt>/&gt;</span>
+  <span class=nt>&lt;/its:rules&gt;</span>
 
-	<span class=nt>&lt;description&gt;</span>Sarasa Font Config<span class=nt>&lt;/description&gt;</span>
+  <span class=nt>&lt;description&gt;</span>Sarasa Font Config<span class=nt>&lt;/description&gt;</span>
 
-	<span class=c>&lt;!-- Font directory list --&gt;</span>
+  <span class=c>&lt;!-- Font directory list --&gt;</span>
 
-	<span class=nt>&lt;dir&gt;</span>/usr/share/fonts<span class=nt>&lt;/dir&gt;</span>
-	<span class=nt>&lt;dir&gt;</span>/usr/local/share/fonts<span class=nt>&lt;/dir&gt;</span>
-	<span class=nt>&lt;dir</span> <span class=na>prefix=</span><span class=s>&#34;xdg&#34;</span><span class=nt>&gt;</span>fonts<span class=nt>&lt;/dir&gt;</span>
-	<span class=c>&lt;!-- the following element will be removed in the future --&gt;</span>
-	<span class=nt>&lt;dir&gt;</span>~/.fonts<span class=nt>&lt;/dir&gt;</span>
-
-
-	<span class=c>&lt;!-- 关闭内嵌点阵字体 --&gt;</span>
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;embeddedbitmap&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-
-	<span class=c>&lt;!-- 英文默认字体使用 Roboto 和 Noto Serif ,终端使用 DejaVu Sans Mono. --&gt;</span>
-	<span class=nt>&lt;match&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>serif<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Noto Serif<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>sans-serif<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Roboto<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>monospace<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>DejaVu Sans Mono<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-
-	<span class=c>&lt;!-- 中文默认字体使用思源黑体和思源宋体,不使用　Noto Sans CJK SC 是因为这个字体会在特定情况下显示片假字. --&gt;</span>
-
-	<span class=c>&lt;!-- &lt;match&gt;
-</span><span class=c>		&lt;edit mode=&#34;prepend&#34; name=&#34;family&#34;&gt;
-</span><span class=c>		&lt;string&gt;Noto Sans&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt; --&gt;</span>
-	<span class=nt>&lt;match&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>serif<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
-			<span class=c>&lt;!-- &lt;string&gt;Microsoft YaHei&lt;/string&gt; --&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Source Han Serif CN<span class=nt>&lt;/string&gt;</span> 
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-	<span class=nt>&lt;match&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>sans-serif<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Source Han Sans CN<span class=nt>&lt;/string&gt;</span>
-			<span class=c>&lt;!-- &lt;string&gt;Microsoft YaHei&lt;/string&gt; --&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-	<span class=nt>&lt;match&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>monospace<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
-			<span class=c>&lt;!-- &lt;string&gt;Noto Sans Mono CJK SC&lt;/string&gt; --&gt;</span>
-			<span class=nt>&lt;string&gt;</span>WenQuanYi Zen Hei Mono<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-	
-	<span class=c>&lt;!--Windows &amp; Linux Chinese fonts. --&gt;</span>
-	<span class=c>&lt;!--把所有常见的中文字体映射到思源黑体和思源宋体，这样当这些字体未安装时会使用思源黑体和思源宋体.
-</span><span class=c>	解决特定程序指定使用某字体，并且在字体不存在情况下不会使用fallback字体导致中文显示不正常的情况. --&gt;</span>
-	
-	<span class=c>&lt;!-- &lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;WenQuanYi Zen Hei&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Sans CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	&lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;WenQuanYi Micro Hei&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Sans CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	&lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;WenQuanYi Micro Hei Light&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Sans CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	&lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;Microsoft YaHei&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Sans CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	&lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;SimHei&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Sans CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	&lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;SimSun&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Serif CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt; --&gt;</span>
-	<span class=c>&lt;!-- &lt;match target=&#34;pattern&#34;&gt;
-</span><span class=c>		&lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;SimSun-18030&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
-</span><span class=c>			&lt;string&gt;Source Han Serif CN&lt;/string&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt; --&gt;</span>
-
-	
-	<span class=c>&lt;!--
-</span><span class=c>	Load local system customization file
-</span><span class=c>	--&gt;</span>
-	<span class=nt>&lt;include</span> <span class=na>ignore_missing=</span><span class=s>&#34;yes&#34;</span><span class=nt>&gt;</span>conf.d<span class=nt>&lt;/include&gt;</span>
-
-	<span class=c>&lt;!-- Font cache directory list --&gt;</span>
-
-	<span class=nt>&lt;cachedir&gt;</span>/var/cache/fontconfig<span class=nt>&lt;/cachedir&gt;</span>
-	<span class=nt>&lt;cachedir</span> <span class=na>prefix=</span><span class=s>&#34;xdg&#34;</span><span class=nt>&gt;</span>fontconfig<span class=nt>&lt;/cachedir&gt;</span>
-	<span class=c>&lt;!-- the following element will be removed in the future --&gt;</span>
-	<span class=nt>&lt;cachedir&gt;</span>~/.fontconfig<span class=nt>&lt;/cachedir&gt;</span>
-
-	<span class=nt>&lt;config&gt;</span>
-		<span class=c>&lt;!--
-</span><span class=c>		Rescan configuration every 30 seconds when FcFontSetList is called
-</span><span class=c>		--&gt;</span>
-		<span class=nt>&lt;rescan&gt;</span>
-			<span class=nt>&lt;int&gt;</span>30<span class=nt>&lt;/int&gt;</span>
-		<span class=nt>&lt;/rescan&gt;</span>
-	<span class=nt>&lt;/config&gt;</span>
-
-	<span class=c>&lt;!-- 全局开启 Hint 和 Antialias --&gt;</span>
-
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;autohint&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;hintstyle&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;const&gt;</span>hintfull<span class=nt>&lt;/const&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;antialias&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-
-	<span class=c>&lt;!-- 禁用 Noto Color Emoji 的 Antialias，因为这个字体在同时开启 Hint 和 Antialias 时会显示空白、 --&gt;</span>
-
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Noto Color Emoji<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;antialias&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
-
-	<span class=c>&lt;!--
-</span><span class=c>	Synthetic emboldening for fonts that do not have bold face available
-</span><span class=c>	--&gt;</span>
-
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=c>&lt;!-- check to see if the font is just regular --&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>compare=</span><span class=s>&#34;less_eq&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;const&gt;</span>medium<span class=nt>&lt;/const&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=c>&lt;!-- check to see if the pattern requests bold --&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>compare=</span><span class=s>&#34;more&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;const&gt;</span>medium<span class=nt>&lt;/const&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=c>&lt;!--
-</span><span class=c>		set the embolden flag
-</span><span class=c>		needed for applications using cairo, e.g. gucharmap, gedit, ...
-</span><span class=c>		--&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;embolden&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-		<span class=c>&lt;!--
-</span><span class=c>		set weight to bold
-</span><span class=c>		needed for applications using Xft directly, e.g. Firefox, ...
-</span><span class=c>		--&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;const&gt;</span>bold<span class=nt>&lt;/const&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;dir&gt;</span>/usr/share/fonts<span class=nt>&lt;/dir&gt;</span>
+  <span class=nt>&lt;dir&gt;</span>/usr/local/share/fonts<span class=nt>&lt;/dir&gt;</span>
+  <span class=nt>&lt;dir</span> <span class=na>prefix=</span><span class=s>&#34;xdg&#34;</span><span class=nt>&gt;</span>fonts<span class=nt>&lt;/dir&gt;</span>
+  <span class=c>&lt;!-- the following element will be removed in the future --&gt;</span>
+  <span class=nt>&lt;dir&gt;</span>~/.fonts<span class=nt>&lt;/dir&gt;</span>
 
 
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>ja<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>ko<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;spacing&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;const&gt;</span>proportional<span class=nt>&lt;/const&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;globaladvance&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
+  <span class=c>&lt;!-- 关闭内嵌点阵字体 --&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;embeddedbitmap&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+
+  <span class=c>&lt;!-- 英文默认字体使用 Roboto 和 Noto Serif ,终端使用 DejaVu Sans Mono. --&gt;</span>
+  <span class=nt>&lt;match&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>serif<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Noto Serif<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>sans-serif<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Roboto<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>monospace<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>DejaVu Sans Mono<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+
+  <span class=c>&lt;!-- 中文默认字体使用思源黑体和思源宋体,不使用　Noto Sans CJK SC 是因为这个字体会在特定情况下显示片假字. --&gt;</span>
+
+  <span class=c>&lt;!-- &lt;match&gt;
+</span><span class=c>    &lt;edit mode=&#34;prepend&#34; name=&#34;family&#34;&gt;
+</span><span class=c>    &lt;string&gt;Noto Sans&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt; --&gt;</span>
+  <span class=nt>&lt;match&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>serif<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
+      <span class=c>&lt;!-- &lt;string&gt;Microsoft YaHei&lt;/string&gt; --&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Source Han Serif CN<span class=nt>&lt;/string&gt;</span> 
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;match&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>sans-serif<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Source Han Sans CN<span class=nt>&lt;/string&gt;</span>
+      <span class=c>&lt;!-- &lt;string&gt;Microsoft YaHei&lt;/string&gt; --&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;match&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>monospace<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span><span class=nt>&gt;</span>
+      <span class=c>&lt;!-- &lt;string&gt;Noto Sans Mono CJK SC&lt;/string&gt; --&gt;</span>
+      <span class=nt>&lt;string&gt;</span>WenQuanYi Zen Hei Mono<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+  
+  <span class=c>&lt;!--Windows &amp; Linux Chinese fonts. --&gt;</span>
+  <span class=c>&lt;!--把所有常见的中文字体映射到思源黑体和思源宋体，这样当这些字体未安装时会使用思源黑体和思源宋体.
+</span><span class=c>  解决特定程序指定使用某字体，并且在字体不存在情况下不会使用fallback字体导致中文显示不正常的情况. --&gt;</span>
+  
+  <span class=c>&lt;!-- &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;WenQuanYi Zen Hei&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Sans CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;WenQuanYi Micro Hei&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Sans CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;WenQuanYi Micro Hei Light&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Sans CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;Microsoft YaHei&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Sans CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;SimHei&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Sans CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;SimSun&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Serif CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt; --&gt;</span>
+  <span class=c>&lt;!-- &lt;match target=&#34;pattern&#34;&gt;
+</span><span class=c>    &lt;test qual=&#34;any&#34; name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;SimSun-18030&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;family&#34; mode=&#34;assign&#34; binding=&#34;same&#34;&gt;
+</span><span class=c>      &lt;string&gt;Source Han Serif CN&lt;/string&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt; --&gt;</span>
+
+  
+  <span class=c>&lt;!--
+</span><span class=c>  Load local system customization file
+</span><span class=c>  --&gt;</span>
+  <span class=nt>&lt;include</span> <span class=na>ignore_missing=</span><span class=s>&#34;yes&#34;</span><span class=nt>&gt;</span>conf.d<span class=nt>&lt;/include&gt;</span>
+
+  <span class=c>&lt;!-- Font cache directory list --&gt;</span>
+
+  <span class=nt>&lt;cachedir&gt;</span>/var/cache/fontconfig<span class=nt>&lt;/cachedir&gt;</span>
+  <span class=nt>&lt;cachedir</span> <span class=na>prefix=</span><span class=s>&#34;xdg&#34;</span><span class=nt>&gt;</span>fontconfig<span class=nt>&lt;/cachedir&gt;</span>
+  <span class=c>&lt;!-- the following element will be removed in the future --&gt;</span>
+  <span class=nt>&lt;cachedir&gt;</span>~/.fontconfig<span class=nt>&lt;/cachedir&gt;</span>
+
+  <span class=nt>&lt;config&gt;</span>
+    <span class=c>&lt;!--
+</span><span class=c>    Rescan configuration every 30 seconds when FcFontSetList is called
+</span><span class=c>    --&gt;</span>
+    <span class=nt>&lt;rescan&gt;</span>
+      <span class=nt>&lt;int&gt;</span>30<span class=nt>&lt;/int&gt;</span>
+    <span class=nt>&lt;/rescan&gt;</span>
+  <span class=nt>&lt;/config&gt;</span>
+
+  <span class=c>&lt;!-- 全局开启 Hint 和 Antialias --&gt;</span>
+
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;autohint&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;hintstyle&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;const&gt;</span>hintfull<span class=nt>&lt;/const&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;antialias&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+
+  <span class=c>&lt;!-- 禁用 Noto Color Emoji 的 Antialias，因为这个字体在同时开启 Hint 和 Antialias 时会显示空白、 --&gt;</span>
+
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Noto Color Emoji<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;antialias&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
+
+  <span class=c>&lt;!--
+</span><span class=c>  Synthetic emboldening for fonts that do not have bold face available
+</span><span class=c>  --&gt;</span>
+
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=c>&lt;!-- check to see if the font is just regular --&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>compare=</span><span class=s>&#34;less_eq&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;const&gt;</span>medium<span class=nt>&lt;/const&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=c>&lt;!-- check to see if the pattern requests bold --&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>compare=</span><span class=s>&#34;more&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;const&gt;</span>medium<span class=nt>&lt;/const&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=c>&lt;!--
+</span><span class=c>    set the embolden flag
+</span><span class=c>    needed for applications using cairo, e.g. gucharmap, gedit, ...
+</span><span class=c>    --&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;embolden&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>true<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+    <span class=c>&lt;!--
+</span><span class=c>    set weight to bold
+</span><span class=c>    needed for applications using Xft directly, e.g. Firefox, ...
+</span><span class=c>    --&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;weight&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;const&gt;</span>bold<span class=nt>&lt;/const&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
 
 
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>SimSun<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>SimSun-18030<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>AR PL New Sung<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>MingLiU<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>PMingLiU<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Tahoma<span class=nt>&lt;/string&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Arial<span class=nt>&lt;/string&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Verdana<span class=nt>&lt;/string&gt;</span>
-			<span class=nt>&lt;string&gt;</span>DejaVu Sans<span class=nt>&lt;/string&gt;</span>
-			<span class=nt>&lt;string&gt;</span>Bitstream Vera Sans<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>zh<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>ja<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span> <span class=na>name=</span><span class=s>&#34;lang&#34;</span> <span class=na>compare=</span><span class=s>&#34;contains&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>ko<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;spacing&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;const&gt;</span>proportional<span class=nt>&lt;/const&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;globaladvance&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;bool&gt;</span>false<span class=nt>&lt;/bool&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
 
-	<span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>AR PL New Sung<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>SimSun<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>NSimSun<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>MingLiu<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;string&gt;</span>PMingLiu<span class=nt>&lt;/string&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;pixelsize&#34;</span> <span class=na>compare=</span><span class=s>&#34;less_eq&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;double&gt;</span>12<span class=nt>&lt;/double&gt;</span>
-		<span class=nt>&lt;/test&gt;</span>
-		<span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;pixelsize&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
-			<span class=nt>&lt;double&gt;</span>12<span class=nt>&lt;/double&gt;</span>
-		<span class=nt>&lt;/edit&gt;</span>
-	<span class=nt>&lt;/match&gt;</span>
 
-	<span class=c>&lt;!--
-</span><span class=c>	&lt;match target=&#34;font&#34; &gt;
-</span><span class=c>		&lt;test compare=&#34;eq&#34; name=&#34;family&#34; qual=&#34;any&#34; &gt;
-</span><span class=c>			&lt;string&gt;宋体&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;新宋体&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;SimSun&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;NSimSun&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;宋体-18030&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;新宋体-18030&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;SimSun-18030&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;NSimSun-18030&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;AR PL ShanHeiSun Uni&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;AR PL New Sung&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;MingLiU&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;PMingLiU&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;test compare=&#34;less_eq&#34; name=&#34;pixelsize&#34; &gt;
-</span><span class=c>			&lt;double&gt;16&lt;/double&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit mode=&#34;assign&#34; name=&#34;hinting&#34; &gt;
-</span><span class=c>			&lt;bool&gt;true&lt;/bool&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>		&lt;edit mode=&#34;assign&#34; name=&#34;autohint&#34; &gt;
-</span><span class=c>			&lt;bool&gt;false&lt;/bool&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>		&lt;edit name=&#34;antialias&#34;&gt;
-</span><span class=c>			&lt;bool&gt;false&lt;/bool&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>		&lt;edit mode=&#34;assign&#34; name=&#34;hintstyle&#34; &gt;
-</span><span class=c>			&lt;const&gt;hintslight&lt;/const&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	--&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;pattern&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>SimSun<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>SimSun-18030<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>AR PL New Sung<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>MingLiU<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>PMingLiU<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>binding=</span><span class=s>&#34;strong&#34;</span> <span class=na>mode=</span><span class=s>&#34;prepend&#34;</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Tahoma<span class=nt>&lt;/string&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Arial<span class=nt>&lt;/string&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Verdana<span class=nt>&lt;/string&gt;</span>
+      <span class=nt>&lt;string&gt;</span>DejaVu Sans<span class=nt>&lt;/string&gt;</span>
+      <span class=nt>&lt;string&gt;</span>Bitstream Vera Sans<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
 
-	<span class=c>&lt;!--
-</span><span class=c>	&lt;match target=&#34;font&#34;&gt;
-</span><span class=c>		&lt;test name=&#34;family&#34;&gt;
-</span><span class=c>			&lt;string&gt;Andale Mono&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Arial&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Comic Sans MS&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Georgia&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Impact&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Trebuchet MS&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Verdana&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Courier New&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Times New Roman&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Tahoma&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Webdings&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Albany AMT&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Thorndale AMT&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Cumberland AMT&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Andale Sans&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Andy MT&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Bell MT&lt;/string&gt;
-</span><span class=c>			&lt;string&gt;Monotype Sorts&lt;/string&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;test name=&#34;pixelsize&#34; compare=&#34;less_eq&#34;&gt;
-</span><span class=c>			&lt;double&gt;16&lt;/double&gt;
-</span><span class=c>		&lt;/test&gt;
-</span><span class=c>		&lt;edit name=&#34;autohint&#34;&gt;
-</span><span class=c>			&lt;bool&gt;false&lt;/bool&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>		&lt;edit name=&#34;antialias&#34;&gt;
-</span><span class=c>			&lt;bool&gt;false&lt;/bool&gt;
-</span><span class=c>		&lt;/edit&gt;
-</span><span class=c>	&lt;/match&gt;
-</span><span class=c>	--&gt;</span>
+  <span class=nt>&lt;match</span> <span class=na>target=</span><span class=s>&#34;font&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>AR PL New Sung<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>SimSun<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>NSimSun<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>MingLiu<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;family&#34;</span> <span class=na>qual=</span><span class=s>&#34;any&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;string&gt;</span>PMingLiu<span class=nt>&lt;/string&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;test</span> <span class=na>name=</span><span class=s>&#34;pixelsize&#34;</span> <span class=na>compare=</span><span class=s>&#34;less_eq&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;double&gt;</span>12<span class=nt>&lt;/double&gt;</span>
+    <span class=nt>&lt;/test&gt;</span>
+    <span class=nt>&lt;edit</span> <span class=na>name=</span><span class=s>&#34;pixelsize&#34;</span> <span class=na>mode=</span><span class=s>&#34;assign&#34;</span><span class=nt>&gt;</span>
+      <span class=nt>&lt;double&gt;</span>12<span class=nt>&lt;/double&gt;</span>
+    <span class=nt>&lt;/edit&gt;</span>
+  <span class=nt>&lt;/match&gt;</span>
 
-	<span class=nt>&lt;alias&gt;</span>
-		<span class=nt>&lt;family&gt;</span>serif<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;prefer&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Nimbus Roman No9 L<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Thorndale AMT<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>DejaVu Serif<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Bitstream Vera Serif<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Times New Roman<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Luxi Serif<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Likhan<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FreeSerif<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Times<span class=nt>&lt;/family&gt;</span>
-			<span class=c>&lt;!-- &lt;family&gt;Microsoft YaHei&lt;/family&gt; --&gt;</span>
-			<span class=nt>&lt;family&gt;</span>SimSun<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>SimSun-18030<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>MingLiU<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Kochi Mincho<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>UnBatang<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Baekmuk Batang<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>HanyiSong<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>ZYSong18030<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;/prefer&gt;</span>
-	<span class=nt>&lt;/alias&gt;</span>
-	<span class=nt>&lt;alias&gt;</span>
-		<span class=nt>&lt;family&gt;</span>sans-serif<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;prefer&gt;</span>
-			<span class=nt>&lt;family&gt;</span>DejaVu Sans<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Bitstream Vera Sans<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Luxi Sans<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Arial<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Verdana<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Albany AMT<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Nimbus Sans L<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FreeSans<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Helvetica<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Source Han Sans CN<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Microsoft YaHei<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>SimSun<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>SimSun-18030<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>MingLiU<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Kochi Gothic<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>UnDotum<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Baekmuk Gulim<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Baekmuk Dotum<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;/prefer&gt;</span>
-	<span class=nt>&lt;/alias&gt;</span>
-	<span class=nt>&lt;alias&gt;</span>
-		<span class=nt>&lt;family&gt;</span>monospace<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;prefer&gt;</span>
-			<span class=nt>&lt;family&gt;</span>DejaVu Sans Mono<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Bitstream Vera Sans Mono<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Luxi Mono<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Courier New<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Cumberland AMT<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Nimbus Mono L<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Andale Mono<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FreeMono<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>NSimSun<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>NSimSun-18030<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>PMingLiU<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Kochi Gothic<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>UnDotum<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Baekmuk Gulim<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>Baekmuk Dotum<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>HanyiSong<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>ZYSong18030<span class=nt>&lt;/family&gt;</span>
-			<span class=nt>&lt;family&gt;</span>WenQuanYi Zen Hei Mono<span class=nt>&lt;/family&gt;</span>
-		<span class=nt>&lt;/prefer&gt;</span>
-	<span class=nt>&lt;/alias&gt;</span>
+  <span class=c>&lt;!--
+</span><span class=c>  &lt;match target=&#34;font&#34; &gt;
+</span><span class=c>    &lt;test compare=&#34;eq&#34; name=&#34;family&#34; qual=&#34;any&#34; &gt;
+</span><span class=c>      &lt;string&gt;宋体&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;新宋体&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;SimSun&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;NSimSun&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;宋体-18030&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;新宋体-18030&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;SimSun-18030&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;NSimSun-18030&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;AR PL ShanHeiSun Uni&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;AR PL New Sung&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;MingLiU&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;PMingLiU&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;test compare=&#34;less_eq&#34; name=&#34;pixelsize&#34; &gt;
+</span><span class=c>      &lt;double&gt;16&lt;/double&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit mode=&#34;assign&#34; name=&#34;hinting&#34; &gt;
+</span><span class=c>      &lt;bool&gt;true&lt;/bool&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>    &lt;edit mode=&#34;assign&#34; name=&#34;autohint&#34; &gt;
+</span><span class=c>      &lt;bool&gt;false&lt;/bool&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>    &lt;edit name=&#34;antialias&#34;&gt;
+</span><span class=c>      &lt;bool&gt;false&lt;/bool&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>    &lt;edit mode=&#34;assign&#34; name=&#34;hintstyle&#34; &gt;
+</span><span class=c>      &lt;const&gt;hintslight&lt;/const&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  --&gt;</span>
+
+  <span class=c>&lt;!--
+</span><span class=c>  &lt;match target=&#34;font&#34;&gt;
+</span><span class=c>    &lt;test name=&#34;family&#34;&gt;
+</span><span class=c>      &lt;string&gt;Andale Mono&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Arial&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Comic Sans MS&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Georgia&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Impact&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Trebuchet MS&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Verdana&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Courier New&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Times New Roman&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Tahoma&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Webdings&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Albany AMT&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Thorndale AMT&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Cumberland AMT&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Andale Sans&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Andy MT&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Bell MT&lt;/string&gt;
+</span><span class=c>      &lt;string&gt;Monotype Sorts&lt;/string&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;test name=&#34;pixelsize&#34; compare=&#34;less_eq&#34;&gt;
+</span><span class=c>      &lt;double&gt;16&lt;/double&gt;
+</span><span class=c>    &lt;/test&gt;
+</span><span class=c>    &lt;edit name=&#34;autohint&#34;&gt;
+</span><span class=c>      &lt;bool&gt;false&lt;/bool&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>    &lt;edit name=&#34;antialias&#34;&gt;
+</span><span class=c>      &lt;bool&gt;false&lt;/bool&gt;
+</span><span class=c>    &lt;/edit&gt;
+</span><span class=c>  &lt;/match&gt;
+</span><span class=c>  --&gt;</span>
+
+  <span class=nt>&lt;alias&gt;</span>
+    <span class=nt>&lt;family&gt;</span>serif<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;prefer&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Nimbus Roman No9 L<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Thorndale AMT<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>DejaVu Serif<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Bitstream Vera Serif<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Times New Roman<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Luxi Serif<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Likhan<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FreeSerif<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Times<span class=nt>&lt;/family&gt;</span>
+      <span class=c>&lt;!-- &lt;family&gt;Microsoft YaHei&lt;/family&gt; --&gt;</span>
+      <span class=nt>&lt;family&gt;</span>SimSun<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>SimSun-18030<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>MingLiU<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Kochi Mincho<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>UnBatang<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Baekmuk Batang<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>HanyiSong<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>ZYSong18030<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;/prefer&gt;</span>
+  <span class=nt>&lt;/alias&gt;</span>
+  <span class=nt>&lt;alias&gt;</span>
+    <span class=nt>&lt;family&gt;</span>sans-serif<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;prefer&gt;</span>
+      <span class=nt>&lt;family&gt;</span>DejaVu Sans<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Bitstream Vera Sans<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Luxi Sans<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Arial<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Verdana<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Albany AMT<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Nimbus Sans L<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FreeSans<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Helvetica<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Source Han Sans CN<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Microsoft YaHei<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>SimSun<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>SimSun-18030<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>MingLiU<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Kochi Gothic<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>UnDotum<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Baekmuk Gulim<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Baekmuk Dotum<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;/prefer&gt;</span>
+  <span class=nt>&lt;/alias&gt;</span>
+  <span class=nt>&lt;alias&gt;</span>
+    <span class=nt>&lt;family&gt;</span>monospace<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;prefer&gt;</span>
+      <span class=nt>&lt;family&gt;</span>DejaVu Sans Mono<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Bitstream Vera Sans Mono<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Luxi Mono<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Courier New<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Cumberland AMT<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Nimbus Mono L<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Andale Mono<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FreeMono<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>NSimSun<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>NSimSun-18030<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>PMingLiU<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>WenQuanYi Bitmap Song<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL ShanHeiSun Uni<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL New Sung<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZSongTi<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>FZMingTiB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL SungtiL GB<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>AR PL Mingti2L Big5<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Kochi Gothic<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>UnDotum<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Baekmuk Gulim<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>Baekmuk Dotum<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>HanyiSong<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>ZYSong18030<span class=nt>&lt;/family&gt;</span>
+      <span class=nt>&lt;family&gt;</span>WenQuanYi Zen Hei Mono<span class=nt>&lt;/family&gt;</span>
+    <span class=nt>&lt;/prefer&gt;</span>
+  <span class=nt>&lt;/alias&gt;</span>
 
 <span class=nt>&lt;/fontconfig&gt;</span>
 </code></pre></div></details><h2 id=cant-unlock-gnome>Can&rsquo;t Unlock GNOME</h2><p>参考<a href=/page/2020-07-17-a-fucking-gnome-bug>这篇文章</a>。</p><h2 id=bash-inputrcbind-make-life-easier>Bash inputrc/bind, make life easier</h2><p><a href=/page/zsh-configuration#keybindings>Zsh version</a>.</p><p>Run <code>cat $HOME/.inputrc</code>:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=s2>&#34;C-h&#34;</span>: backward-kill-word
@@ -590,112 +590,112 @@ archlinuxcn/nerd-fonts-meslo-lg
 <span class=s2>&#34;\e[H&#34;</span>: beginning-of-line
 <span class=s2>&#34;\e[F&#34;</span>: end-of-line
 <span class=nv>$endif</span>
-</code></pre></div></details><p>Run <code>bind -p | grep -v 'not bound' | grep -v 'self-insert' | grep -v 'do-lowercase-version' | grep -v 'digit-argument'</code>:</p><details><summary>Expand code</summary><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&#34;\C-g&#34;: abort
-&#34;\C-x\C-g&#34;: abort
-&#34;\e\C-g&#34;: abort
-&#34;\C-j&#34;: accept-line
-&#34;\C-m&#34;: accept-line
-&#34;\C-b&#34;: backward-char
-&#34;\eOD&#34;: backward-char
-&#34;\e[D&#34;: backward-char
-&#34;\C-h&#34;: backward-delete-char
-&#34;\C-?&#34;: backward-delete-char
-&#34;\C-x\C-?&#34;: backward-kill-line
-&#34;\e\C-h&#34;: backward-kill-word
-&#34;\e\C-?&#34;: backward-kill-word
-&#34;C-h&#34;: backward-kill-word
-&#34;\e[1;3D&#34;: backward-word
-&#34;\e[1;5D&#34;: backward-word
-&#34;\eb&#34;: backward-word
-&#34;\e&lt;&#34;: beginning-of-history
-&#34;\C-a&#34;: beginning-of-line
-&#34;\eOH&#34;: beginning-of-line
-&#34;\e[H&#34;: beginning-of-line
-&#34;\e[200~&#34;: bracketed-paste-begin
-&#34;\C-xe&#34;: call-last-kbd-macro
-&#34;\ec&#34;: capitalize-word
-&#34;\C-]&#34;: character-search
-&#34;\e\C-]&#34;: character-search-backward
-&#34;\C-l&#34;: clear-screen
-&#34;\C-i&#34;: complete
-&#34;\e\e&#34;: complete
-&#34;\e!&#34;: complete-command
-&#34;\e/&#34;: complete-filename
-&#34;\e@&#34;: complete-hostname
-&#34;\e{&#34;: complete-into-braces
-&#34;\e~&#34;: complete-username
-&#34;\e$&#34;: complete-variable
-&#34;\C-d&#34;: delete-char
-&#34;\e[3~&#34;: delete-char
-&#34;\e\\&#34;: delete-horizontal-space
-&#34;\C-x\C-v&#34;: display-shell-version
-&#34;\el&#34;: downcase-word
-&#34;\e\C-i&#34;: dynamic-complete-history
-&#34;\C-x\C-e&#34;: edit-and-execute-command
-&#34;\C-x)&#34;: end-kbd-macro
-&#34;\e&gt;&#34;: end-of-history
-&#34;\C-e&#34;: end-of-line
-&#34;\eOF&#34;: end-of-line
-&#34;\e[F&#34;: end-of-line
-&#34;\C-x\C-x&#34;: exchange-point-and-mark
-&#34;\C-f&#34;: forward-char
-&#34;\eOC&#34;: forward-char
-&#34;\e[C&#34;: forward-char
-&#34;\C-s&#34;: forward-search-history
-&#34;\e[1;3C&#34;: forward-word
-&#34;\e[1;5C&#34;: forward-word
-&#34;\ef&#34;: forward-word
-&#34;\eg&#34;: glob-complete-word
-&#34;\C-x*&#34;: glob-expand-word
-&#34;\C-xg&#34;: glob-list-expansions
-&#34;\e^&#34;: history-expand-line
-&#34;\e#&#34;: insert-comment
-&#34;\e*&#34;: insert-completions
-&#34;\e.&#34;: insert-last-argument
-&#34;\e_&#34;: insert-last-argument
-&#34;\C-k&#34;: kill-line
-&#34;\e[3;5~&#34;: kill-word
-&#34;\ed&#34;: kill-word
-&#34;\C-n&#34;: next-history
-&#34;\eOB&#34;: next-history
-&#34;\e[B&#34;: next-history
-&#34;\en&#34;: non-incremental-forward-search-history
-&#34;\ep&#34;: non-incremental-reverse-search-history
-&#34;\C-o&#34;: operate-and-get-next
-&#34;\e[2~&#34;: overwrite-mode
-&#34;\C-x!&#34;: possible-command-completions
-&#34;\e=&#34;: possible-completions
-&#34;\e?&#34;: possible-completions
-&#34;\C-x/&#34;: possible-filename-completions
-&#34;\C-x@&#34;: possible-hostname-completions
-&#34;\C-x~&#34;: possible-username-completions
-&#34;\C-x$&#34;: possible-variable-completions
-&#34;\C-p&#34;: previous-history
-&#34;\eOA&#34;: previous-history
-&#34;\e[A&#34;: previous-history
-&#34;\C-q&#34;: quoted-insert
-&#34;\C-v&#34;: quoted-insert
-&#34;\C-x\C-r&#34;: re-read-init-file
-&#34;\C-r&#34;: reverse-search-history
-&#34;\e\C-r&#34;: revert-line
-&#34;\er&#34;: revert-line
-&#34;\C-@&#34;: set-mark
-&#34;\e &#34;: set-mark
-&#34;\e\C-e&#34;: shell-expand-line
-&#34;\C-x(&#34;: start-kbd-macro
-&#34;\e&amp;&#34;: tilde-expand
-&#34;\C-t&#34;: transpose-chars
-&#34;\et&#34;: transpose-words
-&#34;\C-x\C-u&#34;: undo
-&#34;\C-_&#34;: undo
-&#34;\C-u&#34;: unix-line-discard
-&#34;\C-w&#34;: unix-word-rubout
-&#34;\eu&#34;: upcase-word
-&#34;\C-y&#34;: yank
-&#34;\e.&#34;: yank-last-arg
-&#34;\e_&#34;: yank-last-arg
-&#34;\e\C-y&#34;: yank-nth-arg
-&#34;\ey&#34;: yank-pop
+</code></pre></div></details><p>Run <code>bind -p | grep -v 'not bound' | grep -v 'self-insert' | grep -v 'do-lowercase-version' | grep -v 'digit-argument'</code>:</p><details><summary>Expand code</summary><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=s2>&#34;\C-g&#34;</span>: abort
+<span class=s2>&#34;\C-x\C-g&#34;</span>: abort
+<span class=s2>&#34;\e\C-g&#34;</span>: abort
+<span class=s2>&#34;\C-j&#34;</span>: accept-line
+<span class=s2>&#34;\C-m&#34;</span>: accept-line
+<span class=s2>&#34;\C-b&#34;</span>: backward-char
+<span class=s2>&#34;\eOD&#34;</span>: backward-char
+<span class=s2>&#34;\e[D&#34;</span>: backward-char
+<span class=s2>&#34;\C-h&#34;</span>: backward-delete-char
+<span class=s2>&#34;\C-?&#34;</span>: backward-delete-char
+<span class=s2>&#34;\C-x\C-?&#34;</span>: backward-kill-line
+<span class=s2>&#34;\e\C-h&#34;</span>: backward-kill-word
+<span class=s2>&#34;\e\C-?&#34;</span>: backward-kill-word
+<span class=s2>&#34;C-h&#34;</span>: backward-kill-word
+<span class=s2>&#34;\e[1;3D&#34;</span>: backward-word
+<span class=s2>&#34;\e[1;5D&#34;</span>: backward-word
+<span class=s2>&#34;\eb&#34;</span>: backward-word
+<span class=s2>&#34;\e&lt;&#34;</span>: beginning-of-history
+<span class=s2>&#34;\C-a&#34;</span>: beginning-of-line
+<span class=s2>&#34;\eOH&#34;</span>: beginning-of-line
+<span class=s2>&#34;\e[H&#34;</span>: beginning-of-line
+<span class=s2>&#34;\e[200~&#34;</span>: bracketed-paste-begin
+<span class=s2>&#34;\C-xe&#34;</span>: call-last-kbd-macro
+<span class=s2>&#34;\ec&#34;</span>: capitalize-word
+<span class=s2>&#34;\C-]&#34;</span>: character-search
+<span class=s2>&#34;\e\C-]&#34;</span>: character-search-backward
+<span class=s2>&#34;\C-l&#34;</span>: clear-screen
+<span class=s2>&#34;\C-i&#34;</span>: <span class=nb>complete</span>
+<span class=s2>&#34;\e\e&#34;</span>: <span class=nb>complete</span>
+<span class=s2>&#34;\e!&#34;</span>: complete-command
+<span class=s2>&#34;\e/&#34;</span>: complete-filename
+<span class=s2>&#34;\e@&#34;</span>: complete-hostname
+<span class=s2>&#34;\e{&#34;</span>: complete-into-braces
+<span class=s2>&#34;\e~&#34;</span>: complete-username
+<span class=s2>&#34;\e</span>$<span class=s2>&#34;</span>: complete-variable
+<span class=s2>&#34;\C-d&#34;</span>: delete-char
+<span class=s2>&#34;\e[3~&#34;</span>: delete-char
+<span class=s2>&#34;\e\\&#34;</span>: delete-horizontal-space
+<span class=s2>&#34;\C-x\C-v&#34;</span>: display-shell-version
+<span class=s2>&#34;\el&#34;</span>: downcase-word
+<span class=s2>&#34;\e\C-i&#34;</span>: dynamic-complete-history
+<span class=s2>&#34;\C-x\C-e&#34;</span>: edit-and-execute-command
+<span class=s2>&#34;\C-x)&#34;</span>: end-kbd-macro
+<span class=s2>&#34;\e&gt;&#34;</span>: end-of-history
+<span class=s2>&#34;\C-e&#34;</span>: end-of-line
+<span class=s2>&#34;\eOF&#34;</span>: end-of-line
+<span class=s2>&#34;\e[F&#34;</span>: end-of-line
+<span class=s2>&#34;\C-x\C-x&#34;</span>: exchange-point-and-mark
+<span class=s2>&#34;\C-f&#34;</span>: forward-char
+<span class=s2>&#34;\eOC&#34;</span>: forward-char
+<span class=s2>&#34;\e[C&#34;</span>: forward-char
+<span class=s2>&#34;\C-s&#34;</span>: forward-search-history
+<span class=s2>&#34;\e[1;3C&#34;</span>: forward-word
+<span class=s2>&#34;\e[1;5C&#34;</span>: forward-word
+<span class=s2>&#34;\ef&#34;</span>: forward-word
+<span class=s2>&#34;\eg&#34;</span>: glob-complete-word
+<span class=s2>&#34;\C-x*&#34;</span>: glob-expand-word
+<span class=s2>&#34;\C-xg&#34;</span>: glob-list-expansions
+<span class=s2>&#34;\e^&#34;</span>: history-expand-line
+<span class=s2>&#34;\e#&#34;</span>: insert-comment
+<span class=s2>&#34;\e*&#34;</span>: insert-completions
+<span class=s2>&#34;\e.&#34;</span>: insert-last-argument
+<span class=s2>&#34;\e_&#34;</span>: insert-last-argument
+<span class=s2>&#34;\C-k&#34;</span>: kill-line
+<span class=s2>&#34;\e[3;5~&#34;</span>: kill-word
+<span class=s2>&#34;\ed&#34;</span>: kill-word
+<span class=s2>&#34;\C-n&#34;</span>: next-history
+<span class=s2>&#34;\eOB&#34;</span>: next-history
+<span class=s2>&#34;\e[B&#34;</span>: next-history
+<span class=s2>&#34;\en&#34;</span>: non-incremental-forward-search-history
+<span class=s2>&#34;\ep&#34;</span>: non-incremental-reverse-search-history
+<span class=s2>&#34;\C-o&#34;</span>: operate-and-get-next
+<span class=s2>&#34;\e[2~&#34;</span>: overwrite-mode
+<span class=s2>&#34;\C-x!&#34;</span>: possible-command-completions
+<span class=s2>&#34;\e=&#34;</span>: possible-completions
+<span class=s2>&#34;\e?&#34;</span>: possible-completions
+<span class=s2>&#34;\C-x/&#34;</span>: possible-filename-completions
+<span class=s2>&#34;\C-x@&#34;</span>: possible-hostname-completions
+<span class=s2>&#34;\C-x~&#34;</span>: possible-username-completions
+<span class=s2>&#34;\C-x</span>$<span class=s2>&#34;</span>: possible-variable-completions
+<span class=s2>&#34;\C-p&#34;</span>: previous-history
+<span class=s2>&#34;\eOA&#34;</span>: previous-history
+<span class=s2>&#34;\e[A&#34;</span>: previous-history
+<span class=s2>&#34;\C-q&#34;</span>: quoted-insert
+<span class=s2>&#34;\C-v&#34;</span>: quoted-insert
+<span class=s2>&#34;\C-x\C-r&#34;</span>: re-read-init-file
+<span class=s2>&#34;\C-r&#34;</span>: reverse-search-history
+<span class=s2>&#34;\e\C-r&#34;</span>: revert-line
+<span class=s2>&#34;\er&#34;</span>: revert-line
+<span class=s2>&#34;\C-@&#34;</span>: set-mark
+<span class=s2>&#34;\e &#34;</span>: set-mark
+<span class=s2>&#34;\e\C-e&#34;</span>: shell-expand-line
+<span class=s2>&#34;\C-x(&#34;</span>: start-kbd-macro
+<span class=s2>&#34;\e&amp;&#34;</span>: tilde-expand
+<span class=s2>&#34;\C-t&#34;</span>: transpose-chars
+<span class=s2>&#34;\et&#34;</span>: transpose-words
+<span class=s2>&#34;\C-x\C-u&#34;</span>: undo
+<span class=s2>&#34;\C-_&#34;</span>: undo
+<span class=s2>&#34;\C-u&#34;</span>: unix-line-discard
+<span class=s2>&#34;\C-w&#34;</span>: unix-word-rubout
+<span class=s2>&#34;\eu&#34;</span>: upcase-word
+<span class=s2>&#34;\C-y&#34;</span>: yank
+<span class=s2>&#34;\e.&#34;</span>: yank-last-arg
+<span class=s2>&#34;\e_&#34;</span>: yank-last-arg
+<span class=s2>&#34;\e\C-y&#34;</span>: yank-nth-arg
+<span class=s2>&#34;\ey&#34;</span>: yank-pop
 </code></pre></div></details><div id=refContainer></div></article></div><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/page/kubectl-life-saver/>&larr; Kubectl Life Saver</a></li><li class=next><a href=https://lingsamuel.github.io/page/zsh-custom-widget/>Zsh Custom Widget &rarr;</a></li></ul></div></div></div><div id=toc><aside><nav id=TableOfContents><ul><li><a href=#shortcut>Shortcut</a><ul><li><a href=#custom-shortcut>Custom Shortcut</a></li><li><a href=#alternative-character-key>Alternative Character Key</a></li></ul></li><li><a href=#fcitx-xml-schema-problem>Fcitx XML Schema Problem</a></li><li><a href=#vimrc>Vimrc</a></li><li><a href=#pacman-配置>Pacman 配置</a><ul><li><a href=#arch-linux>Arch Linux</a></li><li><a href=#manjaro>Manjaro</a></li></ul></li><li><a href=#fonts>Fonts</a></li><li><a href=#cant-unlock-gnome>Can&rsquo;t Unlock GNOME</a></li><li><a href=#bash-inputrcbind-make-life-easier>Bash inputrc/bind, make life easier</a></li></ul></nav></aside></div></div><footer id=footer><div class=footer><p>Copyright © 2021
 <a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.82.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
 Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script data-stage=prerender src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous></script><link rel=stylesheet href=https://lingsamuel.github.io/css/mermaid.min.f57f100e5c31122c8fd948b8716faca0b33177ff6b2234c983c71a5da37fe839.css media=screen><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script><script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`

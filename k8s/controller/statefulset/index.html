@@ -13,20 +13,20 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul><li><a title=Articles href=/p
 <span class=p>}</span>
 </code></pre></div><p>其中，<code>Data</code> 字段存储了序列化的状态，一旦生成就不可变；<code>Revision</code> 字段表示 Data 中数据的版本号，这个字段是可变的。<code>Data</code> 中存储的内容则取决于使用者如何使用。</p><p>对 Controller Revision 的管理功能位于 <a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/history/controller_history.go>controller_revision.go</a>。</p><p>在集群内部，Controller Revision 与其他 API 对象并无区别。</p><h2 id=实现原理>实现原理</h2><p>在 StatefulSet 的实现中，StatefulSet 直接持有的对象为 Pod 和 Controller Revision。</p><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">StatefulSet Struct</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
-	S(StatefulSet)
-	R1(Revision 1)
-	R2(Revision 2)
-	P1(Pod 1)
-	P2(Pod 2)
+  S(StatefulSet)
+  R1(Revision 1)
+  R2(Revision 2)
+  P1(Pod 1)
+  P2(Pod 2)
 
-	S--&gt;R1
-	S--&gt;R2
-	S--&gt;P1
-	S--&gt;P2
+  S--&gt;R1
+  S--&gt;R2
+  S--&gt;P1
+  S--&gt;P2
 
-	class S Green;
-	class R1,R2 Red;
-	class P1,P2 Yellow;
+  class S Green;
+  class R1,R2 Red;
+  class P1,P2 Yellow;
 </code></pre></div><p>基本上 Informer 监听自身资源和 Pod 增删改之类的逻辑和 ReplicaSet/Deployment 类似，除非有特殊逻辑，否则不再赘述。</p><h3 id=sync>sync</h3><p>直接快进到同步函数。</p><p>同步前，<code>sync</code> 会调用 <code>adoptOrphanRevisions</code> 来收养符合 StatefulSet Selectors 的孤儿 Revisions：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>ssc</span> <span class=o>*</span><span class=nx>StatefulSetController</span><span class=p>)</span> <span class=nf>adoptOrphanRevisions</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=nx>revisions</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>control</span><span class=p>.</span><span class=nf>ListRevisions</span><span class=p>(</span><span class=nx>set</span><span class=p>)</span>
 	<span class=nx>orphanRevisions</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ControllerRevision</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>

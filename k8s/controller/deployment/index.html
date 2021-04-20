@@ -12,13 +12,13 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul><li><a title=Articles href=/p
 </code></pre></div><p>很常见的为了测试目的抽成的变量。</p><p>实际运行时 syncHandler 为 <code>syncDeployment</code>，是实际的 worker；enqueueDeployment 是 <code>enqueue</code>，作为 lister 回调里实际调用的函数，将更新信息不断入到工作队列 <code>queue</code> 中。</p><p><code>Run</code> 启动数个 worker goroutine，从工作队列 <code>queue</code> 中不断取出 key 并处理。</p><p>这是一段非常经典的 Controller 逻辑。</p><h2 id=实现原理>实现原理</h2><p>实线表示持有关系，虚线表示数据流向。</p><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Deployment Controller</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
     DC(Deployment Controller)
-		DI(Deployment Informer)
+    DI(Deployment Informer)
     RSI(ReplicaSet Informer)
     PI(Pod Informer)
     E(EventHandler)
-		W(Workers)
+    W(Workers)
     
-		DC--&gt;DI
+    DC--&gt;DI
     DC--&gt;RSI
     DC--&gt;PI
     DC--&gt;W
@@ -32,30 +32,30 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul><li><a title=Articles href=/p
 
     Queue-. Dequeue Deployment .-&gt;W
 
-		class E Blue;
-		class DI,RSI,PI,Queue Red;
-		class DC Green;
+    class E Blue;
+    class DI,RSI,PI,Queue Red;
+    class DC Green;
     class W Yellow;
 </code></pre></div><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Deployment Struct</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
-	D(Deployment)
-	R1(ReplicaSet 1)
-	R2(ReplicaSet 2)
-	P1(Pod 1)
-	P2(Pod 2)
-	P3(Pod 1)
-	P4(Pod 2)
+  D(Deployment)
+  R1(ReplicaSet 1)
+  R2(ReplicaSet 2)
+  P1(Pod 1)
+  P2(Pod 2)
+  P3(Pod 1)
+  P4(Pod 2)
 
-	D--&gt;R1
-	D--&gt;R2
-	R1--&gt;P1
-	R1--&gt;P2
-	R2--&gt;P3
-	R2--&gt;P4
+  D--&gt;R1
+  D--&gt;R2
+  R1--&gt;P1
+  R1--&gt;P2
+  R2--&gt;P3
+  R2--&gt;P4
 
-	class D Green;
-	class R1,R2 Red;
-	class P1,P2,P3,P4 Yellow;
+  class D Green;
+  class R1,R2 Red;
+  class P1,P2,P3,P4 Yellow;
 </code></pre></div><h3 id=informer>informer</h3><p>DeploymentController 除了监听 Deployment 本身的增改删然后触发同步 <code>syncDeployment</code> 以外，还会监听 ReplicaSet 的增删改与 Pod 的删除。</p><hr><p>总体上，<code>addReplicaSet</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/deployment/deployment_controller.go#L199-L199>src</a>) 有三个工作要做：</p><ul><li>检查 DeletionTimestamp，确保（重启时）rs 被正确删除。逻辑移交给 <code>deleteReplicaSet</code>。</li><li>检查 rs 是否有 controller，如有且该 controller 是 Deployment，入工作队列。</li><li>只有孤儿 rs 能够进入这一步。检查是否有 deployment 可以收养（adopt）它。若有，入工作队列。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>dc</span> <span class=o>*</span><span class=nx>DeploymentController</span><span class=p>)</span> <span class=nf>addReplicaSet</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>rs</span> <span class=o>:=</span> <span class=nx>obj</span><span class=p>.(</span><span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ReplicaSet</span><span class=p>)</span>
 	<span class=k>if</span> <span class=nx>rs</span><span class=p>.</span><span class=nx>DeletionTimestamp</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
@@ -151,47 +151,47 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul><li><a title=Articles href=/p
 <span class=p>}</span>
 </code></pre></div><div><ul class="nav nav-tabs" role=tablist><li role=presentation class=active><a href=#Before aria-controls=Before role=tab data-toggle=tab>Before</a></li><li role=presentation><a href=#ScalingDown aria-controls=ScalingDown role=tab data-toggle=tab>ScalingDown</a></li><li role=presentation><a href=#After aria-controls=After role=tab data-toggle=tab>After</a></li></ul><div class=tab-content><div role=tabpanel class="tab-pane active" id=Before><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Rollout Recreate: Before</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
-		D(Deployment)
-		R1(Active RS)
-		R2(Old RS)
-		P1(Active Pod 1)
-		P2(Active Pod 2)
-<pre><code>    D--&amp;gt;R1
-	D--&amp;gt;R2
-	R1--&amp;gt;P1
-	R1--&amp;gt;P2
+    D(Deployment)
+    R1(Active RS)
+    R2(Old RS)
+    P1(Active Pod 1)
+    P2(Active Pod 2)
+<pre><code>D--&amp;gt;R1
+D--&amp;gt;R2
+R1--&amp;gt;P1
+R1--&amp;gt;P2
 
-	class D Green;
-	class R1,R2 Red;
-	class P1,P2,P3,P4 Yellow;
+class D Green;
+class R1,R2 Red;
+class P1,P2,P3,P4 Yellow;
 </code></pre><p></code></pre></div></p></div><div role=tabpanel class=tab-pane id=ScalingDown><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Rollout Recreate: Scale Down</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
-		D(Deployment)
-		R1(&#34;Active RS &lt;br/&gt;(ScaledDown)&#34;)
-		R2(Old RS)
-<pre><code>    D--&amp;gt;R1
-	D--&amp;gt;R2
+    D(Deployment)
+    R1(&#34;Active RS &lt;br/&gt;(ScaledDown)&#34;)
+    R2(Old RS)
+<pre><code>D--&amp;gt;R1
+D--&amp;gt;R2
 
-	class D Green;
-	class R1,R2 Red;
-	class P1,P2,P3,P4 Yellow;
+class D Green;
+class R1,R2 Red;
+class P1,P2,P3,P4 Yellow;
 </code></pre><p></code></pre></div></p></div><div role=tabpanel class=tab-pane id=After><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Rollout Recreate: After</strong>
 <span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
-		D(Deployment)
-		R1(New RS)
-		R2(&#34;Old RS &lt;br/&gt;(Prev Active RS)&#34;)
-		R3(Old RS)
-		P1(Active Pod 1)
-		P2(Active Pod 2)
-<pre><code>    D--&amp;gt;R1
-	D--&amp;gt;R2
-	D--&amp;gt;R3
-	R1--&amp;gt;P1
-	R1--&amp;gt;P2
+    D(Deployment)
+    R1(New RS)
+    R2(&#34;Old RS &lt;br/&gt;(Prev Active RS)&#34;)
+    R3(Old RS)
+    P1(Active Pod 1)
+    P2(Active Pod 2)
+<pre><code>D--&amp;gt;R1
+D--&amp;gt;R2
+D--&amp;gt;R3
+R1--&amp;gt;P1
+R1--&amp;gt;P2
 
-	class D Green;
-	class R1,R2,R3 Red;
-	class P1,P2,P3,P4 Yellow;
+class D Green;
+class R1,R2,R3 Red;
+class P1,P2,P3,P4 Yellow;
 </code></pre><p></code></pre></div></p></div></div></div><h3 id=rolloutrolling>rolloutRolling</h3><p>滚动更新是更加复杂、更加常用的策略。</p><ul><li>获取所有 rs。</li><li>将新 rs scale up。如果成功 scale up 了，那么结束。</li><li>将旧 rs scale down。如果成功 scale down 了，那么结束。</li><li>如果 rollout 结束，调用 <code>cleanupDeployment</code> 清理所有旧的 replica。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=c1>// rolloutRolling implements the logic for rolling a new replica set.
 </span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>dc</span> <span class=o>*</span><span class=nx>DeploymentController</span><span class=p>)</span> <span class=nf>rolloutRolling</span><span class=p>(</span><span class=nx>d</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>Deployment</span><span class=p>,</span> <span class=nx>rsList</span> <span class=p>[]</span><span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ReplicaSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=nx>newRS</span><span class=p>,</span> <span class=nx>oldRSs</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>dc</span><span class=p>.</span><span class=nf>getAllReplicaSetsAndSyncRevision</span><span class=p>(</span><span class=nx>d</span><span class=p>,</span> <span class=nx>rsList</span><span class=p>,</span> <span class=kc>true</span><span class=p>)</span>
