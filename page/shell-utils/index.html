@@ -1,13 +1,100 @@
-<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>Shell Utils: 简易的 Shell 脚本工具集 - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet><link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'"><link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen><link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body id=body><nav id=navbar><div class=nav><div class=navbar-header><img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
-Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li><a title=Kubernetes href=/k8s>Kubernetes</a></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=flex-row-container><div class="container container-single" id=mainContainer role=main><div class=container-single-main><header class="header post-header"><div class=row><div class=post-title><h1>Shell Utils: 简易的 Shell 脚本工具集</h1></div><div class=post-meta><span class=author>Ling Samuel</span>
+<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
+<title>Shell Utils: 简易的 Shell 脚本工具集 - Hakurei Shrine</title>
+<link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
+<link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'">
+<link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
+<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body id=body>
+<nav id=navbar>
+<div class=nav>
+<div class=navbar-header>
+<img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
+Hakurei Shrine
+</a>
+</div>
+<div class=navbar-menu>
+<ul class=navbar-list>
+<li>
+<a title=Articles href=/page>Articles</a>
+</li>
+<li>
+<a title=Reviews href=/review>Reviews</a>
+</li>
+<li>
+<a title=Feeds href=/feed>Feeds</a>
+</li>
+<li>
+<a title=Kubernetes href=/k8s>Kubernetes</a>
+</li>
+<li>
+<a title=About href=/about>About</a>
+</li>
+<li>
+<a title=Categories href=/categories>Categories</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=flex-row-container>
+<div class="container container-single" id=mainContainer role=main>
+<div class=container-single-main>
+<header class="header post-header">
+<div class=row>
+<div class=post-title>
+<h1>Shell Utils: 简易的 Shell 脚本工具集</h1>
+</div>
+<div class=post-meta>
+<span class=author>
+Ling Samuel
+</span>
 &bull;
-<span class=date>2020-07-13</span>
+<span class=date>
+2020-07-13
+</span>
 &bull;
-<span class=categories><a href=https://lingsamuel.github.io/categories/programming/>programming</a>&nbsp;</span>
+<span class=categories>
+<a href=https://lingsamuel.github.io/categories/programming/>programming</a>&nbsp;
+</span>
 &bull;
-<span class=tags><a href=https://lingsamuel.github.io//tags/bash/>bash</a>&nbsp;
-<a href=https://lingsamuel.github.io//tags/zsh/>zsh</a>&nbsp;</span></div></div></header><div class=row><article role=main class=post-content><p>不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。</p><p><a href=https://github.com/lingsamuel/shell-utils>仓库地址：lingsamuel/shell-utils</a>。</p><h2 id=shell-工具集>Shell 工具集</h2><p>持续进化中……</p><ul><li>日志相关函数：着色用。没有颜色的 log 是没有灵魂的。</li><li>数组相关函数</li><li>栈</li><li>杂七杂八的函数</li></ul><h3 id=引入方法>引入方法</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>source</span> ./shell-utils.sh
-</code></pre></div><h3 id=栈>栈</h3><p>栈的用法：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>new_stack stack <span class=m>200</span> <span class=c1># 新建一个名为 stack 的栈，大小为 200（默认为 100）</span>
+<span class=tags>
+<a href=https://lingsamuel.github.io//tags/bash/>bash</a>&nbsp;
+<a href=https://lingsamuel.github.io//tags/zsh/>zsh</a>&nbsp;
+</span>
+</div>
+</div>
+</header>
+<div class=row>
+<article role=main class=post-content>
+<p>不知道为什么，最近高强度写 Bash 脚本……因此整理了一份小小的 bash 工具集，包含了一些莫名其妙的功能。</p>
+<p><a href=https://github.com/lingsamuel/shell-utils>仓库地址：lingsamuel/shell-utils</a>。</p>
+<h2 id=shell-工具集>Shell 工具集</h2>
+<p>持续进化中……</p>
+<ul>
+<li>日志相关函数：着色用。没有颜色的 log 是没有灵魂的。</li>
+<li>数组相关函数</li>
+<li>栈</li>
+<li>杂七杂八的函数</li>
+</ul>
+<h3 id=引入方法>引入方法</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>source</span> ./shell-utils.sh
+</code></pre></div><h3 id=栈>栈</h3>
+<p>栈的用法：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>new_stack stack <span class=m>200</span> <span class=c1># 新建一个名为 stack 的栈，大小为 200（默认为 100）</span>
 push stack <span class=m>1</span>
 push stack <span class=m>2</span>
 pop stack
@@ -21,8 +108,25 @@ pop stack
 <span class=nb>echo</span> <span class=nv>$stack_POP</span> <span class=c1># 空栈的返回值也是空（&lt;stack_name&gt;_POP 被 unset 了）</span>
 pop stack
 <span class=nb>echo</span> <span class=nv>$stack_POP</span>
-</code></pre></div><p>之所以 <code>pop</code> 的用法这么奇怪（更符合直觉的用法应该是 <code>VAL=$(pop stack)</code>），是因为这个栈实现是依赖环境变量的：它将 StackPointer 的信息存储在名为 <code>&lt;stack_name>_SP</code> 的环境变量里。而 Subshell 的环境变量修改不影响父 Shell，所以不能通过 <code>$()</code> 语法来获取返回值。最简单的做法就是新建一个变量储存返回值了（实话说，我没想到别的解决方法）。</p><p>另外，此实现访问数据只依赖 StackPointer，因此实际上 <code>stack</code> 这个数组里的数据在 <code>pop</code> 后是不会被删除的，最多会在 <code>push</code> 时被覆盖。</p><p>使用 <code>print_stack &lt;stack_name></code> 来打印栈信息，输出格式为：<br><code>&lt;stack_name> &lt;stack_pointer>/&lt;max_size> &lt;values></code>。</p><p>运行结果（在每次 <code>push</code> 和 <code>pop</code> 后添加了 <code>print_stack</code>）：</p><p><img src=/page/shell-utils/stack.png alt></p><p>可以看到 <code>pop</code> 并不会删除数据，只会修改 StackPointer。只有再次 <code>push</code>，才会将数据覆盖。</p><h4 id=实现原理>实现原理</h4><p>由于需要支持动态的栈变量名，所以主要依靠 Variable Indirection Expansion 来动态展开变量。</p><p>其中，<code>new_stack</code> 依靠 <code>declare -a</code> 实现，<code>push</code> 则是将表达式拼成字符串然后 <code>eval</code>，<code>pop</code> 比较简单，利用 Indirection Expansion 直接取的值。</p><h3 id=保存-shellopts>保存 ShellOpts</h3><p>实现栈主要就是为了这个功能。</p><p>有时候，脚本需要 <code>set -eo pipefail</code> 来保证某个命令失败的时候，脚本能退出，而不会在错误的状态下继续执行。</p><p>但是，有的命令例如 <code>grep</code> 的 <code>exitcode!=0</code> 时也不一定是异常，这种行为可能是符合预期的。因此要么临时 <code>set +eo pipefail</code>，要么在命令后面加一个 <code>|| true</code>。
-这种方案临时用用还行，如果是一大段，或者干脆是一个调用，就不那么管用了。</p><p>总之，因为某种临时需求关闭了 <code>errexit</code> 和 <code>pipefail</code>，那么，后续是否要再次启用？这是不一定的。因为外部可能根本没打开这个选项，如果盲目启用，反而可能会导致外部脚本执行错误。</p><p><code>store_shell_opts</code> 和 <code>restore_shell_opts</code> 就是为了这个场景实现的。</p><p>范例：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</code></pre></div><p>之所以 <code>pop</code> 的用法这么奇怪（更符合直觉的用法应该是 <code>VAL=$(pop stack)</code>），是因为这个栈实现是依赖环境变量的：它将 StackPointer 的信息存储在名为 <code>&lt;stack_name>_SP</code> 的环境变量里。而 Subshell 的环境变量修改不影响父 Shell，所以不能通过 <code>$()</code> 语法来获取返回值。最简单的做法就是新建一个变量储存返回值了（实话说，我没想到别的解决方法）。</p>
+<p>另外，此实现访问数据只依赖 StackPointer，因此实际上 <code>stack</code> 这个数组里的数据在 <code>pop</code> 后是不会被删除的，最多会在 <code>push</code> 时被覆盖。</p>
+<p>使用 <code>print_stack &lt;stack_name></code> 来打印栈信息，输出格式为：<br>
+<code>&lt;stack_name> &lt;stack_pointer>/&lt;max_size> &lt;values></code>。</p>
+<p>运行结果（在每次 <code>push</code> 和 <code>pop</code> 后添加了 <code>print_stack</code>）：</p>
+<p><img src=/page/shell-utils/stack.png alt></p>
+<p>可以看到 <code>pop</code> 并不会删除数据，只会修改 StackPointer。只有再次 <code>push</code>，才会将数据覆盖。</p>
+<h4 id=实现原理>实现原理</h4>
+<p>由于需要支持动态的栈变量名，所以主要依靠 Variable Indirection Expansion 来动态展开变量。</p>
+<p>其中，<code>new_stack</code> 依靠 <code>declare -a</code> 实现，<code>push</code> 则是将表达式拼成字符串然后 <code>eval</code>，<code>pop</code> 比较简单，利用 Indirection Expansion 直接取的值。</p>
+<h3 id=保存-shellopts>保存 ShellOpts</h3>
+<p>实现栈主要就是为了这个功能。</p>
+<p>有时候，脚本需要 <code>set -eo pipefail</code> 来保证某个命令失败的时候，脚本能退出，而不会在错误的状态下继续执行。</p>
+<p>但是，有的命令例如 <code>grep</code> 的 <code>exitcode!=0</code> 时也不一定是异常，这种行为可能是符合预期的。因此要么临时 <code>set +eo pipefail</code>，要么在命令后面加一个 <code>|| true</code>。
+这种方案临时用用还行，如果是一大段，或者干脆是一个调用，就不那么管用了。</p>
+<p>总之，因为某种临时需求关闭了 <code>errexit</code> 和 <code>pipefail</code>，那么，后续是否要再次启用？这是不一定的。因为外部可能根本没打开这个选项，如果盲目启用，反而可能会导致外部脚本执行错误。</p>
+<p><code>store_shell_opts</code> 和 <code>restore_shell_opts</code> 就是为了这个场景实现的。</p>
+<p>范例：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
 </span><span class=cp></span>store_shell_opts <span class=c1># 保存最初始的 ShellOpts</span>
 set_must_success <span class=c1># set -eo pipefail</span>
 <span class=c1># do something must success...</span>
@@ -37,7 +141,11 @@ func
 
 <span class=c1># do something must success...</span>
 restore_shell_opts
-</code></pre></div><p>原本这个函数的实现是 <code>export</code> 一个固定名称的环境变量，不支持嵌套。栈使得嵌套成为可能。</p><h3 id=有颜色的日志>（有颜色的）日志</h3><p>人生已经如此艰难，写个 Shell 脚本的 log 还不带颜色，debug 起来眼睛不会瞎吗？</p><h4 id=基本颜色>基本颜色</h4><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>gray <span class=s2>&#34;gray&#34;</span>
+</code></pre></div><p>原本这个函数的实现是 <code>export</code> 一个固定名称的环境变量，不支持嵌套。栈使得嵌套成为可能。</p>
+<h3 id=有颜色的日志>（有颜色的）日志</h3>
+<p>人生已经如此艰难，写个 Shell 脚本的 log 还不带颜色，debug 起来眼睛不会瞎吗？</p>
+<h4 id=基本颜色>基本颜色</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>gray <span class=s2>&#34;gray&#34;</span>
 red <span class=s2>&#34;red&#34;</span>
 green <span class=s2>&#34;green&#34;</span>
 yellow <span class=s2>&#34;yellow&#34;</span>
@@ -55,7 +163,10 @@ dark_cyan <span class=s2>&#34;dark cyan&#34;</span>
 white <span class=s2>&#34;white&#34;</span>
 light_purple <span class=s2>&#34;light purple&#34;</span>
 light_blue <span class=s2>&#34;light blue&#34;</span>
-</code></pre></div><p>实际显示效果与 shell 配置有关。</p><p><img src=/page/shell-utils/base-color.png alt></p><h4 id=脚本执行进程日志>脚本执行进程日志</h4><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>e_header <span class=s2>&#34;System Installation&#34;</span>
+</code></pre></div><p>实际显示效果与 shell 配置有关。</p>
+<p><img src=/page/shell-utils/base-color.png alt></p>
+<h4 id=脚本执行进程日志>脚本执行进程日志</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>e_header <span class=s2>&#34;System Installation&#34;</span>
 e_success <span class=s2>&#34;Install success&#34;</span>
 e_error <span class=s2>&#34;Install failed&#34;</span>
 e_warning <span class=s2>&#34;Missing dependencies&#34;</span>
@@ -66,25 +177,92 @@ e_step <span class=s2>&#34;1. Auto increment step note&#34;</span>
 e_step <span class=s2>&#34;2. Auto increment step note&#34;</span>
 e_reset_step
 e_step <span class=s2>&#34;1. Resetted&#34;</span>
-</code></pre></div><p>习惯了有颜色的脚本日志之后，根本看不懂没格式的日志了……</p><p><img src=/page/shell-utils/process-log.png alt></p><h3 id=数组相关>数组相关</h3><p>8 月 25 日，学会了更多 <code>zsh</code> 的语法，一些脚本可以写出 zsh 兼容版的了。</p><ul><li>join_array: bash/zsh，不使用特殊语法</li><li>append/prepend: zsh 使用了特有的语法，bash 使用 eval</li><li>split_to_array: zsh 使用 typeset，bash 使用 name ref</li></ul><p>只能说动态操作变量的事情到最后都变成了 eval。</p><p>eval 和 typeset 有一个很大的缺陷，它们实际上不能像一个指针一样工作。如果变量名与函数内部的 local 变量冲突，那就坏菜了。</p><h4 id=join_array>join_array</h4><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>arr</span><span class=o>=(</span>a b c<span class=o>)</span>
+</code></pre></div><p>习惯了有颜色的脚本日志之后，根本看不懂没格式的日志了……</p>
+<p><img src=/page/shell-utils/process-log.png alt></p>
+<h3 id=数组相关>数组相关</h3>
+<p>8 月 25 日，学会了更多 <code>zsh</code> 的语法，一些脚本可以写出 zsh 兼容版的了。</p>
+<ul>
+<li>join_array: bash/zsh，不使用特殊语法</li>
+<li>append/prepend: zsh 使用了特有的语法，bash 使用 eval</li>
+<li>split_to_array: zsh 使用 typeset，bash 使用 name ref</li>
+</ul>
+<p>只能说动态操作变量的事情到最后都变成了 eval。</p>
+<p>eval 和 typeset 有一个很大的缺陷，它们实际上不能像一个指针一样工作。如果变量名与函数内部的 local 变量冲突，那就坏菜了。</p>
+<h4 id=join_array>join_array</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>arr</span><span class=o>=(</span>a b c<span class=o>)</span>
 join_array <span class=s1>&#39;,&#39;</span> <span class=si>${</span><span class=nv>arr</span><span class=p>[@]</span><span class=si>}</span>
 join_array <span class=s1>&#39; &#39;</span> <span class=si>${</span><span class=nv>arr</span><span class=p>[@]</span><span class=si>}</span>
 join_array <span class=s1>&#39;-&#39;</span> <span class=si>${</span><span class=nv>arr</span><span class=p>[@]</span><span class=si>}</span>
-</code></pre></div><p><img src=/page/shell-utils/join-array.png alt></p><h4 id=split_to_array>split_to_array</h4><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>ARR</span><span class=o>=(</span>a b c<span class=o>)</span>
+</code></pre></div><p><img src=/page/shell-utils/join-array.png alt></p>
+<h4 id=split_to_array>split_to_array</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>ARR</span><span class=o>=(</span>a b c<span class=o>)</span>
 split_to_array ARR <span class=s1>&#39;,&#39;</span> <span class=s1>&#39;d,e,,f&#39;</span>
 <span class=nb>declare</span> -p ARR
 split_to_array NEW_ARR <span class=s1>&#39;,&#39;</span> <span class=s1>&#39;d,e,,f&#39;</span>
 <span class=nb>declare</span> -p NEW_ARR
-</code></pre></div><p><img src=/page/shell-utils/split-string.png alt></p><h4 id=appendprepend>append/prepend</h4><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>arr</span><span class=o>=(</span>a b c<span class=o>)</span>
+</code></pre></div><p><img src=/page/shell-utils/split-string.png alt></p>
+<h4 id=appendprepend>append/prepend</h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>arr</span><span class=o>=(</span>a b c<span class=o>)</span>
 append arr d e <span class=s1>&#39;f g&#39;</span>
 prepend arr <span class=m>0</span> <span class=m>1</span> <span class=s1>&#39;2 3&#39;</span>
 <span class=nb>declare</span> -p arr
 
 append new_arr <span class=m>1</span> <span class=m>2</span> <span class=m>3</span>
 <span class=nb>declare</span> -p new_arr
-</code></pre></div><p><img src=/page/shell-utils/arr-append-prepend.png alt></p><div id=refContainer></div></article></div></div><div class="row likebtn-container"><span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span><script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script></div><div class=row><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/page/2020-07-07-forget-and-death/>&larr; 与遗忘作斗争是人一生的课题</a></li><li class=next><a href=https://lingsamuel.github.io/page/2020-07-14-customization/>GNOME Customization Backup &rarr;</a></li></ul></div></div></div><div id=toc><aside><nav id=TableOfContents><ul><li><a href=#shell-工具集>Shell 工具集</a><ul><li><a href=#引入方法>引入方法</a></li><li><a href=#栈>栈</a></li><li><a href=#保存-shellopts>保存 ShellOpts</a></li><li><a href=#有颜色的日志>（有颜色的）日志</a></li><li><a href=#数组相关>数组相关</a></li></ul></li></ul></nav></aside></div></div><footer id=footer><div class=footer><p>Copyright © 2021
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.85.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
-Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script><link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'"><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script><script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+</code></pre></div><p><img src=/page/shell-utils/arr-append-prepend.png alt></p>
+<div id=refContainer>
+</div>
+</article>
+</div>
+</div>
+<div class="row likebtn-container">
+<span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
+<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div>
+<div class=row>
+<div class=post-pager>
+<ul class=pager>
+<li class=previous>
+<a href=https://lingsamuel.github.io/page/2020-07-07-forget-and-death/>&larr; 与遗忘作斗争是人一生的课题</a>
+</li>
+<li class=next>
+<a href=https://lingsamuel.github.io/page/2020-07-14-customization/>GNOME Customization Backup &rarr;</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id=toc>
+<aside>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#shell-工具集>Shell 工具集</a>
+<ul>
+<li><a href=#引入方法>引入方法</a></li>
+<li><a href=#栈>栈</a></li>
+<li><a href=#保存-shellopts>保存 ShellOpts</a></li>
+<li><a href=#有颜色的日志>（有颜色的）日志</a></li>
+<li><a href=#数组相关>数组相关</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</div>
+</div>
+<footer id=footer>
+<div class=footer>
+<p>Copyright © 2021
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.86.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+Hosted by GitHub
+</p>
+</div>
+</footer>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'">
+<script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
+<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
       classDef def stroke:#97999a,color:#696874;
@@ -110,4 +288,10 @@ Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script><script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script><script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script><script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script><script data-stage=prerender>fuhsi()</script></body></html>
+  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script>
+<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script>
+<script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
+<script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
+<script data-stage=prerender>fuhsi()</script>
+</body>
+</html>

@@ -1,14 +1,93 @@
-<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>ReplicaSet Controller 实现 - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet><link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'"><link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen><link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body id=body><nav id=navbar><div class=nav><div class=navbar-header><img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
-Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li><a title=Kubernetes href=/k8s>Kubernetes</a></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=flex-row-container><div class="container container-single" id=mainContainer role=main><div class=container-single-main><header class="header post-header"><div class=row><div class=post-title><h1>ReplicaSet Controller 实现</h1></div><div class=post-meta><span class=author>Ling Samuel</span>
+<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
+<title>ReplicaSet Controller 实现 - Hakurei Shrine</title>
+<link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
+<link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'">
+<link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
+<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body id=body>
+<nav id=navbar>
+<div class=nav>
+<div class=navbar-header>
+<img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
+Hakurei Shrine
+</a>
+</div>
+<div class=navbar-menu>
+<ul class=navbar-list>
+<li>
+<a title=Articles href=/page>Articles</a>
+</li>
+<li>
+<a title=Reviews href=/review>Reviews</a>
+</li>
+<li>
+<a title=Feeds href=/feed>Feeds</a>
+</li>
+<li>
+<a title=Kubernetes href=/k8s>Kubernetes</a>
+</li>
+<li>
+<a title=About href=/about>About</a>
+</li>
+<li>
+<a title=Categories href=/categories>Categories</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=flex-row-container>
+<div class="container container-single" id=mainContainer role=main>
+<div class=container-single-main>
+<header class="header post-header">
+<div class=row>
+<div class=post-title>
+<h1>ReplicaSet Controller 实现</h1>
+</div>
+<div class=post-meta>
+<span class=author>
+Ling Samuel
+</span>
 &bull;
-<span class=date>2021-03-09</span>
+<span class=date>
+2021-03-09
+</span>
 &bull;
-<span class=categories><a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;</span></div></div></header><div class=row><article role=main class=post-content><p>ReplicationController 的代码已经与 ReplicaSet 合并了。</p><p>与 Deployment 类似，ReplicaSet 的主要处理函数为 <code>syncHandler</code>，实际执行的是 <code>syncReplicaSet</code>，为实际的 worker。相比 Deployment，RS 没有将 <code>enqueueRS</code> 也抽成变量。这是因为 RS 的业务逻辑比较少，功能较为单一，测试需要的 case 也不需要非常侵入逻辑。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>ReplicaSetController</span> <span class=kd>struct</span> <span class=p>{</span>
+<span class=categories>
+<a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;
+</span>
+</div>
+</div>
+</header>
+<div class=row>
+<article role=main class=post-content>
+<p>ReplicationController 的代码已经与 ReplicaSet 合并了。</p>
+<p>与 Deployment 类似，ReplicaSet 的主要处理函数为 <code>syncHandler</code>，实际执行的是 <code>syncReplicaSet</code>，为实际的 worker。相比 Deployment，RS 没有将 <code>enqueueRS</code> 也抽成变量。这是因为 RS 的业务逻辑比较少，功能较为单一，测试需要的 case 也不需要非常侵入逻辑。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>ReplicaSetController</span> <span class=kd>struct</span> <span class=p>{</span>
 	<span class=c1>// To allow injection of syncReplicaSet for testing.
 </span><span class=c1></span>	<span class=nx>syncHandler</span> <span class=kd>func</span><span class=p>(</span><span class=nx>rsKey</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=实现原理>实现原理</h2><p>实线表示持有关系，虚线表示数据流向。</p><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">ReplicaSet Controller</strong>
-<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
+</code></pre></div><h2 id=实现原理>实现原理</h2>
+<p>实线表示持有关系，虚线表示数据流向。</p>
+<div class=mermaidTitle style=background:#eff1f3;color:#696874>
+<strong align=center style="display:block;font-size:24px;font-family:noto sans">ReplicaSet Controller</strong>
+<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span>
+</div>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>graph TD
     RSC(ReplicaSet Controller)
     RSI(ReplicaSet Informer)
     PI(Pod Informer)
@@ -31,7 +110,17 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
     class RSI,PI,Queue Red;
     class RSC Green;
     class W Yellow;
-</code></pre></div><h3 id=informer>informer</h3><p>ReplicaSet Controller 会监听 ReplicaSet 的增改删，将它们入到工作队列中。当然，删除回调额外对 <code>expectation</code> 做了一些工作，这会在 expectation 一节讲述。</p><p>此外它还监听了 Pod 的增改删，其行为与 Deployment 十分相似。</p><hr><p><code>addPod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L356-L356>src</a>):</p><ul><li>如果 Pod 的 DeletionTimestamp 不为空（Controller 重启时可能发生），转交 <code>deletePod</code> 处理。</li><li>如果 Pod 的 Controller 是 RS，那么入工作队列。</li><li>检查是否有 RS 能够收养该 Pod，将能够收养的 RS 入工作队列。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>addPod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
+</code></pre></div><h3 id=informer>informer</h3>
+<p>ReplicaSet Controller 会监听 ReplicaSet 的增改删，将它们入到工作队列中。当然，删除回调额外对 <code>expectation</code> 做了一些工作，这会在 expectation 一节讲述。</p>
+<p>此外它还监听了 Pod 的增改删，其行为与 Deployment 十分相似。</p>
+<hr>
+<p><code>addPod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L356-L356>src</a>):</p>
+<ul>
+<li>如果 Pod 的 DeletionTimestamp 不为空（Controller 重启时可能发生），转交 <code>deletePod</code> 处理。</li>
+<li>如果 Pod 的 Controller 是 RS，那么入工作队列。</li>
+<li>检查是否有 RS 能够收养该 Pod，将能够收养的 RS 入工作队列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>addPod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>pod</span> <span class=o>:=</span> <span class=nx>obj</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 
 	<span class=k>if</span> <span class=nx>pod</span><span class=p>.</span><span class=nx>DeletionTimestamp</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
@@ -55,7 +144,29 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 		<span class=nx>rsc</span><span class=p>.</span><span class=nf>enqueueRS</span><span class=p>(</span><span class=nx>rs</span><span class=p>)</span>
 	<span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div><hr><p><code>updatePod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L399-L399>src</a>):</p><ul><li>检查新旧 Pod 的资源版本，如果一致（可能由 resync 触发），跳过。</li><li>检查新 Pod 的 DeletionTimestamp 是否非空。如果是，将新 Pod 移交给删除逻辑 <code>deletePod</code>。<ul><li>由于 grace deletion，删除 Pod 时 Kubelet 可能会等待一段时间才会进行删除。但 RS 应该尽快启动新的 Pod，因此在 Update 阶段就检测删除行为。</li><li>如果新旧 Pod 的 Labels 不一致了，同样将旧 Pod 移交给删除逻辑。<ul><li>不需要检查旧 Pod 的删除时间，因为新 Pod 已经被删除了，旧 Pod 也不该继续存在。且因为 Labels 变动，旧 Pod 应该是由其他 RS 管理的，因此需要额外触发一次删除，以清理旧 RS。</li></ul></li></ul></li><li>检查 controller 是否变动。如果变动了，也应该同步旧 rs。</li><li>检查新 Pod 的 controller 是否是 rs，将其入工作队列。<ul><li>由于 Pod 的 MinReadySeconds 的存在，Pod 的状态可能由 NotReady 转向 Ready。应该在 MinReadySeconds 后同步 RS 的 Available Replicas 状态。</li></ul></li><li>只有孤儿 Pod 能走到这一步。检查 Label 或 controller 是否变动了，检查是否有 rs 能够收养，将能够收养的 RS 入工作队列。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>updatePod</span><span class=p>(</span><span class=nx>old</span><span class=p>,</span> <span class=nx>cur</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
+</code></pre></div><hr>
+<p><code>updatePod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L399-L399>src</a>):</p>
+<ul>
+<li>检查新旧 Pod 的资源版本，如果一致（可能由 resync 触发），跳过。</li>
+<li>检查新 Pod 的 DeletionTimestamp 是否非空。如果是，将新 Pod 移交给删除逻辑 <code>deletePod</code>。
+<ul>
+<li>由于 grace deletion，删除 Pod 时 Kubelet 可能会等待一段时间才会进行删除。但 RS 应该尽快启动新的 Pod，因此在 Update 阶段就检测删除行为。</li>
+<li>如果新旧 Pod 的 Labels 不一致了，同样将旧 Pod 移交给删除逻辑。
+<ul>
+<li>不需要检查旧 Pod 的删除时间，因为新 Pod 已经被删除了，旧 Pod 也不该继续存在。且因为 Labels 变动，旧 Pod 应该是由其他 RS 管理的，因此需要额外触发一次删除，以清理旧 RS。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>检查 controller 是否变动。如果变动了，也应该同步旧 rs。</li>
+<li>检查新 Pod 的 controller 是否是 rs，将其入工作队列。
+<ul>
+<li>由于 Pod 的 MinReadySeconds 的存在，Pod 的状态可能由 NotReady 转向 Ready。应该在 MinReadySeconds 后同步 RS 的 Available Replicas 状态。</li>
+</ul>
+</li>
+<li>只有孤儿 Pod 能走到这一步。检查 Label 或 controller 是否变动了，检查是否有 rs 能够收养，将能够收养的 RS 入工作队列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>updatePod</span><span class=p>(</span><span class=nx>old</span><span class=p>,</span> <span class=nx>cur</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>curPod</span> <span class=o>:=</span> <span class=nx>cur</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 	<span class=nx>oldPod</span> <span class=o>:=</span> <span class=nx>old</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 	<span class=k>if</span> <span class=nx>curPod</span><span class=p>.</span><span class=nx>ResourceVersion</span> <span class=o>==</span> <span class=nx>oldPod</span><span class=p>.</span><span class=nx>ResourceVersion</span> <span class=p>{</span>
@@ -96,14 +207,41 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 		<span class=p>}</span>
 	<span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div><hr><p><code>deletePod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L473-L473>src</a>):</p><ul><li>检查 controller 是否是 rs，若是，入工作队列。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>deletePod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
+</code></pre></div><hr>
+<p><code>deletePod</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L473-L473>src</a>):</p>
+<ul>
+<li>检查 controller 是否是 rs，若是，入工作队列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>deletePod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>pod</span><span class=p>,</span> <span class=nx>ok</span> <span class=o>:=</span> <span class=nx>obj</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 	<span class=nx>controllerRef</span> <span class=o>:=</span> <span class=nx>metav1</span><span class=p>.</span><span class=nf>GetControllerOf</span><span class=p>(</span><span class=nx>pod</span><span class=p>)</span>
 	<span class=nx>rs</span> <span class=o>:=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nf>resolveControllerRef</span><span class=p>(</span><span class=nx>pod</span><span class=p>.</span><span class=nx>Namespace</span><span class=p>,</span> <span class=nx>controllerRef</span><span class=p>)</span>
 	<span class=nx>rsKey</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>controller</span><span class=p>.</span><span class=nf>KeyFunc</span><span class=p>(</span><span class=nx>rs</span><span class=p>)</span>
 	<span class=nx>rsc</span><span class=p>.</span><span class=nx>queue</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=nx>rsKey</span><span class=p>)</span>
 <span class=p>}</span>
-</code></pre></div><p>删除逻辑同样有对于 <code>DeletedFinalStateUnknown</code> 的处理，此处依然省略。</p><h3 id=syncreplicaset>syncReplicaSet</h3><p><code>syncReplicaSet</code> 是实际的工作函数 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L646-L646>src</a>)。</p><ul><li>取出 ReplicaSet 对象。</li><li>检查缓存是否需要更新。</li><li>取出所有 Pod（而不进行任何过滤），过滤掉不活跃（Phase 为 Succeeded 或 Failed，或 DeletionTimestamp 不为空）的 Pod。<ul><li>取出的 Pod 中可能包含并不符合当前 RS Selector 的 Pods。这是为了能够清理归属于当前 RS，但由于 Selector 变动，需要被释放的 Pod。</li><li>由于 Pod OwnerReference 的 RS 依旧存在（只是 Selector 变动了），Garbage Collector 无法回收这部分 Pod。</li><li>这部分逻辑交由 <code>NewPodControllerRefManager</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/controller_ref_manager.go#L140-L140>src</a>) 完成，是一个通用的 adopt/release 实现。</li></ul></li><li>尝试收养 (<code>claimPods</code>)。这会返回一个符合 Selector 并进行了收养后的 Pod 列表。</li><li>如果需要同步，执行 <code>manageReplicas</code>。</li><li>更新 Status。<ul><li>由于 ReplicaSet 的 Status 可能与创建/删除 Pod 时的错误有关，因此参数中有上一步的返回值。</li></ul></li><li>若 MinReadySeconds > 0，且 ReadyReplicas 或 AvailableReplicas 未达到最大值 (Spec.Replicas)，在延时后重入工作队列。</li></ul><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>syncReplicaSet</span><span class=p>(</span><span class=nx>key</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
+</code></pre></div><p>删除逻辑同样有对于 <code>DeletedFinalStateUnknown</code> 的处理，此处依然省略。</p>
+<h3 id=syncreplicaset>syncReplicaSet</h3>
+<p><code>syncReplicaSet</code> 是实际的工作函数 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L646-L646>src</a>)。</p>
+<ul>
+<li>取出 ReplicaSet 对象。</li>
+<li>检查缓存是否需要更新。</li>
+<li>取出所有 Pod（而不进行任何过滤），过滤掉不活跃（Phase 为 Succeeded 或 Failed，或 DeletionTimestamp 不为空）的 Pod。
+<ul>
+<li>取出的 Pod 中可能包含并不符合当前 RS Selector 的 Pods。这是为了能够清理归属于当前 RS，但由于 Selector 变动，需要被释放的 Pod。</li>
+<li>由于 Pod OwnerReference 的 RS 依旧存在（只是 Selector 变动了），Garbage Collector 无法回收这部分 Pod。</li>
+<li>这部分逻辑交由 <code>NewPodControllerRefManager</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/controller_ref_manager.go#L140-L140>src</a>) 完成，是一个通用的 adopt/release 实现。</li>
+</ul>
+</li>
+<li>尝试收养 (<code>claimPods</code>)。这会返回一个符合 Selector 并进行了收养后的 Pod 列表。</li>
+<li>如果需要同步，执行 <code>manageReplicas</code>。</li>
+<li>更新 Status。
+<ul>
+<li>由于 ReplicaSet 的 Status 可能与创建/删除 Pod 时的错误有关，因此参数中有上一步的返回值。</li>
+</ul>
+</li>
+<li>若 MinReadySeconds > 0，且 ReadyReplicas 或 AvailableReplicas 未达到最大值 (Spec.Replicas)，在延时后重入工作队列。</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>syncReplicaSet</span><span class=p>(</span><span class=nx>key</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=nx>namespace</span><span class=p>,</span> <span class=nx>name</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>cache</span><span class=p>.</span><span class=nf>SplitMetaNamespaceKey</span><span class=p>(</span><span class=nx>key</span><span class=p>)</span>
 	<span class=nx>rs</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>rsLister</span><span class=p>.</span><span class=nf>ReplicaSets</span><span class=p>(</span><span class=nx>namespace</span><span class=p>).</span><span class=nf>Get</span><span class=p>(</span><span class=nx>name</span><span class=p>)</span>
 
@@ -131,9 +269,20 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=p>}</span>
 	<span class=k>return</span> <span class=nx>manageReplicasErr</span>
 <span class=p>}</span>
-</code></pre></div><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>本地 TTL 缓存 <code>expectations</code> 稍后会提到。</p></div><h3 id=managereplicas>manageReplicas</h3><p>实际进行扩缩容的工作函数。扩缩容可由数量差决定 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L541-L541>src</a>)：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>manageReplicas</span><span class=p>(</span><span class=nx>filteredPods</span> <span class=p>[]</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>,</span> <span class=nx>rs</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ReplicaSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
+</code></pre></div>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>本地 TTL 缓存 <code>expectations</code> 稍后会提到。</p>
+</div>
+<h3 id=managereplicas>manageReplicas</h3>
+<p>实际进行扩缩容的工作函数。扩缩容可由数量差决定 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/replicaset/replica_set.go#L541-L541>src</a>)：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>manageReplicas</span><span class=p>(</span><span class=nx>filteredPods</span> <span class=p>[]</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>,</span> <span class=nx>rs</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ReplicaSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=nx>diff</span> <span class=o>:=</span> <span class=nb>len</span><span class=p>(</span><span class=nx>filteredPods</span><span class=p>)</span> <span class=o>-</span> <span class=nb>int</span><span class=p>(</span><span class=o>*</span><span class=p>(</span><span class=nx>rs</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>Replicas</span><span class=p>))</span>
-</code></pre></div><p>已有 Pod 更多时，<code>diff > 0</code>，需要缩容；反之则需要扩容。</p><p>在操作时，一次同步最多操作 500 个 Pod。这是一个固定写死的参数 (<code>BurstReplicas = 500</code>)。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&lt;</span> <span class=mi>0</span> <span class=p>{</span>
+</code></pre></div><p>已有 Pod 更多时，<code>diff > 0</code>，需要缩容；反之则需要扩容。</p>
+<p>在操作时，一次同步最多操作 500 个 Pod。这是一个固定写死的参数 (<code>BurstReplicas = 500</code>)。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&lt;</span> <span class=mi>0</span> <span class=p>{</span>
 		<span class=nx>diff</span> <span class=o>*=</span> <span class=o>-</span><span class=mi>1</span>
 		<span class=k>if</span> <span class=nx>diff</span> <span class=p>&gt;</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>burstReplicas</span> <span class=p>{</span>
 			<span class=nx>diff</span> <span class=p>=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>burstReplicas</span>
@@ -145,7 +294,12 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 		<span class=p>}</span>
 		<span class=c1>// ...
 </span><span class=c1></span>	<span class=p>}</span>
-</code></pre></div><h4 id=扩容>扩容</h4><p>和 Deployment 不同。虽然 ReplicaSet 没有 MaxSurge/MaxUnavailable 参数，它依旧不能并发地创建所有所需的 Pod。</p><p>主要原因在于有许多情况下，Pod 的创建会因同一种原因失败（例如资源不足）。如果并发地创建所有的 Pod，可能会给 API Server 带来不必要的负载。</p><p>ReplicaSet 和一些其他的资源（例如 Job），使用称为 <code>slowStart</code> 的机制来创建 Pod。它会首先创建 1 个 Pod，然后每次加倍。任意一次创建不是全部成功，则直接退出，不再创建剩余 Pod。</p><p>注意，此处的创建函数有一个特判。当错误是 NS 被删除时，为了避免 RS 每次同步都重复操作，它会忽略掉这个报错，假装创建成功了。虽然可以提前终止整个创建流程，但目前来看这个行为不是一个很严重的性能问题。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&lt;</span> <span class=mi>0</span> <span class=p>{</span>
+</code></pre></div><h4 id=扩容>扩容</h4>
+<p>和 Deployment 不同。虽然 ReplicaSet 没有 MaxSurge/MaxUnavailable 参数，它依旧不能并发地创建所有所需的 Pod。</p>
+<p>主要原因在于有许多情况下，Pod 的创建会因同一种原因失败（例如资源不足）。如果并发地创建所有的 Pod，可能会给 API Server 带来不必要的负载。</p>
+<p>ReplicaSet 和一些其他的资源（例如 Job），使用称为 <code>slowStart</code> 的机制来创建 Pod。它会首先创建 1 个 Pod，然后每次加倍。任意一次创建不是全部成功，则直接退出，不再创建剩余 Pod。</p>
+<p>注意，此处的创建函数有一个特判。当错误是 NS 被删除时，为了避免 RS 每次同步都重复操作，它会忽略掉这个报错，假装创建成功了。虽然可以提前终止整个创建流程，但目前来看这个行为不是一个很严重的性能问题。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&lt;</span> <span class=mi>0</span> <span class=p>{</span>
 		<span class=c1>// ...
 </span><span class=c1></span>		<span class=nx>successfulCreations</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nf>slowStartBatch</span><span class=p>(</span><span class=nx>diff</span><span class=p>,</span> <span class=nx>controller</span><span class=p>.</span><span class=nx>SlowStartInitialBatchSize</span><span class=p>,</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{</span>
 			<span class=nx>err</span> <span class=o>:=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>.</span><span class=nf>CreatePodsWithControllerRef</span><span class=p>(</span><span class=nx>rs</span><span class=p>.</span><span class=nx>Namespace</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>rs</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>Template</span><span class=p>,</span> <span class=nx>rs</span><span class=p>,</span> <span class=nx>metav1</span><span class=p>.</span><span class=nf>NewControllerRef</span><span class=p>(</span><span class=nx>rs</span><span class=p>,</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>GroupVersionKind</span><span class=p>))</span>
@@ -158,8 +312,26 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 		<span class=p>})</span>
 		<span class=k>return</span> <span class=nx>err</span>
 	<span class=p>}</span>
-</code></pre></div><h4 id=缩容>缩容</h4><p>缩容要更加复杂一点。</p><p>在删除 Pod 时，它会首先删除在生命周期早期的 Pod。具体来说，它会按此顺序排序 Pod：</p><ul><li>Unscheduled &lt; Scheduled</li><li>Pending &lt; Unknown &lt; Running</li><li>Not Ready &lt; Ready</li><li>节点上相关 Pod 更多 &lt; 节点上相关 Pod 更少</li><li>Running 时间更短 &lt; Running 时间更长</li><li>Restart 次数更多 &lt; Restart 次数更少</li><li>创建时间更近 &lt; 创建时间更早</li></ul><p>这个顺序可以保证删除 Pod 时，尽量避免删除存活可用的 Pod，也能避免调度等流程重新被执行。</p><p>除了生命周期规则外，注意“节点上相关 Pod”（此处称为 Rank）这一规则。</p><p>由于 ReplicaSet 被设计成可能被其他控制器管理的资源，因此可能有多个 RS 管理着一组相似的 Pod（比如 Deployment）。</p><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">Related Pods</strong>
-<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
+</code></pre></div><h4 id=缩容>缩容</h4>
+<p>缩容要更加复杂一点。</p>
+<p>在删除 Pod 时，它会首先删除在生命周期早期的 Pod。具体来说，它会按此顺序排序 Pod：</p>
+<ul>
+<li>Unscheduled &lt; Scheduled</li>
+<li>Pending &lt; Unknown &lt; Running</li>
+<li>Not Ready &lt; Ready</li>
+<li>节点上相关 Pod 更多 &lt; 节点上相关 Pod 更少</li>
+<li>Running 时间更短 &lt; Running 时间更长</li>
+<li>Restart 次数更多 &lt; Restart 次数更少</li>
+<li>创建时间更近 &lt; 创建时间更早</li>
+</ul>
+<p>这个顺序可以保证删除 Pod 时，尽量避免删除存活可用的 Pod，也能避免调度等流程重新被执行。</p>
+<p>除了生命周期规则外，注意“节点上相关 Pod”（此处称为 Rank）这一规则。</p>
+<p>由于 ReplicaSet 被设计成可能被其他控制器管理的资源，因此可能有多个 RS 管理着一组相似的 Pod（比如 Deployment）。</p>
+<div class=mermaidTitle style=background:#eff1f3;color:#696874>
+<strong align=center style="display:block;font-size:24px;font-family:noto sans">Related Pods</strong>
+<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span>
+</div>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>graph TD
   D(Parent Owner)
   R1(ReplicaSet 1)
   R2(ReplicaSet 2)
@@ -185,7 +357,9 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
   class R1,R2 Red;
   class P1,P2,P3,P4 Yellow;
   class N1,N2 Grey;
-</code></pre></div><p>以上图为例，Pod 1~3 均分布在 Node 1 上，而 Pod 4 分布在 Node 2 上。且管理这些 Pod 的 ReplicaSet 拥有共同的 Owner。这时候，Pod 1~3 的 Rank 为 3，而 Pod 4 则为 1。</p><p>可以发现，如果保持相关 Pod 的 Rank 尽可能低，那么会拥有更好的可用性（Pod 更加分散了）。因此会在生命周期规则之后优先删除高 Rank 的 Pod。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&gt;</span> <span class=mi>0</span> <span class=p>{</span>
+</code></pre></div><p>以上图为例，Pod 1~3 均分布在 Node 1 上，而 Pod 4 分布在 Node 2 上。且管理这些 Pod 的 ReplicaSet 拥有共同的 Owner。这时候，Pod 1~3 的 Rank 为 3，而 Pod 4 则为 1。</p>
+<p>可以发现，如果保持相关 Pod 的 Rank 尽可能低，那么会拥有更好的可用性（Pod 更加分散了）。因此会在生命周期规则之后优先删除高 Rank 的 Pod。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>	<span class=k>if</span> <span class=nx>diff</span> <span class=p>&gt;</span> <span class=mi>0</span> <span class=p>{</span>
 		<span class=c1>// ...
 </span><span class=c1></span>		<span class=nx>relatedPods</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nf>getIndirectlyRelatedPods</span><span class=p>(</span><span class=nx>rs</span><span class=p>)</span>
 		<span class=nx>podsToDelete</span> <span class=o>:=</span> <span class=nf>getPodsToDelete</span><span class=p>(</span><span class=nx>filteredPods</span><span class=p>,</span> <span class=nx>relatedPods</span><span class=p>,</span> <span class=nx>diff</span><span class=p>)</span>
@@ -210,7 +384,17 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=p>}</span>
 	<span class=k>return</span> <span class=nx>filteredPods</span><span class=p>[:</span><span class=nx>diff</span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><p>由于 ReplicaSet 的删除工作是单纯的缩容（而不是 RollingUpdate），因此删除是可以完全并发完成的。</p><h3 id=expectations>expectations</h3><p><code>ControllerExpectations</code> 是一种控制器用来追踪期望状态和现有状态的缓存工具。<code>ControlleeExpectations</code> 表征被控制器追踪的资源应有的期望状态。</p><p>以增加资源为例，当一个控制器管理的资源应该被增加时（例如扩容 RS），将提高 (raise) expectations，表征还有多少资源应当被创建；当确实观察 (observe) 到这个资源增加了，降低 (lower) expectations，表明一定数量的资源预期被满足 (fullfill) 了。</p><p>实现上来讲，expectations 是一组原子的 int 值，目前包含 add/del 两组，分别代表增加和删除。</p><hr><p>以 ReplicaSet 为例，讲解 K8s 控制器是如何利用 expectations 来缓存期望状态的。</p><p>实际对 RS 进行扩缩容的函数为 <code>manageReplicas</code>。</p><p>在扩容时，它首先通过 <code>ExpectCreations</code> 增加期望值，设该值为 N。在观察到成功创建了 N0 个 Pod 后，它将期望值降低至 N - (N - N0) == N0。</p><p>这是因为控制器（理论上）永远不会收到创建失败的 Pod 的通知（无法观察到资源变更）。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=c1>// ...
+</code></pre></div><p>由于 ReplicaSet 的删除工作是单纯的缩容（而不是 RollingUpdate），因此删除是可以完全并发完成的。</p>
+<h3 id=expectations>expectations</h3>
+<p><code>ControllerExpectations</code> 是一种控制器用来追踪期望状态和现有状态的缓存工具。<code>ControlleeExpectations</code> 表征被控制器追踪的资源应有的期望状态。</p>
+<p>以增加资源为例，当一个控制器管理的资源应该被增加时（例如扩容 RS），将提高 (raise) expectations，表征还有多少资源应当被创建；当确实观察 (observe) 到这个资源增加了，降低 (lower) expectations，表明一定数量的资源预期被满足 (fullfill) 了。</p>
+<p>实现上来讲，expectations 是一组原子的 int 值，目前包含 add/del 两组，分别代表增加和删除。</p>
+<hr>
+<p>以 ReplicaSet 为例，讲解 K8s 控制器是如何利用 expectations 来缓存期望状态的。</p>
+<p>实际对 RS 进行扩缩容的函数为 <code>manageReplicas</code>。</p>
+<p>在扩容时，它首先通过 <code>ExpectCreations</code> 增加期望值，设该值为 N。在观察到成功创建了 N0 个 Pod 后，它将期望值降低至 N - (N - N0) == N0。</p>
+<p>这是因为控制器（理论上）永远不会收到创建失败的 Pod 的通知（无法观察到资源变更）。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=c1>// ...
 </span><span class=c1></span>		<span class=nx>rsc</span><span class=p>.</span><span class=nx>expectations</span><span class=p>.</span><span class=nf>ExpectCreations</span><span class=p>(</span><span class=nx>rsKey</span><span class=p>,</span> <span class=nx>diff</span><span class=p>)</span>
 		<span class=nx>successfulCreations</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nf>slowStartBatch</span><span class=p>(</span><span class=nx>diff</span><span class=p>,</span> <span class=nx>controller</span><span class=p>.</span><span class=nx>SlowStartInitialBatchSize</span><span class=p>,</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{})</span>
 		<span class=c1>// ...
@@ -219,7 +403,8 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 				<span class=nx>rsc</span><span class=p>.</span><span class=nx>expectations</span><span class=p>.</span><span class=nf>CreationObserved</span><span class=p>(</span><span class=nx>rsKey</span><span class=p>)</span>
 			<span class=p>}</span>
 		<span class=p>}</span>
-</code></pre></div><p>在 <code>addPod</code> 的 Informer 回调中，也调用了 <code>CreationObserved</code>，来降低期望值。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>addPod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
+</code></pre></div><p>在 <code>addPod</code> 的 Informer 回调中，也调用了 <code>CreationObserved</code>，来降低期望值。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>addPod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>pod</span> <span class=o>:=</span> <span class=nx>obj</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 	<span class=k>if</span> <span class=nx>controllerRef</span> <span class=o>:=</span> <span class=nx>metav1</span><span class=p>.</span><span class=nf>GetControllerOf</span><span class=p>(</span><span class=nx>pod</span><span class=p>);</span> <span class=nx>controllerRef</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
 		<span class=c1>// ...
@@ -227,7 +412,8 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 		<span class=c1>// ...
 </span><span class=c1></span>		<span class=k>return</span>
 	<span class=p>}</span>
-</code></pre></div><p>在缩容时，同样的，首先通过 <code>ExpectDeletions</code> 增加期望值，然后在创建失败时降低期望值，因为（理论上）永远不会观察到删除失败的资源变动。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=c1>// ...
+</code></pre></div><p>在缩容时，同样的，首先通过 <code>ExpectDeletions</code> 增加期望值，然后在创建失败时降低期望值，因为（理论上）永远不会观察到删除失败的资源变动。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=c1>// ...
 </span><span class=c1></span>		<span class=nx>rsc</span><span class=p>.</span><span class=nx>expectations</span><span class=p>.</span><span class=nf>ExpectDeletions</span><span class=p>(</span><span class=nx>rsKey</span><span class=p>,</span> <span class=nf>getPodKeys</span><span class=p>(</span><span class=nx>podsToDelete</span><span class=p>))</span>
 		<span class=c1>// ...
 </span><span class=c1></span>		<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>pod</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>podsToDelete</span> <span class=p>{</span>
@@ -237,12 +423,15 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 				<span class=p>}</span>
 			<span class=p>}(</span><span class=nx>pod</span><span class=p>)</span>
 		<span class=p>}</span>
-</code></pre></div><p>同样在 <code>deletePod</code> 回调中，也调用了 <code>DeletionObserved</code>：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>deletePod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
+</code></pre></div><p>同样在 <code>deletePod</code> 回调中，也调用了 <code>DeletionObserved</code>：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>deletePod</span><span class=p>(</span><span class=nx>obj</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>{</span>
 	<span class=nx>pod</span><span class=p>,</span> <span class=nx>ok</span> <span class=o>:=</span> <span class=nx>obj</span><span class=p>.(</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span>
 	<span class=c1>// ...
 </span><span class=c1></span>	<span class=nx>rsc</span><span class=p>.</span><span class=nx>expectations</span><span class=p>.</span><span class=nf>DeletionObserved</span><span class=p>(</span><span class=nx>rsKey</span><span class=p>,</span> <span class=nx>controller</span><span class=p>.</span><span class=nf>PodKey</span><span class=p>(</span><span class=nx>pod</span><span class=p>))</span>
 <span class=p>}</span>
-</code></pre></div><p>现在，假设一切运行正常，没有创建失败也没有删除失败，那么 expectations 的值将在一定时间（所有创建和删除都结束后）等于 0。</p><p>也就是期望被满足了，<code>syncReplicaSet</code> 中的 <code>SatisfiedExpectations</code> 将返回 true。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>syncReplicaSet</span><span class=p>(</span><span class=nx>key</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
+</code></pre></div><p>现在，假设一切运行正常，没有创建失败也没有删除失败，那么 expectations 的值将在一定时间（所有创建和删除都结束后）等于 0。</p>
+<p>也就是期望被满足了，<code>syncReplicaSet</code> 中的 <code>SatisfiedExpectations</code> 将返回 true。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>rsc</span> <span class=o>*</span><span class=nx>ReplicaSetController</span><span class=p>)</span> <span class=nf>syncReplicaSet</span><span class=p>(</span><span class=nx>key</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=c1>// ...
 </span><span class=c1></span>	<span class=nx>rsNeedsSync</span> <span class=o>:=</span> <span class=nx>rsc</span><span class=p>.</span><span class=nx>expectations</span><span class=p>.</span><span class=nf>SatisfiedExpectations</span><span class=p>(</span><span class=nx>key</span><span class=p>)</span>
 <span class=p>}</span>
@@ -251,7 +440,19 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=k>if</span> <span class=nx>exp</span><span class=p>,</span> <span class=nx>exists</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>r</span><span class=p>.</span><span class=nf>GetExpectations</span><span class=p>(</span><span class=nx>controllerKey</span><span class=p>);</span> <span class=nx>exists</span> <span class=p>{</span>
 		<span class=k>if</span> <span class=nx>exp</span><span class=p>.</span><span class=nf>Fulfilled</span><span class=p>()</span> <span class=p>{</span>
 			<span class=k>return</span> <span class=kc>true</span>
-</code></pre></div><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>如果没有获取到缓存，说明可能是第一次进行同步，也返回 true，触发同步。</p><p>当 expectations 超时（默认五分钟）时，可能是由于创建或删除迟迟没有发生，也进行下一次同步，避免控制器停留在异常状态中。</p><p>当然，在过滤存活 Pod 阶段不会再次计算 DeletionTimestamp 不为空的 Pod，避免重复删除。</p><p>倘若上一次超时的删除操作甚至没有能改变理应被删除的 Pod 的 DeletionTimestamp，那这个 Pod 无论过多久都不会再被删除，再次考虑删除它则是合理的。</p></div><p>期望被满足意味着上一次的同步逻辑 (<code>manageReplicas</code>) 已经结束了，应当进行下一次同步。</p><hr><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph LR
+</code></pre></div>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>如果没有获取到缓存，说明可能是第一次进行同步，也返回 true，触发同步。</p>
+<p>当 expectations 超时（默认五分钟）时，可能是由于创建或删除迟迟没有发生，也进行下一次同步，避免控制器停留在异常状态中。</p>
+<p>当然，在过滤存活 Pod 阶段不会再次计算 DeletionTimestamp 不为空的 Pod，避免重复删除。</p>
+<p>倘若上一次超时的删除操作甚至没有能改变理应被删除的 Pod 的 DeletionTimestamp，那这个 Pod 无论过多久都不会再被删除，再次考虑删除它则是合理的。</p>
+</div>
+<p>期望被满足意味着上一次的同步逻辑 (<code>manageReplicas</code>) 已经结束了，应当进行下一次同步。</p>
+<hr>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>graph LR
   I(sync)--&gt;F
   F(Fulfilled?)--&gt;P(Alive Pods)
   P--&gt;D(Diff)
@@ -263,9 +464,81 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
   class P Red;
   class D Yellow;
   class E Blue;
-</code></pre></div><p>现在考虑一些其他状态。例如，虽然一切运行正常，但用户手动删除了一个已经被管理的 Pod，这时删除逻辑依旧被触发了。这可能导致当前的期望值变成 -1。</p><p>当然我们观察 <code>ControlleeExpectations</code> 的 <code>Fulfilled</code> 函数实现可知，期望值是负数也被认为是期望被满足，依旧可以进行正常的同步行为。</p><p>考虑另一个比较极端的情况。该删除恰好使期望提前变成 0，且恰好进行了一次同步，触发了下一轮的 <code>manageReplicas</code>。这时候会发生什么？</p><p>在这个情况下，实际被删除的 Pod 真正被删除发生在计算期望是否满足之后。</p><p>假设它在计算现有 Pod 时已经被删除了，那么什么也不会影响。因为只要在计算现有 Pod 前删除结束了，那么获得的存活 Pod 信息是正确的，旧的缓存状态如何已经不关键了。</p><p>如果这个删除发生在 <code>manageReplicas</code> 重置期望值之后（而不论这个删除究竟拖延了几轮 <code>manageReplicas</code>），当删除发生时，本质上会变成上一种情形：在下一轮 <code>syncReplicaSet</code> 时，期望值被减到了负数。</p><p>如果这个删除发生在计算现有 Pod 之后、重置期望值之前，这会使得 <code>manageReplicas</code> 误以为存活 Pod 更多了一个，会造成下一轮的同步额外增或删一个 Pod。但这会在下下轮的同步中被修复。</p><p>因此，这个机制可以说具有足够的健壮性。</p><hr><p>当然，这是比较简单的情形。一个显著的特例是对 DeletionTimestamp 的更新行为。它实际上预示着一次删除行为，逻辑会转交给 deletePod 处理。此外如果新旧 Pod 的 Label 变化了，它还会一同 inform 旧 Pod 被删除了（即使新旧 Pod 是同一个）。</p><p>如果仅仅是对数字进行增减，这里会不可避免地造成重复删除的问题。</p><p>因此，RS 实际上使用的是 UIDTracking ControllerExpectations。它特殊在期望删除时不是简单地加减 1，而是根据对象的 UID 来处理，避免重复“观察”到同一个对象的删除行为。</p><p>其实，在创建 Pod 时也可以追踪 UID。但是问题在于删除时 UID 是已知的，而创建时是未知的。且 UIDTracking ControllerExpectations 实现中，存储是带锁的。由于创建行为是并发的，若要跟踪创建 Pod 时的 UID，会导致 UIDTracking 内部发生激烈的锁冲突。</p><hr><p>不过，UID Tracking 会导致删除有一个特别的情形。</p><p>假设某个 Pod 预期被删除，但在删除真正发生前，用户改变了它的 Labels，使之不应再被 RS 管理，且在 <code>syncReplicaSet</code> 时被 <code>claimPods</code> 释放。那么该 Pod 的删除将不再能进入到 <code>DeletionObserved</code> 这一段中。因此本次同步会一直等待到 expectations 超时才会触发下一轮。</p><hr><p>缓存 <code>Expectation</code> 的机制保证了 slow start 行为不会因为多次同步而被破坏。同时也保证了一个 RS 同时只有一个创建、删除流程进行，避免了并发时需要加锁或频繁计算集群当前状态和期望状态造成的资源浪费。</p><h2 id=总结>总结</h2><p>ReplicaSet Controller 的实现虽然比较直接，但也能发现逐渐的演进过程。例如，最初的 ReplicaSet 缩容没有考虑 Rank 而只考虑 Pod 生命周期；创建 Pod 时也不会忽略 NS 正在被删除的错误（会产生大量日志）；没有 slow start，等等。</p><p>从 ReplicaSet 的演进中可以发现，一个看似简单的功能，随着系统的复杂化，也可以演变出很多高级的特性。完成一个功能，与这个功能好用而完善，还有一段相当的距离。</p><p>在平时的使用中，一般是不会直接使用 ReplicaSet 的。但如果需要实现定制化的控制器，就可能需要依赖 ReplicaSet 来实现。</p><div id=refContainer></div></article></div></div><div class="row likebtn-container"><span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span><script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script></div><div class=row><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/k8s/controller/pod-gc/>&larr; Pod GC Controller</a></li><li class=next><a href=https://lingsamuel.github.io/k8s/controller/statefulset/>StatefulSet Controller 实现 &rarr;</a></li></ul></div></div></div><div id=toc><aside><nav id=TableOfContents><ul><li><a href=#实现原理>实现原理</a><ul><li><a href=#informer>informer</a></li><li><a href=#syncreplicaset>syncReplicaSet</a></li><li><a href=#managereplicas>manageReplicas</a></li><li><a href=#expectations>expectations</a></li></ul></li><li><a href=#总结>总结</a></li></ul></nav></aside></div></div><footer id=footer><div class=footer><p>Copyright © 2021
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.85.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
-Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script><link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'"><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script><script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+</code></pre></div><p>现在考虑一些其他状态。例如，虽然一切运行正常，但用户手动删除了一个已经被管理的 Pod，这时删除逻辑依旧被触发了。这可能导致当前的期望值变成 -1。</p>
+<p>当然我们观察 <code>ControlleeExpectations</code> 的 <code>Fulfilled</code> 函数实现可知，期望值是负数也被认为是期望被满足，依旧可以进行正常的同步行为。</p>
+<p>考虑另一个比较极端的情况。该删除恰好使期望提前变成 0，且恰好进行了一次同步，触发了下一轮的 <code>manageReplicas</code>。这时候会发生什么？</p>
+<p>在这个情况下，实际被删除的 Pod 真正被删除发生在计算期望是否满足之后。</p>
+<p>假设它在计算现有 Pod 时已经被删除了，那么什么也不会影响。因为只要在计算现有 Pod 前删除结束了，那么获得的存活 Pod 信息是正确的，旧的缓存状态如何已经不关键了。</p>
+<p>如果这个删除发生在 <code>manageReplicas</code> 重置期望值之后（而不论这个删除究竟拖延了几轮 <code>manageReplicas</code>），当删除发生时，本质上会变成上一种情形：在下一轮 <code>syncReplicaSet</code> 时，期望值被减到了负数。</p>
+<p>如果这个删除发生在计算现有 Pod 之后、重置期望值之前，这会使得 <code>manageReplicas</code> 误以为存活 Pod 更多了一个，会造成下一轮的同步额外增或删一个 Pod。但这会在下下轮的同步中被修复。</p>
+<p>因此，这个机制可以说具有足够的健壮性。</p>
+<hr>
+<p>当然，这是比较简单的情形。一个显著的特例是对 DeletionTimestamp 的更新行为。它实际上预示着一次删除行为，逻辑会转交给 deletePod 处理。此外如果新旧 Pod 的 Label 变化了，它还会一同 inform 旧 Pod 被删除了（即使新旧 Pod 是同一个）。</p>
+<p>如果仅仅是对数字进行增减，这里会不可避免地造成重复删除的问题。</p>
+<p>因此，RS 实际上使用的是 UIDTracking ControllerExpectations。它特殊在期望删除时不是简单地加减 1，而是根据对象的 UID 来处理，避免重复“观察”到同一个对象的删除行为。</p>
+<p>其实，在创建 Pod 时也可以追踪 UID。但是问题在于删除时 UID 是已知的，而创建时是未知的。且 UIDTracking ControllerExpectations 实现中，存储是带锁的。由于创建行为是并发的，若要跟踪创建 Pod 时的 UID，会导致 UIDTracking 内部发生激烈的锁冲突。</p>
+<hr>
+<p>不过，UID Tracking 会导致删除有一个特别的情形。</p>
+<p>假设某个 Pod 预期被删除，但在删除真正发生前，用户改变了它的 Labels，使之不应再被 RS 管理，且在 <code>syncReplicaSet</code> 时被 <code>claimPods</code> 释放。那么该 Pod 的删除将不再能进入到 <code>DeletionObserved</code> 这一段中。因此本次同步会一直等待到 expectations 超时才会触发下一轮。</p>
+<hr>
+<p>缓存 <code>Expectation</code> 的机制保证了 slow start 行为不会因为多次同步而被破坏。同时也保证了一个 RS 同时只有一个创建、删除流程进行，避免了并发时需要加锁或频繁计算集群当前状态和期望状态造成的资源浪费。</p>
+<h2 id=总结>总结</h2>
+<p>ReplicaSet Controller 的实现虽然比较直接，但也能发现逐渐的演进过程。例如，最初的 ReplicaSet 缩容没有考虑 Rank 而只考虑 Pod 生命周期；创建 Pod 时也不会忽略 NS 正在被删除的错误（会产生大量日志）；没有 slow start，等等。</p>
+<p>从 ReplicaSet 的演进中可以发现，一个看似简单的功能，随着系统的复杂化，也可以演变出很多高级的特性。完成一个功能，与这个功能好用而完善，还有一段相当的距离。</p>
+<p>在平时的使用中，一般是不会直接使用 ReplicaSet 的。但如果需要实现定制化的控制器，就可能需要依赖 ReplicaSet 来实现。</p>
+<div id=refContainer>
+</div>
+</article>
+</div>
+</div>
+<div class="row likebtn-container">
+<span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
+<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div>
+<div class=row>
+<div class=post-pager>
+<ul class=pager>
+<li class=previous>
+<a href=https://lingsamuel.github.io/k8s/controller/pod-gc/>&larr; Pod GC Controller</a>
+</li>
+<li class=next>
+<a href=https://lingsamuel.github.io/k8s/controller/statefulset/>StatefulSet Controller 实现 &rarr;</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id=toc>
+<aside>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#实现原理>实现原理</a>
+<ul>
+<li><a href=#informer>informer</a></li>
+<li><a href=#syncreplicaset>syncReplicaSet</a></li>
+<li><a href=#managereplicas>manageReplicas</a></li>
+<li><a href=#expectations>expectations</a></li>
+</ul>
+</li>
+<li><a href=#总结>总结</a></li>
+</ul>
+</nav>
+</aside>
+</div>
+</div>
+<footer id=footer>
+<div class=footer>
+<p>Copyright © 2021
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.86.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+Hosted by GitHub
+</p>
+</div>
+</footer>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'">
+<script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
+<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
       classDef def stroke:#97999a,color:#696874;
@@ -291,4 +564,10 @@ Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script><script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script><script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script><script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script><script data-stage=prerender>fuhsi()</script></body></html>
+  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script>
+<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script>
+<script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
+<script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
+<script data-stage=prerender>fuhsi()</script>
+</body>
+</html>

@@ -1,9 +1,86 @@
-<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>StatefulSet Controller 实现 - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet><link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'"><link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen><link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'"><link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body id=body><nav id=navbar><div class=nav><div class=navbar-header><img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
-Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li><a title=Kubernetes href=/k8s>Kubernetes</a></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=flex-row-container><div class="container container-single" id=mainContainer role=main><div class=container-single-main><header class="header post-header"><div class=row><div class=post-title><h1>StatefulSet Controller 实现</h1></div><div class=post-meta><span class=author>Ling Samuel</span>
+<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
+<title>StatefulSet Controller 实现 - Hakurei Shrine</title>
+<link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
+<link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'">
+<link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
+<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body id=body>
+<nav id=navbar>
+<div class=nav>
+<div class=navbar-header>
+<img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
+Hakurei Shrine
+</a>
+</div>
+<div class=navbar-menu>
+<ul class=navbar-list>
+<li>
+<a title=Articles href=/page>Articles</a>
+</li>
+<li>
+<a title=Reviews href=/review>Reviews</a>
+</li>
+<li>
+<a title=Feeds href=/feed>Feeds</a>
+</li>
+<li>
+<a title=Kubernetes href=/k8s>Kubernetes</a>
+</li>
+<li>
+<a title=About href=/about>About</a>
+</li>
+<li>
+<a title=Categories href=/categories>Categories</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=flex-row-container>
+<div class="container container-single" id=mainContainer role=main>
+<div class=container-single-main>
+<header class="header post-header">
+<div class=row>
+<div class=post-title>
+<h1>StatefulSet Controller 实现</h1>
+</div>
+<div class=post-meta>
+<span class=author>
+Ling Samuel
+</span>
 &bull;
-<span class=date>2021-03-12</span>
+<span class=date>
+2021-03-12
+</span>
 &bull;
-<span class=categories><a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;</span></div></div></header><div class=row><article role=main class=post-content><h2 id=state-in-kubernetes>State in Kubernetes</h2><p>在讲解 StatefulSet 的实现前，我们需要先看一看 Kubernetes 是如何跟踪有状态对象的。</p><h3 id=controllerrevision>ControllerRevision</h3><p>对于有状态的数据，K8s 使用称为 ControllerRevision (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/vendor/k8s.io/api/apps/v1/types.go#L822-L834>src</a>)、且其中存储的数据（<code>Data</code> 字段）<strong>不可变</strong>的对象来存储状态数据。Revision 对象虽然不能更新，但可以删除。</p><p>目前 K8s 内部的 DaemonSet 和 StatefulSet 使用了这个对象：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>ControllerRevision</span> <span class=kd>struct</span> <span class=p>{</span>
+<span class=categories>
+<a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;
+</span>
+</div>
+</div>
+</header>
+<div class=row>
+<article role=main class=post-content>
+<h2 id=state-in-kubernetes>State in Kubernetes</h2>
+<p>在讲解 StatefulSet 的实现前，我们需要先看一看 Kubernetes 是如何跟踪有状态对象的。</p>
+<h3 id=controllerrevision>ControllerRevision</h3>
+<p>对于有状态的数据，K8s 使用称为 ControllerRevision (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/vendor/k8s.io/api/apps/v1/types.go#L822-L834>src</a>)、且其中存储的数据（<code>Data</code> 字段）<strong>不可变</strong>的对象来存储状态数据。Revision 对象虽然不能更新，但可以删除。</p>
+<p>目前 K8s 内部的 DaemonSet 和 StatefulSet 使用了这个对象：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>ControllerRevision</span> <span class=kd>struct</span> <span class=p>{</span>
 	<span class=nx>metav1</span><span class=p>.</span><span class=nx>TypeMeta</span> <span class=s>`json:&#34;,inline&#34;`</span>
 	<span class=nx>metav1</span><span class=p>.</span><span class=nx>ObjectMeta</span> <span class=s>`json:&#34;metadata,omitempty&#34; protobuf:&#34;bytes,1,opt,name=metadata&#34;`</span>
 	<span class=c1>// Data is the serialized representation of the state.
@@ -11,8 +88,16 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=c1>// Revision indicates the revision of the state represented by Data.
 </span><span class=c1></span>	<span class=nx>Revision</span> <span class=kt>int64</span> <span class=s>`json:&#34;revision&#34; protobuf:&#34;varint,3,opt,name=revision&#34;`</span>
 <span class=p>}</span>
-</code></pre></div><p>其中，<code>Data</code> 字段存储了序列化的状态，一旦生成就不可变；<code>Revision</code> 字段表示 Data 中数据的版本号，这个字段是可变的。<code>Data</code> 中存储的内容则取决于使用者如何使用。</p><p>对 Controller Revision 的管理功能位于 <a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/history/controller_history.go>controller_revision.go</a>。</p><p>在集群内部，Controller Revision 与其他 API 对象并无区别。</p><h2 id=实现原理>实现原理</h2><p>在 StatefulSet 的实现中，StatefulSet 直接持有的对象为 Pod 和 Controller Revision。</p><div class=mermaidTitle style=background:#eff1f3;color:#696874><strong align=center style="display:block;font-size:24px;font-family:noto sans">StatefulSet Struct</strong>
-<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span></div><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>graph TD
+</code></pre></div><p>其中，<code>Data</code> 字段存储了序列化的状态，一旦生成就不可变；<code>Revision</code> 字段表示 Data 中数据的版本号，这个字段是可变的。<code>Data</code> 中存储的内容则取决于使用者如何使用。</p>
+<p>对 Controller Revision 的管理功能位于 <a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/history/controller_history.go>controller_revision.go</a>。</p>
+<p>在集群内部，Controller Revision 与其他 API 对象并无区别。</p>
+<h2 id=实现原理>实现原理</h2>
+<p>在 StatefulSet 的实现中，StatefulSet 直接持有的对象为 Pod 和 Controller Revision。</p>
+<div class=mermaidTitle style=background:#eff1f3;color:#696874>
+<strong align=center style="display:block;font-size:24px;font-family:noto sans">StatefulSet Struct</strong>
+<span align=center style="display:block;font-size:12px;font-family:noto sans">Ling Samuel</span>
+</div>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>graph TD
   S(StatefulSet)
   R1(Revision 1)
   R2(Revision 2)
@@ -27,7 +112,11 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
   class S Green;
   class R1,R2 Red;
   class P1,P2 Yellow;
-</code></pre></div><p>基本上 Informer 监听自身资源和 Pod 增删改之类的逻辑和 ReplicaSet/Deployment 类似，除非有特殊逻辑，否则不再赘述。</p><h3 id=sync>sync</h3><p>直接快进到同步函数。</p><p>同步前，<code>sync</code> 会调用 <code>adoptOrphanRevisions</code> 来收养符合 StatefulSet Selectors 的孤儿 Revisions：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>ssc</span> <span class=o>*</span><span class=nx>StatefulSetController</span><span class=p>)</span> <span class=nf>adoptOrphanRevisions</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
+</code></pre></div><p>基本上 Informer 监听自身资源和 Pod 增删改之类的逻辑和 ReplicaSet/Deployment 类似，除非有特殊逻辑，否则不再赘述。</p>
+<h3 id=sync>sync</h3>
+<p>直接快进到同步函数。</p>
+<p>同步前，<code>sync</code> 会调用 <code>adoptOrphanRevisions</code> 来收养符合 StatefulSet Selectors 的孤儿 Revisions：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>ssc</span> <span class=o>*</span><span class=nx>StatefulSetController</span><span class=p>)</span> <span class=nf>adoptOrphanRevisions</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
 	<span class=nx>revisions</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>control</span><span class=p>.</span><span class=nf>ListRevisions</span><span class=p>(</span><span class=nx>set</span><span class=p>)</span>
 	<span class=nx>orphanRevisions</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>ControllerRevision</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
 	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>revisions</span> <span class=p>{</span>
@@ -44,7 +133,10 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=p>}</span>
 	<span class=k>return</span> <span class=kc>nil</span>
 <span class=p>}</span>
-</code></pre></div><p>其中 <code>canAdoptFunc</code> 是实时的 DeletionTimestamp 存在性检测，没有具体的业务逻辑。</p><hr><p>随后，类似其他控制器，调用 <code>getPodsForStatefulSet</code> 获取所有可以被该 StatefulSet 管理的 Pod，同时也处理了收养、释放逻辑。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>ssc</span> <span class=o>*</span><span class=nx>StatefulSetController</span><span class=p>)</span> <span class=nf>getPodsForStatefulSet</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>selector</span> <span class=nx>labels</span><span class=p>.</span><span class=nx>Selector</span><span class=p>)</span> <span class=p>([]</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
+</code></pre></div><p>其中 <code>canAdoptFunc</code> 是实时的 DeletionTimestamp 存在性检测，没有具体的业务逻辑。</p>
+<hr>
+<p>随后，类似其他控制器，调用 <code>getPodsForStatefulSet</code> 获取所有可以被该 StatefulSet 管理的 Pod，同时也处理了收养、释放逻辑。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>ssc</span> <span class=o>*</span><span class=nx>StatefulSetController</span><span class=p>)</span> <span class=nf>getPodsForStatefulSet</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>selector</span> <span class=nx>labels</span><span class=p>.</span><span class=nx>Selector</span><span class=p>)</span> <span class=p>([]</span><span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
 	<span class=nx>pods</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>podLister</span><span class=p>.</span><span class=nf>Pods</span><span class=p>(</span><span class=nx>set</span><span class=p>.</span><span class=nx>Namespace</span><span class=p>).</span><span class=nf>List</span><span class=p>(</span><span class=nx>labels</span><span class=p>.</span><span class=nf>Everything</span><span class=p>())</span>
 
 	<span class=nx>filter</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>pod</span> <span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span><span class=p>)</span> <span class=kt>bool</span> <span class=p>{</span>
@@ -54,11 +146,97 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=nx>cm</span> <span class=o>:=</span> <span class=nx>controller</span><span class=p>.</span><span class=nf>NewPodControllerRefManager</span><span class=p>(</span><span class=nx>ssc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>,</span> <span class=nx>set</span><span class=p>,</span> <span class=nx>selector</span><span class=p>,</span> <span class=nx>controllerKind</span><span class=p>,</span> <span class=nx>ssc</span><span class=p>.</span><span class=nf>canAdoptFunc</span><span class=p>(</span><span class=nx>set</span><span class=p>))</span>
 	<span class=k>return</span> <span class=nx>cm</span><span class=p>.</span><span class=nf>ClaimPods</span><span class=p>(</span><span class=nx>pods</span><span class=p>,</span> <span class=nx>filter</span><span class=p>)</span>
 <span class=p>}</span>
-</code></pre></div><p>注意 <code>filter</code> 函数，内部调用了 <code>isMemberOf</code>，该函数检测 Pod 的名字是否符合 StatefulSet 所管理的特征。</p><p>被 StatefulSet 所管理的 Pod，其名字需要是 StatefulSet 的名字 (<code>parentName</code>) 跟上一个序列号 (<code>ordinal</code>) (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L87-L87>src</a>)：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>getPodName</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>ordinal</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+</code></pre></div><p>注意 <code>filter</code> 函数，内部调用了 <code>isMemberOf</code>，该函数检测 Pod 的名字是否符合 StatefulSet 所管理的特征。</p>
+<p>被 StatefulSet 所管理的 Pod，其名字需要是 StatefulSet 的名字 (<code>parentName</code>) 跟上一个序列号 (<code>ordinal</code>) (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L87-L87>src</a>)：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>getPodName</span><span class=p>(</span><span class=nx>set</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>ordinal</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
 	<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;%s-%d&#34;</span><span class=p>,</span> <span class=nx>set</span><span class=p>.</span><span class=nx>Name</span><span class=p>,</span> <span class=nx>ordinal</span><span class=p>)</span>
 <span class=p>}</span>
-</code></pre></div><p>此处的 <code>isMemberOf</code> 函数就检测了该 Pod 是否符合 parentName。</p><hr><p>在获取了需要被同步的 StatefulSet 及其需要管理的 Pod 列表后，调用 <code>syncStatefulSet</code> 将逻辑转发到 <code>StatefulSetControlInterface</code> 的 <code>UpdateStatefulSet</code> 中。</p><p>出于测试目的，一部分 StatefulSet 的核心逻辑被抽成了 <code>StatefulSetControlInterface</code>，其中就包括同步被 StatefulSet 及其管理的 Pod 的部分。</p><h3 id=statefulset-control>StatefulSet Control</h3><p>默认的 StatefulSet Control 实现，其默认的 Pod 同步策略有一个非常重要的假设：按 Pod 序号升序依次扩容，且所有 Pod 都需要健康，才能创建下一个 Pod；缩容时，则是按序号的降序依次停止。</p><p>当然该实现也提供了 burst 策略，可以放宽这个限制。我们稍后会提到这个设计的取舍。</p><hr><p>对外暴露的函数 <code>UpdateStatefulSet</code> 将执行以下逻辑 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_control.go#L74-L74>src</a>)：</p><ul><li>获取该 ss 的所有 revisions，并排序。</li><li>根据 revisions 和 pods，调用 <code>performUpdate</code> 进行更新处理。</li><li>限制 revisions 数量，使之符合 Spec.RevisionHistoryLimit。</li></ul><p>这一块的逻辑相对简单，我们重点关注实际的更新函数。</p><hr><p>函数 <code>performUpdate</code> 主要有三个关键步骤 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_control.go#L92-L92>src</a>)：</p><ul><li>调用 <code>getStatefulSetRevisions</code>，计算 ss 的当前 revision，并获得需要达到的 update revision。</li><li>根据 update revision，调用 <code>updateStatefulSet</code> 来实际应用 update revision。</li><li>调用 <code>updateStatefulSetStatus</code>，更新 ss 的状态。</li></ul><h4 id=getstatefulsetrevisions>getStatefulSetRevisions</h4><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>由于 <code>revision</code> 在这里有三个不同的含义，提前说明其表述差异：</p><ul><li>revision/revision 对象：小写或明确有指代对象。指代 Controller Revision 这个 API 对象。</li><li>Revision：首字母大写。由于 Controller Revision 没有 <code>Spec</code> 字段，所以其持有的 Revision 成员没有一个合适的前缀明确表示其为成员变量。因此下文会使用首字母大写的 <code>Revision</code> 表示 Controller Revision 对象持有的 <code>.Revision</code> 字段。</li><li>revision number：计算出来的 Revision 具体值。</li></ul></div><p>本函数计算并创建/更新一个 update revision 对象。</p><p>获得计算出来的 update revision 之后，会从历史 revisions 中查找是否有相同的 revision。</p><ul><li>历史版本中有相同的 revision：<ul><li>如果该 revision 恰好是最新的 revision，那么直接使用这个，并且不递增 revision（这表明此次同步没有变动，依旧在处理上一次未完成的变更）。</li><li>如果相同 revision 并非最新的一个，将会把这个 revision 的 <code>.Revision</code> 字段更新为递增之后的最新 revision number。</li></ul></li><li>历史版本中没有相同的 revision，则直接创建一个新的 revision 对象。</li></ul><p>在 StatefulSet 的实现里，revision 对象实际持有的数据被称为 patch，通过 <code>getPatch</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L288-L288>src</a>) 函数计算得到。该函数虽然语义上生成的是 strategy patch，似乎应该是增量的。但为了避免复杂性，实际上生成的是 <code>spec.template</code> 字段的全量复制，合并策略是 <code>replace</code>。</p><p>生成 revision 对象时，除了会记录 patch 和 revision number 外，同时也会复制 StatefulSet 的所有 Labels 以及 Annotations，此外还有一个记录哈希冲突的 collision count。</p><h4 id=updatestatefulset>updateStatefulSet</h4><p>这个接近 300 行函数是 StatefulSet 业务逻辑的核心实现。</p><p>该函数会按如下步骤执行：</p><ul><li>以 Pod 序号 (ordinal) 为顺序，找出需要保留或更新的 Pods，放入 <code>replicas</code> slice（长度等于 <code>.Spec.Replicas</code>）中；超出的需要被删除的 Pods 则放入 <code>condemned</code>。<ul><li>这一步还会根据 Pod 的 Revision 匹配当前或 update revision 来更新 Status 中的相应数据。</li><li>注意之前的 <code>filter</code> 函数筛查 Pod 列表时，没有处理 Ordinal 不是数字的情形，因此此处还忽略了那些不能解析的非法 Pod。</li></ul></li><li>用新版的 Pod 对象填满 replicas 数组。创建 Pod 的函数为 <code>newVersionedStatefulSetPod</code>。</li><li>计算 replicas 和 condemned slice 中 Unhealthy 的 Pod 数量（打日志用），并找到第一个 Unhealthy 的 Pod。</li><li>如果 SS 的 DeletionTimestamp 不为空，退出。<ul><li>这一步可以提前。在曾经的旧代码中，更新 SS 的状态也是在函数内完成的，因此这一步需要在更新状态之后。
-不过在新版的代码中，状态更新被剥离到外部了，因此这一步之所以这么靠后，可能是重构时的遗留。</li></ul></li></ul><p>数据准备阶段到此结束。在这一步中，生成了全新的 Status，划分出了需要保留和删除的 Pod 列表，并且找到了第一个不健康的 Pod。</p><p>现在，我们需要根据 <code>replicas</code> slice 里存储的目标 Pod，进行扩缩容，同时执行 Pod 的健康检查。</p><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>这一阶段填充的 Pod，取决于 Partition 与 UpdateStrategy，其 PodTemplate 可能为 current revision 而非 update revision。</p><p>后文的 UpdateStrategy 一节，将更详尽地阐述相关行为。</p></div><h5 id=扩容>扩容</h5><p>在执行扩容前，需先获取更新 Pod 管理策略。当 <code>PodManagementPolicy</code> 为 <code>OrderedReady</code> 时，SS 将依序检测 Pod 的状态，一次只更新一个 Pod，且只有当上一个 Pod Ready 且 Running（或者缩容情况下的 Terminated）时，才会处理下一个 Pod。当策略为 <code>Parallel</code> 时，则会并发地更新。</p><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>OrderedReady 策略保证了 Pod 是按顺序可用的。</p><p>但由于目前实现的问题，如果 SS 在更新后的状态是错误的而永远无法 Ready & Running，例如引用了不存在的镜像，那么将会在第一个发生错误的 Pod 处卡死。并且因为该 Pod 的状态并未被 SS 控制器 handle，这个损坏的 Pod 也不再会被移除，即使 PodTemplate 更新成了正确的版本。</p></div><p>当检测到 Pod 状态为 <code>Failed</code> 时，将该 Pod 删除，并更新 Status。然后创建一个新的 Pod 对象，替换掉 <code>replicas</code> slice 里的旧 Pod。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>replicas</span> <span class=p>{</span>
+</code></pre></div><p>此处的 <code>isMemberOf</code> 函数就检测了该 Pod 是否符合 parentName。</p>
+<hr>
+<p>在获取了需要被同步的 StatefulSet 及其需要管理的 Pod 列表后，调用 <code>syncStatefulSet</code> 将逻辑转发到 <code>StatefulSetControlInterface</code> 的 <code>UpdateStatefulSet</code> 中。</p>
+<p>出于测试目的，一部分 StatefulSet 的核心逻辑被抽成了 <code>StatefulSetControlInterface</code>，其中就包括同步被 StatefulSet 及其管理的 Pod 的部分。</p>
+<h3 id=statefulset-control>StatefulSet Control</h3>
+<p>默认的 StatefulSet Control 实现，其默认的 Pod 同步策略有一个非常重要的假设：按 Pod 序号升序依次扩容，且所有 Pod 都需要健康，才能创建下一个 Pod；缩容时，则是按序号的降序依次停止。</p>
+<p>当然该实现也提供了 burst 策略，可以放宽这个限制。我们稍后会提到这个设计的取舍。</p>
+<hr>
+<p>对外暴露的函数 <code>UpdateStatefulSet</code> 将执行以下逻辑 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_control.go#L74-L74>src</a>)：</p>
+<ul>
+<li>获取该 ss 的所有 revisions，并排序。</li>
+<li>根据 revisions 和 pods，调用 <code>performUpdate</code> 进行更新处理。</li>
+<li>限制 revisions 数量，使之符合 Spec.RevisionHistoryLimit。</li>
+</ul>
+<p>这一块的逻辑相对简单，我们重点关注实际的更新函数。</p>
+<hr>
+<p>函数 <code>performUpdate</code> 主要有三个关键步骤 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_control.go#L92-L92>src</a>)：</p>
+<ul>
+<li>调用 <code>getStatefulSetRevisions</code>，计算 ss 的当前 revision，并获得需要达到的 update revision。</li>
+<li>根据 update revision，调用 <code>updateStatefulSet</code> 来实际应用 update revision。</li>
+<li>调用 <code>updateStatefulSetStatus</code>，更新 ss 的状态。</li>
+</ul>
+<h4 id=getstatefulsetrevisions>getStatefulSetRevisions</h4>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>由于 <code>revision</code> 在这里有三个不同的含义，提前说明其表述差异：</p>
+<ul>
+<li>revision/revision 对象：小写或明确有指代对象。指代 Controller Revision 这个 API 对象。</li>
+<li>Revision：首字母大写。由于 Controller Revision 没有 <code>Spec</code> 字段，所以其持有的 Revision 成员没有一个合适的前缀明确表示其为成员变量。因此下文会使用首字母大写的 <code>Revision</code> 表示 Controller Revision 对象持有的 <code>.Revision</code> 字段。</li>
+<li>revision number：计算出来的 Revision 具体值。</li>
+</ul>
+</div>
+<p>本函数计算并创建/更新一个 update revision 对象。</p>
+<p>获得计算出来的 update revision 之后，会从历史 revisions 中查找是否有相同的 revision。</p>
+<ul>
+<li>历史版本中有相同的 revision：
+<ul>
+<li>如果该 revision 恰好是最新的 revision，那么直接使用这个，并且不递增 revision（这表明此次同步没有变动，依旧在处理上一次未完成的变更）。</li>
+<li>如果相同 revision 并非最新的一个，将会把这个 revision 的 <code>.Revision</code> 字段更新为递增之后的最新 revision number。</li>
+</ul>
+</li>
+<li>历史版本中没有相同的 revision，则直接创建一个新的 revision 对象。</li>
+</ul>
+<p>在 StatefulSet 的实现里，revision 对象实际持有的数据被称为 patch，通过 <code>getPatch</code> (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L288-L288>src</a>) 函数计算得到。该函数虽然语义上生成的是 strategy patch，似乎应该是增量的。但为了避免复杂性，实际上生成的是 <code>spec.template</code> 字段的全量复制，合并策略是 <code>replace</code>。</p>
+<p>生成 revision 对象时，除了会记录 patch 和 revision number 外，同时也会复制 StatefulSet 的所有 Labels 以及 Annotations，此外还有一个记录哈希冲突的 collision count。</p>
+<h4 id=updatestatefulset>updateStatefulSet</h4>
+<p>这个接近 300 行函数是 StatefulSet 业务逻辑的核心实现。</p>
+<p>该函数会按如下步骤执行：</p>
+<ul>
+<li>以 Pod 序号 (ordinal) 为顺序，找出需要保留或更新的 Pods，放入 <code>replicas</code> slice（长度等于 <code>.Spec.Replicas</code>）中；超出的需要被删除的 Pods 则放入 <code>condemned</code>。
+<ul>
+<li>这一步还会根据 Pod 的 Revision 匹配当前或 update revision 来更新 Status 中的相应数据。</li>
+<li>注意之前的 <code>filter</code> 函数筛查 Pod 列表时，没有处理 Ordinal 不是数字的情形，因此此处还忽略了那些不能解析的非法 Pod。</li>
+</ul>
+</li>
+<li>用新版的 Pod 对象填满 replicas 数组。创建 Pod 的函数为 <code>newVersionedStatefulSetPod</code>。</li>
+<li>计算 replicas 和 condemned slice 中 Unhealthy 的 Pod 数量（打日志用），并找到第一个 Unhealthy 的 Pod。</li>
+<li>如果 SS 的 DeletionTimestamp 不为空，退出。
+<ul>
+<li>这一步可以提前。在曾经的旧代码中，更新 SS 的状态也是在函数内完成的，因此这一步需要在更新状态之后。
+不过在新版的代码中，状态更新被剥离到外部了，因此这一步之所以这么靠后，可能是重构时的遗留。</li>
+</ul>
+</li>
+</ul>
+<p>数据准备阶段到此结束。在这一步中，生成了全新的 Status，划分出了需要保留和删除的 Pod 列表，并且找到了第一个不健康的 Pod。</p>
+<p>现在，我们需要根据 <code>replicas</code> slice 里存储的目标 Pod，进行扩缩容，同时执行 Pod 的健康检查。</p>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>这一阶段填充的 Pod，取决于 Partition 与 UpdateStrategy，其 PodTemplate 可能为 current revision 而非 update revision。</p>
+<p>后文的 UpdateStrategy 一节，将更详尽地阐述相关行为。</p>
+</div>
+<h5 id=扩容>扩容</h5>
+<p>在执行扩容前，需先获取更新 Pod 管理策略。当 <code>PodManagementPolicy</code> 为 <code>OrderedReady</code> 时，SS 将依序检测 Pod 的状态，一次只更新一个 Pod，且只有当上一个 Pod Ready 且 Running（或者缩容情况下的 Terminated）时，才会处理下一个 Pod。当策略为 <code>Parallel</code> 时，则会并发地更新。</p>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>OrderedReady 策略保证了 Pod 是按顺序可用的。</p>
+<p>但由于目前实现的问题，如果 SS 在更新后的状态是错误的而永远无法 Ready & Running，例如引用了不存在的镜像，那么将会在第一个发生错误的 Pod 处卡死。并且因为该 Pod 的状态并未被 SS 控制器 handle，这个损坏的 Pod 也不再会被移除，即使 PodTemplate 更新成了正确的版本。</p>
+</div>
+<p>当检测到 Pod 状态为 <code>Failed</code> 时，将该 Pod 删除，并更新 Status。然后创建一个新的 Pod 对象，替换掉 <code>replicas</code> slice 里的旧 Pod。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>replicas</span> <span class=p>{</span>
 		<span class=k>if</span> <span class=nf>isFailed</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=p>{</span>
 			<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>.</span><span class=nf>DeleteStatefulPod</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>]);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
 				<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=nx>err</span>
@@ -72,7 +250,9 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 			<span class=nx>status</span><span class=p>.</span><span class=nx>Replicas</span><span class=o>--</span>
 			<span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=p>=</span> <span class=nf>newVersionedStatefulSetPod</span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
 		<span class=p>}</span>
-</code></pre></div><p>接着检测 Pod 的状态是否为空。这可能是数据准备阶段填充的新 Pod，也可能是上一步中重建的 Pod。若 Pod 的状态为空，则发起创建请求。同样地，需要更新 status。</p><p>由于 OrderedReady 策略要求一次只更新一个 Pod，因此如果这一步中发起了一个创建请求，那么本次同步就提前结束，直到下次同步时再处理后续的 Pod。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=p>!</span><span class=nf>isCreated</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=p>{</span>
+</code></pre></div><p>接着检测 Pod 的状态是否为空。这可能是数据准备阶段填充的新 Pod，也可能是上一步中重建的 Pod。若 Pod 的状态为空，则发起创建请求。同样地，需要更新 status。</p>
+<p>由于 OrderedReady 策略要求一次只更新一个 Pod，因此如果这一步中发起了一个创建请求，那么本次同步就提前结束，直到下次同步时再处理后续的 Pod。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=p>!</span><span class=nf>isCreated</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=p>{</span>
 			<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>.</span><span class=nf>CreateStatefulPod</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>]);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
 				<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=nx>err</span>
 			<span class=p>}</span>
@@ -88,13 +268,16 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 			<span class=p>}</span>
 			<span class=k>continue</span>
 		<span class=p>}</span>
-</code></pre></div><p>接下来考虑其他 OrderedReady 策略下的其他 Pod 状态。如果 Pod 的 DeletionTimestamp 不为空，那么说明该 Pod 需要被删除，而删除尚未完成，因此依旧需要等待，提前终止本轮同步。若 Pod 的状态不为 Ready 以及 Running，则说明该 Pod 依旧在启动中，因此需要等待，提前终止本轮同步。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nf>isTerminating</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nx>monotonic</span> <span class=p>{</span>
+</code></pre></div><p>接下来考虑其他 OrderedReady 策略下的其他 Pod 状态。如果 Pod 的 DeletionTimestamp 不为空，那么说明该 Pod 需要被删除，而删除尚未完成，因此依旧需要等待，提前终止本轮同步。若 Pod 的状态不为 Ready 以及 Running，则说明该 Pod 依旧在启动中，因此需要等待，提前终止本轮同步。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nf>isTerminating</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nx>monotonic</span> <span class=p>{</span>
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=kc>nil</span>
 		<span class=p>}</span>
 		<span class=k>if</span> <span class=p>!</span><span class=nf>isRunningAndReady</span><span class=p>(</span><span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nx>monotonic</span> <span class=p>{</span>
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=kc>nil</span>
 		<span class=p>}</span>
-</code></pre></div><p>到这一步的 Pod 都处于健康状态。函数会检查它的各种元数据（Pod 名、NS 和 Labels 里记录的 <code>statefulset.kubernetes.io/pod-name</code>）和卷挂载信息是否符合 SS。如果符合就处理下一个 Pod，不符合就通过 StatefulSet Pod Control 的 <code>UpdateStatefulPod</code> 函数更新该 Pod 的元数据和卷挂载信息。</p><p>当上述所有检测与行为，保证了当前 Pod 处于健康状态。并且还创建了所有的新增 Pod 和 Failed Pod，更新了挂载信息，保证了元数据的一致。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nf>identityMatches</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nf>storageMatches</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=p>{</span>
+</code></pre></div><p>到这一步的 Pod 都处于健康状态。函数会检查它的各种元数据（Pod 名、NS 和 Labels 里记录的 <code>statefulset.kubernetes.io/pod-name</code>）和卷挂载信息是否符合 SS。如果符合就处理下一个 Pod，不符合就通过 StatefulSet Pod Control 的 <code>UpdateStatefulPod</code> 函数更新该 Pod 的元数据和卷挂载信息。</p>
+<p>当上述所有检测与行为，保证了当前 Pod 处于健康状态。并且还创建了所有的新增 Pod 和 Failed Pod，更新了挂载信息，保证了元数据的一致。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nf>identityMatches</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nf>storageMatches</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>replicas</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span> <span class=p>{</span>
 			<span class=k>continue</span>
 		<span class=p>}</span>
 		<span class=c1>// Make a deep copy so we don&#39;t mutate the shared cache
@@ -103,17 +286,25 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=nx>err</span>
 		<span class=p>}</span>
 	<span class=p>}</span>
-</code></pre></div><p>当策略为 Parallel 时，上述所有的提前终止行为 (return) 变成处理下一个 Pod (continue)。</p><p>但是，这一步实际上尚未对现有 Pod 进行额外操作。</p><p>因此我们在这一步结束时，实际上有一组全新的、符合要求的新 Pod，和一组持有旧的 PodTemplate，但有新 Volumes 的 Pod。</p><h5 id=缩容>缩容</h5><p>在这一步中，我们能保证 <code>[0, Replicas)</code> 数量的 Pod 已经完全健康了。因此，可以开始删除不需要的 Pod 了。</p><p>考虑策略为 OrderedReady 时的情形。当 Pod 处于 Terminated 时，提前终止本轮，以等待 Pod 被完全删除。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>	<span class=k>for</span> <span class=nx>target</span> <span class=o>:=</span> <span class=nb>len</span><span class=p>(</span><span class=nx>condemned</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>target</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>target</span><span class=o>--</span> <span class=p>{</span>
+</code></pre></div><p>当策略为 Parallel 时，上述所有的提前终止行为 (return) 变成处理下一个 Pod (continue)。</p>
+<p>但是，这一步实际上尚未对现有 Pod 进行额外操作。</p>
+<p>因此我们在这一步结束时，实际上有一组全新的、符合要求的新 Pod，和一组持有旧的 PodTemplate，但有新 Volumes 的 Pod。</p>
+<h5 id=缩容>缩容</h5>
+<p>在这一步中，我们能保证 <code>[0, Replicas)</code> 数量的 Pod 已经完全健康了。因此，可以开始删除不需要的 Pod 了。</p>
+<p>考虑策略为 OrderedReady 时的情形。当 Pod 处于 Terminated 时，提前终止本轮，以等待 Pod 被完全删除。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>	<span class=k>for</span> <span class=nx>target</span> <span class=o>:=</span> <span class=nb>len</span><span class=p>(</span><span class=nx>condemned</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>target</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>target</span><span class=o>--</span> <span class=p>{</span>
 		<span class=k>if</span> <span class=nf>isTerminating</span><span class=p>(</span><span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>])</span> <span class=p>{</span>
 			<span class=k>if</span> <span class=nx>monotonic</span> <span class=p>{</span>
 				<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=kc>nil</span>
 			<span class=p>}</span>
 			<span class=k>continue</span>
 		<span class=p>}</span>
-</code></pre></div><p>随后进行一个 Sanity Check。如果当前处理的 Pod 不健康，那么检查第一个不健康的 Pod 是否等于当前 Pod。由于上面的扩容策略中不会更新缓存（调用 UpdateStatefulPod 前进行了一次 deep clone），这理论上似乎并不会发生。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=p>!</span><span class=nf>isRunningAndReady</span><span class=p>(</span><span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nx>monotonic</span> <span class=o>&amp;&amp;</span> <span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>]</span> <span class=o>!=</span> <span class=nx>firstUnhealthyPod</span> <span class=p>{</span>
+</code></pre></div><p>随后进行一个 Sanity Check。如果当前处理的 Pod 不健康，那么检查第一个不健康的 Pod 是否等于当前 Pod。由于上面的扩容策略中不会更新缓存（调用 UpdateStatefulPod 前进行了一次 deep clone），这理论上似乎并不会发生。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=p>!</span><span class=nf>isRunningAndReady</span><span class=p>(</span><span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nx>monotonic</span> <span class=o>&amp;&amp;</span> <span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>]</span> <span class=o>!=</span> <span class=nx>firstUnhealthyPod</span> <span class=p>{</span>
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=kc>nil</span>
 		<span class=p>}</span>
-</code></pre></div><p>上述检测都通过后，可以安全删除当前处理的 Pod，然后提前终止本轮。当然，也要注意更新 Status。</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>.</span><span class=nf>DeleteStatefulPod</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>]);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</code></pre></div><p>上述检测都通过后，可以安全删除当前处理的 Pod，然后提前终止本轮。当然，也要注意更新 Status。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go>		<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>ssc</span><span class=p>.</span><span class=nx>podControl</span><span class=p>.</span><span class=nf>DeleteStatefulPod</span><span class=p>(</span><span class=nx>set</span><span class=p>,</span> <span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>]);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=nx>err</span>
 		<span class=p>}</span>
 		<span class=k>if</span> <span class=nf>getPodRevision</span><span class=p>(</span><span class=nx>condemned</span><span class=p>[</span><span class=nx>target</span><span class=p>])</span> <span class=o>==</span> <span class=nx>currentRevision</span><span class=p>.</span><span class=nx>Name</span> <span class=p>{</span>
@@ -126,7 +317,26 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 			<span class=k>return</span> <span class=o>&amp;</span><span class=nx>status</span><span class=p>,</span> <span class=kc>nil</span>
 		<span class=p>}</span>
 	<span class=p>}</span>
-</code></pre></div><p>当策略为 Parallel 时，行为与扩容阶段一致，所有的提前终止行为改为处理下一个 Pod。</p><h5 id=滚动更新>滚动更新</h5><p>现在我们的扩缩容已经进行完毕了。接下来的工作是清理旧的 Pod，以便将它们更新为最新的 PodTemplate。</p><p>注意，如果 UpdateStrategy（注意更新策略和前文提到的 Pod 管理策略的差异）为 OnDelete，那么 SS 的同步将终止。该策略期待用户手动删除 Pod，从而在下一次同步时，在扩容阶段填充新的 Pod（以便响应 PodTemplate 的变动）。</p><p>清理旧 Pod 然后更新至新 Pod 的行为与缩容类似，是逆序进行的。</p><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>Note:</strong></div><p>注意，Rolling Update 不受 PodManagementPolicy 控制，也没有类似 MaxSurge 或 MaxUnavailable 等参数。每一轮的删除都仅仅只会删除一个 Pod。</p></div><p>当 Pod 的 revision number 不是最新且 DeletionTimestamp 为空时，该 Pod 将会删除，并更新 SS 的状态。</p><p>当 Pod 的 revision number 匹配最新但 Pod 并未 Ready & Running 时，将提前终止本轮，以等待 Pod 就绪。</p><h6 id=分区更新-partition>分区更新 (Partition)</h6><p>有时候，可能需要只升级一小部分 Pod 来进行测试、灰度发布等工作。对于 Deployment 等无状态资源来说，只需要新创建一个即可。但是由于 SS 绑定了 PV，新创建的 SS 不能继承原有 PV 的数据，可能不符合需求。因此，Kubernetes 提供了 Partition 功能。</p><blockquote><p>如果声明了 partition，当 StatefulSet 的 .spec.template 被更新时，所有序号大于等于该分区序号的 Pod 都会被更新。所有序号小于该分区序号的 Pod 都不会被更新，并且，即使他们被删除也会依据之前的版本进行重建。</p></blockquote><p>Partition 的实现非常讨巧 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L262-L273>src</a>)：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>newVersionedStatefulSetPod</span><span class=p>(</span><span class=nx>currentSet</span><span class=p>,</span> <span class=nx>updateSet</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>currentRevision</span><span class=p>,</span> <span class=nx>updateRevision</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>ordinal</span> <span class=kt>int</span><span class=p>)</span> <span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span> <span class=p>{</span>
+</code></pre></div><p>当策略为 Parallel 时，行为与扩容阶段一致，所有的提前终止行为改为处理下一个 Pod。</p>
+<h5 id=滚动更新>滚动更新</h5>
+<p>现在我们的扩缩容已经进行完毕了。接下来的工作是清理旧的 Pod，以便将它们更新为最新的 PodTemplate。</p>
+<p>注意，如果 UpdateStrategy（注意更新策略和前文提到的 Pod 管理策略的差异）为 OnDelete，那么 SS 的同步将终止。该策略期待用户手动删除 Pod，从而在下一次同步时，在扩容阶段填充新的 Pod（以便响应 PodTemplate 的变动）。</p>
+<p>清理旧 Pod 然后更新至新 Pod 的行为与缩容类似，是逆序进行的。</p>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>Note:</strong>
+</div>
+<p>注意，Rolling Update 不受 PodManagementPolicy 控制，也没有类似 MaxSurge 或 MaxUnavailable 等参数。每一轮的删除都仅仅只会删除一个 Pod。</p>
+</div>
+<p>当 Pod 的 revision number 不是最新且 DeletionTimestamp 为空时，该 Pod 将会删除，并更新 SS 的状态。</p>
+<p>当 Pod 的 revision number 匹配最新但 Pod 并未 Ready & Running 时，将提前终止本轮，以等待 Pod 就绪。</p>
+<h6 id=分区更新-partition>分区更新 (Partition)</h6>
+<p>有时候，可能需要只升级一小部分 Pod 来进行测试、灰度发布等工作。对于 Deployment 等无状态资源来说，只需要新创建一个即可。但是由于 SS 绑定了 PV，新创建的 SS 不能继承原有 PV 的数据，可能不符合需求。因此，Kubernetes 提供了 Partition 功能。</p>
+<blockquote>
+<p>如果声明了 partition，当 StatefulSet 的 .spec.template 被更新时，所有序号大于等于该分区序号的 Pod 都会被更新。所有序号小于该分区序号的 Pod 都不会被更新，并且，即使他们被删除也会依据之前的版本进行重建。</p>
+</blockquote>
+<p>Partition 的实现非常讨巧 (<a href=https://github.com/kubernetes/kubernetes/blob/16b909ce1483258464715c9ab76b4dff82d596e5/pkg/controller/statefulset/stateful_set_utils.go#L262-L273>src</a>)：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>newVersionedStatefulSetPod</span><span class=p>(</span><span class=nx>currentSet</span><span class=p>,</span> <span class=nx>updateSet</span> <span class=o>*</span><span class=nx>apps</span><span class=p>.</span><span class=nx>StatefulSet</span><span class=p>,</span> <span class=nx>currentRevision</span><span class=p>,</span> <span class=nx>updateRevision</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>ordinal</span> <span class=kt>int</span><span class=p>)</span> <span class=o>*</span><span class=nx>v1</span><span class=p>.</span><span class=nx>Pod</span> <span class=p>{</span>
 	<span class=k>if</span> <span class=nx>currentSet</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>UpdateStrategy</span><span class=p>.</span><span class=nx>Type</span> <span class=o>==</span> <span class=nx>apps</span><span class=p>.</span><span class=nx>RollingUpdateStatefulSetStrategyType</span> <span class=o>&amp;&amp;</span>
 		<span class=p>(</span><span class=nx>currentSet</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>UpdateStrategy</span><span class=p>.</span><span class=nx>RollingUpdate</span> <span class=o>==</span> <span class=kc>nil</span> <span class=o>&amp;&amp;</span> <span class=nx>ordinal</span> <span class=p>&lt;</span> <span class=nb>int</span><span class=p>(</span><span class=nx>currentSet</span><span class=p>.</span><span class=nx>Status</span><span class=p>.</span><span class=nx>CurrentReplicas</span><span class=p>))</span> <span class=o>||</span>
 		<span class=p>(</span><span class=nx>currentSet</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>UpdateStrategy</span><span class=p>.</span><span class=nx>RollingUpdate</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=o>&amp;&amp;</span> <span class=nx>ordinal</span> <span class=p>&lt;</span> <span class=nb>int</span><span class=p>(</span><span class=o>*</span><span class=nx>currentSet</span><span class=p>.</span><span class=nx>Spec</span><span class=p>.</span><span class=nx>UpdateStrategy</span><span class=p>.</span><span class=nx>RollingUpdate</span><span class=p>.</span><span class=nx>Partition</span><span class=p>))</span> <span class=p>{</span>
@@ -138,9 +348,76 @@ Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a titl
 	<span class=nf>setPodRevision</span><span class=p>(</span><span class=nx>pod</span><span class=p>,</span> <span class=nx>updateRevision</span><span class=p>)</span>
 	<span class=k>return</span> <span class=nx>pod</span>
 <span class=p>}</span>
-</code></pre></div><p>设我们现在更新策略为 RollingUpdate，Replica 数为 R，Paritiaon 为 P。那么，在创建新 Pod 时，Ordinal 位于 [0, P) 的 Pod 会使用 current revision，而位于 [P, R) 的则会使用 update revision。这样就保证了无论是新建的 Pod 还是重建的 Pod，都能满足 partition 的需要。</p><p>同时也要注意计算时的 Replicas 与 Partition 的值使用的是 current set 而不是 update set。</p><h4 id=updatestatefulsetstatus>updateStatefulSetStatus</h4><p>这一步比较简单。它检查了 Rolling Update 情况下的相关状态是否达到了要求，然后相应地将 Status 的 CurrentRevision 更新为新的 Revision。</p><p>注意，它仅仅在 Rolling Update 策略下，状态符合预期时才会更新 CurrentRevision。</p><p>这是因为，在 UpdateStrategy 为 OnDelete 的情况下，没有分区功能，所有的扩容、重建直接使用最新的 SS 里的 PodTemplate 就可以了，不需要存储 Revision。</p><p>实际上，若 <code>Partition == 0</code>，那么 Rolling Update 对于 Revision 的使用也仅仅只是追踪滚动更新状态罢了。而 OnDelete 时，一切删除都是用户手动进行的，自然也无需追踪了。</p><h3 id=statefulset-pod-control>StatefulSet Pod Control</h3><p>提供 PVC 创建，以及有序 Pod 创建与删除，Pod 校验等额外功能的封装。</p><div class="alert alert-info"><div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg><strong>TODO</strong></div></div><div id=refContainer></div></article></div></div><div class="row likebtn-container"><span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span><script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script></div><div class=row><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/k8s/controller/replicaset/>&larr; ReplicaSet Controller 实现</a></li><li class=next><a href=https://lingsamuel.github.io/k8s/cni-from-scratch/>CNI From Scratch &rarr;</a></li></ul></div></div></div><div id=toc><aside><nav id=TableOfContents><ul><li><a href=#state-in-kubernetes>State in Kubernetes</a><ul><li><a href=#controllerrevision>ControllerRevision</a></li></ul></li><li><a href=#实现原理>实现原理</a><ul><li><a href=#sync>sync</a></li><li><a href=#statefulset-control>StatefulSet Control</a></li><li><a href=#statefulset-pod-control>StatefulSet Pod Control</a></li></ul></li></ul></nav></aside></div></div><footer id=footer><div class=footer><p>Copyright © 2021
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.85.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
-Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script><link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'"><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script><script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+</code></pre></div><p>设我们现在更新策略为 RollingUpdate，Replica 数为 R，Paritiaon 为 P。那么，在创建新 Pod 时，Ordinal 位于 [0, P) 的 Pod 会使用 current revision，而位于 [P, R) 的则会使用 update revision。这样就保证了无论是新建的 Pod 还是重建的 Pod，都能满足 partition 的需要。</p>
+<p>同时也要注意计算时的 Replicas 与 Partition 的值使用的是 current set 而不是 update set。</p>
+<h4 id=updatestatefulsetstatus>updateStatefulSetStatus</h4>
+<p>这一步比较简单。它检查了 Rolling Update 情况下的相关状态是否达到了要求，然后相应地将 Status 的 CurrentRevision 更新为新的 Revision。</p>
+<p>注意，它仅仅在 Rolling Update 策略下，状态符合预期时才会更新 CurrentRevision。</p>
+<p>这是因为，在 UpdateStrategy 为 OnDelete 的情况下，没有分区功能，所有的扩容、重建直接使用最新的 SS 里的 PodTemplate 就可以了，不需要存储 Revision。</p>
+<p>实际上，若 <code>Partition == 0</code>，那么 Rolling Update 对于 Revision 的使用也仅仅只是追踪滚动更新状态罢了。而 OnDelete 时，一切删除都是用户手动进行的，自然也无需追踪了。</p>
+<h3 id=statefulset-pod-control>StatefulSet Pod Control</h3>
+<p>提供 PVC 创建，以及有序 Pod 创建与删除，Pod 校验等额外功能的封装。</p>
+<div class="alert alert-info">
+<div class=alert-header><svg class="svg-inline fa-w-11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></svg>
+<strong>TODO</strong>
+</div>
+</div>
+<div id=refContainer>
+</div>
+</article>
+</div>
+</div>
+<div class="row likebtn-container">
+<span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
+<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div>
+<div class=row>
+<div class=post-pager>
+<ul class=pager>
+<li class=previous>
+<a href=https://lingsamuel.github.io/k8s/controller/replicaset/>&larr; ReplicaSet Controller 实现</a>
+</li>
+<li class=next>
+<a href=https://lingsamuel.github.io/k8s/cni-from-scratch/>CNI From Scratch &rarr;</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id=toc>
+<aside>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#state-in-kubernetes>State in Kubernetes</a>
+<ul>
+<li><a href=#controllerrevision>ControllerRevision</a></li>
+</ul>
+</li>
+<li><a href=#实现原理>实现原理</a>
+<ul>
+<li><a href=#sync>sync</a></li>
+<li><a href=#statefulset-control>StatefulSet Control</a></li>
+<li><a href=#statefulset-pod-control>StatefulSet Pod Control</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</div>
+</div>
+<footer id=footer>
+<div class=footer>
+<p>Copyright © 2021
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.86.0</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+Hosted by GitHub
+</p>
+</div>
+</footer>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'">
+<script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
+<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
       classDef def stroke:#97999a,color:#696874;
@@ -166,4 +443,10 @@ Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script><script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script><script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script><script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script><script data-stage=prerender>fuhsi()</script></body></html>
+  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script>
+<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script>
+<script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
+<script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
+<script data-stage=prerender>fuhsi()</script>
+</body>
+</html>
