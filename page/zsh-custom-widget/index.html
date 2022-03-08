@@ -3,62 +3,48 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>Zsh Custom Widget - Hakurei Shrine</title>
-<link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
+<title>Zsh Custom Widget - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
 <link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload='this.rel="stylesheet"'>
 <link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
-<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'">
-<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'">
-<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'>
+<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'>
+<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
-</head>
-<body id=body>
+</head><body id=body>
 <nav id=navbar>
 <div class=nav>
 <div class=navbar-header>
 <img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
 Hakurei Shrine
 </a>
-</div>
-<div class=navbar-menu>
+</div><div class=navbar-menu>
 <ul class=navbar-list>
 <li>
 <a title=Articles href=/page>Articles</a>
-</li>
-<li>
+</li><li>
 <a title=Reviews href=/review>Reviews</a>
-</li>
-<li>
+</li><li>
 <a title=Feeds href=/feed>Feeds</a>
-</li>
-<li>
+</li><li>
 <a title=Kubernetes href=/k8s>Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title=Me href=/me>Me</a>
+</li><li>
 <a title=About href=/about>About</a>
-</li>
-<li>
+</li><li>
 <a title=Categories href=/categories>Categories</a>
-</li>
-<li>
+</li><li>
 <a title=Tags href=/tags>Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class=flex-row-container>
+</li></ul></div></div></nav><div class=flex-row-container>
 <div class="container container-single" id=mainContainer role=main>
 <div class=container-single-main>
 <header class="header post-header">
 <div class=row>
 <div class=post-title>
-<h1>Zsh Custom Widget</h1>
-</div>
-<div class=post-meta>
+<h1>Zsh Custom Widget</h1></div><div class=post-meta>
 <span class=author>
 Ling Samuel
 </span>
@@ -75,217 +61,139 @@ Ling Samuel
 <a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
 <a href=https://lingsamuel.github.io//tags/zsh/>zsh</a>&nbsp;
 </span>
-</div>
-</div>
-</header>
-<div class=row>
+</div></div></header><div class=row>
 <article role=main class=post-content>
-<p>自定义 Zsh Widget 来实现自动注释/反注释功能。</p>
-<h2 id=基本命令>基本命令</h2>
-<p>查看已有 Widgets: <code>zle -al</code>。</p>
-<p>新增一个 Widget：<code>zle -N &lt;funcName></code>。</p>
-<p>绑定 Widget：<code>bindkey &lt;keycode> &lt;widgetName></code></p>
-<h2 id=单行版本>单行版本</h2>
-<p>在 <code>.zshrc</code> 中加入下列代码：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>autocomment<span class=o>()</span> <span class=o>{</span>
-  <span class=nb>local</span> <span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=si>${#</span><span class=nv>CONTENT</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;0&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=k>return</span><span class=p>;</span>
-  <span class=k>fi</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$CONTENT</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> <span class=m>1</span><span class=k>))</span>
-    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT</span><span class=p>:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
-  <span class=k>else</span>
-    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>+</span> <span class=m>1</span><span class=k>))</span> <span class=c1># 移动光标位置</span>
-    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;#</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
-  <span class=k>fi</span>
-<span class=o>}</span>
-
-zle -N autocomment
-bindkey <span class=s1>&#39;^_&#39;</span> autocomment
-</code></pre></div><h3 id=cursor-变量的限制>CURSOR 变量的限制</h3>
-<p><code>CURSOR</code> 变量什么时候赋值是有讲究的。</p>
-<p>根据 <a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#User_002dDefined-Widgets>Zle 文档</a> 的说法：</p>
-<blockquote>
+<p>自定义 Zsh Widget 来实现自动注释/反注释功能。</p><h2 id=基本命令>基本命令</h2><p>查看已有 Widgets: <code>zle -al</code>。</p><p>新增一个 Widget：<code>zle -N &lt;funcName></code>。</p><p>绑定 Widget：<code>bindkey &lt;keycode> &lt;widgetName></code></p><h2 id=单行版本>单行版本</h2><p>在 <code>.zshrc</code> 中加入下列代码：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=line><span class=cl>autocomment<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=si>${#</span><span class=nv>CONTENT</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;0&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$CONTENT</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> <span class=m>1</span><span class=k>))</span>
+</span></span><span class=line><span class=cl>    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT</span><span class=p>:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>+</span> <span class=m>1</span><span class=k>))</span> <span class=c1># 移动光标位置</span>
+</span></span><span class=line><span class=cl>    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;#</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>zle -N autocomment
+</span></span><span class=line><span class=cl>bindkey <span class=s1>&#39;^_&#39;</span> autocomment
+</span></span></code></pre></div><h3 id=cursor-变量的限制>CURSOR 变量的限制</h3><p><code>CURSOR</code> 变量什么时候赋值是有讲究的。</p><p>根据 <a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#User_002dDefined-Widgets>Zle 文档</a> 的说法：</p><blockquote>
 <p>CURSOR (integer)<br>
-(&mldr;) This is in the range 0 to <code>$#BUFFER</code> (&mldr;) Attempts to move the cursor outside the buffer will result in the cursor being moved to the appropriate end of the buffer.</p>
-</blockquote>
-<p>也就是说，给 CURSOR 赋的值不能超过 <code>$#BUFFER</code>。</p>
-<p>可以简单验证一下：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>testCursor<span class=o>()</span> <span class=o>{</span>
-  <span class=nb>echo</span> <span class=s2>&#34;\nOriginal C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;a&#34;</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Change Buffer C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR+10<span class=k>))</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Force edit C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>CURSOR</span><span class=o>=</span><span class=m>100</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Force assign C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;ab&#34;</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Change Buffer C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR+10<span class=k>))</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Force edit C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-  <span class=nv>CURSOR</span><span class=o>=</span><span class=m>100</span>
-  <span class=nb>echo</span> <span class=s2>&#34;Force assign C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
-<span class=o>}</span>
-zle -N testCursor
-bindkey <span class=s1>&#39;^_&#39;</span> testCursor
-</code></pre></div><p>其结果是：</p>
-<link rel=stylesheet href=/css/hugo-easy-gallery.css>
+(&mldr;) This is in the range 0 to <code>$#BUFFER</code> (&mldr;) Attempts to move the cursor outside the buffer will result in the cursor being moved to the appropriate end of the buffer.</p></blockquote><p>也就是说，给 CURSOR 赋的值不能超过 <code>$#BUFFER</code>。</p><p>可以简单验证一下：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=line><span class=cl>testCursor<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;\nOriginal C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;a&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Change Buffer C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR+10<span class=k>))</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Force edit C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>CURSOR</span><span class=o>=</span><span class=m>100</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Force assign C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;ab&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Change Buffer C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR+10<span class=k>))</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Force edit C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nv>CURSOR</span><span class=o>=</span><span class=m>100</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Force assign C: </span><span class=nv>$CURSOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>zle -N testCursor
+</span></span><span class=line><span class=cl>bindkey <span class=s1>&#39;^_&#39;</span> testCursor
+</span></span></code></pre></div><p>其结果是：</p><link rel=stylesheet href=/css/hugo-easy-gallery.css>
 <div class="figure-box box">
 <figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
 <div class=img>
 <img itemprop=thumbnail src=/page/zsh-custom-widget/cursor-bound.png alt="variable CURSOR is always in range [0, $#BUFFER]">
-</div>
-<a href=/page/zsh-custom-widget/cursor-bound.png itemprop=contentUrl></a>
-</figure>
-<figcaption>
+</div><a href=/page/zsh-custom-widget/cursor-bound.png itemprop=contentUrl></a>
+</figure><figcaption>
 <p class="figcaption figcaption-right">
-variable CURSOR is always in range [0, $#BUFFER]</p>
-</figcaption>
-</div>
-<p>可以看到，<code>CURSOR</code> 变量不能随意赋值。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>  <span class=c1># ...</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$CONTENT</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> <span class=m>1</span><span class=k>))</span>
-    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT</span><span class=p>:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
-  <span class=k>else</span>
-  <span class=c1># ...</span>
-</code></pre></div><p>因此对于这一段脚本，假设当前的 <code>CURSOR</code> 已经在文本结尾（等于 <code>$#BUFFER</code>）。</p>
-<p>如果先赋值 <code>BUFFER</code> 再赋值 <code>CURSOR</code>，那么实际情形是在给 <code>BUFFER</code> 赋值之后，<code>CURSOR</code> 变量已经被减去了 1，再减一次就会出现问题。</p>
-<p>同样的，插入注释符号时，也应该先给 <code>BUFFER</code> 赋值再修改 <code>CURSOR</code>，否则修改会失效。</p>
-<h3 id=绑定到组合键>绑定到组合键</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>bindkey <span class=s1>&#39;^_&#39;</span> autocomment
-</code></pre></div><p>其中，<code>^_</code> 代表组合键 <code>Ctrl+/</code>。绑定其他组合键可以使用 <code>read</code> 命令或者按一下 <code>Ctrl+V</code>（在 bash/zsh 里代表 <code>quoted-insert</code>），可以查看组合键对应的输出。</p>
-<p>注意，如果使用了 <code>zsh-syntax-highlighting</code>，请按照官方指引，在 <code>.zshrc</code> 结尾处 source 它的脚本，而不是写到 <code>plugins</code> 数组里。</p>
-<p>这是因为 <code>z-sy-h</code> 需要 wrap zle widgets 来使 BUFFER 被修改之后能被重新染色。</p>
-<p>当然，也可以手动将 <code>_zsh_highlight</code> 注册成 zle，然后在函数结尾通过<br>
-<code>zle _zsh_highlight</code> 手动调用——但是为什么要这么做呢？</p>
-<hr>
-<p>这个版本的 <code>autocomment</code> 有一个问题：只能对单行输入工作。接下来会将其修改成多行版本。</p>
-<h2 id=多行版本>多行版本</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>autocomment<span class=o>()</span> <span class=o>{</span>
-  <span class=nb>local</span> <span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=si>${#</span><span class=nv>CONTENT</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;0&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=k>return</span><span class=p>;</span>
-  <span class=k>fi</span>
-
-  <span class=nb>local</span> CONTENT_ARRAY
-  <span class=nv>IFS</span><span class=o>=</span><span class=s1>$&#39;\n&#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=s2>&#34;</span><span class=si>${</span><span class=p>(@f)CONTENT</span><span class=si>}</span><span class=s2>&#34;</span><span class=o>)</span>
-
-  <span class=nb>local</span> <span class=nv>COMMENT_MODE</span><span class=o>=</span><span class=s2>&#34;uncomment&#34;</span>
-  <span class=k>for</span> <span class=o>((</span><span class=nv>i</span> <span class=o>=</span> 1<span class=p>;</span> i &lt;<span class=o>=</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=p>;</span> i++<span class=o>))</span><span class=p>;</span> <span class=k>do</span>
-    <span class=k>if</span> <span class=o>[[</span> ! <span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-      <span class=nv>COMMENT_MODE</span><span class=o>=</span><span class=s2>&#34;comment&#34;</span>
-      <span class=nb>break</span>
-    <span class=k>fi</span>
-  <span class=k>done</span>
-
-  <span class=nb>local</span> <span class=nv>LINE_NUMBER</span><span class=o>=</span><span class=m>1</span>
-  <span class=nb>local</span> <span class=nv>CHARS_POS</span><span class=o>=</span><span class=m>0</span>
-  <span class=k>for</span> <span class=o>((</span><span class=nv>i</span> <span class=o>=</span> 1<span class=p>;</span> i &lt;<span class=o>=</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=p>;</span> i++<span class=o>))</span><span class=p>;</span> <span class=k>do</span>
-    <span class=nv>CHARS_POS</span><span class=o>=</span><span class=k>$((</span> CHARS_POS <span class=o>+</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span> <span class=o>+</span> <span class=m>1</span> <span class=k>))</span>
-    <span class=k>if</span> <span class=o>((</span> <span class=nv>$CHARS_POS</span> &lt;<span class=o>=</span> <span class=nv>$CURSOR</span> <span class=o>))</span><span class=p>;</span> <span class=k>then</span>
-      <span class=nv>LINE_NUMBER</span><span class=o>=</span><span class=k>$((</span>LINE_NUMBER <span class=o>+</span> <span class=m>1</span><span class=k>))</span>
-    <span class=k>fi</span>
-    <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;comment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-      CONTENT_ARRAY<span class=o>[</span><span class=nv>$i</span><span class=o>]=</span><span class=s2>&#34;#</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span><span class=s2>&#34;</span>
-    <span class=k>else</span>
-      CONTENT_ARRAY<span class=o>[</span><span class=nv>$i</span><span class=o>]=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
-    <span class=k>fi</span>
-  <span class=k>done</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;uncomment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> LINE_NUMBER<span class=k>))</span>
-  <span class=k>fi</span>
-  <span class=nv>BUFFER</span><span class=o>=</span><span class=k>$(</span>join_array <span class=s1>$&#39;\n&#39;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span>
-  <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;comment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
-    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>+</span> LINE_NUMBER<span class=k>))</span>
-  <span class=k>fi</span>
-<span class=o>}</span>
-</code></pre></div><p>多行版本主要存在如下几个要点：</p>
-<ol>
+variable CURSOR is always in range [0, $#BUFFER]</p></figcaption></div><p>可以看到，<code>CURSOR</code> 变量不能随意赋值。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>  <span class=c1># ...</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$CONTENT</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> <span class=m>1</span><span class=k>))</span>
+</span></span><span class=line><span class=cl>    <span class=nv>BUFFER</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT</span><span class=p>:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span>
+</span></span><span class=line><span class=cl>  <span class=c1># ...</span>
+</span></span></code></pre></div><p>因此对于这一段脚本，假设当前的 <code>CURSOR</code> 已经在文本结尾（等于 <code>$#BUFFER</code>）。</p><p>如果先赋值 <code>BUFFER</code> 再赋值 <code>CURSOR</code>，那么实际情形是在给 <code>BUFFER</code> 赋值之后，<code>CURSOR</code> 变量已经被减去了 1，再减一次就会出现问题。</p><p>同样的，插入注释符号时，也应该先给 <code>BUFFER</code> 赋值再修改 <code>CURSOR</code>，否则修改会失效。</p><h3 id=绑定到组合键>绑定到组合键</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=line><span class=cl>bindkey <span class=s1>&#39;^_&#39;</span> autocomment
+</span></span></code></pre></div><p>其中，<code>^_</code> 代表组合键 <code>Ctrl+/</code>。绑定其他组合键可以使用 <code>read</code> 命令或者按一下 <code>Ctrl+V</code>（在 bash/zsh 里代表 <code>quoted-insert</code>），可以查看组合键对应的输出。</p><p>注意，如果使用了 <code>zsh-syntax-highlighting</code>，请按照官方指引，在 <code>.zshrc</code> 结尾处 source 它的脚本，而不是写到 <code>plugins</code> 数组里。</p><p>这是因为 <code>z-sy-h</code> 需要 wrap zle widgets 来使 BUFFER 被修改之后能被重新染色。</p><p>当然，也可以手动将 <code>_zsh_highlight</code> 注册成 zle，然后在函数结尾通过<br>
+<code>zle _zsh_highlight</code> 手动调用——但是为什么要这么做呢？</p><hr>
+<p>这个版本的 <code>autocomment</code> 有一个问题：只能对单行输入工作。接下来会将其修改成多行版本。</p><h2 id=多行版本>多行版本</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=line><span class=cl>autocomment<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$BUFFER</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=si>${#</span><span class=nv>CONTENT</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;0&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> CONTENT_ARRAY
+</span></span><span class=line><span class=cl>  <span class=nv>IFS</span><span class=o>=</span><span class=s1>$&#39;\n&#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=s2>&#34;</span><span class=si>${</span><span class=p>(@f)CONTENT</span><span class=si>}</span><span class=s2>&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>COMMENT_MODE</span><span class=o>=</span><span class=s2>&#34;uncomment&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=o>((</span><span class=nv>i</span> <span class=o>=</span> 1<span class=p>;</span> i &lt;<span class=o>=</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=p>;</span> i++<span class=o>))</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[[</span> ! <span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span> <span class=o>=</span> <span class=s2>&#34;#&#34;</span>* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>      <span class=nv>COMMENT_MODE</span><span class=o>=</span><span class=s2>&#34;comment&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=nb>break</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>  <span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>LINE_NUMBER</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>CHARS_POS</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=o>((</span><span class=nv>i</span> <span class=o>=</span> 1<span class=p>;</span> i &lt;<span class=o>=</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=p>;</span> i++<span class=o>))</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CHARS_POS</span><span class=o>=</span><span class=k>$((</span> CHARS_POS <span class=o>+</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span> <span class=o>+</span> <span class=m>1</span> <span class=k>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>((</span> <span class=nv>$CHARS_POS</span> &lt;<span class=o>=</span> <span class=nv>$CURSOR</span> <span class=o>))</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>      <span class=nv>LINE_NUMBER</span><span class=o>=</span><span class=k>$((</span>LINE_NUMBER <span class=o>+</span> <span class=m>1</span><span class=k>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;comment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>      CONTENT_ARRAY<span class=o>[</span><span class=nv>$i</span><span class=o>]=</span><span class=s2>&#34;#</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>      CONTENT_ARRAY<span class=o>[</span><span class=nv>$i</span><span class=o>]=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[</span><span class=nv>$i</span><span class=p>]:</span><span class=nv>1</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>fi</span>
+</span></span><span class=line><span class=cl>  <span class=k>done</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;uncomment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>-</span> LINE_NUMBER<span class=k>))</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl>  <span class=nv>BUFFER</span><span class=o>=</span><span class=k>$(</span>join_array <span class=s1>$&#39;\n&#39;</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span><span class=s2>&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[[</span> <span class=nv>$COMMENT_MODE</span> <span class=o>=</span> <span class=s2>&#34;comment&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nv>CURSOR</span><span class=o>=</span><span class=k>$((</span>CURSOR <span class=o>+</span> LINE_NUMBER<span class=k>))</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></div><p>多行版本主要存在如下几个要点：</p><ol>
 <li>
 <p>从功能上讲，只有所有行都以 <code>#</code> 开头时才能认为输入是被程序化处理过的注释。只要有一行不是注释，其余所有的已注释行都应该认为是人工输入的注释，而非本脚本生成的。
-因此首先需要判别 <code>COMMENT_MODE</code>。</p>
-</li>
-<li>
-<p>由于每行都要插入或删除一个注释符号，通过计算字符长度来判断光标在第几行，并以行号为依据修改光标位置。注意 <code>CHARS_POS</code> 需要额外 <code>+1</code>，代表换行符。</p>
-</li>
-</ol>
-<p>脚本编写的时候需要特别注意的一点是 zsh 中使用 <code>IFS</code> 分割数组的方法，参见 <a href=http://zsh.sourceforge.net/Doc/Release/Expansion.html#Parameter-Expansion-Flags>Parameter Expansion Flags</a>。</p>
-<p>在 <code>bash</code> 中，可以这样分割数组：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;a b c&#34;</span>
-<span class=nv>IFS</span><span class=o>=</span><span class=s1>&#39; &#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=nv>$CONTENT</span><span class=o>)</span>
-<span class=nb>echo</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span>
-</code></pre></div><p>而在 <code>zsh</code> 中，需要这样：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;a b c&#34;</span>
-<span class=nv>IFS</span><span class=o>=</span><span class=s1>&#39; &#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=s2>&#34;</span><span class=si>${</span><span class=p>(@ps:</span><span class=nv>$IFS</span><span class=p>:)CONTENT</span><span class=si>}</span><span class=s2>&#34;</span><span class=o>)</span>
-<span class=nb>echo</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span>
-</code></pre></div><p>其中，<code>@f</code> 是 <code>@ps:\n:</code> 的缩写，上面的脚本中用的就是这个。</p>
-<h5 id=join_array>join_array</h5>
-<p><code>join_array</code> 是取自 <a href=/shell-utils>shell-utils</a> 的一个函数，具体参见原文。</p>
-<hr>
-<p>Reference:</p>
-<ol>
-<li><a href=https://linux.die.net/man/1/zshbuiltins>man 1 zshbuiltins</a></li>
-<li><a href=https://linux.die.net/man/1/zshzle>man 1 zshzle</a></li>
-<li><a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html>ZLE Doc</a></li>
-</ol>
-<div id=refContainer>
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+因此首先需要判别 <code>COMMENT_MODE</code>。</p></li><li>
+<p>由于每行都要插入或删除一个注释符号，通过计算字符长度来判断光标在第几行，并以行号为依据修改光标位置。注意 <code>CHARS_POS</code> 需要额外 <code>+1</code>，代表换行符。</p></li></ol><p>脚本编写的时候需要特别注意的一点是 zsh 中使用 <code>IFS</code> 分割数组的方法，参见 <a href=http://zsh.sourceforge.net/Doc/Release/Expansion.html#Parameter-Expansion-Flags>Parameter Expansion Flags</a>。</p><p>在 <code>bash</code> 中，可以这样分割数组：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;a b c&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>IFS</span><span class=o>=</span><span class=s1>&#39; &#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=nv>$CONTENT</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span>
+</span></span></code></pre></div><p>而在 <code>zsh</code> 中，需要这样：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=line><span class=cl><span class=nv>CONTENT</span><span class=o>=</span><span class=s2>&#34;a b c&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>IFS</span><span class=o>=</span><span class=s1>&#39; &#39;</span> <span class=nv>CONTENT_ARRAY</span><span class=o>=(</span><span class=s2>&#34;</span><span class=si>${</span><span class=p>(@ps:</span><span class=nv>$IFS</span><span class=p>:)CONTENT</span><span class=si>}</span><span class=s2>&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=si>${#</span><span class=nv>CONTENT_ARRAY</span><span class=p>[@]</span><span class=si>}</span>
+</span></span></code></pre></div><p>其中，<code>@f</code> 是 <code>@ps:\n:</code> 的缩写，上面的脚本中用的就是这个。</p><h5 id=join_array>join_array</h5><p><code>join_array</code> 是取自 <a href=/shell-utils>shell-utils</a> 的一个函数，具体参见原文。</p><hr>
+<p>Reference:</p><ol>
+<li><a href=https://linux.die.net/man/1/zshbuiltins>man 1 zshbuiltins</a></li><li><a href=https://linux.die.net/man/1/zshzle>man 1 zshzle</a></li><li><a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html>ZLE Doc</a></li></ol><div id=refContainer>
+</div></article></div></div><div class="row likebtn-container">
 <span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class=row>
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class=row>
 <div class=post-pager>
 <ul class=pager>
 <li class=previous>
 <a href=https://lingsamuel.github.io/page/system-configuration/>&larr; 系统配置记录</a>
-</li>
-<li class=next>
+</li><li class=next>
 <a href=https://lingsamuel.github.io/page/2020-09-09-aur-dotnet-preview-upgrade-caution/>AUR 更新 dotnet preview 时的注意事项 &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id=toc>
+</li></ul></div></div></div><div id=toc>
 <aside>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#基本命令>基本命令</a></li>
-<li><a href=#单行版本>单行版本</a>
+<li><a href=#基本命令>基本命令</a></li><li><a href=#单行版本>单行版本</a>
 <ul>
-<li><a href=#cursor-变量的限制>CURSOR 变量的限制</a></li>
-<li><a href=#绑定到组合键>绑定到组合键</a></li>
-</ul>
-</li>
-<li><a href=#多行版本>多行版本</a>
+<li><a href=#cursor-变量的限制>CURSOR 变量的限制</a></li><li><a href=#绑定到组合键>绑定到组合键</a></li></ul></li><li><a href=#多行版本>多行版本</a>
 <ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</nav>
-</aside>
-</div>
-</div>
-<footer id=footer>
+<li></li></ul></li></ul></nav></aside></div></div><footer id=footer>
 <div class=footer>
 <p>Copyright © 2022
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.92.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.93.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
 Hosted by GitHub
-</p>
-</div>
-</footer>
-<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
 <script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
-<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'>
 <script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
-<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(e){const t=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
       classDef def stroke:#97999a,color:#696874;
@@ -311,10 +219,9 @@ Hosted by GitHub
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script>
-<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script>
+  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((t)=>{var n=t.innerText,e;mermaidKeywords.some(e=>n.startsWith(e))&&(e=t.parentElement.parentElement,e.className=="highlight"&&(e.className="mermaid",e.innerHTML=colorizeMermaid(n),e.align="center",e.style="background: #eff1f3;"))})</script>
+<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(n,s=0){let e=3735928559^s,t=1103547991^s;for(let s=0,o;s<n.length;s++)o=n.charCodeAt(s),e=Math.imul(e^o,2654435761),t=Math.imul(t^o,1597334677);return e=Math.imul(e^e>>>16,2246822507)^Math.imul(t^t>>>13,3266489909),t=Math.imul(t^t>>>16,2246822507)^Math.imul(e^e>>>13,3266489909),4294967296*(2097151&t)+(e>>>0)}let existed={};function calculateHash(t){let e=cyrb53(t);return typeof existed[e]=="number"&&(e=existed[e]+1),existed[e]=e,e}document.querySelectorAll(".mermaid").forEach(function(t){let e=t.textContent;console.log("Rendering ",e);let n="graph-"+calculateHash(e);mermaid.mermaidAPI.render(n,e,e=>{t.innerHTML=e})})</script>
 <script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
 <script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
 <script data-stage=prerender>fuhsi()</script>
-</body>
-</html>
+</body></html>

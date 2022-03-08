@@ -3,62 +3,48 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>不使用 Shortcode 渲染 Mermaid 图 - Hakurei Shrine</title>
-<link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
+<title>不使用 Shortcode 渲染 Mermaid 图 - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
 <link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload='this.rel="stylesheet"'>
 <link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
-<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload="this.rel='stylesheet'">
-<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload="this.rel='stylesheet'">
-<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload="this.rel='stylesheet'">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'>
+<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'>
+<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async src=https://www.google-analytics.com/analytics.js></script>
-</head>
-<body id=body>
+</head><body id=body>
 <nav id=navbar>
 <div class=nav>
 <div class=navbar-header>
 <img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
 Hakurei Shrine
 </a>
-</div>
-<div class=navbar-menu>
+</div><div class=navbar-menu>
 <ul class=navbar-list>
 <li>
 <a title=Articles href=/page>Articles</a>
-</li>
-<li>
+</li><li>
 <a title=Reviews href=/review>Reviews</a>
-</li>
-<li>
+</li><li>
 <a title=Feeds href=/feed>Feeds</a>
-</li>
-<li>
+</li><li>
 <a title=Kubernetes href=/k8s>Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title=Me href=/me>Me</a>
+</li><li>
 <a title=About href=/about>About</a>
-</li>
-<li>
+</li><li>
 <a title=Categories href=/categories>Categories</a>
-</li>
-<li>
+</li><li>
 <a title=Tags href=/tags>Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class=flex-row-container>
+</li></ul></div></div></nav><div class=flex-row-container>
 <div class="container container-single" id=mainContainer role=main>
 <div class=container-single-main>
 <header class="header post-header">
 <div class=row>
 <div class=post-title>
-<h1>不使用 Shortcode 渲染 Mermaid 图</h1>
-</div>
-<div class=post-meta>
+<h1>不使用 Shortcode 渲染 Mermaid 图</h1></div><div class=post-meta>
 <span class=author>
 Ling Samuel
 </span>
@@ -70,185 +56,139 @@ Ling Samuel
 <span class=categories>
 <a href=https://lingsamuel.github.io/categories/writings/>writings</a>&nbsp;
 </span>
-</div>
-</div>
-</header>
-<div class=row>
+</div></div></header><div class=row>
 <article role=main class=post-content>
-<p>Shortcode 不文明。</p>
-<p>绘制 Mermaid 图是一个刚需。但是我希望我的 Markdown 文件能正常在编辑器（如 vscode）内预览，又能生成正确的网页。</p>
-<p>现在的问题是 Hugo 对 Mermaid 的支持都是用 Shortcode 实现的，这会导致预览失效。</p>
-<p><code>Hugo</code> 使用的 Goldmark 不支持给 Codeblock 添加自定义 class，而 <code>highlight.js</code> 也不能识别到 mermaid，因此需要从 <code>language-fallback</code> 里找到 Mermaid。</p>
-<p>幸好 Mermaid 的语法开头都有固定的关键字，极大地方便了这个工作。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;mermaid.css&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/css&#34;</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span><span class=p>/&gt;</span>
-<span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;mermaid.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;highlight.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span> 
-  <span class=nx>hljs</span><span class=p>.</span><span class=nx>initHighlightingOnLoad</span><span class=p>();</span> 
-
-  <span class=kr>const</span> <span class=nx>mermaidKeywords</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=s2>&#34;graph TD&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;graph TB&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;graph BT&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;graph RL&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;graph LR&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;sequenceDiagram&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;gantt&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;classDiagram&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;gitGraph&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;erDiagram&#34;</span><span class=p>,</span>
-    <span class=s2>&#34;journey&#34;</span>
-  <span class=p>];</span>
-  <span class=kd>var</span> <span class=nx>elements</span> <span class=o>=</span> <span class=nx>$</span><span class=p>(</span><span class=s2>&#34;.language-fallback&#34;</span><span class=p>).</span><span class=nx>each</span><span class=p>((</span><span class=nx>i</span><span class=p>,</span> <span class=nx>element</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-    <span class=kd>var</span> <span class=nx>graphDefinition</span> <span class=o>=</span> <span class=nx>element</span><span class=p>.</span><span class=nx>innerText</span><span class=p>;</span>
-    
-    <span class=k>if</span><span class=p>(</span><span class=nx>mermaidKeywords</span><span class=p>.</span><span class=nx>some</span><span class=p>((</span><span class=nx>keyword</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>graphDefinition</span><span class=p>.</span><span class=nx>startsWith</span><span class=p>(</span><span class=nx>keyword</span><span class=p>)))</span> <span class=p>{</span>
-      <span class=kd>var</span> <span class=nx>parent</span> <span class=o>=</span> <span class=nx>element</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>;</span>
-      <span class=k>if</span><span class=p>(</span><span class=nx>parent</span><span class=p>.</span><span class=nx>className</span> <span class=o>==</span> <span class=s2>&#34;highlight&#34;</span><span class=p>)</span> <span class=p>{</span>
-        <span class=nx>parent</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=s2>&#34;mermaid&#34;</span><span class=p>;</span>
-        <span class=nx>parent</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>graphDefinition</span><span class=p>;</span>
-        <span class=nx>parent</span><span class=p>.</span><span class=nx>align</span> <span class=o>=</span> <span class=s2>&#34;center&#34;</span><span class=p>;</span>
-      <span class=p>}</span>
-    <span class=p>}</span>
-  <span class=p>});</span>
-<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-</code></pre></div><h2 id=用例>用例</h2>
-<p>测试（有的来自 <a href=https://mermaid-js.github.io/mermaid/>mermaid.js</a>）：</p>
-<h3 id=flow-chart>Flow Chart</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>graph TD
-  MD[Markdown]
-  H[Hugo]
-  HJS[highlight.js]
-  M[mermaid.js]
-  MD--&gt;H
-  H--&gt;HJS
-  HJS--&gt;M
-</code></pre></div><h3 id=sequence-diagram>Sequence Diagram</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
-    loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts &lt;br/&gt;prevail!
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!
-</code></pre></div><h3 id=gantt-diagram>Gantt Diagram</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>gantt
-dateFormat  YYYY-MM-DD
-title Adding GANTT diagram to mermaid
-excludes weekdays 2014-01-10
-
-section A section
-Completed task            :done,    des1, 2014-01-06,2014-01-08
-Active task               :active,  des2, 2014-01-09, 3d
-Future task               :         des3, after des2, 5d
-Future task2               :         des4, after des3, 5d
-</code></pre></div><h3 id=class-diagram>Class Diagram</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>classDiagram
-Class01 &lt;|-- AveryLongClass : Cool
-Class03 *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 --&gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-Class08 &lt;--&gt; C2: Cool label
-</code></pre></div><h3 id=git-graph---experimental>Git Graph - experimental</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>gitGraph:
-options
-{
-    &#34;nodeSpacing&#34;: 150,
-    &#34;nodeRadius&#34;: 10
-}
-end
-commit
-branch newbranch
-checkout newbranch
-commit
-commit
-checkout master
-commit
-commit
-merge newbranch
-</code></pre></div><h3 id=entity-relationship-diagram---experimental>Entity Relationship Diagram - experimental</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-</code></pre></div><h3 id=user-journey-diagram>User Journey Diagram</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>journey
-    title My working day
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 5: Me
-</code></pre></div>
-<div id=refContainer>
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+<p>Shortcode 不文明。</p><p>绘制 Mermaid 图是一个刚需。但是我希望我的 Markdown 文件能正常在编辑器（如 vscode）内预览，又能生成正确的网页。</p><p>现在的问题是 Hugo 对 Mermaid 的支持都是用 Shortcode 实现的，这会导致预览失效。</p><p><code>Hugo</code> 使用的 Goldmark 不支持给 Codeblock 添加自定义 class，而 <code>highlight.js</code> 也不能识别到 mermaid，因此需要从 <code>language-fallback</code> 里找到 Mermaid。</p><p>幸好 Mermaid 的语法开头都有固定的关键字，极大地方便了这个工作。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;mermaid.css&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/css&#34;</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span><span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;mermaid.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;highlight.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span> 
+</span></span><span class=line><span class=cl>  <span class=nx>hljs</span><span class=p>.</span><span class=nx>initHighlightingOnLoad</span><span class=p>();</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>mermaidKeywords</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graph TD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graph TB&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graph BT&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graph RL&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;graph LR&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;sequenceDiagram&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gantt&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;classDiagram&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;gitGraph&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;erDiagram&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;journey&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>];</span>
+</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>elements</span> <span class=o>=</span> <span class=nx>$</span><span class=p>(</span><span class=s2>&#34;.language-fallback&#34;</span><span class=p>).</span><span class=nx>each</span><span class=p>((</span><span class=nx>i</span><span class=p>,</span> <span class=nx>element</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>graphDefinition</span> <span class=o>=</span> <span class=nx>element</span><span class=p>.</span><span class=nx>innerText</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=nx>mermaidKeywords</span><span class=p>.</span><span class=nx>some</span><span class=p>((</span><span class=nx>keyword</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>graphDefinition</span><span class=p>.</span><span class=nx>startsWith</span><span class=p>(</span><span class=nx>keyword</span><span class=p>)))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kd>var</span> <span class=nx>parent</span> <span class=o>=</span> <span class=nx>element</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span><span class=p>(</span><span class=nx>parent</span><span class=p>.</span><span class=nx>className</span> <span class=o>==</span> <span class=s2>&#34;highlight&#34;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>parent</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=s2>&#34;mermaid&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>parent</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>graphDefinition</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>parent</span><span class=p>.</span><span class=nx>align</span> <span class=o>=</span> <span class=s2>&#34;center&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span></code></pre></div><h2 id=用例>用例</h2><p>测试（有的来自 <a href=https://mermaid-js.github.io/mermaid/>mermaid.js</a>）：</p><h3 id=flow-chart>Flow Chart</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>graph TD
+</span></span><span class=line><span class=cl>  MD[Markdown]
+</span></span><span class=line><span class=cl>  H[Hugo]
+</span></span><span class=line><span class=cl>  HJS[highlight.js]
+</span></span><span class=line><span class=cl>  M[mermaid.js]
+</span></span><span class=line><span class=cl>  MD--&gt;H
+</span></span><span class=line><span class=cl>  H--&gt;HJS
+</span></span><span class=line><span class=cl>  HJS--&gt;M
+</span></span></code></pre></div><h3 id=sequence-diagram>Sequence Diagram</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>sequenceDiagram
+</span></span><span class=line><span class=cl>    participant Alice
+</span></span><span class=line><span class=cl>    participant Bob
+</span></span><span class=line><span class=cl>    Alice-&gt;&gt;John: Hello John, how are you?
+</span></span><span class=line><span class=cl>    loop Healthcheck
+</span></span><span class=line><span class=cl>        John-&gt;&gt;John: Fight against hypochondria
+</span></span><span class=line><span class=cl>    end
+</span></span><span class=line><span class=cl>    Note right of John: Rational thoughts &lt;br/&gt;prevail!
+</span></span><span class=line><span class=cl>    John--&gt;&gt;Alice: Great!
+</span></span><span class=line><span class=cl>    John-&gt;&gt;Bob: How about you?
+</span></span><span class=line><span class=cl>    Bob--&gt;&gt;John: Jolly good!
+</span></span></code></pre></div><h3 id=gantt-diagram>Gantt Diagram</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>gantt
+</span></span><span class=line><span class=cl>dateFormat  YYYY-MM-DD
+</span></span><span class=line><span class=cl>title Adding GANTT diagram to mermaid
+</span></span><span class=line><span class=cl>excludes weekdays 2014-01-10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>section A section
+</span></span><span class=line><span class=cl>Completed task            :done,    des1, 2014-01-06,2014-01-08
+</span></span><span class=line><span class=cl>Active task               :active,  des2, 2014-01-09, 3d
+</span></span><span class=line><span class=cl>Future task               :         des3, after des2, 5d
+</span></span><span class=line><span class=cl>Future task2               :         des4, after des3, 5d
+</span></span></code></pre></div><h3 id=class-diagram>Class Diagram</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>classDiagram
+</span></span><span class=line><span class=cl>Class01 &lt;|-- AveryLongClass : Cool
+</span></span><span class=line><span class=cl>Class03 *-- Class04
+</span></span><span class=line><span class=cl>Class05 o-- Class06
+</span></span><span class=line><span class=cl>Class07 .. Class08
+</span></span><span class=line><span class=cl>Class09 --&gt; C2 : Where am i?
+</span></span><span class=line><span class=cl>Class09 --* C3
+</span></span><span class=line><span class=cl>Class09 --|&gt; Class07
+</span></span><span class=line><span class=cl>Class07 : equals()
+</span></span><span class=line><span class=cl>Class07 : Object[] elementData
+</span></span><span class=line><span class=cl>Class01 : size()
+</span></span><span class=line><span class=cl>Class01 : int chimp
+</span></span><span class=line><span class=cl>Class01 : int gorilla
+</span></span><span class=line><span class=cl>Class08 &lt;--&gt; C2: Cool label
+</span></span></code></pre></div><h3 id=git-graph---experimental>Git Graph - experimental</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>gitGraph:
+</span></span><span class=line><span class=cl>options
+</span></span><span class=line><span class=cl>{
+</span></span><span class=line><span class=cl>    &#34;nodeSpacing&#34;: 150,
+</span></span><span class=line><span class=cl>    &#34;nodeRadius&#34;: 10
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>end
+</span></span><span class=line><span class=cl>commit
+</span></span><span class=line><span class=cl>branch newbranch
+</span></span><span class=line><span class=cl>checkout newbranch
+</span></span><span class=line><span class=cl>commit
+</span></span><span class=line><span class=cl>commit
+</span></span><span class=line><span class=cl>checkout master
+</span></span><span class=line><span class=cl>commit
+</span></span><span class=line><span class=cl>commit
+</span></span><span class=line><span class=cl>merge newbranch
+</span></span></code></pre></div><h3 id=entity-relationship-diagram---experimental>Entity Relationship Diagram - experimental</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>erDiagram
+</span></span><span class=line><span class=cl>    CUSTOMER ||--o{ ORDER : places
+</span></span><span class=line><span class=cl>    ORDER ||--|{ LINE-ITEM : contains
+</span></span><span class=line><span class=cl>    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+</span></span></code></pre></div><h3 id=user-journey-diagram>User Journey Diagram</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>journey
+</span></span><span class=line><span class=cl>    title My working day
+</span></span><span class=line><span class=cl>    section Go to work
+</span></span><span class=line><span class=cl>      Make tea: 5: Me
+</span></span><span class=line><span class=cl>      Go upstairs: 3: Me
+</span></span><span class=line><span class=cl>      Do work: 1: Me, Cat
+</span></span><span class=line><span class=cl>    section Go home
+</span></span><span class=line><span class=cl>      Go downstairs: 5: Me
+</span></span><span class=line><span class=cl>      Sit down: 5: Me
+</span></span></code></pre></div><div id=refContainer>
+</div></article></div></div><div class="row likebtn-container">
 <span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class=row>
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class=row>
 <div class=post-pager>
 <ul class=pager>
 <li class=previous>
 <a href=https://lingsamuel.github.io/page/2021-03-02-%E4%B8%AD%E8%8B%B1%E6%96%87%E6%B7%B7%E6%8E%92%E8%87%AA%E5%8A%A8%E5%A4%84%E7%90%86%E5%BC%95%E5%8F%B7/>&larr; 中英文混排：自动处理引号</a>
-</li>
-<li class=next>
+</li><li class=next>
 <a href=https://lingsamuel.github.io/page/render-html-statically/>Render HTML Statically &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id=toc>
+</li></ul></div></div></div><div id=toc>
 <aside>
 <nav id=TableOfContents>
 <ul>
 <li><a href=#用例>用例</a>
 <ul>
-<li><a href=#flow-chart>Flow Chart</a></li>
-<li><a href=#sequence-diagram>Sequence Diagram</a></li>
-<li><a href=#gantt-diagram>Gantt Diagram</a></li>
-<li><a href=#class-diagram>Class Diagram</a></li>
-<li><a href=#git-graph---experimental>Git Graph - experimental</a></li>
-<li><a href=#entity-relationship-diagram---experimental>Entity Relationship Diagram - experimental</a></li>
-<li><a href=#user-journey-diagram>User Journey Diagram</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</aside>
-</div>
-</div>
-<footer id=footer>
+<li><a href=#flow-chart>Flow Chart</a></li><li><a href=#sequence-diagram>Sequence Diagram</a></li><li><a href=#gantt-diagram>Gantt Diagram</a></li><li><a href=#class-diagram>Class Diagram</a></li><li><a href=#git-graph---experimental>Git Graph - experimental</a></li><li><a href=#entity-relationship-diagram---experimental>Entity Relationship Diagram - experimental</a></li><li><a href=#user-journey-diagram>User Journey Diagram</a></li></ul></li></ul></nav></aside></div></div><footer id=footer>
 <div class=footer>
 <p>Copyright © 2022
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.92.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.93.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
 Hosted by GitHub
-</p>
-</div>
-</footer>
-<script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
 <script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
-<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload="this.rel='stylesheet'">
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'>
 <script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
-<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(a){const b=`
+<script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(e){const t=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
       classDef def stroke:#97999a,color:#696874;
@@ -274,10 +214,9 @@ Hosted by GitHub
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return a.startsWith("graph")?a+b:a}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((b,d)=>{var c=b.innerText,a;mermaidKeywords.some(a=>c.startsWith(a))&&(a=b.parentElement.parentElement,a.className=="highlight"&&(a.className="mermaid",a.innerHTML=colorizeMermaid(c),a.align="center",a.style="background: #eff1f3;"))})</script>
-<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(c,d=0){let a=3735928559^d,b=1103547991^d;for(let d=0,e;d<c.length;d++)e=c.charCodeAt(d),a=Math.imul(a^e,2654435761),b=Math.imul(b^e,1597334677);return a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909),b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909),4294967296*(2097151&b)+(a>>>0)}let existed={};function calculateHash(b){let a=cyrb53(b);return typeof existed[a]=="number"&&(a=existed[a]+1),existed[a]=a,a}document.querySelectorAll('.mermaid').forEach(function(b){let a=b.textContent;console.log("Rendering ",a);let c="graph-"+calculateHash(a);mermaid.mermaidAPI.render(c,a,a=>{b.innerHTML=a})})</script>
+  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((t)=>{var n=t.innerText,e;mermaidKeywords.some(e=>n.startsWith(e))&&(e=t.parentElement.parentElement,e.className=="highlight"&&(e.className="mermaid",e.innerHTML=colorizeMermaid(n),e.align="center",e.style="background: #eff1f3;"))})</script>
+<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(n,s=0){let e=3735928559^s,t=1103547991^s;for(let s=0,o;s<n.length;s++)o=n.charCodeAt(s),e=Math.imul(e^o,2654435761),t=Math.imul(t^o,1597334677);return e=Math.imul(e^e>>>16,2246822507)^Math.imul(t^t>>>13,3266489909),t=Math.imul(t^t>>>16,2246822507)^Math.imul(e^e>>>13,3266489909),4294967296*(2097151&t)+(e>>>0)}let existed={};function calculateHash(t){let e=cyrb53(t);return typeof existed[e]=="number"&&(e=existed[e]+1),existed[e]=e,e}document.querySelectorAll(".mermaid").forEach(function(t){let e=t.textContent;console.log("Rendering ",e);let n="graph-"+calculateHash(e);mermaid.mermaidAPI.render(n,e,e=>{t.innerHTML=e})})</script>
 <script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
 <script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
 <script data-stage=prerender>fuhsi()</script>
-</body>
-</html>
+</body></html>
