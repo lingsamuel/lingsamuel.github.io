@@ -2,62 +2,48 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>CNI From Scratch - Hakurei Shrine</title>
-<link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
+<title>CNI From Scratch - Hakurei Shrine</title><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
 <link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon" alt="favicon"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Source+Serif+Pro:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 <link rel="stylesheet" href="https://lingsamuel.github.io/css/main.min.css" media="screen">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
-<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-</head>
-<body id="body">
+</head><body id="body">
 <nav id="navbar">
 <div class="nav">
 <div class="navbar-header">
 <img src="https://lingsamuel.github.io/img/favicon.ico" class="favicon" alt="favicon"><a href="https://lingsamuel.github.io/">
 Hakurei Shrine
 </a>
-</div>
-<div class="navbar-menu">
+</div><div class="navbar-menu">
 <ul class="navbar-list">
 <li>
 <a title="Articles" href="/page">Articles</a>
-</li>
-<li>
+</li><li>
 <a title="Reviews" href="/review">Reviews</a>
-</li>
-<li>
+</li><li>
 <a title="Feeds" href="/feed">Feeds</a>
-</li>
-<li>
+</li><li>
 <a title="Kubernetes" href="/k8s">Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title="Me" href="/me">Me</a>
+</li><li>
 <a title="About" href="/about">About</a>
-</li>
-<li>
+</li><li>
 <a title="Categories" href="/categories">Categories</a>
-</li>
-<li>
+</li><li>
 <a title="Tags" href="/tags">Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="flex-row-container">
+</li></ul></div></div></nav><div class="flex-row-container">
 <div class="container container-single" id="mainContainer" role="main">
 <div class="container-single-main">
 <header class="header post-header">
 <div class="row">
 <div class="post-title">
-<h1>CNI From Scratch</h1>
-</div>
-<div class="post-meta">
+<h1>CNI From Scratch</h1></div><div class="post-meta">
 <span class="author">
 Ling Samuel
 </span>
@@ -69,314 +55,235 @@ Ling Samuel
 <span class="categories">
 <a href="https://lingsamuel.github.io/categories/kubernetes/">kubernetes</a>&nbsp;
 </span>
-</div>
-</div>
-</header>
-<div class="row">
+</div></div></header><div class="row">
 <article role="main" class="post-content">
-<p>Write a simple CNI plugin from scratch.</p>
-<p>在编写自己的 CNI 插件前，我们需要先了解一下 <a href="https://github.com/containernetworking/cni/blob/spec-v0.4.0/SPEC.md">CNI Spec</a>。</p>
-<p>规范规定，CNI v0.4.0 必须实现的接口有 <code>ADD</code>，<code>DEL</code>，<code>CHECK</code>，<code>VERSION</code> 四个。不过，对于学习目的来说，我们主要关注 <code>ADD</code> 接口即可。</p>
-<ul>
+<p>Write a simple CNI plugin from scratch.</p><p>在编写自己的 CNI 插件前，我们需要先了解一下 <a href="https://github.com/containernetworking/cni/blob/spec-v0.4.0/SPEC.md">CNI Spec</a>。</p><p>规范规定，CNI v0.4.0 必须实现的接口有 <code>ADD</code>，<code>DEL</code>，<code>CHECK</code>，<code>VERSION</code> 四个。不过，对于学习目的来说，我们主要关注 <code>ADD</code> 接口即可。</p><ul>
 <li><code>ADD</code>：将容器添加到网络中。
 <ul>
 <li>参数：
 <ul>
-<li>容器 ID。需要是唯一的非空字符串，由运行时生成。</li>
-<li>Network Namespace 路径。如 <code>/proc/[pid]/ns/net</code>。</li>
-<li>网络配置。</li>
-<li>额外参数。</li>
-<li>容器内的设备名。</li>
-</ul>
-</li>
-<li>返回值：
+<li>容器 ID。需要是唯一的非空字符串，由运行时生成。</li><li>Network Namespace 路径。如 <code>/proc/[pid]/ns/net</code>。</li><li>网络配置。</li><li>额外参数。</li><li>容器内的设备名。</li></ul></li><li>返回值：
 <ul>
-<li>设备列表。</li>
-<li>IP 列表。</li>
-<li>DNS 信息。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>在调用 CNI 插件时，运行时会设置如下环境变量：</p>
-<ul>
-<li><code>CNI_COMMAND</code>：需要执行的命令，如 <code>ADD</code>。</li>
-<li><code>CNI_CONTAINERID</code>: 容器 ID。</li>
-<li><code>CNI_NETNS</code>: Network Namespace 路径。</li>
-<li><code>CNI_IFNAME</code>:设备名。</li>
-<li><code>CNI_ARGS</code>: 额外参数。</li>
-<li><code>CNI_PATH</code>: CNI 插件的 PATH 列表。</li>
-</ul>
-<p>我们主要关注前四个参数。</p>
-<hr>
-<p>使用双 KVM 节点的 Minikube 作为实验环境。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">minikube start -n <span class="m">2</span> --driver kvm2 --kubernetes-version v1.20.0 --memory <span class="m">2000</span>
-</code></pre></div><p>在 minikube 启动后，默认是使用 Kindnet 作为 CNI 插件，可在 <code>kube-system</code> 中看到。</p>
-<p>检查节点的 Pod CIDR：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">kubectl describe nodes <span class="p">|</span> grep CIDR
-</code></pre></div><p>以 master 节点为 <code>10.244.0.0/24</code>，worker 节点为 <code>10.244.1.0/24</code> 为例。</p>
-<hr>
-<p>先来几个工具函数。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">MINIKUBE_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.minikube
-
-profile<span class="o">()</span> <span class="o">{</span>
-    <span class="nv">MINIKUBE_PROFILE</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
-    <span class="nv">IP</span><span class="o">=</span><span class="k">$(</span>jq -r <span class="s2">".Driver.IPAddress"</span> <span class="nv">$MINIKUBE_HOME</span>/machines/<span class="nv">$MINIKUBE_PROFILE</span>/config.json<span class="k">)</span>
-    <span class="nv">SSH_OPT</span><span class="o">=</span><span class="s2">"-o PasswordAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=quiet -i </span><span class="nv">$MINIKUBE_HOME</span><span class="s2">/machines/</span><span class="nv">$MINIKUBE_PROFILE</span><span class="s2">/id_rsa"</span>
-    <span class="nv">SSH</span><span class="o">=</span><span class="s2">"ssh </span><span class="nv">$SSH_OPT</span><span class="s2"> docker@</span><span class="nv">$IP</span><span class="s2">"</span>
-    <span class="nv">SCP</span><span class="o">=</span><span class="s2">"scp </span><span class="nv">$SSH_OPT</span><span class="s2">"</span>
-<span class="o">}</span>
-</code></pre></div><p>函数 <code>profile</code> 可以设置 <code>SSH</code> 和 <code>SCP</code> 两个环境变量，方便后续脚本编写。</p>
-<hr>
-<p>首先，我们需要为每个节点创建一个与容器网络连接的网桥 <code>cni0</code>，占据 <code>.1</code> 的 IP。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">profile <span class="s2">"minikube"</span>
-<span class="nv">$SSH</span> sudo brctl addbr cni0
-<span class="nv">$SSH</span> sudo ip link <span class="nb">set</span> cni0 up
-<span class="nv">$SSH</span> sudo ip addr add 10.244.0.1/24 dev cni0
-
-profile <span class="s2">"minikube-m02"</span>
-<span class="nv">$SSH</span> sudo brctl addbr cni0
-<span class="nv">$SSH</span> sudo ip link <span class="nb">set</span> cni0 up
-<span class="nv">$SSH</span> sudo ip addr add 10.244.1.1/24 dev cni0
-</code></pre></div><p>由于两个 VM 在一个子网下，此时在任意一个 VM 里应该都能 ping 通另一个 VM 的 <code>cni0</code>。</p>
-<p>然后就可以开始编写 CNI 插件了。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash -e
-</span><span class="cp"></span>
-<span class="nb">exec</span> 3&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="nb">exec</span> <span class="p">&amp;</span>&gt;&gt; /var/log/bash-cni-plugin.log
-
-<span class="nb">echo</span> <span class="s2">"CNI command: </span><span class="nv">$CNI_COMMAND</span><span class="s2">"</span> 
-
-<span class="nv">stdin</span><span class="o">=</span><span class="sb">`</span>cat /dev/stdin<span class="sb">`</span>
-<span class="nb">echo</span> <span class="s2">"stdin: </span><span class="nv">$stdin</span><span class="s2">"</span>
-</code></pre></div><p>到这一步为止，将日志打到 <code>/var/log/bash-cni-plugin.log</code> 中。</p>
-<p>考虑 IP 分配的问题。我们简单地假设 netmask 为 24，将已分配的 IP 记录到一个文件中，每次分配时读取一次这个文件，将其加一。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">IP_STORE</span><span class="o">=</span>/tmp/reserved_ips
-
-allocate_ip<span class="o">()</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">[[</span> ! -f <span class="nv">$IP_STORE</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"1"</span> &gt; <span class="nv">$IP_STORE</span> <span class="c1"># 1 被 cni0 占据</span>
-  <span class="k">fi</span>
-
-  <span class="nb">local</span> <span class="nv">LAST_USED</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$IP_STORE</span><span class="k">)</span>
-  <span class="nb">local</span> <span class="nv">NEXT</span><span class="o">=</span><span class="k">$((</span><span class="nv">$LAST_USED</span> <span class="o">+</span> <span class="m">1</span><span class="k">))</span>
-  <span class="nb">echo</span> <span class="nv">$NEXT</span> &gt; <span class="nv">$IP_STORE</span>
-  <span class="nb">echo</span> <span class="nv">$NEXT</span>
-  <span class="k">return</span>
-<span class="o">}</span>
-
-get_ip_from_subnet<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">local</span> <span class="nv">SUBNET</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
-  <span class="nb">local</span> <span class="nv">D</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span>
-  <span class="nb">local</span> <span class="nv">IP_PREFIX</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$SUBNET</span><span class="s2">"</span> <span class="p">|</span> cut -d. -f1-3<span class="k">)</span>
-  <span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">IP_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="nv">$D</span><span class="s2">"</span>
-<span class="o">}</span>
-</code></pre></div><p>由于在这个简单实现中，不考虑 <code>DEL</code> 命令，因此使用简单的递增实现。</p>
-<hr>
-<p>在此，先跳过 <code>DEL</code> 和 <code>CHECK</code> 命令，并实现 <code>VERSION</code>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="k">case</span> <span class="nv">$CNI_COMMAND</span> in
-ADD<span class="o">)</span>
-  <span class="c1"># TODO</span>
-<span class="p">;;</span>
-
-DEL<span class="o">)</span>
-  <span class="nb">exit</span> <span class="m">0</span>
-<span class="p">;;</span>
-
-CHECK<span class="o">)</span>
-  <span class="nb">exit</span> <span class="m">0</span>
-<span class="p">;;</span>
-
-VERSION<span class="o">)</span>
-<span class="nb">echo</span> <span class="s1">'{
-</span><span class="s1">  "cniVersion": "0.4.0", 
-</span><span class="s1">  "supportedVersions": [ "0.3.0", "0.3.1", "0.4.0" ] 
-</span><span class="s1">}'</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
-<span class="p">;;</span>
-
-*<span class="o">)</span>
-  <span class="nb">echo</span> <span class="s2">"Unknown command: </span><span class="nv">$CNI_COMMAND</span><span class="s2">"</span> 
-  <span class="nb">exit</span> <span class="m">1</span>
-<span class="p">;;</span>
-
-<span class="k">esac</span>
-</code></pre></div><hr>
-<p>考虑 <code>ADD</code> 实现。</p>
-<p>首先提取子网和掩码，并分配容器 IP：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  <span class="nv">subnet</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$stdin</span><span class="s2">"</span> <span class="p">|</span> jq -r <span class="s2">".subnet"</span><span class="k">)</span>
-  <span class="nv">subnet_mask_size</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$subnet</span> <span class="p">|</span> awk -F  <span class="s2">"/"</span> <span class="s1">'{print $2}'</span><span class="k">)</span>
-
-  <span class="nv">gateway_ip</span><span class="o">=</span><span class="k">$(</span>get_ip_from_subnet <span class="nv">$subnet</span> 1<span class="k">)</span>
-  <span class="nv">container_ip</span><span class="o">=</span><span class="k">$(</span>get_ip_from_subnet <span class="nv">$subnet</span> <span class="k">$(</span>allocate_ip<span class="k">))</span>
-</code></pre></div><p>随机生成宿主机（VM）的设备名：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  <span class="nv">rand</span><span class="o">=</span><span class="k">$(</span>tr -dc <span class="s1">'A-F0-9'</span> &lt; /dev/urandom <span class="p">|</span> head -c4<span class="k">)</span>
-  <span class="nv">host_if_name</span><span class="o">=</span><span class="s2">"bashveth</span><span class="nv">$rand</span><span class="s2">"</span>
-</code></pre></div><p>绑定 network namespace：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  mkdir -p /var/run/netns/
-  ln -sfT <span class="nv">$CNI_NETNS</span> /var/run/netns/<span class="nv">$CNI_CONTAINERID</span>
-</code></pre></div><p>为容器网络创建网络设备：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  ip -n <span class="nv">$CNI_CONTAINERID</span> link add <span class="nv">$CNI_IFNAME</span> <span class="nb">type</span> veth peer name <span class="nv">$host_if_name</span> netns <span class="m">1</span>
-  ip -n <span class="nv">$CNI_CONTAINERID</span> link <span class="nb">set</span> <span class="nv">$CNI_IFNAME</span> up
-  ip -n <span class="nv">$CNI_CONTAINERID</span> addr add <span class="nv">$container_ip</span>/<span class="nv">$subnet_mask_size</span> dev <span class="nv">$CNI_IFNAME</span>
-
-  ip link <span class="nb">set</span> <span class="nv">$host_if_name</span> up
-  ip link <span class="nb">set</span> <span class="nv">$host_if_name</span> master cni0
-</code></pre></div><p>创建设备时，需要注意使用的是 <code>ip -n $CNI_CONTAINERID link add</code>，而非 <code>ip link add $CNI_IFNAME netns $CNI_CONTAINERID</code>。</p>
-<p>从 man page 中可以得知，</p>
-<blockquote>
+<li>设备列表。</li><li>IP 列表。</li><li>DNS 信息。</li></ul></li></ul></li></ul><p>在调用 CNI 插件时，运行时会设置如下环境变量：</p><ul>
+<li><code>CNI_COMMAND</code>：需要执行的命令，如 <code>ADD</code>。</li><li><code>CNI_CONTAINERID</code>: 容器 ID。</li><li><code>CNI_NETNS</code>: Network Namespace 路径。</li><li><code>CNI_IFNAME</code>:设备名。</li><li><code>CNI_ARGS</code>: 额外参数。</li><li><code>CNI_PATH</code>: CNI 插件的 PATH 列表。</li></ul><p>我们主要关注前四个参数。</p><hr>
+<p>使用双 KVM 节点的 Minikube 作为实验环境。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">minikube start -n <span class="m">2</span> --driver kvm2 --kubernetes-version v1.20.0 --memory <span class="m">2000</span>
+</span></span></code></pre></div><p>在 minikube 启动后，默认是使用 Kindnet 作为 CNI 插件，可在 <code>kube-system</code> 中看到。</p><p>检查节点的 Pod CIDR：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl describe nodes <span class="p">|</span> grep CIDR
+</span></span></code></pre></div><p>以 master 节点为 <code>10.244.0.0/24</code>，worker 节点为 <code>10.244.1.0/24</code> 为例。</p><hr>
+<p>先来几个工具函数。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">MINIKUBE_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.minikube
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">profile<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MINIKUBE_PROFILE</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">IP</span><span class="o">=</span><span class="k">$(</span>jq -r <span class="s2">".Driver.IPAddress"</span> <span class="nv">$MINIKUBE_HOME</span>/machines/<span class="nv">$MINIKUBE_PROFILE</span>/config.json<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH_OPT</span><span class="o">=</span><span class="s2">"-o PasswordAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=quiet -i </span><span class="nv">$MINIKUBE_HOME</span><span class="s2">/machines/</span><span class="nv">$MINIKUBE_PROFILE</span><span class="s2">/id_rsa"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SSH</span><span class="o">=</span><span class="s2">"ssh </span><span class="nv">$SSH_OPT</span><span class="s2"> docker@</span><span class="nv">$IP</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">SCP</span><span class="o">=</span><span class="s2">"scp </span><span class="nv">$SSH_OPT</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>函数 <code>profile</code> 可以设置 <code>SSH</code> 和 <code>SCP</code> 两个环境变量，方便后续脚本编写。</p><hr>
+<p>首先，我们需要为每个节点创建一个与容器网络连接的网桥 <code>cni0</code>，占据 <code>.1</code> 的 IP。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">profile <span class="s2">"minikube"</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo brctl addbr cni0
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo ip link <span class="nb">set</span> cni0 up
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo ip addr add 10.244.0.1/24 dev cni0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">profile <span class="s2">"minikube-m02"</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo brctl addbr cni0
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo ip link <span class="nb">set</span> cni0 up
+</span></span><span class="line"><span class="cl"><span class="nv">$SSH</span> sudo ip addr add 10.244.1.1/24 dev cni0
+</span></span></code></pre></div><p>由于两个 VM 在一个子网下，此时在任意一个 VM 里应该都能 ping 通另一个 VM 的 <code>cni0</code>。</p><p>然后就可以开始编写 CNI 插件了。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash -e
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> 3&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> <span class="p">&amp;</span>&gt;&gt; /var/log/bash-cni-plugin.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">"CNI command: </span><span class="nv">$CNI_COMMAND</span><span class="s2">"</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">stdin</span><span class="o">=</span><span class="sb">`</span>cat /dev/stdin<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">"stdin: </span><span class="nv">$stdin</span><span class="s2">"</span>
+</span></span></code></pre></div><p>到这一步为止，将日志打到 <code>/var/log/bash-cni-plugin.log</code> 中。</p><p>考虑 IP 分配的问题。我们简单地假设 netmask 为 24，将已分配的 IP 记录到一个文件中，每次分配时读取一次这个文件，将其加一。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">IP_STORE</span><span class="o">=</span>/tmp/reserved_ips
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">allocate_ip<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> ! -f <span class="nv">$IP_STORE</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">"1"</span> &gt; <span class="nv">$IP_STORE</span> <span class="c1"># 1 被 cni0 占据</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">LAST_USED</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$IP_STORE</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">NEXT</span><span class="o">=</span><span class="k">$((</span><span class="nv">$LAST_USED</span> <span class="o">+</span> <span class="m">1</span><span class="k">))</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="nv">$NEXT</span> &gt; <span class="nv">$IP_STORE</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="nv">$NEXT</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">get_ip_from_subnet<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">SUBNET</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">D</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">IP_PREFIX</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$SUBNET</span><span class="s2">"</span> <span class="p">|</span> cut -d. -f1-3<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">"</span><span class="si">${</span><span class="nv">IP_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="nv">$D</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>由于在这个简单实现中，不考虑 <code>DEL</code> 命令，因此使用简单的递增实现。</p><hr>
+<p>在此，先跳过 <code>DEL</code> 和 <code>CHECK</code> 命令，并实现 <code>VERSION</code>。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">case</span> <span class="nv">$CNI_COMMAND</span> in
+</span></span><span class="line"><span class="cl">ADD<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># TODO</span>
+</span></span><span class="line"><span class="cl"><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DEL<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CHECK<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">VERSION<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">'{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  "cniVersion": "0.4.0", 
+</span></span></span><span class="line"><span class="cl"><span class="s1">  "supportedVersions": [ "0.3.0", "0.3.1", "0.4.0" ] 
+</span></span></span><span class="line"><span class="cl"><span class="s1">}'</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">"Unknown command: </span><span class="nv">$CNI_COMMAND</span><span class="s2">"</span> 
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span></code></pre></div><hr>
+<p>考虑 <code>ADD</code> 实现。</p><p>首先提取子网和掩码，并分配容器 IP：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="nv">subnet</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$stdin</span><span class="s2">"</span> <span class="p">|</span> jq -r <span class="s2">".subnet"</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">subnet_mask_size</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$subnet</span> <span class="p">|</span> awk -F  <span class="s2">"/"</span> <span class="s1">'{print $2}'</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">gateway_ip</span><span class="o">=</span><span class="k">$(</span>get_ip_from_subnet <span class="nv">$subnet</span> 1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">container_ip</span><span class="o">=</span><span class="k">$(</span>get_ip_from_subnet <span class="nv">$subnet</span> <span class="k">$(</span>allocate_ip<span class="k">))</span>
+</span></span></code></pre></div><p>随机生成宿主机（VM）的设备名：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="nv">rand</span><span class="o">=</span><span class="k">$(</span>tr -dc <span class="s1">'A-F0-9'</span> &lt; /dev/urandom <span class="p">|</span> head -c4<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">host_if_name</span><span class="o">=</span><span class="s2">"bashveth</span><span class="nv">$rand</span><span class="s2">"</span>
+</span></span></code></pre></div><p>绑定 network namespace：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  mkdir -p /var/run/netns/
+</span></span><span class="line"><span class="cl">  ln -sfT <span class="nv">$CNI_NETNS</span> /var/run/netns/<span class="nv">$CNI_CONTAINERID</span>
+</span></span></code></pre></div><p>为容器网络创建网络设备：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  ip -n <span class="nv">$CNI_CONTAINERID</span> link add <span class="nv">$CNI_IFNAME</span> <span class="nb">type</span> veth peer name <span class="nv">$host_if_name</span> netns <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  ip -n <span class="nv">$CNI_CONTAINERID</span> link <span class="nb">set</span> <span class="nv">$CNI_IFNAME</span> up
+</span></span><span class="line"><span class="cl">  ip -n <span class="nv">$CNI_CONTAINERID</span> addr add <span class="nv">$container_ip</span>/<span class="nv">$subnet_mask_size</span> dev <span class="nv">$CNI_IFNAME</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  ip link <span class="nb">set</span> <span class="nv">$host_if_name</span> up
+</span></span><span class="line"><span class="cl">  ip link <span class="nb">set</span> <span class="nv">$host_if_name</span> master cni0
+</span></span></code></pre></div><p>创建设备时，需要注意使用的是 <code>ip -n $CNI_CONTAINERID link add</code>，而非 <code>ip link add $CNI_IFNAME netns $CNI_CONTAINERID</code>。</p><p>从 man page 中可以得知，</p><blockquote>
 <pre><code>   netns NETNSNAME | PID
          move the device to the network namespace associated with name
          NETNSNAME or process PID.
-</code></pre>
-</blockquote>
-<p>参数 <code>netns</code><span style="font-family: &quot;Chinese Quote Serif&quot;, &quot;source serif pro&quot;, &quot;noto serif sc&quot;, &quot;source serif&quot;, &quot;source han serif sc&quot;, &quot;source han serif cn&quot;, serif;"> 是将设备“移动”到目标</span> netns，这意味着它首先是在当前 netns 中创建设备，这可能存在潜在的设备冲突。</p>
-<p>为容器网络创建默认路由：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  ip -n <span class="nv">$CNI_CONTAINERID</span> route add default via <span class="nv">$gateway_ip</span> dev <span class="nv">$CNI_IFNAME</span>
-</code></pre></div><p>获取 Mac 地址：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">  <span class="nv">mac</span><span class="o">=</span><span class="k">$(</span>ip -n <span class="nv">$CNI_CONTAINERID</span> link show <span class="nv">$CNI_IFNAME</span> <span class="p">|</span> awk <span class="s1">'/ether/ {print $2}'</span><span class="k">)</span>
-</code></pre></div><p>至此，容器网络即设置完毕。</p>
-<p>输出结果：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"{
-</span><span class="s2">  \"cniVersion\": \"0.4.0\",
-</span><span class="s2">  \"interfaces\": [                                            
-</span><span class="s2">      {
-</span><span class="s2">          \"name\": \"</span><span class="nv">$CNI_IFNAME</span><span class="s2">\",
-</span><span class="s2">          \"mac\": \"</span><span class="nv">$mac</span><span class="s2">\",                            
-</span><span class="s2">          \"sandbox\": \"</span><span class="nv">$CNI_NETNS</span><span class="s2">\" 
-</span><span class="s2">      }
-</span><span class="s2">  ],
-</span><span class="s2">  \"ips\": [
-</span><span class="s2">      {
-</span><span class="s2">          \"version\": \"4\",
-</span><span class="s2">          \"address\": \"</span><span class="nv">$container_ip</span><span class="s2">/</span><span class="nv">$subnet_mask_size</span><span class="s2">\",
-</span><span class="s2">          \"gateway\": \"</span><span class="nv">$gateway_ip</span><span class="s2">\",          
-</span><span class="s2">          \"interface\": 0 
-</span><span class="s2">      }
-</span><span class="s2">  ]
-</span><span class="s2">}"</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
-</code></pre></div><hr>
-<p>将该脚本命名为 <code>bcni.sh</code>，将其转移到 Minikube VM 中。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">setup_executable<span class="o">()</span> <span class="o">{</span>
-  <span class="nv">$SCP</span> ./bcni.sh docker@<span class="nv">$IP</span>:/home/docker/bcni
-  <span class="nv">$SSH</span> sudo mv /home/docker/bcni /opt/cni/bin/bcni
-  <span class="nv">$SSH</span> sudo chmod +x /opt/cni/bin/bcni
-  <span class="nv">$SSH</span> sudo chown root:root /opt/cni/bin/bcni
-<span class="o">}</span>
-
-profile <span class="s2">"minikube"</span>
-setup_executable
-
-profile <span class="s2">"minikube-m02"</span>
-setup_executable
-</code></pre></div><p>此外，还需要配置 cni conf，以 master 为例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{
-        "cniVersion": "0.4.0",
-        "name": "bcni",
-        "type": "bcni",
-        "network": "10.244.0.0/16",
-        "subnet": "10.244.0.0/24"
-}
-</code></pre></div><p>需要注意 <code>type</code> 字段需与可执行文件名相同。</p>
-<p>将该配置文件保存到 <code>/etc/cni/net.d/</code> 路径下，并使用一个优先级最高的文件名即可。</p>
-<p>至此，CNI 插件已经能够正确配置容器网络，不同 VM 节点上的 Pod 已经可以正常通信。</p>
-<hr>
-<p>使用如下配置可进行简单的测试。</p>
-<details>
+</code></pre></blockquote><p>参数 <code>netns</code><span style="font-family: &quot;Chinese Quote Serif&quot;, &quot;source serif pro&quot;, &quot;noto serif sc&quot;, &quot;source serif&quot;, &quot;source han serif sc&quot;, &quot;source han serif cn&quot;, serif;"> 是将设备“移动”到目标</span> netns，这意味着它首先是在当前 netns 中创建设备，这可能存在潜在的设备冲突。</p><p>为容器网络创建默认路由：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  ip -n <span class="nv">$CNI_CONTAINERID</span> route add default via <span class="nv">$gateway_ip</span> dev <span class="nv">$CNI_IFNAME</span>
+</span></span></code></pre></div><p>获取 Mac 地址：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  <span class="nv">mac</span><span class="o">=</span><span class="k">$(</span>ip -n <span class="nv">$CNI_CONTAINERID</span> link show <span class="nv">$CNI_IFNAME</span> <span class="p">|</span> awk <span class="s1">'/ether/ {print $2}'</span><span class="k">)</span>
+</span></span></code></pre></div><p>至此，容器网络即设置完毕。</p><p>输出结果：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">"{
+</span></span></span><span class="line"><span class="cl"><span class="s2">  \"cniVersion\": \"0.4.0\",
+</span></span></span><span class="line"><span class="cl"><span class="s2">  \"interfaces\": [                                            
+</span></span></span><span class="line"><span class="cl"><span class="s2">      {
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"name\": \"</span><span class="nv">$CNI_IFNAME</span><span class="s2">\",
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"mac\": \"</span><span class="nv">$mac</span><span class="s2">\",                            
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"sandbox\": \"</span><span class="nv">$CNI_NETNS</span><span class="s2">\" 
+</span></span></span><span class="line"><span class="cl"><span class="s2">      }
+</span></span></span><span class="line"><span class="cl"><span class="s2">  ],
+</span></span></span><span class="line"><span class="cl"><span class="s2">  \"ips\": [
+</span></span></span><span class="line"><span class="cl"><span class="s2">      {
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"version\": \"4\",
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"address\": \"</span><span class="nv">$container_ip</span><span class="s2">/</span><span class="nv">$subnet_mask_size</span><span class="s2">\",
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"gateway\": \"</span><span class="nv">$gateway_ip</span><span class="s2">\",          
+</span></span></span><span class="line"><span class="cl"><span class="s2">          \"interface\": 0 
+</span></span></span><span class="line"><span class="cl"><span class="s2">      }
+</span></span></span><span class="line"><span class="cl"><span class="s2">  ]
+</span></span></span><span class="line"><span class="cl"><span class="s2">}"</span> &gt;<span class="p">&amp;</span><span class="m">3</span>
+</span></span></code></pre></div><hr>
+<p>将该脚本命名为 <code>bcni.sh</code>，将其转移到 Minikube VM 中。</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">setup_executable<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$SCP</span> ./bcni.sh docker@<span class="nv">$IP</span>:/home/docker/bcni
+</span></span><span class="line"><span class="cl">  <span class="nv">$SSH</span> sudo mv /home/docker/bcni /opt/cni/bin/bcni
+</span></span><span class="line"><span class="cl">  <span class="nv">$SSH</span> sudo chmod +x /opt/cni/bin/bcni
+</span></span><span class="line"><span class="cl">  <span class="nv">$SSH</span> sudo chown root:root /opt/cni/bin/bcni
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">profile <span class="s2">"minikube"</span>
+</span></span><span class="line"><span class="cl">setup_executable
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">profile <span class="s2">"minikube-m02"</span>
+</span></span><span class="line"><span class="cl">setup_executable
+</span></span></code></pre></div><p>此外，还需要配置 cni conf，以 master 为例：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">        "cniVersion": "0.4.0",
+</span></span><span class="line"><span class="cl">        "name": "bcni",
+</span></span><span class="line"><span class="cl">        "type": "bcni",
+</span></span><span class="line"><span class="cl">        "network": "10.244.0.0/16",
+</span></span><span class="line"><span class="cl">        "subnet": "10.244.0.0/24"
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>需要注意 <code>type</code> 字段需与可执行文件名相同。</p><p>将该配置文件保存到 <code>/etc/cni/net.d/</code> 路径下，并使用一个优先级最高的文件名即可。</p><p>至此，CNI 插件已经能够正确配置容器网络，不同 VM 节点上的 Pod 已经可以正常通信。</p><hr>
+<p>使用如下配置可进行简单的测试。</p><details>
 <summary>YAML</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-master</span><span class="w">
-</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
-</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bash-master</span><span class="w">
-</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">smatyukevich/ubuntu-net-utils</span><span class="w">
-</span><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
-</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"bin/bash"</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"-c"</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"sleep 10000"</span><span class="w">
-</span><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-worker</span><span class="w">
-</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
-</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube-m02</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bash-worker</span><span class="w">
-</span><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">smatyukevich/ubuntu-net-utils</span><span class="w">
-</span><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
-</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"bin/bash"</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"-c"</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">"sleep 10000"</span><span class="w">
-</span><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube-m02</span><span class="w">
-</span></code></pre></div></details>
-<p>需要注意，因为在启动 Minikube 时，没有指定 <code>--cni=false</code>，因此一些其他的配置，例如 NAT 与 VM 的路由规则，都是已经设置好的。</p>
-<div id="refContainer">
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bash-master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">smatyukevich/ubuntu-net-utils</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"bin/bash"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"-c"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"sleep 10000"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-worker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube-m02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bash-worker</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">smatyukevich/ubuntu-net-utils</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Never</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"bin/bash"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"-c"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">"sleep 10000"</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l">minikube-m02</span><span class="w">
+</span></span></span></code></pre></div></details>
+<p>需要注意，因为在启动 Minikube 时，没有指定 <code>--cni=false</code>，因此一些其他的配置，例如 NAT 与 VM 的路由规则，都是已经设置好的。</p><div id="refContainer">
+</div></article></div></div><div class="row likebtn-container">
 <span class="likebtn-wrapper" data-theme="black" data-white_label="true" data-dislike_enabled="false" data-popup_disabled="true" data-share_enabled="false" data-lazy_load="true" data-tooltip_enabled="false"></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class="row">
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class="row">
 <div class="post-pager">
 <ul class="pager">
 <li class="previous">
 <a href="https://lingsamuel.github.io/k8s/controller/statefulset/">← StatefulSet Controller 实现</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<footer id="footer">
+</li></ul></div></div></div></div><footer id="footer">
 <div class="footer">
 <p>Copyright © 2022
-<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.92.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
+<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.93.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
 Hosted by GitHub
-</p>
-</div>
-</footer>
+</p></div></footer>
 
-
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
 
 

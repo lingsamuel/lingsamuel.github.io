@@ -2,62 +2,48 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>Hakurei Shrine</title>
-<link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
+<title>Hakurei Shrine</title><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
 <link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon" alt="favicon"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Source+Serif+Pro:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 <link rel="stylesheet" href="https://lingsamuel.github.io/css/main.min.css" media="screen">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
-<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-</head>
-<body id="body">
+</head><body id="body">
 <nav id="navbar">
 <div class="nav">
 <div class="navbar-header">
 <img src="https://lingsamuel.github.io/img/favicon.ico" class="favicon" alt="favicon"><a href="https://lingsamuel.github.io/">
 Hakurei Shrine
 </a>
-</div>
-<div class="navbar-menu">
+</div><div class="navbar-menu">
 <ul class="navbar-list">
 <li>
 <a title="Articles" href="/page">Articles</a>
-</li>
-<li>
+</li><li>
 <a title="Reviews" href="/review">Reviews</a>
-</li>
-<li>
+</li><li>
 <a title="Feeds" href="/feed">Feeds</a>
-</li>
-<li>
+</li><li>
 <a title="Kubernetes" href="/k8s">Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title="Me" href="/me">Me</a>
+</li><li>
 <a title="About" href="/about">About</a>
-</li>
-<li>
+</li><li>
 <a title="Categories" href="/categories">Categories</a>
-</li>
-<li>
+</li><li>
 <a title="Tags" href="/tags">Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="flex-row-container">
+</li></ul></div></div></nav><div class="flex-row-container">
 <div class="container container-single" id="mainContainer" role="main">
 <div class="container-single-main">
 <header class="header post-header">
 <div class="row">
 <div class="post-title">
-<h1><br></h1>
-</div>
-<div class="post-meta">
+<h1><br></h1></div><div class="post-meta">
 <span class="author">
 Ling Samuel
 </span>
@@ -65,71 +51,35 @@ Ling Samuel
 <span class="date">
 2020-12-23
 </span>
-</div>
-</div>
-</header>
-<div class="row">
+</div></div></header><div class="row">
 <article role="main" class="post-content">
-<p>发现一个很好玩的玩意：<a href="https://github.com/boyter/scc">scc</a>。</p>
-<p>它可以在 count lines 的同时计算一个项目的估价和人力。</p>
-<p>以 <code>kubernetes</code> 为例：</p>
-<p><img src="/feed/images/scc-k8s.png" alt="Kubernetes"></p>
-<p>它认为 Kubernetes 价值接近一亿美金的开发费用，需要 78 个月（折合 6.5 年），且需要 110 人来开发。</p>
-<p>在我看来，这三个数字惊人的精准。</p>
-<p>而 <code>etcd</code> 则是 740 万美金，29 个月，23 个人。这个数字也是相对准确的。</p>
-<p>于是我拿去给我自己的几个项目试了一下……</p>
-<p>好家伙，写了半天的 600 行项目价值 2 万美金，耗时 3 个月和 0.5 人力（折合 1.5 人月）。</p>
-<p>再算了一下我的上古老坑，几万行的项目，42 万美金，10 个月和 3.7 人力：至少人月部分和我的估计差不多。</p>
-<p>顺带一提，第一次统计时我遗漏了 packages 目录下的 xml 文件，导致项目价值 750 万美金，29 个月，23 个人——哈哈，比 etcd 还值钱。</p>
-<link rel="stylesheet" href="/css/hugo-easy-gallery.css">
+<p>发现一个很好玩的玩意：<a href="https://github.com/boyter/scc">scc</a>。</p><p>它可以在 count lines 的同时计算一个项目的估价和人力。</p><p>以 <code>kubernetes</code> 为例：</p><p><img src="/feed/images/scc-k8s.png" alt="Kubernetes"></p><p>它认为 Kubernetes 价值接近一亿美金的开发费用，需要 78 个月（折合 6.5 年），且需要 110 人来开发。</p><p>在我看来，这三个数字惊人的精准。</p><p>而 <code>etcd</code> 则是 740 万美金，29 个月，23 个人。这个数字也是相对准确的。</p><p>于是我拿去给我自己的几个项目试了一下……</p><p>好家伙，写了半天的 600 行项目价值 2 万美金，耗时 3 个月和 0.5 人力（折合 1.5 人月）。</p><p>再算了一下我的上古老坑，几万行的项目，42 万美金，10 个月和 3.7 人力：至少人月部分和我的估计差不多。</p><p>顺带一提，第一次统计时我遗漏了 packages 目录下的 xml 文件，导致项目价值 750 万美金，29 个月，23 个人——哈哈，比 etcd 还值钱。</p><link rel="stylesheet" href="/css/hugo-easy-gallery.css">
 <div class="figure-box box">
 <figure itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
 <div class="img">
 <img itemprop="thumbnail" src="/feed/images/scc-private.png" alt="价值一个 etcd 的 xml 文件，微软，你好强大！">
-</div>
-<a href="/feed/images/scc-private.png" itemprop="contentUrl"></a>
-</figure>
-<figcaption>
+</div><a href="/feed/images/scc-private.png" itemprop="contentUrl"></a>
+</figure><figcaption>
 <p class="figcaption figcaption-right">
-价值一个 etcd 的 xml 文件，微软，你好强大！</p>
-</figcaption>
-</div>
-<p>图一乐。</p>
-<div id="refContainer">
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+价值一个 etcd 的 xml 文件，微软，你好强大！</p></figcaption></div><p>图一乐。</p><div id="refContainer">
+</div></article></div></div><div class="row likebtn-container">
 <span class="likebtn-wrapper" data-theme="black" data-white_label="true" data-dislike_enabled="false" data-popup_disabled="true" data-share_enabled="false" data-lazy_load="true" data-tooltip_enabled="false"></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class="row">
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class="row">
 <div class="post-pager">
 <ul class="pager">
 <li class="previous">
 <a href="https://lingsamuel.github.io/feed/2020-11-26-ide/">← </a>
-</li>
-<li class="next">
+</li><li class="next">
 <a href="https://lingsamuel.github.io/feed/2020-12-31-we-need-semantic-diff/"> →</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<footer id="footer">
+</li></ul></div></div></div></div><footer id="footer">
 <div class="footer">
 <p>Copyright © 2022
-<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.92.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
+<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.93.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
 Hosted by GitHub
-</p>
-</div>
-</footer>
+</p></div></footer>
 
-
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
 
 

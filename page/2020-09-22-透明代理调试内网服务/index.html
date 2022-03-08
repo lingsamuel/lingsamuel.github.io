@@ -2,62 +2,48 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>透明代理调试内网服务 - Hakurei Shrine</title>
-<link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
+<title>透明代理调试内网服务 - Hakurei Shrine</title><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
 <link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon" alt="favicon"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Source+Serif+Pro:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 <link rel="stylesheet" href="https://lingsamuel.github.io/css/main.min.css" media="screen">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
-<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-</head>
-<body id="body">
+</head><body id="body">
 <nav id="navbar">
 <div class="nav">
 <div class="navbar-header">
 <img src="https://lingsamuel.github.io/img/favicon.ico" class="favicon" alt="favicon"><a href="https://lingsamuel.github.io/">
 Hakurei Shrine
 </a>
-</div>
-<div class="navbar-menu">
+</div><div class="navbar-menu">
 <ul class="navbar-list">
 <li>
 <a title="Articles" href="/page">Articles</a>
-</li>
-<li>
+</li><li>
 <a title="Reviews" href="/review">Reviews</a>
-</li>
-<li>
+</li><li>
 <a title="Feeds" href="/feed">Feeds</a>
-</li>
-<li>
+</li><li>
 <a title="Kubernetes" href="/k8s">Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title="Me" href="/me">Me</a>
+</li><li>
 <a title="About" href="/about">About</a>
-</li>
-<li>
+</li><li>
 <a title="Categories" href="/categories">Categories</a>
-</li>
-<li>
+</li><li>
 <a title="Tags" href="/tags">Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="flex-row-container">
+</li></ul></div></div></nav><div class="flex-row-container">
 <div class="container container-single" id="mainContainer" role="main">
 <div class="container-single-main">
 <header class="header post-header">
 <div class="row">
 <div class="post-title">
-<h1>透明代理调试内网服务</h1>
-</div>
-<div class="post-meta">
+<h1>透明代理调试内网服务</h1></div><div class="post-meta">
 <span class="author">
 Ling Samuel
 </span>
@@ -69,141 +55,90 @@ Ling Samuel
 <span class="categories">
 <a href="https://lingsamuel.github.io/categories/system-maintenance/">system-maintenance</a>&nbsp;
 </span>
-</div>
-</div>
-</header>
-<div class="row">
+</div></div></header><div class="row">
 <article role="main" class="post-content">
-<p>我迫切希望各家公司能把网络连通性搞搞好。</p>
-<h2 id="配置-socks-代理">配置 Socks 代理</h2>
-<p>首先开启 Socks 代理，端口为 12345，此处假设在 <code>.ssh/config</code> 里配置了 Host 名为 <code>target</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -D <span class="m">12345</span> target
-
-<span class="c1"># 测试代理可用性</span>
-curl -x socks://localhost:12345 -X POST http://10.x.x.x
-</code></pre></div><p>将 socks 代理设置纳入 systemd 管理（<code>/etc/systemd/system/sshtunnel@.service</code>）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[Unit]
-Description=SSH Tunnel to XX for %I
-After=network.target
- 
-[Service]
-Type=oneshot
-ExecStart=ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /home/%I/.ssh/id_rsa -f -N -T -D 12345 user@X.X.X.X
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-</code></pre></div><p>启动服务：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> sshtunnel@lingsamuel
-sudo systemctl start sshtunnel@lingsamuel
-</code></pre></div><h2 id="配置-redsocks">配置 Redsocks</h2>
-<p>安装 Redsocks：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yay -S redsocks <span class="c1"># 以 archlinux/manjaro AUR 为例</span>
-</code></pre></div><p>配置 Redsocks：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/redsocks.conf
-sudo redsocks -c /etc/redsocks.conf
-</code></pre></div><p>conf 中需要配置的部分：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">redsocks {
-	local_ip = 127.0.0.1;
-	local_port = 31338; // 默认值就是 31338 可以不改
-	ip = 127.0.0.1;
-	port = 12345; // 上面启动的 ssh tunnel 的端口
-	type = socks5;
-}
-</code></pre></div><h2 id="配置-iptables">配置 iptables</h2>
-<p>执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo iptables -t nat -N REDSOCKS <span class="c1"># 新增链</span>
-sudo iptables -t nat -A OUTPUT -p tcp -j REDSOCKS <span class="c1"># OUTPUT转到REDSOCKS链</span>
-sudo iptables -t nat -A REDSOCKS -p tcp -d 10.254.0.0/16 -j REDIRECT --to-ports <span class="m">31338</span> <span class="c1"># 将 10.254.0.0/16 转到 31338</span>
-sudo iptables -t nat -A REDSOCKS -p tcp -d 172.30.0.0/16 -j REDIRECT --to-ports <span class="m">31338</span> <span class="c1"># 将 172.30.0.0/16 转到 31338</span>
-</code></pre></div><p>配置了这个之后，应该可以直接访问，而不需要设置代理了：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl --noproxy <span class="s1">'*'</span> -X POST http://10.x.x.x
-</code></pre></div><h3 id="持久化-iptables">持久化 iptables</h3>
-<p>配置：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># /usr/lib/systemd/system/iptables.service
-[Unit]
-Description=iptables from file
-Before=network-pre.target
-Wants=network-pre.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/iptables-restore /etc/iptables/iptables.rules
-ExecReload=/usr/bin/iptables-restore /etc/iptables/iptables.rules
-ExecStop=/usr/lib/systemd/scripts/iptables-flush
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-</code></pre></div><p>然后，执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo sh -c <span class="s1">'iptables-save &gt; /etc/iptables/iptables.rules'</span>
-</code></pre></div><p>将规则保存在 unit file 所读取的文件里。</p>
-<p>随后，执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> iptables
-</code></pre></div><h2 id="添加-dns">添加 DNS</h2>
-<p><code>/etc/resolv.conf</code> 增加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">search default.svc.cluster.local svc.cluster.local cluster.local
-options ndots:5
-</code></pre></div><p>当然，如果使用的是 NetworkManager：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nmcli connection show <span class="c1"># 首先查看connection的名字</span>
-nmcli c modify Wired1 ipv4.dns-search <span class="s2">"default.svc.cluster.local svc.cluster.local cluster.local"</span> <span class="c1"># Wired1 是第一步查找到的名字</span>
-nmcli c modify Wired1 ipv4.dns-option <span class="s2">"options ndots:5"</span>
-nmcli c down Wired1
-nmcli c up Wired1
-</code></pre></div><p>测试：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl --noproxy <span class="s1">'*'</span> -X POST http://service.namespace
-</code></pre></div>
-<div id="refContainer">
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+<p>我迫切希望各家公司能把网络连通性搞搞好。</p><h2 id="配置-socks-代理">配置 Socks 代理</h2><p>首先开启 Socks 代理，端口为 12345，此处假设在 <code>.ssh/config</code> 里配置了 Host 名为 <code>target</code>：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -D <span class="m">12345</span> target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 测试代理可用性</span>
+</span></span><span class="line"><span class="cl">curl -x socks://localhost:12345 -X POST http://10.x.x.x
+</span></span></code></pre></div><p>将 socks 代理设置纳入 systemd 管理（<code>/etc/systemd/system/sshtunnel@.service</code>）：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Unit]
+</span></span><span class="line"><span class="cl">Description=SSH Tunnel to XX for %I
+</span></span><span class="line"><span class="cl">After=network.target
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">[Service]
+</span></span><span class="line"><span class="cl">Type=oneshot
+</span></span><span class="line"><span class="cl">ExecStart=ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /home/%I/.ssh/id_rsa -f -N -T -D 12345 user@X.X.X.X
+</span></span><span class="line"><span class="cl">RemainAfterExit=yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Install]
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
+</span></span></code></pre></div><p>启动服务：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> sshtunnel@lingsamuel
+</span></span><span class="line"><span class="cl">sudo systemctl start sshtunnel@lingsamuel
+</span></span></code></pre></div><h2 id="配置-redsocks">配置 Redsocks</h2><p>安装 Redsocks：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yay -S redsocks <span class="c1"># 以 archlinux/manjaro AUR 为例</span>
+</span></span></code></pre></div><p>配置 Redsocks：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/redsocks.conf
+</span></span><span class="line"><span class="cl">sudo redsocks -c /etc/redsocks.conf
+</span></span></code></pre></div><p>conf 中需要配置的部分：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">redsocks {
+</span></span><span class="line"><span class="cl">	local_ip = 127.0.0.1;
+</span></span><span class="line"><span class="cl">	local_port = 31338; // 默认值就是 31338 可以不改
+</span></span><span class="line"><span class="cl">	ip = 127.0.0.1;
+</span></span><span class="line"><span class="cl">	port = 12345; // 上面启动的 ssh tunnel 的端口
+</span></span><span class="line"><span class="cl">	type = socks5;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h2 id="配置-iptables">配置 iptables</h2><p>执行：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo iptables -t nat -N REDSOCKS <span class="c1"># 新增链</span>
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -A OUTPUT -p tcp -j REDSOCKS <span class="c1"># OUTPUT转到REDSOCKS链</span>
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -A REDSOCKS -p tcp -d 10.254.0.0/16 -j REDIRECT --to-ports <span class="m">31338</span> <span class="c1"># 将 10.254.0.0/16 转到 31338</span>
+</span></span><span class="line"><span class="cl">sudo iptables -t nat -A REDSOCKS -p tcp -d 172.30.0.0/16 -j REDIRECT --to-ports <span class="m">31338</span> <span class="c1"># 将 172.30.0.0/16 转到 31338</span>
+</span></span></code></pre></div><p>配置了这个之后，应该可以直接访问，而不需要设置代理了：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --noproxy <span class="s1">'*'</span> -X POST http://10.x.x.x
+</span></span></code></pre></div><h3 id="持久化-iptables">持久化 iptables</h3><p>配置：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># /usr/lib/systemd/system/iptables.service
+</span></span><span class="line"><span class="cl">[Unit]
+</span></span><span class="line"><span class="cl">Description=iptables from file
+</span></span><span class="line"><span class="cl">Before=network-pre.target
+</span></span><span class="line"><span class="cl">Wants=network-pre.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Service]
+</span></span><span class="line"><span class="cl">Type=oneshot
+</span></span><span class="line"><span class="cl">ExecStart=/usr/bin/iptables-restore /etc/iptables/iptables.rules
+</span></span><span class="line"><span class="cl">ExecReload=/usr/bin/iptables-restore /etc/iptables/iptables.rules
+</span></span><span class="line"><span class="cl">ExecStop=/usr/lib/systemd/scripts/iptables-flush
+</span></span><span class="line"><span class="cl">RemainAfterExit=yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Install]
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
+</span></span></code></pre></div><p>然后，执行：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo sh -c <span class="s1">'iptables-save &gt; /etc/iptables/iptables.rules'</span>
+</span></span></code></pre></div><p>将规则保存在 unit file 所读取的文件里。</p><p>随后，执行：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> iptables
+</span></span></code></pre></div><h2 id="添加-dns">添加 DNS</h2><p><code>/etc/resolv.conf</code> 增加：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">search default.svc.cluster.local svc.cluster.local cluster.local
+</span></span><span class="line"><span class="cl">options ndots:5
+</span></span></code></pre></div><p>当然，如果使用的是 NetworkManager：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmcli connection show <span class="c1"># 首先查看connection的名字</span>
+</span></span><span class="line"><span class="cl">nmcli c modify Wired1 ipv4.dns-search <span class="s2">"default.svc.cluster.local svc.cluster.local cluster.local"</span> <span class="c1"># Wired1 是第一步查找到的名字</span>
+</span></span><span class="line"><span class="cl">nmcli c modify Wired1 ipv4.dns-option <span class="s2">"options ndots:5"</span>
+</span></span><span class="line"><span class="cl">nmcli c down Wired1
+</span></span><span class="line"><span class="cl">nmcli c up Wired1
+</span></span></code></pre></div><p>测试：</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl --noproxy <span class="s1">'*'</span> -X POST http://service.namespace
+</span></span></code></pre></div><div id="refContainer">
+</div></article></div></div><div class="row likebtn-container">
 <span class="likebtn-wrapper" data-theme="black" data-white_label="true" data-dislike_enabled="false" data-popup_disabled="true" data-share_enabled="false" data-lazy_load="true" data-tooltip_enabled="false"></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class="row">
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class="row">
 <div class="post-pager">
 <ul class="pager">
 <li class="previous">
 <a href="https://lingsamuel.github.io/page/2020-09-22-syntax-highlighting-sucks/">← Syntax Highlighting Sucks</a>
-</li>
-<li class="next">
+</li><li class="next">
 <a href="https://lingsamuel.github.io/page/return-to-skyrim/">重回天际 →</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="toc">
+</li></ul></div></div></div><div id="toc">
 <aside>
 <nav id="TableOfContents">
 <ul>
-<li><a href="#配置-socks-代理">配置 Socks 代理</a></li>
-<li><a href="#配置-redsocks">配置 Redsocks</a></li>
-<li><a href="#配置-iptables">配置 iptables</a>
+<li><a href="#配置-socks-代理">配置 Socks 代理</a></li><li><a href="#配置-redsocks">配置 Redsocks</a></li><li><a href="#配置-iptables">配置 iptables</a>
 <ul>
-<li><a href="#持久化-iptables">持久化 iptables</a></li>
-</ul>
-</li>
-<li><a href="#添加-dns">添加 DNS</a></li>
-</ul>
-</nav>
-</aside>
-</div>
-</div>
-<footer id="footer">
+<li><a href="#持久化-iptables">持久化 iptables</a></li></ul></li><li><a href="#添加-dns">添加 DNS</a></li></ul></nav></aside></div></div><footer id="footer">
 <div class="footer">
 <p>Copyright © 2022
-<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.92.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
+<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.93.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
 Hosted by GitHub
-</p>
-</div>
-</footer>
+</p></div></footer>
 
-
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
 
 

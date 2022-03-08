@@ -2,62 +2,48 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>zsh 配置 - Hakurei Shrine</title>
-<link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
+<title>zsh 配置 - Hakurei Shrine</title><link rel="alternate" href="https://lingsamuel.github.io/index.xml" type="application/rss+xml" title="Hakurei Shrine">
 <link href="https://lingsamuel.github.io/img/favicon.ico" rel="icon" type="image/x-icon" alt="favicon"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Source+Serif+Pro:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 <link rel="stylesheet" href="https://lingsamuel.github.io/css/main.min.css" media="screen">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/book.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/quotes.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
-<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-89095899-1','auto'),ga('send','pageview'))</script>
+<script async="" id="likebtn_wjs" src="//w.likebtn.com/js/w/widget.js"></script><script type="application/javascript">var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-</head>
-<body id="body">
+</head><body id="body">
 <nav id="navbar">
 <div class="nav">
 <div class="navbar-header">
 <img src="https://lingsamuel.github.io/img/favicon.ico" class="favicon" alt="favicon"><a href="https://lingsamuel.github.io/">
 Hakurei Shrine
 </a>
-</div>
-<div class="navbar-menu">
+</div><div class="navbar-menu">
 <ul class="navbar-list">
 <li>
 <a title="Articles" href="/page">Articles</a>
-</li>
-<li>
+</li><li>
 <a title="Reviews" href="/review">Reviews</a>
-</li>
-<li>
+</li><li>
 <a title="Feeds" href="/feed">Feeds</a>
-</li>
-<li>
+</li><li>
 <a title="Kubernetes" href="/k8s">Kubernetes</a>
-</li>
-<li>
+</li><li>
+<a title="Me" href="/me">Me</a>
+</li><li>
 <a title="About" href="/about">About</a>
-</li>
-<li>
+</li><li>
 <a title="Categories" href="/categories">Categories</a>
-</li>
-<li>
+</li><li>
 <a title="Tags" href="/tags">Tags</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="flex-row-container">
+</li></ul></div></div></nav><div class="flex-row-container">
 <div class="container container-single" id="mainContainer" role="main">
 <div class="container-single-main">
 <header class="header post-header">
 <div class="row">
 <div class="post-title">
-<h1>zsh 配置</h1>
-</div>
-<div class="post-meta">
+<h1>zsh 配置</h1></div><div class="post-meta">
 <span class="author">
 Ling Samuel
 </span>
@@ -74,515 +60,471 @@ Ling Samuel
 <a href="https://lingsamuel.github.io//tags/linux/">linux</a>&nbsp;
 <a href="https://lingsamuel.github.io//tags/shell/">shell</a>&nbsp;
 </span>
-</div>
-</div>
-</header>
-<div class="row">
+</div></div></header><div class="row">
 <article role="main" class="post-content">
-<p>考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。</p>
-<h2 id="oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</h2>
-<p><em>不保证任意环境可用，不保证无 bug</em>。</p>
-<details><summary>Expand code</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">main<span class="o">()</span> <span class="o">{</span>
-  <span class="c1"># Use colors, but only if connected to a terminal, and that terminal</span>
-  <span class="c1"># supports them.</span>
-  <span class="k">if</span> which tput &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
-      <span class="nv">ncolors</span><span class="o">=</span><span class="k">$(</span>tput colors<span class="k">)</span>
-  <span class="k">fi</span>
-  <span class="k">if</span> <span class="o">[</span> -t <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2">"</span><span class="nv">$ncolors</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$ncolors</span><span class="s2">"</span> -ge <span class="m">8</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">RED</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 1<span class="k">)</span><span class="s2">"</span>
-    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 2<span class="k">)</span><span class="s2">"</span>
-    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 3<span class="k">)</span><span class="s2">"</span>
-    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 4<span class="k">)</span><span class="s2">"</span>
-    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput bold<span class="k">)</span><span class="s2">"</span>
-    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput sgr0<span class="k">)</span><span class="s2">"</span>
-  <span class="k">else</span>
-    <span class="nv">RED</span><span class="o">=</span><span class="s2">""</span>
-    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">""</span>
-    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">""</span>
-    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">""</span>
-    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">""</span>
-    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">""</span>
-  <span class="k">fi</span>
-
-  <span class="c1"># Only enable exit-on-error after the non-critical colorization stuff,</span>
-  <span class="c1"># which may fail on systems lacking tput or terminfo</span>
-  <span class="nb">set</span> -e
-
-  <span class="nv">CHECK_ZSH_INSTALLED</span><span class="o">=</span><span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> wc -l<span class="k">)</span>
-  <span class="k">if</span> <span class="o">[</span> ! <span class="nv">$CHECK_ZSH_INSTALLED</span> -ge <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Zsh is not installed!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> Please install zsh first!\n"</span>
-    <span class="nb">exit</span>
-  <span class="k">fi</span>
-  <span class="nb">unset</span> CHECK_ZSH_INSTALLED
-
-  <span class="k">if</span> <span class="o">[</span> ! -n <span class="s2">"</span><span class="nv">$ZSH</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">ZSH</span><span class="o">=</span>~/.oh-my-zsh
-  <span class="k">fi</span>
-
-  <span class="c1"># Prevent the cloned repository from having insecure permissions. Failing to do</span>
-  <span class="c1"># so causes compinit() calls to fail with "command not found: compdef" errors</span>
-  <span class="c1"># for users with insecure umasks (e.g., "002", allowing group writability). Note</span>
-  <span class="c1"># that this will be ignored under Cygwin by default, as Windows ACLs take</span>
-  <span class="c1"># precedence over umasks except for filesystems mounted with option "noacl".</span>
-  <span class="nb">umask</span> g-w,o-w
-
-  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Cloning Oh My Zsh...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
-  <span class="nb">hash</span> git &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">"Error: git is not installed"</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-  <span class="o">}</span>
-  <span class="c1"># The Windows (MSYS) Git is not compatible with normal use on cygwin</span>
-  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$OSTYPE</span><span class="s2">"</span> <span class="o">=</span> cygwin <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="k">if</span> git --version <span class="p">|</span> grep msysgit &gt; /dev/null<span class="p">;</span> <span class="k">then</span>
-      <span class="nb">echo</span> <span class="s2">"Error: Windows/MSYS Git is not supported on Cygwin"</span>
-      <span class="nb">echo</span> <span class="s2">"Error: Make sure the Cygwin git package is installed and is first on the path"</span>
-      <span class="nb">exit</span> <span class="m">1</span>
-    <span class="k">fi</span>
-  <span class="k">fi</span>
-
-  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Looking for an existing zsh config...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
-  <span class="k">if</span> <span class="o">[</span> -f ~/.zshrc <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -h ~/.zshrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Found ~/.zshrc.</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Backing up to ~/.zshrc.pre-oh-my-zsh</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span><span class="p">;</span>
-    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh<span class="p">;</span>
-  <span class="k">fi</span>
-
-  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
-  cp <span class="nv">$ZSH</span>/templates/zshrc.zsh-template ~/.zshrc
-  sed <span class="s2">"/^export ZSH=/ c\\
-</span><span class="s2">  export ZSH=</span><span class="nv">$ZSH</span><span class="s2">
-</span><span class="s2">  "</span> ~/.zshrc &gt; ~/.zshrc-omztemp
-  mv -f ~/.zshrc-omztemp ~/.zshrc
-
-  <span class="c1"># If this user's login shell is not already "zsh", attempt to switch.</span>
-  <span class="nv">TEST_CURRENT_SHELL</span><span class="o">=</span><span class="k">$(</span>expr <span class="s2">"</span><span class="nv">$SHELL</span><span class="s2">"</span> : <span class="s1">'.*/\(.*\)'</span><span class="k">)</span>
-  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$TEST_CURRENT_SHELL</span><span class="s2">"</span> !<span class="o">=</span> <span class="s2">"zsh"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># If this platform provides a "chsh" command (not Cygwin), do it, man!</span>
-    <span class="k">if</span> <span class="nb">hash</span> chsh &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
-      <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Time to change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
-      chsh -s <span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> tail -1<span class="k">)</span>
-    <span class="c1"># Else, suggest the user do so manually.</span>
-    <span class="k">else</span>
-      <span class="nb">printf</span> <span class="s2">"I can't change your shell automatically because this system does not have chsh.\n"</span>
-      <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Please manually change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
-    <span class="k">fi</span>
-  <span class="k">fi</span>
-
-  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">"</span>
-  <span class="nb">echo</span> <span class="s1">'         __                                     __   '</span>
-  <span class="nb">echo</span> <span class="s1">'  ____  / /_     ____ ___  __  __   ____  _____/ /_  '</span>
-  <span class="nb">echo</span> <span class="s1">' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '</span>
-  <span class="nb">echo</span> <span class="s1">'/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '</span>
-  <span class="nb">echo</span> <span class="s1">'\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '</span>
-  <span class="nb">echo</span> <span class="s1">'                        /____/                       ....is now installed!'</span>
-  <span class="nb">echo</span> <span class="s1">''</span>
-  <span class="nb">echo</span> <span class="s1">''</span>
-  <span class="nb">echo</span> <span class="s1">'Please look over the ~/.zshrc file to select plugins, themes, and options.'</span>
-  <span class="nb">echo</span> <span class="s1">''</span>
-  <span class="nb">echo</span> <span class="s1">'p.s. Follow us at https://twitter.com/ohmyzsh.'</span>
-  <span class="nb">echo</span> <span class="s1">''</span>
-  <span class="nb">echo</span> <span class="s1">'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'</span>
-  <span class="nb">echo</span> <span class="s1">''</span>
-  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">"</span>
-  env zsh
-<span class="o">}</span>
-
-main
-</code></pre></div></details>
-<h2 id="powerlevel10k">Powerlevel10k</h2>
-<p>Follow the official README.</p>
-<h2 id="stty-config">stty Config</h2>
-<p><code>stty -a</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">speed 38400 baud; rows 24; columns 80; line = 0;
-intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = &lt;undef&gt;;
-eol2 = &lt;undef&gt;; swtch = &lt;undef&gt;; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
-werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff
--iuclc -ixany -imaxbel iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
-echoctl echoke -flusho -extproc
-</code></pre></div><h2 id="aliases--custom-functions">Aliases &amp; Custom Functions</h2>
-<details><summary>Expand code</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Keybinding (like a lost technology)</span>
-<span class="c1"># Mostly you can use command `read` to view the keybinding output</span>
-<span class="c1"># Except keybindings in `stty` (such as Ctrl+w as word-erase `werase`), it will display the "raw" input</span>
-<span class="c1"># Another way is press `Ctrl+V`, means `quoted-insert` in zsh/bash.</span>
-<span class="c1"># Relation: .inputrc, Z Line Editor</span>
-bindkey <span class="s1">'3~'</span> kill-word <span class="c1"># Alt-Delete</span>
-bindkey <span class="s1">'5~'</span> kill-word <span class="c1"># Ctrl-Delete</span>
-
-bindkey <span class="s1">'^H'</span> backward-kill-word <span class="c1"># Ctrl-Backspacea</span>
-
-bindkey <span class="s2">"\e[1;3D"</span> backward-word <span class="c1">### Alt left</span>
-bindkey <span class="s2">"^[[1;2D"</span> backward-word <span class="c1">### Shift left</span>
-bindkey <span class="s2">"\e[1;3C"</span> forward-word <span class="c1">### Alt right</span>
-bindkey <span class="s2">"^[[1;2C"</span> forward-word <span class="c1">### Shift right</span>
-
-<span class="c1"># General command shortcut &amp; options aliases</span>
-<span class="nb">alias</span> <span class="nv">svim</span><span class="o">=</span><span class="s1">'sudo vim'</span>
-<span class="nb">alias</span> <span class="nv">vi</span><span class="o">=</span><span class="s1">'vim'</span>
-<span class="nb">alias</span> <span class="nv">ea</span><span class="o">=</span><span class="s1">'vim ~/.zshrc'</span>
-<span class="nb">alias</span> <span class="nv">apply</span><span class="o">=</span><span class="s1">'source ~/.zshrc'</span>
-<span class="nb">alias</span> <span class="nv">tldr</span><span class="o">=</span><span class="s2">"tldr -t base16"</span>
-<span class="nb">alias</span> <span class="nv">diff</span><span class="o">=</span><span class="s2">"diff --strip-trailing-cr"</span>
-<span class="nb">alias</span> <span class="nv">share</span><span class="o">=</span><span class="s2">"python -m http.server "</span>
-<span class="nb">alias</span> <span class="nv">first</span><span class="o">=</span><span class="s1">'awk "{print \$1}"'</span>
-<span class="nb">alias</span> <span class="nv">second</span><span class="o">=</span><span class="s1">'awk "{print \$2}"'</span>
-
-<span class="c1"># mkdir &amp;&amp; cd</span>
-<span class="c1"># mc test/deep/folder</span>
-mkcdir<span class="o">()</span> <span class="o">{</span>
-    mkdir -p -- <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span>
-    <span class="nb">cd</span> -P -- <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
-<span class="o">}</span>
-<span class="nb">alias</span> <span class="nv">mc</span><span class="o">=</span>mkcdir <span class="c1"># Caution, `mc` is also GNU Midnight Commander</span>
-
-<span class="c1">## geoip 8.8.8.8</span>
-curl_geoip<span class="o">(){</span>
-    <span class="nb">echo</span> <span class="s2">"Curling https://api.ip.sb/geoip/</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">"</span>
-    curl  --noproxy <span class="s2">"*"</span> https://api.ip.sb/geoip/<span class="si">${</span><span class="nv">1</span><span class="si">}</span>
-<span class="o">}</span>
-<span class="nb">alias</span> <span class="nv">geoip</span><span class="o">=</span>curl_geoip
-
-<span class="c1">## Commandline Copy &amp; Paste</span>
-<span class="c1">## echo "text" | cs</span>
-<span class="c1">## cv</span>
-<span class="nb">alias</span> <span class="nv">cs</span><span class="o">=</span><span class="s2">"xclip"</span>
-<span class="nb">alias</span> <span class="nv">cv</span><span class="o">=</span><span class="s2">"xclip -o"</span>
-<span class="c1">## Copy to system clipboard</span>
-<span class="c1">## echo "text" | copy</span>
-<span class="c1">## &lt;ctrl+v&gt;</span>
-<span class="nb">alias</span> <span class="nv">copy</span><span class="o">=</span><span class="s2">"xclip -selection clipboard"</span>
-
-
-<span class="c1"># Proxy config</span>
-setproxy<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">export</span> <span class="nv">SOCKS_PROXY</span><span class="o">=</span><span class="s1">'socks://127.0.0.1:1080'</span>
-  <span class="nb">export</span> <span class="nv">socks_proxy</span><span class="o">=</span><span class="nv">$SOCKS_PROXY</span> 
-  <span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s1">'http://127.0.0.1:1081/'</span> 
-  <span class="nb">export</span> <span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="nv">$http_proxy</span> 
-  <span class="nb">export</span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="nv">$http_proxy</span> 
-  <span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="p">;</span>
-<span class="o">}</span>
-<span class="nb">alias</span> <span class="nv">clearproxy</span><span class="o">=</span><span class="s2">"unset HTTP_PROXY; unset http_proxy; unset HTTPS_PROXY; unset https_proxy; unset socks_proxy; unset SOCKS_PROXY;"</span>
-
-<span class="c1"># Typo aliases</span>
-<span class="nb">alias</span> <span class="nv">exi</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">eix</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">eixt</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">xit</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">xti</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">ext</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">eit</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">e</span><span class="o">=</span><span class="nb">exit</span>
-<span class="nb">alias</span> <span class="nv">clera</span><span class="o">=</span>clear
-<span class="nb">alias</span> <span class="nv">claer</span><span class="o">=</span>clear
-<span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span>clear
-
-<span class="c1"># manually init nvm (enable it will slow down terminal start time)</span>
-nvm_init<span class="o">(){</span>
-    <span class="nb">source</span> /usr/share/nvm/init-nvm.sh
-<span class="o">}</span>
-
-<span class="c1"># Helm shortcut</span>
-<span class="nb">alias</span> <span class="nv">hupdate</span><span class="o">=</span><span class="s1">'helm repo update'</span>
-<span class="nb">alias</span> <span class="nv">hls</span><span class="o">=</span><span class="s1">'helm search repo --devel'</span>
-
-<span class="nb">alias</span> <span class="nv">py</span><span class="o">=</span><span class="s1">'python'</span>
-<span class="nb">alias</span> <span class="nv">py3</span><span class="o">=</span><span class="s1">'python3'</span>
-<span class="nb">alias</span> <span class="nv">py2</span><span class="o">=</span><span class="s1">'python2'</span>
-
-<span class="c1"># Hugo new_post</span>
-<span class="c1"># Sample:</span>
-<span class="c1">#   new_post "content/post/New Post Title"</span>
-<span class="c1">#   new_post "content/post/Post Without Date Prefix" -r</span>
-new_post<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">local</span> <span class="nv">USAGE</span><span class="o">=(</span><span class="nb">echo</span> <span class="s2">"Usage:
-</span><span class="s2">  new_post &lt;path&gt;
-</span><span class="s2">Options:
-</span><span class="s2">  -r  Generate file name without date
-</span><span class="s2">"</span><span class="o">)</span>
-
-  <span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$1</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s2">"-"</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">$USAGE</span>
-    <span class="k">return</span>
-  <span class="k">fi</span>
-
-  <span class="nb">local</span> <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2">"false"</span>
-
-  <span class="nv">OPTIND</span><span class="o">=</span><span class="m">2</span>
-  <span class="k">while</span> <span class="nb">getopts</span> <span class="s2">":r"</span> opt<span class="p">;</span> <span class="k">do</span>
-      <span class="k">case</span> <span class="s2">"</span><span class="si">${</span><span class="nv">opt</span><span class="si">}</span><span class="s2">"</span> in
-      r<span class="o">)</span>
-          <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2">"true"</span>
-          <span class="p">;;</span>
-      *<span class="o">)</span>
-          <span class="nv">$USAGE</span>
-          <span class="k">return</span>
-          <span class="p">;;</span>
-      <span class="k">esac</span>
-  <span class="k">done</span>
-  
-  <span class="nb">local</span> <span class="nv">TITLE</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="k">)</span>
-  <span class="nb">local</span> <span class="nv">DIR_NAME</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="k">)</span>
-  mkdir -p <span class="nv">$DIR_NAME</span>
-  <span class="nb">local</span> <span class="nv">FILE_NAME</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$TITLE</span><span class="s2">"</span> <span class="p">|</span> tr <span class="s1">'[:upper:]'</span> <span class="s1">'[:lower:]'</span> <span class="p">|</span> tr <span class="s1">' '</span> <span class="s1">'-'</span> <span class="k">)</span>
-
-  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$NO_DATE_FILENAME</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span> date +<span class="s2">"%Y-%m-%d"</span> <span class="k">)</span><span class="s2">-</span><span class="nv">$FILE_NAME</span><span class="s2">"</span>
-  <span class="k">fi</span>
-
-  <span class="k">if</span> <span class="o">[[</span> ! <span class="nv">$FILE_NAME</span> <span class="o">=</span> *<span class="s2">".md"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$FILE_NAME</span><span class="s2">.md"</span>
-  <span class="k">fi</span>
-  <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">DIR_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">FILE_NAME</span><span class="si">}</span><span class="s2">"</span>
-  <span class="nb">echo</span> <span class="s2">"Generating </span><span class="nv">$FILE_NAME</span><span class="s2"> ..."</span>
-
-  <span class="k">if</span> <span class="o">[[</span> -f <span class="nv">$FILE_NAME</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"File exists!"</span>
-    <span class="k">return</span>
-  <span class="k">fi</span>
-
-  <span class="nb">local</span> <span class="nv">DATE_STR</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%dT%H:%M:%S%z"</span><span class="k">)</span>
-  cat <span class="s">&lt;&lt; EOF &gt;&gt; "$FILE_NAME"
-</span><span class="s">---
-</span><span class="s">title: "$TITLE"
-</span><span class="s">subtitle: ""
-</span><span class="s">date: $DATE_STR
-</span><span class="s">categories: []
-</span><span class="s">tags: []
-</span><span class="s">---
-</span><span class="s">
-</span><span class="s">
-</span><span class="s">
-</span><span class="s">&lt;!--more--&gt;
-</span><span class="s">
-</span><span class="s">EOF</span>
-
-<span class="o">}</span>
-</code></pre></div></details>
-<p><a href="/page/kubectl-life-saver">K8s Related</a> 请参考这个。</p>
-<h2 id="paste-performance">Paste Performance</h2>
-<details><summary>Expand code</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># This speeds up pasting w/ autosuggest</span>
-<span class="c1"># https://github.com/zsh-users/zsh-autosuggestions/issues/238</span>
-pasteinit<span class="o">()</span> <span class="o">{</span>
-  <span class="nv">OLD_SELF_INSERT</span><span class="o">=</span><span class="si">${${</span><span class="p">(s.:.)widgets[self-insert]</span><span class="si">}</span><span class="p">[2,3]</span><span class="si">}</span>
-  zle -N self-insert url-quote-magic <span class="c1"># I wonder if you'd need `.url-quote-magic`?</span>
-<span class="o">}</span>
-
-pastefinish<span class="o">()</span> <span class="o">{</span>
-  zle -N self-insert <span class="nv">$OLD_SELF_INSERT</span>
-<span class="o">}</span>
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-</code></pre></div></details>
-<h2 id="plugin">Plugin</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">plugins</span><span class="o">=(</span>git colored-man-pages sublime z catimg wakatime zsh-autosuggestions docker docker-compose<span class="o">)</span>
-</code></pre></div><p>Some plugins need to install manually.</p>
-<h2 id="keybindings">Keybindings (zsh <code>bindkey</code>)</h2>
-<p>Run <code>bindkey</code> to list all zle keybindings. Here is my config.</p>
-<details><summary>Expand code</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">"^@" set-mark-command
-"^A" beginning-of-line
-"^B" backward-char
-"^D" delete-char-or-list
-"^E" end-of-line
-"^F" forward-char
-"^G" send-break
-"^H" backward-kill-word
-"^I" expand-or-complete
-"^J" accept-line
-"^K" kill-line
-"^L" clear-screen
-"^M" accept-line
-"^N" down-line-or-history
-"^O" accept-line-and-down-history
-"^P" up-line-or-history
-"^Q" push-line
-"^R" history-incremental-search-backward
-"^S" history-incremental-search-forward
-"^T" transpose-chars
-"^U" kill-whole-line
-"^V" quoted-insert
-"^W" backward-kill-word
-"^X^B" vi-match-bracket
-"^X^E" edit-command-line
-"^X^F" vi-find-next-char
-"^X^J" vi-join
-"^X^K" kill-buffer
-"^X^N" infer-next-history
-"^X^O" overwrite-mode
-"^X^R" _read_comp
-"^X^U" undo
-"^X^V" vi-cmd-mode
-"^X^X" exchange-point-and-mark
-"^X*" expand-word
-"^X=" what-cursor-position
-"^X?" _complete_debug
-"^XC" _correct_filename
-"^XG" list-expand
-"^Xa" _expand_alias
-"^Xc" _correct_word
-"^Xd" _list_expansions
-"^Xe" _expand_word
-"^Xg" list-expand
-"^Xh" _complete_help
-"^Xm" _most_recent_file
-"^Xn" _next_tags
-"^Xr" history-incremental-search-backward
-"^Xs" history-incremental-search-forward
-"^Xt" _complete_tag
-"^Xu" undo
-"^X~" _bash_list-choices
-"^Y" yank
-"^[^D" list-choices
-"^[^G" send-break
-"^[^H" backward-kill-word
-"^[^I" self-insert-unmeta
-"^[^J" self-insert-unmeta
-"^[^L" clear-screen
-"^[^M" self-insert-unmeta
-"^[^_" copy-prev-word
-"^[ " expand-history
-"^[!" expand-history
-"^[\"" quote-region
-"^[\$" spell-word
-"^['" quote-line
-"^[," _history-complete-newer
-"^[-" neg-argument
-"^[." insert-last-word
-"^[/" _history-complete-older
-"^[0" digit-argument
-"^[1" digit-argument
-"^[2" digit-argument
-"^[3" digit-argument
-"^[4" digit-argument
-"^[5" digit-argument
-"^[6" digit-argument
-"^[7" digit-argument
-"^[8" digit-argument
-"^[9" digit-argument
-"^[&lt;" beginning-of-buffer-or-history
-"^[&gt;" end-of-buffer-or-history
-"^[?" which-command
-"^[A" accept-and-hold
-"^[B" backward-word
-"^[C" capitalize-word
-"^[D" kill-word
-"^[F" forward-word
-"^[G" get-line
-"^[H" run-help
-"^[L" down-case-word
-"^[N" history-search-forward
-"^[OA" up-line-or-beginning-search
-"^[OB" down-line-or-beginning-search
-"^[OC" forward-char
-"^[OD" backward-char
-"^[OF" end-of-line
-"^[OH" beginning-of-line
-"^[P" history-search-backward
-"^[Q" push-line
-"^[S" spell-word
-"^[T" transpose-words
-"^[U" up-case-word
-"^[W" copy-region-as-kill
-"^[[1;5C" forward-word
-"^[[1;5D" backward-word
-"^[[200~" bracketed-paste
-"^[[3~" delete-char
-"^[[5~" up-line-or-history
-"^[[6~" down-line-or-history
-"^[[A" up-line-or-history
-"^[[B" down-line-or-history
-"^[[C" forward-char
-"^[[D" backward-char
-"^[[Z" reverse-menu-complete
-"^[_" insert-last-word
-"^[a" accept-and-hold
-"^[b" backward-word
-"^[c" capitalize-word
-"^[d" kill-word
-"^[f" forward-word
-"^[g" get-line
-"^[h" run-help
-"^[l" "ls^J"
-"^[m" copy-prev-shell-word
-"^[n" history-search-forward
-"^[p" history-search-backward
-"^[q" push-line
-"^[s" spell-word
-"^[t" transpose-words
-"^[u" up-case-word
-"^[w" kill-region
-"^[x" execute-named-cmd
-"^[y" yank-pop
-"^[z" execute-last-named-cmd
-"^[|" vi-goto-column
-"^[~" _bash_complete-word
-"^[^?" backward-kill-word
-"^_" undo
-" " magic-space
-"!"-"3" self-insert
-"3~" kill-word
-"4"-"5" self-insert
-"5~" kill-word
-"6"-"~" self-insert
-"^?" backward-delete-char
-"\M-^@"-"\M-^?" self-insert
-</code></pre></div></details>
+<p>考虑到我的备份仓库是 Private 的，专门开一篇文章以便复制粘贴。</p><h2 id="oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</h2><p><em>不保证任意环境可用，不保证无 bug</em>。</p><details><summary>Expand code</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">main<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Use colors, but only if connected to a terminal, and that terminal</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># supports them.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> which tput &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">ncolors</span><span class="o">=</span><span class="k">$(</span>tput colors<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> -t <span class="m">1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="s2">"</span><span class="nv">$ncolors</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$ncolors</span><span class="s2">"</span> -ge <span class="m">8</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">RED</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 1<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 2<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 3<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput setaf 4<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput bold<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>tput sgr0<span class="k">)</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">RED</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">GREEN</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">YELLOW</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BLUE</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">BOLD</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">NORMAL</span><span class="o">=</span><span class="s2">""</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Only enable exit-on-error after the non-critical colorization stuff,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># which may fail on systems lacking tput or terminfo</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">CHECK_ZSH_INSTALLED</span><span class="o">=</span><span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> wc -l<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> ! <span class="nv">$CHECK_ZSH_INSTALLED</span> -ge <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Zsh is not installed!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> Please install zsh first!\n"</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">unset</span> CHECK_ZSH_INSTALLED
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> ! -n <span class="s2">"</span><span class="nv">$ZSH</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ZSH</span><span class="o">=</span>~/.oh-my-zsh
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Prevent the cloned repository from having insecure permissions. Failing to do</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># so causes compinit() calls to fail with "command not found: compdef" errors</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># for users with insecure umasks (e.g., "002", allowing group writability). Note</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># that this will be ignored under Cygwin by default, as Windows ACLs take</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># precedence over umasks except for filesystems mounted with option "noacl".</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">umask</span> g-w,o-w
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Cloning Oh My Zsh...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">hash</span> git &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">"Error: git is not installed"</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># The Windows (MSYS) Git is not compatible with normal use on cygwin</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$OSTYPE</span><span class="s2">"</span> <span class="o">=</span> cygwin <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> git --version <span class="p">|</span> grep msysgit &gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">"Error: Windows/MSYS Git is not supported on Cygwin"</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">echo</span> <span class="s2">"Error: Make sure the Cygwin git package is installed and is first on the path"</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Looking for an existing zsh config...</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> -f ~/.zshrc <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -h ~/.zshrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Found ~/.zshrc.</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Backing up to ~/.zshrc.pre-oh-my-zsh</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Using the Oh My Zsh template file and adding it to ~/.zshrc</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
+</span></span><span class="line"><span class="cl">  cp <span class="nv">$ZSH</span>/templates/zshrc.zsh-template ~/.zshrc
+</span></span><span class="line"><span class="cl">  sed <span class="s2">"/^export ZSH=/ c\\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  export ZSH=</span><span class="nv">$ZSH</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">  "</span> ~/.zshrc &gt; ~/.zshrc-omztemp
+</span></span><span class="line"><span class="cl">  mv -f ~/.zshrc-omztemp ~/.zshrc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># If this user's login shell is not already "zsh", attempt to switch.</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">TEST_CURRENT_SHELL</span><span class="o">=</span><span class="k">$(</span>expr <span class="s2">"</span><span class="nv">$SHELL</span><span class="s2">"</span> : <span class="s1">'.*/\(.*\)'</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$TEST_CURRENT_SHELL</span><span class="s2">"</span> !<span class="o">=</span> <span class="s2">"zsh"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># If this platform provides a "chsh" command (not Cygwin), do it, man!</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">hash</span> chsh &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Time to change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
+</span></span><span class="line"><span class="cl">      chsh -s <span class="k">$(</span>grep /zsh$ /etc/shells <span class="p">|</span> tail -1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Else, suggest the user do so manually.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">"I can't change your shell automatically because this system does not have chsh.\n"</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">BLUE</span><span class="si">}</span><span class="s2">Please manually change your default shell to zsh!</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">\n"</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'         __                                     __   '</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'  ____  / /_     ____ ___  __  __   ____  _____/ /_  '</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'                        /____/                       ....is now installed!'</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">''</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">''</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'Please look over the ~/.zshrc file to select plugins, themes, and options.'</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">''</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'p.s. Follow us at https://twitter.com/ohmyzsh.'</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">''</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s1">''</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">"</span><span class="si">${</span><span class="nv">NORMAL</span><span class="si">}</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">  env zsh
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">main
+</span></span></code></pre></div></details>
+<h2 id="powerlevel10k">Powerlevel10k</h2><p>Follow the official README.</p><h2 id="stty-config">stty Config</h2><p><code>stty -a</code>:</p><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">speed 38400 baud; rows 24; columns 80; line = 0;
+</span></span><span class="line"><span class="cl">intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = &lt;undef&gt;;
+</span></span><span class="line"><span class="cl">eol2 = &lt;undef&gt;; swtch = &lt;undef&gt;; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
+</span></span><span class="line"><span class="cl">werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+</span></span><span class="line"><span class="cl">-parenb -parodd -cmspar cs8 -hupcl -cstopb cread -clocal -crtscts
+</span></span><span class="line"><span class="cl">-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff
+</span></span><span class="line"><span class="cl">-iuclc -ixany -imaxbel iutf8
+</span></span><span class="line"><span class="cl">opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+</span></span><span class="line"><span class="cl">isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt
+</span></span><span class="line"><span class="cl">echoctl echoke -flusho -extproc
+</span></span></code></pre></div><h2 id="aliases--custom-functions">Aliases &amp; Custom Functions</h2><details><summary>Expand code</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Keybinding (like a lost technology)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Mostly you can use command `read` to view the keybinding output</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Except keybindings in `stty` (such as Ctrl+w as word-erase `werase`), it will display the "raw" input</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Another way is press `Ctrl+V`, means `quoted-insert` in zsh/bash.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Relation: .inputrc, Z Line Editor</span>
+</span></span><span class="line"><span class="cl">bindkey <span class="s1">'3~'</span> kill-word <span class="c1"># Alt-Delete</span>
+</span></span><span class="line"><span class="cl">bindkey <span class="s1">'5~'</span> kill-word <span class="c1"># Ctrl-Delete</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bindkey <span class="s1">'^H'</span> backward-kill-word <span class="c1"># Ctrl-Backspacea</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bindkey <span class="s2">"\e[1;3D"</span> backward-word <span class="c1">### Alt left</span>
+</span></span><span class="line"><span class="cl">bindkey <span class="s2">"^[[1;2D"</span> backward-word <span class="c1">### Shift left</span>
+</span></span><span class="line"><span class="cl">bindkey <span class="s2">"\e[1;3C"</span> forward-word <span class="c1">### Alt right</span>
+</span></span><span class="line"><span class="cl">bindkey <span class="s2">"^[[1;2C"</span> forward-word <span class="c1">### Shift right</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># General command shortcut &amp; options aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">svim</span><span class="o">=</span><span class="s1">'sudo vim'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">vi</span><span class="o">=</span><span class="s1">'vim'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ea</span><span class="o">=</span><span class="s1">'vim ~/.zshrc'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">apply</span><span class="o">=</span><span class="s1">'source ~/.zshrc'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">tldr</span><span class="o">=</span><span class="s2">"tldr -t base16"</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">diff</span><span class="o">=</span><span class="s2">"diff --strip-trailing-cr"</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">share</span><span class="o">=</span><span class="s2">"python -m http.server "</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">first</span><span class="o">=</span><span class="s1">'awk "{print \$1}"'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">second</span><span class="o">=</span><span class="s1">'awk "{print \$2}"'</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># mkdir &amp;&amp; cd</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mc test/deep/folder</span>
+</span></span><span class="line"><span class="cl">mkcdir<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    mkdir -p -- <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> -P -- <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">mc</span><span class="o">=</span>mkcdir <span class="c1"># Caution, `mc` is also GNU Midnight Commander</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## geoip 8.8.8.8</span>
+</span></span><span class="line"><span class="cl">curl_geoip<span class="o">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">"Curling https://api.ip.sb/geoip/</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">    curl  --noproxy <span class="s2">"*"</span> https://api.ip.sb/geoip/<span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">geoip</span><span class="o">=</span>curl_geoip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Commandline Copy &amp; Paste</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## echo "text" | cs</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## cv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cs</span><span class="o">=</span><span class="s2">"xclip"</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cv</span><span class="o">=</span><span class="s2">"xclip -o"</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Copy to system clipboard</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## echo "text" | copy</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## &lt;ctrl+v&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">copy</span><span class="o">=</span><span class="s2">"xclip -selection clipboard"</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Proxy config</span>
+</span></span><span class="line"><span class="cl">setproxy<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">SOCKS_PROXY</span><span class="o">=</span><span class="s1">'socks://127.0.0.1:1080'</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">socks_proxy</span><span class="o">=</span><span class="nv">$SOCKS_PROXY</span> 
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s1">'http://127.0.0.1:1081/'</span> 
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="nv">$http_proxy</span> 
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="nv">$http_proxy</span> 
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">clearproxy</span><span class="o">=</span><span class="s2">"unset HTTP_PROXY; unset http_proxy; unset HTTPS_PROXY; unset https_proxy; unset socks_proxy; unset SOCKS_PROXY;"</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Typo aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">exi</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">eix</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">eixt</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">xit</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">xti</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ext</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">eit</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">e</span><span class="o">=</span><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">clera</span><span class="o">=</span>clear
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">claer</span><span class="o">=</span>clear
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span>clear
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># manually init nvm (enable it will slow down terminal start time)</span>
+</span></span><span class="line"><span class="cl">nvm_init<span class="o">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">source</span> /usr/share/nvm/init-nvm.sh
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Helm shortcut</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">hupdate</span><span class="o">=</span><span class="s1">'helm repo update'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">hls</span><span class="o">=</span><span class="s1">'helm search repo --devel'</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">py</span><span class="o">=</span><span class="s1">'python'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">py3</span><span class="o">=</span><span class="s1">'python3'</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">py2</span><span class="o">=</span><span class="s1">'python2'</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Hugo new_post</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Sample:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   new_post "content/post/New Post Title"</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   new_post "content/post/Post Without Date Prefix" -r</span>
+</span></span><span class="line"><span class="cl">new_post<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">USAGE</span><span class="o">=(</span><span class="nb">echo</span> <span class="s2">"Usage:
+</span></span></span><span class="line"><span class="cl"><span class="s2">  new_post &lt;path&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">Options:
+</span></span></span><span class="line"><span class="cl"><span class="s2">  -r  Generate file name without date
+</span></span></span><span class="line"><span class="cl"><span class="s2">"</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$1</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s2">"-"</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$USAGE</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2">"false"</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">OPTIND</span><span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="nb">getopts</span> <span class="s2">":r"</span> opt<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="s2">"</span><span class="si">${</span><span class="nv">opt</span><span class="si">}</span><span class="s2">"</span> in
+</span></span><span class="line"><span class="cl">      r<span class="o">)</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">NO_DATE_FILENAME</span><span class="o">=</span><span class="s2">"true"</span>
+</span></span><span class="line"><span class="cl">          <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">      *<span class="o">)</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">$USAGE</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span>
+</span></span><span class="line"><span class="cl">          <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">esac</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">TITLE</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">DIR_NAME</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  mkdir -p <span class="nv">$DIR_NAME</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">FILE_NAME</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$TITLE</span><span class="s2">"</span> <span class="p">|</span> tr <span class="s1">'[:upper:]'</span> <span class="s1">'[:lower:]'</span> <span class="p">|</span> tr <span class="s1">' '</span> <span class="s1">'-'</span> <span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$NO_DATE_FILENAME</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span> date +<span class="s2">"%Y-%m-%d"</span> <span class="k">)</span><span class="s2">-</span><span class="nv">$FILE_NAME</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> ! <span class="nv">$FILE_NAME</span> <span class="o">=</span> *<span class="s2">".md"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$FILE_NAME</span><span class="s2">.md"</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">FILE_NAME</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">DIR_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">FILE_NAME</span><span class="si">}</span><span class="s2">"</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">"Generating </span><span class="nv">$FILE_NAME</span><span class="s2"> ..."</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> -f <span class="nv">$FILE_NAME</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">"File exists!"</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">DATE_STR</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%dT%H:%M:%S%z"</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">  cat <span class="s">&lt;&lt; EOF &gt;&gt; "$FILE_NAME"
+</span></span></span><span class="line"><span class="cl"><span class="s">---
+</span></span></span><span class="line"><span class="cl"><span class="s">title: "$TITLE"
+</span></span></span><span class="line"><span class="cl"><span class="s">subtitle: ""
+</span></span></span><span class="line"><span class="cl"><span class="s">date: $DATE_STR
+</span></span></span><span class="line"><span class="cl"><span class="s">categories: []
+</span></span></span><span class="line"><span class="cl"><span class="s">tags: []
+</span></span></span><span class="line"><span class="cl"><span class="s">---
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;!--more--&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div></details>
+<p><a href="/page/kubectl-life-saver">K8s Related</a> 请参考这个。</p><h2 id="paste-performance">Paste Performance</h2><details><summary>Expand code</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This speeds up pasting w/ autosuggest</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># https://github.com/zsh-users/zsh-autosuggestions/issues/238</span>
+</span></span><span class="line"><span class="cl">pasteinit<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">OLD_SELF_INSERT</span><span class="o">=</span><span class="si">${${</span><span class="p">(s.:.)widgets[self-insert]</span><span class="si">}</span><span class="p">[2,3]</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">  zle -N self-insert url-quote-magic <span class="c1"># I wonder if you'd need `.url-quote-magic`?</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">pastefinish<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  zle -N self-insert <span class="nv">$OLD_SELF_INSERT</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">zstyle :bracketed-paste-magic paste-init pasteinit
+</span></span><span class="line"><span class="cl">zstyle :bracketed-paste-magic paste-finish pastefinish
+</span></span></code></pre></div></details>
+<h2 id="plugin">Plugin</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">plugins</span><span class="o">=(</span>git colored-man-pages sublime z catimg wakatime zsh-autosuggestions docker docker-compose<span class="o">)</span>
+</span></span></code></pre></div><p>Some plugins need to install manually.</p><h2 id="keybindings">Keybindings (zsh <code>bindkey</code>)</h2><p>Run <code>bindkey</code> to list all zle keybindings. Here is my config.</p><details><summary>Expand code</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">"^@" set-mark-command
+</span></span><span class="line"><span class="cl">"^A" beginning-of-line
+</span></span><span class="line"><span class="cl">"^B" backward-char
+</span></span><span class="line"><span class="cl">"^D" delete-char-or-list
+</span></span><span class="line"><span class="cl">"^E" end-of-line
+</span></span><span class="line"><span class="cl">"^F" forward-char
+</span></span><span class="line"><span class="cl">"^G" send-break
+</span></span><span class="line"><span class="cl">"^H" backward-kill-word
+</span></span><span class="line"><span class="cl">"^I" expand-or-complete
+</span></span><span class="line"><span class="cl">"^J" accept-line
+</span></span><span class="line"><span class="cl">"^K" kill-line
+</span></span><span class="line"><span class="cl">"^L" clear-screen
+</span></span><span class="line"><span class="cl">"^M" accept-line
+</span></span><span class="line"><span class="cl">"^N" down-line-or-history
+</span></span><span class="line"><span class="cl">"^O" accept-line-and-down-history
+</span></span><span class="line"><span class="cl">"^P" up-line-or-history
+</span></span><span class="line"><span class="cl">"^Q" push-line
+</span></span><span class="line"><span class="cl">"^R" history-incremental-search-backward
+</span></span><span class="line"><span class="cl">"^S" history-incremental-search-forward
+</span></span><span class="line"><span class="cl">"^T" transpose-chars
+</span></span><span class="line"><span class="cl">"^U" kill-whole-line
+</span></span><span class="line"><span class="cl">"^V" quoted-insert
+</span></span><span class="line"><span class="cl">"^W" backward-kill-word
+</span></span><span class="line"><span class="cl">"^X^B" vi-match-bracket
+</span></span><span class="line"><span class="cl">"^X^E" edit-command-line
+</span></span><span class="line"><span class="cl">"^X^F" vi-find-next-char
+</span></span><span class="line"><span class="cl">"^X^J" vi-join
+</span></span><span class="line"><span class="cl">"^X^K" kill-buffer
+</span></span><span class="line"><span class="cl">"^X^N" infer-next-history
+</span></span><span class="line"><span class="cl">"^X^O" overwrite-mode
+</span></span><span class="line"><span class="cl">"^X^R" _read_comp
+</span></span><span class="line"><span class="cl">"^X^U" undo
+</span></span><span class="line"><span class="cl">"^X^V" vi-cmd-mode
+</span></span><span class="line"><span class="cl">"^X^X" exchange-point-and-mark
+</span></span><span class="line"><span class="cl">"^X*" expand-word
+</span></span><span class="line"><span class="cl">"^X=" what-cursor-position
+</span></span><span class="line"><span class="cl">"^X?" _complete_debug
+</span></span><span class="line"><span class="cl">"^XC" _correct_filename
+</span></span><span class="line"><span class="cl">"^XG" list-expand
+</span></span><span class="line"><span class="cl">"^Xa" _expand_alias
+</span></span><span class="line"><span class="cl">"^Xc" _correct_word
+</span></span><span class="line"><span class="cl">"^Xd" _list_expansions
+</span></span><span class="line"><span class="cl">"^Xe" _expand_word
+</span></span><span class="line"><span class="cl">"^Xg" list-expand
+</span></span><span class="line"><span class="cl">"^Xh" _complete_help
+</span></span><span class="line"><span class="cl">"^Xm" _most_recent_file
+</span></span><span class="line"><span class="cl">"^Xn" _next_tags
+</span></span><span class="line"><span class="cl">"^Xr" history-incremental-search-backward
+</span></span><span class="line"><span class="cl">"^Xs" history-incremental-search-forward
+</span></span><span class="line"><span class="cl">"^Xt" _complete_tag
+</span></span><span class="line"><span class="cl">"^Xu" undo
+</span></span><span class="line"><span class="cl">"^X~" _bash_list-choices
+</span></span><span class="line"><span class="cl">"^Y" yank
+</span></span><span class="line"><span class="cl">"^[^D" list-choices
+</span></span><span class="line"><span class="cl">"^[^G" send-break
+</span></span><span class="line"><span class="cl">"^[^H" backward-kill-word
+</span></span><span class="line"><span class="cl">"^[^I" self-insert-unmeta
+</span></span><span class="line"><span class="cl">"^[^J" self-insert-unmeta
+</span></span><span class="line"><span class="cl">"^[^L" clear-screen
+</span></span><span class="line"><span class="cl">"^[^M" self-insert-unmeta
+</span></span><span class="line"><span class="cl">"^[^_" copy-prev-word
+</span></span><span class="line"><span class="cl">"^[ " expand-history
+</span></span><span class="line"><span class="cl">"^[!" expand-history
+</span></span><span class="line"><span class="cl">"^[\"" quote-region
+</span></span><span class="line"><span class="cl">"^[\$" spell-word
+</span></span><span class="line"><span class="cl">"^['" quote-line
+</span></span><span class="line"><span class="cl">"^[," _history-complete-newer
+</span></span><span class="line"><span class="cl">"^[-" neg-argument
+</span></span><span class="line"><span class="cl">"^[." insert-last-word
+</span></span><span class="line"><span class="cl">"^[/" _history-complete-older
+</span></span><span class="line"><span class="cl">"^[0" digit-argument
+</span></span><span class="line"><span class="cl">"^[1" digit-argument
+</span></span><span class="line"><span class="cl">"^[2" digit-argument
+</span></span><span class="line"><span class="cl">"^[3" digit-argument
+</span></span><span class="line"><span class="cl">"^[4" digit-argument
+</span></span><span class="line"><span class="cl">"^[5" digit-argument
+</span></span><span class="line"><span class="cl">"^[6" digit-argument
+</span></span><span class="line"><span class="cl">"^[7" digit-argument
+</span></span><span class="line"><span class="cl">"^[8" digit-argument
+</span></span><span class="line"><span class="cl">"^[9" digit-argument
+</span></span><span class="line"><span class="cl">"^[&lt;" beginning-of-buffer-or-history
+</span></span><span class="line"><span class="cl">"^[&gt;" end-of-buffer-or-history
+</span></span><span class="line"><span class="cl">"^[?" which-command
+</span></span><span class="line"><span class="cl">"^[A" accept-and-hold
+</span></span><span class="line"><span class="cl">"^[B" backward-word
+</span></span><span class="line"><span class="cl">"^[C" capitalize-word
+</span></span><span class="line"><span class="cl">"^[D" kill-word
+</span></span><span class="line"><span class="cl">"^[F" forward-word
+</span></span><span class="line"><span class="cl">"^[G" get-line
+</span></span><span class="line"><span class="cl">"^[H" run-help
+</span></span><span class="line"><span class="cl">"^[L" down-case-word
+</span></span><span class="line"><span class="cl">"^[N" history-search-forward
+</span></span><span class="line"><span class="cl">"^[OA" up-line-or-beginning-search
+</span></span><span class="line"><span class="cl">"^[OB" down-line-or-beginning-search
+</span></span><span class="line"><span class="cl">"^[OC" forward-char
+</span></span><span class="line"><span class="cl">"^[OD" backward-char
+</span></span><span class="line"><span class="cl">"^[OF" end-of-line
+</span></span><span class="line"><span class="cl">"^[OH" beginning-of-line
+</span></span><span class="line"><span class="cl">"^[P" history-search-backward
+</span></span><span class="line"><span class="cl">"^[Q" push-line
+</span></span><span class="line"><span class="cl">"^[S" spell-word
+</span></span><span class="line"><span class="cl">"^[T" transpose-words
+</span></span><span class="line"><span class="cl">"^[U" up-case-word
+</span></span><span class="line"><span class="cl">"^[W" copy-region-as-kill
+</span></span><span class="line"><span class="cl">"^[[1;5C" forward-word
+</span></span><span class="line"><span class="cl">"^[[1;5D" backward-word
+</span></span><span class="line"><span class="cl">"^[[200~" bracketed-paste
+</span></span><span class="line"><span class="cl">"^[[3~" delete-char
+</span></span><span class="line"><span class="cl">"^[[5~" up-line-or-history
+</span></span><span class="line"><span class="cl">"^[[6~" down-line-or-history
+</span></span><span class="line"><span class="cl">"^[[A" up-line-or-history
+</span></span><span class="line"><span class="cl">"^[[B" down-line-or-history
+</span></span><span class="line"><span class="cl">"^[[C" forward-char
+</span></span><span class="line"><span class="cl">"^[[D" backward-char
+</span></span><span class="line"><span class="cl">"^[[Z" reverse-menu-complete
+</span></span><span class="line"><span class="cl">"^[_" insert-last-word
+</span></span><span class="line"><span class="cl">"^[a" accept-and-hold
+</span></span><span class="line"><span class="cl">"^[b" backward-word
+</span></span><span class="line"><span class="cl">"^[c" capitalize-word
+</span></span><span class="line"><span class="cl">"^[d" kill-word
+</span></span><span class="line"><span class="cl">"^[f" forward-word
+</span></span><span class="line"><span class="cl">"^[g" get-line
+</span></span><span class="line"><span class="cl">"^[h" run-help
+</span></span><span class="line"><span class="cl">"^[l" "ls^J"
+</span></span><span class="line"><span class="cl">"^[m" copy-prev-shell-word
+</span></span><span class="line"><span class="cl">"^[n" history-search-forward
+</span></span><span class="line"><span class="cl">"^[p" history-search-backward
+</span></span><span class="line"><span class="cl">"^[q" push-line
+</span></span><span class="line"><span class="cl">"^[s" spell-word
+</span></span><span class="line"><span class="cl">"^[t" transpose-words
+</span></span><span class="line"><span class="cl">"^[u" up-case-word
+</span></span><span class="line"><span class="cl">"^[w" kill-region
+</span></span><span class="line"><span class="cl">"^[x" execute-named-cmd
+</span></span><span class="line"><span class="cl">"^[y" yank-pop
+</span></span><span class="line"><span class="cl">"^[z" execute-last-named-cmd
+</span></span><span class="line"><span class="cl">"^[|" vi-goto-column
+</span></span><span class="line"><span class="cl">"^[~" _bash_complete-word
+</span></span><span class="line"><span class="cl">"^[^?" backward-kill-word
+</span></span><span class="line"><span class="cl">"^_" undo
+</span></span><span class="line"><span class="cl">" " magic-space
+</span></span><span class="line"><span class="cl">"!"-"3" self-insert
+</span></span><span class="line"><span class="cl">"3~" kill-word
+</span></span><span class="line"><span class="cl">"4"-"5" self-insert
+</span></span><span class="line"><span class="cl">"5~" kill-word
+</span></span><span class="line"><span class="cl">"6"-"~" self-insert
+</span></span><span class="line"><span class="cl">"^?" backward-delete-char
+</span></span><span class="line"><span class="cl">"\M-^@"-"\M-^?" self-insert
+</span></span></code></pre></div></details>
 <div id="refContainer">
-</div>
-</article>
-</div>
-</div>
-<div class="row likebtn-container">
+</div></article></div></div><div class="row likebtn-container">
 <span class="likebtn-wrapper" data-theme="black" data-white_label="true" data-dislike_enabled="false" data-popup_disabled="true" data-share_enabled="false" data-lazy_load="true" data-tooltip_enabled="false"></span>
-<script>(function(b,c,d){if(b.getElementById("likebtn_wjs"))return;a=b.createElement(c),m=b.getElementsByTagName(c)[0],a.async=1,a.id="likebtn_wjs",a.src=d,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div>
-<div class="row">
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
+</div><div class="row">
 <div class="post-pager">
 <ul class="pager">
 <li class="previous">
 <a href="https://lingsamuel.github.io/page/2020-07-17-gnome-cannot-unlock-bug/">← GNOME 的无法解锁 Bug</a>
-</li>
-<li class="next">
+</li><li class="next">
 <a href="https://lingsamuel.github.io/page/kubectl-life-saver/">Kubectl Life Saver →</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="toc">
+</li></ul></div></div></div><div id="toc">
 <aside>
 <nav id="TableOfContents">
 <ul>
-<li><a href="#oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</a></li>
-<li><a href="#powerlevel10k">Powerlevel10k</a></li>
-<li><a href="#stty-config">stty Config</a></li>
-<li><a href="#aliases--custom-functions">Aliases &amp; Custom Functions</a></li>
-<li><a href="#paste-performance">Paste Performance</a></li>
-<li><a href="#plugin">Plugin</a></li>
-<li><a href="#keybindings">Keybindings (zsh <code>bindkey</code>)</a></li>
-</ul>
-</nav>
-</aside>
-</div>
-</div>
-<footer id="footer">
+<li><a href="#oh-my-zsh-offline-installation">Oh-My-Zsh Offline Installation</a></li><li><a href="#powerlevel10k">Powerlevel10k</a></li><li><a href="#stty-config">stty Config</a></li><li><a href="#aliases--custom-functions">Aliases &amp; Custom Functions</a></li><li><a href="#paste-performance">Paste Performance</a></li><li><a href="#plugin">Plugin</a></li><li><a href="#keybindings">Keybindings (zsh <code>bindkey</code>)</a></li></ul></nav></aside></div></div><footer id="footer">
 <div class="footer">
 <p>Copyright © 2022
-<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.92.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
+<a href="https://lingsamuel.github.io">Ling Samuel</a> • Powered by <a href="https://gohugo.io">Hugo v0.93.2</a> • Theme <a href="https://github.com/lingsamuel/purity">Purity</a> •
 Hosted by GitHub
-</p>
-</div>
-</footer>
+</p></div></footer>
 
-
-<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel='stylesheet'">
-
+<link rel="stylesheet" href="https://lingsamuel.github.io/css/mermaid.min.css" media="screen" as="style" onload="this.rel=&quot;stylesheet&quot;">
 
 
 
