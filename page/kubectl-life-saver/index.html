@@ -1,69 +1,12 @@
-<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>Kubectl Life Saver - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
-<link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
-<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-</head><body id=body>
-<nav id=navbar>
-<div class=nav>
-<div class=navbar-header>
-<img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
-Hakurei Shrine
-</a>
-</div><div class=navbar-menu>
-<ul class=navbar-list>
-<li>
-<a title=Articles href=/page>Articles</a>
-</li><li>
-<a title=Reviews href=/review>Reviews</a>
-</li><li>
-<a title=Feeds href=/feed>Feeds</a>
-</li><li>
-<a title=Kubernetes href=/k8s>Kubernetes</a>
-</li><li>
-<a title=Me href=/me>Me</a>
-</li><li>
-<a title=About href=/about>About</a>
-</li><li>
-<a title=Categories href=/categories>Categories</a>
-</li><li>
-<a title=Tags href=/tags>Tags</a>
-</li></ul></div></div></nav><div class=flex-row-container>
-<div class="container container-single" id=mainContainer role=main>
-<div class=container-single-main>
-<header class="header post-header">
-<div class=row>
-<div class=post-title>
-<h1>Kubectl Life Saver</h1></div><div class=post-meta>
-<span class=author>
-Ling Samuel
-</span>
+<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>Kubectl Life Saver - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet><link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media=screen as=style onload='this.rel="stylesheet"'><link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen><link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'><link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'><link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body id=body><nav id=navbar><div class=nav><div class=navbar-header><img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
+Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li><a title=Kubernetes href=/k8s>Kubernetes</a></li><li><a title=Me href=/me>Me</a></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=flex-row-container><div class="container container-single" id=mainContainer role=main><div class=container-single-main><header class="header post-header"><div class=row><div class=post-title><h1>Kubectl Life Saver</h1></div><div class=post-meta><span class=author>Ling Samuel</span>
 &bull;
-<span class=date>
-2020-07-19
-</span>
+<span class=date>2020-07-19</span>
 &bull;
-<span class=categories>
-<a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;
-</span>
+<span class=categories><a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;</span>
 &bull;
-<span class=tags>
-<a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
-<a href=https://lingsamuel.github.io//tags/shell/>shell</a>&nbsp;
-</span>
-</div></div></header><div class=row>
-<article role=main class=post-content>
-<p>Kubectl shortcut aliases and a interactive command builder.</p><p><a href=https://github.com/lingsamuel/kubectl-life-saver>GitHub Link</a>.</p><h2 id=kubectl-shortcut-aliases-generator>Kubectl Shortcut Aliases Generator</h2><p>A simple script generates useful aliases.</p><h3 id=usage>Usage</h3><p>Kubectl shortcuts general rule:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ebnf data-lang=ebnf><span class=line><span class=cl><span class=k>k</span><span class=err>[</span><span class=k>n</span><span class=err>|</span><span class=k>a</span><span class=err>]&lt;</span><span class=k>command</span><span class=err>&gt;&lt;</span><span class=k>resource</span><span class=err>&gt;</span> <span class=err>[</span><span class=k>other-options</span><span class=err>]</span>
+<span class=tags><a href=https://lingsamuel.github.io//tags/linux/>linux</a>&nbsp;
+<a href=https://lingsamuel.github.io//tags/shell/>shell</a>&nbsp;</span></div></div></header><div class=row><article role=main class=post-content><p>Kubectl shortcut aliases and a interactive command builder.</p><p><a href=https://github.com/lingsamuel/kubectl-life-saver>GitHub Link</a>.</p><h2 id=kubectl-shortcut-aliases-generator>Kubectl Shortcut Aliases Generator</h2><p>A simple script generates useful aliases.</p><h3 id=usage>Usage</h3><p>Kubectl shortcuts general rule:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ebnf data-lang=ebnf><span class=line><span class=cl><span class=k>k</span><span class=err>[</span><span class=k>n</span><span class=err>|</span><span class=k>a</span><span class=err>]&lt;</span><span class=k>command</span><span class=err>&gt;&lt;</span><span class=k>resource</span><span class=err>&gt;</span> <span class=err>[</span><span class=k>other-options</span><span class=err>]</span>
 </span></span></code></pre></div><p><code>k</code> means <code>kubectl</code>, <code>n</code> means <code>-n $NS</code>, <code>a</code> means <code>--all-namespaces</code>. Set <code>NS=xx</code> before use <code>kn</code> aliases. Check namespace by <code>ns</code> or it&rsquo;s equivalent <code>echo $NS</code>.</p><p>Examples:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kgn <span class=c1># kubectl get nodes</span>
 </span></span><span class=line><span class=cl>kgn -o wide <span class=c1># kubectl get nodes -o wide</span>
 </span></span><span class=line><span class=cl>
@@ -72,11 +15,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl>kngp --watch <span class=c1># kubectl -n $NS get pods --watch</span>
 </span></span><span class=line><span class=cl>knl podname <span class=c1># kubectl -n $NS logs podname</span>
 </span></span><span class=line><span class=cl>knx podname bash <span class=c1># kubectl -n $NS exec -it podname bash</span>
-</span></span></code></pre></div><p>The script may generate some invalid aliases or override some existed commands, use it at your own risk.</p><p>If you don&rsquo;t want to use variable <code>NS</code>, case-sensitive search <code>$NS</code> and replace it.</p><h4 id=all-commands>All commands</h4><p>You can add/edit/remove command aliases in the array <code>_K8S_COMMAND_LIST</code> with format <code>&lt;shortcut>/&lt;command></code>.</p><ul>
-<li>g: get</li><li>d: describe</li><li>e: edit</li><li>r: delete</li></ul><h5 id=special-commands>Special commands</h5><ul>
-<li>x: <code>exec -it</code>, the only alias are <code>kx</code> and <code>knx</code></li><li>l: <code>logs</code>, the only alias are <code>kl</code> and <code>knl</code></li></ul><h4 id=all-resources>All resources</h4><p>Resources store in array <code>_K8S_RESOURCE_LIST</code> with same rule like commands.</p><ul>
-<li>n: Nodes</li><li>ns: Namespaces</li><li>l: LimitRanges</li><li>lr: LimitRanges</li><li>crb: ClusterRoleBindings</li><li>rb: RoleBindings</li><li>cr: ClusterRoles</li><li>r: Roles</li><li>ds: DaemonSets</li><li>d: Deployments</li><li>rs: ReplicaSets</li><li>ss: StatefulSets</li><li>rc: ReplicationControllers</li><li>p: Pods</li><li>j: Jobs</li><li>cj: Cronjob</li><li>pvc: PersistentVolumeClaims</li><li>pv: PersistentVolumes</li><li>q: ResourceQuotas</li><li>svc: Services</li><li>c: ConfigMaps</li><li>cm: ConfigMaps</li><li>i: Ingresses</li><li>e: Events</li><li>s: Secrets</li><li>sa: ServiceAccounts</li><li>sc: StorageClasses</li><li>np: NetworkPolicies</li></ul><h3 id=script>Script</h3><p>Add this script to your <code>.rc</code> file (such as <code>.bashrc</code> or <code>.zshrc</code>):</p><details><summary>Expand code</summary>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># kubectl completion</span>
+</span></span></code></pre></div><p>The script may generate some invalid aliases or override some existed commands, use it at your own risk.</p><p>If you don&rsquo;t want to use variable <code>NS</code>, case-sensitive search <code>$NS</code> and replace it.</p><h4 id=all-commands>All commands</h4><p>You can add/edit/remove command aliases in the array <code>_K8S_COMMAND_LIST</code> with format <code>&lt;shortcut>/&lt;command></code>.</p><ul><li>g: get</li><li>d: describe</li><li>e: edit</li><li>r: delete</li></ul><h5 id=special-commands>Special commands</h5><ul><li>x: <code>exec -it</code>, the only alias are <code>kx</code> and <code>knx</code></li><li>l: <code>logs</code>, the only alias are <code>kl</code> and <code>knl</code></li></ul><h4 id=all-resources>All resources</h4><p>Resources store in array <code>_K8S_RESOURCE_LIST</code> with same rule like commands.</p><ul><li>n: Nodes</li><li>ns: Namespaces</li><li>l: LimitRanges</li><li>lr: LimitRanges</li><li>crb: ClusterRoleBindings</li><li>rb: RoleBindings</li><li>cr: ClusterRoles</li><li>r: Roles</li><li>ds: DaemonSets</li><li>d: Deployments</li><li>rs: ReplicaSets</li><li>ss: StatefulSets</li><li>rc: ReplicationControllers</li><li>p: Pods</li><li>j: Jobs</li><li>cj: Cronjob</li><li>pvc: PersistentVolumeClaims</li><li>pv: PersistentVolumes</li><li>q: ResourceQuotas</li><li>svc: Services</li><li>c: ConfigMaps</li><li>cm: ConfigMaps</li><li>i: Ingresses</li><li>e: Events</li><li>s: Secrets</li><li>sa: ServiceAccounts</li><li>sc: StorageClasses</li><li>np: NetworkPolicies</li></ul><h3 id=script>Script</h3><p>Add this script to your <code>.rc</code> file (such as <code>.bashrc</code> or <code>.zshrc</code>):</p><details><summary>Expand code</summary><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># kubectl completion</span>
 </span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[[</span> ! -f <span class=nv>$HOME</span>/.k8s_completion.sh <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
 </span></span><span class=line><span class=cl>  kubectl completion zsh &gt; <span class=nv>$HOME</span>/.k8s_completion.sh
 </span></span><span class=line><span class=cl><span class=k>fi</span>
@@ -171,14 +110,12 @@ Ling Samuel
 </span></span><span class=line><span class=cl>  __generate_k8s_aliases <span class=nv>$HOME</span>/.k8s_aliases.sh
 </span></span><span class=line><span class=cl><span class=k>fi</span>
 </span></span><span class=line><span class=cl><span class=nb>source</span> <span class=nv>$HOME</span>/.k8s_aliases.sh
-</span></span></code></pre></div></details>
-<h2 id=interactive-command-builder-using-peco>Interactive command builder using peco</h2><p><code>kp</code> means <code>kubectl-peco</code>, it provides a interactive command builder using <code>peco</code>, you need install <code>peco</code> first.</p><h3 id=usage-1>Usage</h3><p><code>kp</code> will ask you four information, namespace, resource, name, and command.</p><p><code>lkp</code> will display <code>last-kp</code> command.</p><p><code>rkp</code> will re-run last <code>kp</code> command, and parameter can be <code>1~3</code>. <code>rkp N</code> will provide first N parameters in last executed <code>kp</code> command.</p><p>Last executed info stored in folder <code>$HOME/.kp</code>.</p><h4 id=example>Example</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kp <span class=c1># run kp without parameters, will ask you 4 params</span>
+</span></span></code></pre></div></details><h2 id=interactive-command-builder-using-peco>Interactive command builder using peco</h2><p><code>kp</code> means <code>kubectl-peco</code>, it provides a interactive command builder using <code>peco</code>, you need install <code>peco</code> first.</p><h3 id=usage-1>Usage</h3><p><code>kp</code> will ask you four information, namespace, resource, name, and command.</p><p><code>lkp</code> will display <code>last-kp</code> command.</p><p><code>rkp</code> will re-run last <code>kp</code> command, and parameter can be <code>1~3</code>. <code>rkp N</code> will provide first N parameters in last executed <code>kp</code> command.</p><p>Last executed info stored in folder <code>$HOME/.kp</code>.</p><h4 id=example>Example</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kp <span class=c1># run kp without parameters, will ask you 4 params</span>
 </span></span><span class=line><span class=cl>kp kube-system pod <span class=c1># provide N parameters will skip first N ask process</span>
 </span></span><span class=line><span class=cl>rkp <span class=m>2</span> <span class=c1># In this situation, it equals to `kp kube-system pod`</span>
 </span></span><span class=line><span class=cl>rkp <span class=m>1</span> <span class=c1># Equals to `kp kube-system`</span>
 </span></span><span class=line><span class=cl>lkp <span class=c1># Display last executed command</span>
-</span></span></code></pre></div><h3 id=script-1>Script</h3><details><summary>Expand code</summary>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kp<span class=o>()</span> <span class=o>{</span>
+</span></span></code></pre></div><h3 id=script-1>Script</h3><details><summary>Expand code</summary><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kp<span class=o>()</span> <span class=o>{</span>
 </span></span><span class=line><span class=cl>  <span class=nv>ns</span><span class=o>=</span><span class=nv>$1</span>
 </span></span><span class=line><span class=cl>  <span class=nv>rs</span><span class=o>=</span><span class=nv>$2</span>
 </span></span><span class=line><span class=cl>  <span class=nv>name</span><span class=o>=</span><span class=nv>$3</span>
@@ -288,15 +225,13 @@ Ling Samuel
 </span></span><span class=line><span class=cl>    kp <span class=k>$(</span>cat <span class=nv>$HOME</span>/.kp/last_ns<span class=k>)</span> <span class=k>$(</span>cat <span class=nv>$HOME</span>/.kp/last_rs<span class=k>)</span> <span class=k>$(</span>cat <span class=nv>$HOME</span>/.kp/last_name<span class=k>)</span>
 </span></span><span class=line><span class=cl>  <span class=k>fi</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></div></details>
-<h2 id=interactive-execlogs-command>Interactive exec/logs command</h2><p>This two functions let you exec/logs pod without copy/paste, using <code>peco</code>.</p><p>Example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>iknx <span class=c1># default cmd is `bash`</span>
+</span></span></code></pre></div></details><h2 id=interactive-execlogs-command>Interactive exec/logs command</h2><p>This two functions let you exec/logs pod without copy/paste, using <code>peco</code>.</p><p>Example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>iknx <span class=c1># default cmd is `bash`</span>
 </span></span><span class=line><span class=cl>iknx sh <span class=c1># args is okay</span>
 </span></span><span class=line><span class=cl>iknx cat /etc/hosts <span class=c1># more args is okay</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>iknl
 </span></span><span class=line><span class=cl>iknl -f <span class=c1># args is okay</span>
-</span></span></code></pre></div><h3 id=script-2>Script</h3><details><summary>Expand code</summary>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>alias</span> <span class=nv>first</span><span class=o>=</span><span class=s1>&#39;awk &#34;{print \$1}&#34;&#39;</span> <span class=c1># This alias existed in another post</span>
+</span></span></code></pre></div><h3 id=script-2>Script</h3><details><summary>Expand code</summary><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>alias</span> <span class=nv>first</span><span class=o>=</span><span class=s1>&#39;awk &#34;{print \$1}&#34;&#39;</span> <span class=c1># This alias existed in another post</span>
 </span></span><span class=line><span class=cl>iknx<span class=o>()</span> <span class=o>{</span> <span class=c1># inetractive knx</span>
 </span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>CMD</span><span class=o>=</span><span class=si>${</span><span class=nv>1</span><span class=k>:-</span><span class=nv>bash</span><span class=si>}</span>
 </span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>LEN</span><span class=o>=</span><span class=si>${#</span><span class=p>@</span><span class=si>}</span>
@@ -321,37 +256,12 @@ Ling Samuel
 </span></span><span class=line><span class=cl>  <span class=k>fi</span>
 </span></span><span class=line><span class=cl>  knl <span class=nv>$POD</span> <span class=nv>$@</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></div></details>
-<p>Enjoy!</p><div id=refContainer>
-</div></article></div></div><div class="row likebtn-container">
-<span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
-<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div><div class=row>
-<div class=post-pager>
-<ul class=pager>
-<li class=previous>
-<a href=https://lingsamuel.github.io/page/zsh-configuration/>&larr; zsh 配置</a>
-</li><li class=next>
-<a href=https://lingsamuel.github.io/page/system-configuration/>系统配置记录 &rarr;</a>
-</li></ul></div></div></div><div id=toc>
-<aside>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#kubectl-shortcut-aliases-generator>Kubectl Shortcut Aliases Generator</a>
-<ul>
-<li><a href=#usage>Usage</a></li><li><a href=#script>Script</a></li></ul></li><li><a href=#interactive-command-builder-using-peco>Interactive command builder using peco</a>
-<ul>
-<li><a href=#usage-1>Usage</a></li><li><a href=#script-1>Script</a></li></ul></li><li><a href=#interactive-execlogs-command>Interactive exec/logs command</a>
-<ul>
-<li><a href=#script-2>Script</a></li></ul></li></ul></nav></aside></div></div><footer id=footer>
-<div class=footer>
-<p>Copyright © 2022
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.93.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
-Hosted by GitHub
-</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+</span></span></code></pre></div></details><p>Enjoy!</p><div id=refContainer></div></article></div></div><div class="row likebtn-container"><span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script></div><div class=row><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/page/zsh-configuration/>&larr; zsh 配置</a></li><li class=next><a href=https://lingsamuel.github.io/page/system-configuration/>系统配置记录 &rarr;</a></li></ul></div></div></div><div id=toc><aside><nav id=TableOfContents><ul><li><a href=#kubectl-shortcut-aliases-generator>Kubectl Shortcut Aliases Generator</a><ul><li><a href=#usage>Usage</a></li><li><a href=#script>Script</a></li></ul></li><li><a href=#interactive-command-builder-using-peco>Interactive command builder using peco</a><ul><li><a href=#usage-1>Usage</a></li><li><a href=#script-1>Script</a></li></ul></li><li><a href=#interactive-execlogs-command>Interactive exec/logs command</a><ul><li><a href=#script-2>Script</a></li></ul></li></ul></nav></aside></div></div><footer id=footer><div class=footer><p>Copyright © 2023
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.111.3</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
 <script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
-<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
 <script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(e){const t=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
@@ -378,9 +288,5 @@ Hosted by GitHub
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((t)=>{var n=t.innerText,e;mermaidKeywords.some(e=>n.startsWith(e))&&(e=t.parentElement.parentElement,e.className=="highlight"&&(e.className="mermaid",e.innerHTML=colorizeMermaid(n),e.align="center",e.style="background: #eff1f3;"))})</script>
-<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(n,s=0){let e=3735928559^s,t=1103547991^s;for(let s=0,o;s<n.length;s++)o=n.charCodeAt(s),e=Math.imul(e^o,2654435761),t=Math.imul(t^o,1597334677);return e=Math.imul(e^e>>>16,2246822507)^Math.imul(t^t>>>13,3266489909),t=Math.imul(t^t>>>16,2246822507)^Math.imul(e^e>>>13,3266489909),4294967296*(2097151&t)+(e>>>0)}let existed={};function calculateHash(t){let e=cyrb53(t);return typeof existed[e]=="number"&&(e=existed[e]+1),existed[e]=e,e}document.querySelectorAll(".mermaid").forEach(function(t){let e=t.textContent;console.log("Rendering ",e);let n="graph-"+calculateHash(e);mermaid.mermaidAPI.render(n,e,e=>{t.innerHTML=e})})</script>
-<script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
-<script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
-<script data-stage=prerender>fuhsi()</script>
-</body></html>
+  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((e)=>{var n,s=e.innerText;mermaidKeywords.some(e=>s.startsWith(e))&&(n=e.parentElement.parentElement,n.className=="highlight"&&(n.className="mermaid",n.innerHTML=colorizeMermaid(s),n.align="center",n.style="background: #eff1f3;"))})</script><script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(e,t=0){let n=3735928559^t,s=1103547991^t;for(let t=0,o;t<e.length;t++)o=e.charCodeAt(t),n=Math.imul(n^o,2654435761),s=Math.imul(s^o,1597334677);return n=Math.imul(n^n>>>16,2246822507)^Math.imul(s^s>>>13,3266489909),s=Math.imul(s^s>>>16,2246822507)^Math.imul(n^n>>>13,3266489909),4294967296*(2097151&s)+(n>>>0)}let existed={};function calculateHash(e){let t=cyrb53(e);return typeof existed[t]=="number"&&(t=existed[t]+1),existed[t]=t,t}document.querySelectorAll(".mermaid").forEach(function(e){let t=e.textContent;console.log("Rendering ",t);let n="graph-"+calculateHash(t);mermaid.mermaidAPI.render(n,t,t=>{e.innerHTML=t})})</script><script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script><script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
+<script data-stage=prerender>fuhsi()</script></body></html>

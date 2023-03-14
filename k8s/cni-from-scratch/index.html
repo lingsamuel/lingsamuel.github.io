@@ -1,76 +1,11 @@
-<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2">
-<title>CNI From Scratch - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine">
-<link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Serif+SC:wght@200;300;500;600;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen>
-<link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-</head><body id=body>
-<nav id=navbar>
-<div class=nav>
-<div class=navbar-header>
-<img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
-Hakurei Shrine
-</a>
-</div><div class=navbar-menu>
-<ul class=navbar-list>
-<li>
-<a title=Articles href=/page>Articles</a>
-</li><li>
-<a title=Reviews href=/review>Reviews</a>
-</li><li>
-<a title=Feeds href=/feed>Feeds</a>
-</li><li>
-<a title=Kubernetes href=/k8s>Kubernetes</a>
-</li><li>
-<a title=Me href=/me>Me</a>
-</li><li>
-<a title=About href=/about>About</a>
-</li><li>
-<a title=Categories href=/categories>Categories</a>
-</li><li>
-<a title=Tags href=/tags>Tags</a>
-</li></ul></div></div></nav><div class=flex-row-container>
-<div class="container container-single" id=mainContainer role=main>
-<div class=container-single-main>
-<header class="header post-header">
-<div class=row>
-<div class=post-title>
-<h1>CNI From Scratch</h1></div><div class=post-meta>
-<span class=author>
-Ling Samuel
-</span>
+<!doctype html><html lang=zh itemscope itemtype=http://schema.org/WebPage><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><title>CNI From Scratch - Hakurei Shrine</title><link rel=alternate href=https://lingsamuel.github.io/index.xml type=application/rss+xml title="Hakurei Shrine"><link href=https://lingsamuel.github.io/img/favicon.ico rel=icon type=image/x-icon alt=favicon><link rel=preconnect href=https://fonts.gstatic.com><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel=stylesheet><link rel=preload href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;500;600;900&amp;family=Source+Serif+Pro:ital,wght@0,200;0,300;0,600;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" media=screen as=style onload='this.rel="stylesheet"'><link rel=stylesheet href=https://lingsamuel.github.io/css/main.min.css media=screen><link rel=preload href=https://lingsamuel.github.io/css/book.min.css media=screen as=style onload='this.rel="stylesheet"'><link rel=preload href=https://lingsamuel.github.io/css/quotes.min.css media=screen as=style onload='this.rel="stylesheet"'><link rel=preload data-dep=katex href=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css integrity=sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5 crossorigin=anonymous media=screen as=style onload='this.rel="stylesheet"'><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-89095899-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body id=body><nav id=navbar><div class=nav><div class=navbar-header><img src=https://lingsamuel.github.io/img/favicon.ico class=favicon alt=favicon><a href=https://lingsamuel.github.io/>
+Hakurei Shrine</a></div><div class=navbar-menu><ul class=navbar-list><li><a title=Articles href=/page>Articles</a></li><li><a title=Reviews href=/review>Reviews</a></li><li><a title=Feeds href=/feed>Feeds</a></li><li><a title=Kubernetes href=/k8s>Kubernetes</a></li><li><a title=Me href=/me>Me</a></li><li><a title=About href=/about>About</a></li><li><a title=Categories href=/categories>Categories</a></li><li><a title=Tags href=/tags>Tags</a></li></ul></div></div></nav><div class=flex-row-container><div class="container container-single" id=mainContainer role=main><div class=container-single-main><header class="header post-header"><div class=row><div class=post-title><h1>CNI From Scratch</h1></div><div class=post-meta><span class=author>Ling Samuel</span>
 &bull;
-<span class=date>
-2021-04-08
-</span>
+<span class=date>2021-04-08</span>
 &bull;
-<span class=categories>
-<a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;
-</span>
-</div></div></header><div class=row>
-<article role=main class=post-content>
-<p>Write a simple CNI plugin from scratch.</p><p>在编写自己的 CNI 插件前，我们需要先了解一下 <a href=https://github.com/containernetworking/cni/blob/spec-v0.4.0/SPEC.md>CNI Spec</a>。</p><p>规范规定，CNI v0.4.0 必须实现的接口有 <code>ADD</code>，<code>DEL</code>，<code>CHECK</code>，<code>VERSION</code> 四个。不过，对于学习目的来说，我们主要关注 <code>ADD</code> 接口即可。</p><ul>
-<li><code>ADD</code>：将容器添加到网络中。
-<ul>
-<li>参数：
-<ul>
-<li>容器 ID。需要是唯一的非空字符串，由运行时生成。</li><li>Network Namespace 路径。如 <code>/proc/[pid]/ns/net</code>。</li><li>网络配置。</li><li>额外参数。</li><li>容器内的设备名。</li></ul></li><li>返回值：
-<ul>
-<li>设备列表。</li><li>IP 列表。</li><li>DNS 信息。</li></ul></li></ul></li></ul><p>在调用 CNI 插件时，运行时会设置如下环境变量：</p><ul>
-<li><code>CNI_COMMAND</code>：需要执行的命令，如 <code>ADD</code>。</li><li><code>CNI_CONTAINERID</code>: 容器 ID。</li><li><code>CNI_NETNS</code>: Network Namespace 路径。</li><li><code>CNI_IFNAME</code>:设备名。</li><li><code>CNI_ARGS</code>: 额外参数。</li><li><code>CNI_PATH</code>: CNI 插件的 PATH 列表。</li></ul><p>我们主要关注前四个参数。</p><hr>
-<p>使用双 KVM 节点的 Minikube 作为实验环境。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>minikube start -n <span class=m>2</span> --driver kvm2 --kubernetes-version v1.20.0 --memory <span class=m>2000</span>
+<span class=categories><a href=https://lingsamuel.github.io/categories/kubernetes/>kubernetes</a>&nbsp;</span></div></div></header><div class=row><article role=main class=post-content><p>Write a simple CNI plugin from scratch.</p><p>在编写自己的 CNI 插件前，我们需要先了解一下 <a href=https://github.com/containernetworking/cni/blob/spec-v0.4.0/SPEC.md>CNI Spec</a>。</p><p>规范规定，CNI v0.4.0 必须实现的接口有 <code>ADD</code>，<code>DEL</code>，<code>CHECK</code>，<code>VERSION</code> 四个。不过，对于学习目的来说，我们主要关注 <code>ADD</code> 接口即可。</p><ul><li><code>ADD</code>：将容器添加到网络中。<ul><li>参数：<ul><li>容器 ID。需要是唯一的非空字符串，由运行时生成。</li><li>Network Namespace 路径。如 <code>/proc/[pid]/ns/net</code>。</li><li>网络配置。</li><li>额外参数。</li><li>容器内的设备名。</li></ul></li><li>返回值：<ul><li>设备列表。</li><li>IP 列表。</li><li>DNS 信息。</li></ul></li></ul></li></ul><p>在调用 CNI 插件时，运行时会设置如下环境变量：</p><ul><li><code>CNI_COMMAND</code>：需要执行的命令，如 <code>ADD</code>。</li><li><code>CNI_CONTAINERID</code>: 容器 ID。</li><li><code>CNI_NETNS</code>: Network Namespace 路径。</li><li><code>CNI_IFNAME</code>:设备名。</li><li><code>CNI_ARGS</code>: 额外参数。</li><li><code>CNI_PATH</code>: CNI 插件的 PATH 列表。</li></ul><p>我们主要关注前四个参数。</p><hr><p>使用双 KVM 节点的 Minikube 作为实验环境。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>minikube start -n <span class=m>2</span> --driver kvm2 --kubernetes-version v1.20.0 --memory <span class=m>2000</span>
 </span></span></code></pre></div><p>在 minikube 启动后，默认是使用 Kindnet 作为 CNI 插件，可在 <code>kube-system</code> 中看到。</p><p>检查节点的 Pod CIDR：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl describe nodes <span class=p>|</span> grep CIDR
-</span></span></code></pre></div><p>以 master 节点为 <code>10.244.0.0/24</code>，worker 节点为 <code>10.244.1.0/24</code> 为例。</p><hr>
-<p>先来几个工具函数。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>MINIKUBE_HOME</span><span class=o>=</span><span class=nv>$HOME</span>/.minikube
+</span></span></code></pre></div><p>以 master 节点为 <code>10.244.0.0/24</code>，worker 节点为 <code>10.244.1.0/24</code> 为例。</p><hr><p>先来几个工具函数。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>MINIKUBE_HOME</span><span class=o>=</span><span class=nv>$HOME</span>/.minikube
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>profile<span class=o>()</span> <span class=o>{</span>
 </span></span><span class=line><span class=cl>    <span class=nv>MINIKUBE_PROFILE</span><span class=o>=</span><span class=si>${</span><span class=nv>1</span><span class=si>}</span>
@@ -79,8 +14,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl>    <span class=nv>SSH</span><span class=o>=</span><span class=s2>&#34;ssh </span><span class=nv>$SSH_OPT</span><span class=s2> docker@</span><span class=nv>$IP</span><span class=s2>&#34;</span>
 </span></span><span class=line><span class=cl>    <span class=nv>SCP</span><span class=o>=</span><span class=s2>&#34;scp </span><span class=nv>$SSH_OPT</span><span class=s2>&#34;</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></div><p>函数 <code>profile</code> 可以设置 <code>SSH</code> 和 <code>SCP</code> 两个环境变量，方便后续脚本编写。</p><hr>
-<p>首先，我们需要为每个节点创建一个与容器网络连接的网桥 <code>cni0</code>，占据 <code>.1</code> 的 IP。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>profile <span class=s2>&#34;minikube&#34;</span>
+</span></span></code></pre></div><p>函数 <code>profile</code> 可以设置 <code>SSH</code> 和 <code>SCP</code> 两个环境变量，方便后续脚本编写。</p><hr><p>首先，我们需要为每个节点创建一个与容器网络连接的网桥 <code>cni0</code>，占据 <code>.1</code> 的 IP。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>profile <span class=s2>&#34;minikube&#34;</span>
 </span></span><span class=line><span class=cl><span class=nv>$SSH</span> sudo brctl addbr cni0
 </span></span><span class=line><span class=cl><span class=nv>$SSH</span> sudo ip link <span class=nb>set</span> cni0 up
 </span></span><span class=line><span class=cl><span class=nv>$SSH</span> sudo ip addr add 10.244.0.1/24 dev cni0
@@ -118,8 +52,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl>  <span class=nb>local</span> <span class=nv>IP_PREFIX</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$SUBNET</span><span class=s2>&#34;</span> <span class=p>|</span> cut -d. -f1-3<span class=k>)</span>
 </span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>IP_PREFIX</span><span class=si>}</span><span class=s2>.</span><span class=nv>$D</span><span class=s2>&#34;</span>
 </span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></div><p>由于在这个简单实现中，不考虑 <code>DEL</code> 命令，因此使用简单的递增实现。</p><hr>
-<p>在此，先跳过 <code>DEL</code> 和 <code>CHECK</code> 命令，并实现 <code>VERSION</code>。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>case</span> <span class=nv>$CNI_COMMAND</span> in
+</span></span></code></pre></div><p>由于在这个简单实现中，不考虑 <code>DEL</code> 命令，因此使用简单的递增实现。</p><hr><p>在此，先跳过 <code>DEL</code> 和 <code>CHECK</code> 命令，并实现 <code>VERSION</code>。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>case</span> <span class=nv>$CNI_COMMAND</span> in
 </span></span><span class=line><span class=cl>ADD<span class=o>)</span>
 </span></span><span class=line><span class=cl>  <span class=c1># TODO</span>
 </span></span><span class=line><span class=cl><span class=p>;;</span>
@@ -145,8 +78,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl><span class=p>;;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>esac</span>
-</span></span></code></pre></div><hr>
-<p>考虑 <code>ADD</code> 实现。</p><p>首先提取子网和掩码，并分配容器 IP：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>  <span class=nv>subnet</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$stdin</span><span class=s2>&#34;</span> <span class=p>|</span> jq -r <span class=s2>&#34;.subnet&#34;</span><span class=k>)</span>
+</span></span></code></pre></div><hr><p>考虑 <code>ADD</code> 实现。</p><p>首先提取子网和掩码，并分配容器 IP：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>  <span class=nv>subnet</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$stdin</span><span class=s2>&#34;</span> <span class=p>|</span> jq -r <span class=s2>&#34;.subnet&#34;</span><span class=k>)</span>
 </span></span><span class=line><span class=cl>  <span class=nv>subnet_mask_size</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span> <span class=nv>$subnet</span> <span class=p>|</span> awk -F  <span class=s2>&#34;/&#34;</span> <span class=s1>&#39;{print $2}&#39;</span><span class=k>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=nv>gateway_ip</span><span class=o>=</span><span class=k>$(</span>get_ip_from_subnet <span class=nv>$subnet</span> 1<span class=k>)</span>
@@ -161,8 +93,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  ip link <span class=nb>set</span> <span class=nv>$host_if_name</span> up
 </span></span><span class=line><span class=cl>  ip link <span class=nb>set</span> <span class=nv>$host_if_name</span> master cni0
-</span></span></code></pre></div><p>创建设备时，需要注意使用的是 <code>ip -n $CNI_CONTAINERID link add</code>，而非 <code>ip link add $CNI_IFNAME netns $CNI_CONTAINERID</code>。</p><p>从 man page 中可以得知，</p><blockquote>
-<pre><code>   netns NETNSNAME | PID
+</span></span></code></pre></div><p>创建设备时，需要注意使用的是 <code>ip -n $CNI_CONTAINERID link add</code>，而非 <code>ip link add $CNI_IFNAME netns $CNI_CONTAINERID</code>。</p><p>从 man page 中可以得知，</p><blockquote><pre><code>   netns NETNSNAME | PID
          move the device to the network namespace associated with name
          NETNSNAME or process PID.
 </code></pre></blockquote><p>参数 <code>netns</code> 是将设备“移动”到目标 netns，这意味着它首先是在当前 netns 中创建设备，这可能存在潜在的设备冲突。</p><p>为容器网络创建默认路由：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>  ip -n <span class=nv>$CNI_CONTAINERID</span> route add default via <span class=nv>$gateway_ip</span> dev <span class=nv>$CNI_IFNAME</span>
@@ -185,8 +116,7 @@ Ling Samuel
 </span></span></span><span class=line><span class=cl><span class=s2>      }
 </span></span></span><span class=line><span class=cl><span class=s2>  ]
 </span></span></span><span class=line><span class=cl><span class=s2>}&#34;</span> &gt;<span class=p>&amp;</span><span class=m>3</span>
-</span></span></code></pre></div><hr>
-<p>将该脚本命名为 <code>bcni.sh</code>，将其转移到 Minikube VM 中。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>setup_executable<span class=o>()</span> <span class=o>{</span>
+</span></span></code></pre></div><hr><p>将该脚本命名为 <code>bcni.sh</code>，将其转移到 Minikube VM 中。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>setup_executable<span class=o>()</span> <span class=o>{</span>
 </span></span><span class=line><span class=cl>  <span class=nv>$SCP</span> ./bcni.sh docker@<span class=nv>$IP</span>:/home/docker/bcni
 </span></span><span class=line><span class=cl>  <span class=nv>$SSH</span> sudo mv /home/docker/bcni /opt/cni/bin/bcni
 </span></span><span class=line><span class=cl>  <span class=nv>$SSH</span> sudo chmod +x /opt/cni/bin/bcni
@@ -205,10 +135,7 @@ Ling Samuel
 </span></span><span class=line><span class=cl>        &#34;network&#34;: &#34;10.244.0.0/16&#34;,
 </span></span><span class=line><span class=cl>        &#34;subnet&#34;: &#34;10.244.0.0/24&#34;
 </span></span><span class=line><span class=cl>}
-</span></span></code></pre></div><p>需要注意 <code>type</code> 字段需与可执行文件名相同。</p><p>将该配置文件保存到 <code>/etc/cni/net.d/</code> 路径下，并使用一个优先级最高的文件名即可。</p><p>至此，CNI 插件已经能够正确配置容器网络，不同 VM 节点上的 Pod 已经可以正常通信。</p><hr>
-<p>使用如下配置可进行简单的测试。</p><details>
-<summary>YAML</summary>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>
+</span></span></code></pre></div><p>需要注意 <code>type</code> 字段需与可执行文件名相同。</p><p>将该配置文件保存到 <code>/etc/cni/net.d/</code> 路径下，并使用一个优先级最高的文件名即可。</p><p>至此，CNI 插件已经能够正确配置容器网络，不同 VM 节点上的 Pod 已经可以正常通信。</p><hr><p>使用如下配置可进行简单的测试。</p><details><summary>YAML</summary><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>v1</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>Pod</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>metadata</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>nginx-master</span><span class=w>
@@ -267,25 +194,12 @@ Ling Samuel
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;sleep 10000&#34;</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>nodeSelector</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>kubernetes.io/hostname</span><span class=p>:</span><span class=w> </span><span class=l>minikube-m02</span><span class=w>
-</span></span></span></code></pre></div></details>
-<p>需要注意，因为在启动 Minikube 时，没有指定 <code>--cni=false</code>，因此一些其他的配置，例如 NAT 与 VM 的路由规则，都是已经设置好的。</p><div id=refContainer>
-</div></article></div></div><div class="row likebtn-container">
-<span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
-<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script>
-</div><div class=row>
-<div class=post-pager>
-<ul class=pager>
-<li class=previous>
-<a href=https://lingsamuel.github.io/k8s/controller/statefulset/>&larr; StatefulSet Controller 实现</a>
-</li></ul></div></div></div></div><footer id=footer>
-<div class=footer>
-<p>Copyright © 2022
-<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.93.2</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
-Hosted by GitHub
-</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
+</span></span></span></code></pre></div></details><p>需要注意，因为在启动 Minikube 时，没有指定 <code>--cni=false</code>，因此一些其他的配置，例如 NAT 与 VM 的路由规则，都是已经设置好的。</p><div id=refContainer></div></article></div></div><div class="row likebtn-container"><span class=likebtn-wrapper data-theme=black data-white_label=true data-dislike_enabled=false data-popup_disabled=true data-share_enabled=false data-lazy_load=true data-tooltip_enabled=false></span>
+<script>(function(e,t,n){if(e.getElementById("likebtn_wjs"))return;a=e.createElement(t),m=e.getElementsByTagName(t)[0],a.async=1,a.id="likebtn_wjs",a.src=n,m.parentNode.insertBefore(a,m)})(document,"script","//w.likebtn.com/js/w/widget.js")</script></div><div class=row><div class=post-pager><ul class=pager><li class=previous><a href=https://lingsamuel.github.io/k8s/controller/statefulset/>&larr; StatefulSet Controller 实现</a></li></ul></div></div></div></div><footer id=footer><div class=footer><p>Copyright © 2023
+<a href=https://lingsamuel.github.io>Ling Samuel</a> &bull; Powered by <a href=https://gohugo.io>Hugo v0.111.3</a> &bull; Theme <a href=https://github.com/lingsamuel/purity>Purity</a> &bull;
+Hosted by GitHub</p></div></footer><script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js integrity=sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd crossorigin=anonymous></script>
 <script data-stage=prerender src=https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous></script>
-<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'>
-<script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
+<link rel=preload href=https://lingsamuel.github.io/css/mermaid.min.css media=screen as=style onload='this.rel="stylesheet"'><script data-stage=prerender src=https://lingsamuel.github.io/js/mermaid.min.js></script>
 <script data-stage=prerender>const mermaidKeywords=["graph TD","graph TB","graph BT","graph RL","graph LR","sequenceDiagram","gantt","classDiagram","gitGraph","erDiagram","journey"];function colorizeMermaid(e){const t=`
       linkStyle default fill:none,stroke:grey;
       classDef default stroke:#97999a,color:#696874;
@@ -312,9 +226,5 @@ Hosted by GitHub
       classDef Purple2 stroke:#97999a,fill:#986fb5,color:#807971;
       classDef Orange1 stroke:#97999a,fill:#ffb164,color:#807971;
       classDef Orange2 stroke:#97999a,fill:#f9973e,color:#807971;
-  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((t)=>{var n=t.innerText,e;mermaidKeywords.some(e=>n.startsWith(e))&&(e=t.parentElement.parentElement,e.className=="highlight"&&(e.className="mermaid",e.innerHTML=colorizeMermaid(n),e.align="center",e.style="background: #eff1f3;"))})</script>
-<script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(n,s=0){let e=3735928559^s,t=1103547991^s;for(let s=0,o;s<n.length;s++)o=n.charCodeAt(s),e=Math.imul(e^o,2654435761),t=Math.imul(t^o,1597334677);return e=Math.imul(e^e>>>16,2246822507)^Math.imul(t^t>>>13,3266489909),t=Math.imul(t^t>>>16,2246822507)^Math.imul(e^e>>>13,3266489909),4294967296*(2097151&t)+(e>>>0)}let existed={};function calculateHash(t){let e=cyrb53(t);return typeof existed[e]=="number"&&(e=existed[e]+1),existed[e]=e,e}document.querySelectorAll(".mermaid").forEach(function(t){let e=t.textContent;console.log("Rendering ",e);let n="graph-"+calculateHash(e);mermaid.mermaidAPI.render(n,e,e=>{t.innerHTML=e})})</script>
-<script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script>
-<script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
-<script data-stage=prerender>fuhsi()</script>
-</body></html>
+  `;return e.startsWith("graph")?e+t:e}var elements=Array.from(document.getElementsByClassName("language-fallback")).forEach((e)=>{var n,s=e.innerText;mermaidKeywords.some(e=>s.startsWith(e))&&(n=e.parentElement.parentElement,n.className=="highlight"&&(n.className="mermaid",n.innerHTML=colorizeMermaid(s),n.align="center",n.style="background: #eff1f3;"))})</script><script data-stage=prerender>mermaid.initialize({startOnLoad:!1}),mermaid.mermaidAPI.initialize();function cyrb53(e,t=0){let n=3735928559^t,s=1103547991^t;for(let t=0,o;t<e.length;t++)o=e.charCodeAt(t),n=Math.imul(n^o,2654435761),s=Math.imul(s^o,1597334677);return n=Math.imul(n^n>>>16,2246822507)^Math.imul(s^s>>>13,3266489909),s=Math.imul(s^s>>>16,2246822507)^Math.imul(n^n>>>13,3266489909),4294967296*(2097151&s)+(n>>>0)}let existed={};function calculateHash(e){let t=cyrb53(e);return typeof existed[t]=="number"&&(t=existed[t]+1),existed[t]=t,t}document.querySelectorAll(".mermaid").forEach(function(e){let t=e.textContent;console.log("Rendering ",t);let n="graph-"+calculateHash(t);mermaid.mermaidAPI.render(n,t,t=>{e.innerHTML=t})})</script><script data-stage=prerender>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})</script><script data-stage=prerender src=https://lingsamuel.github.io/js/fuhsi.js></script>
+<script data-stage=prerender>fuhsi()</script></body></html>
